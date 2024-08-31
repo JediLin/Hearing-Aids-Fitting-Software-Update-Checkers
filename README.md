@@ -19,7 +19,7 @@ The script currently supports:
     - Phonak Target Sounds
   - Unitron TrueFit
   - Hansaton scout
-- William Demant
+- Demant
   - Oticon Genie 2 (v2024+)
   - Oticon Genie
   - Bernafon OasisNXT (v2024+)
