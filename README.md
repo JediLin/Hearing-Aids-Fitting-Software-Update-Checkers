@@ -60,7 +60,7 @@ Note: You need to have the latest version of Python installed for this to work.
 7. Now go back to the folder where you extracted the scripts (not the ZIP file, the extracted folder)
 8. Double-click the `start-Windows.bat` file and follow the instructions on-screen
 
-NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start.bat`
+NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
 ## Credits
 - [@Bluebotlabz](https://github.com/Bluebotlabz): Original author of this script
