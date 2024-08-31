@@ -63,8 +63,9 @@ Note: You need to have the latest version of Python installed for this to work.
 NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start.bat`
 
 ## Credits
-[@pvc](https://forum.hearingtracker.com/u/tenkan) - Assisting with testing of the script and finding software links
-[@tenkan](https://forum.hearingtracker.com/u/tenkan) - Finding the Genie (2) download page links
+- [@Bluebotlabz](https://github.com/Bluebotlabz): Original author of this script
+- [@pvc](https://forum.hearingtracker.com/u/tenkan): Assisting with testing of the script and finding software links
+- [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
 ### v2024.08.31
