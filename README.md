@@ -50,8 +50,8 @@ The script is available here: https://github.com/JediLin/Hearing-Aids-Fitting-So
 
 Note: You need to have the latest version of Python installed for this to work.
 ## How To Use it
-1. Download the script from here: https://github.com/JediLin/Hearing-Aids-Fitting-Softwares-Downloaders/releases/latest<br/>
-   Click on the link and then click on the `Hearing-Aids-Fitting-Softwares-Downloaders.zip` link to download it
+1. Download the script from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
+   Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
 2. Extract the ZIP to a folder
 3. Go to: https://www.python.org/downloads/
 4. Click on the yellow `Download Python` button and run the installer
