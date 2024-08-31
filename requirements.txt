@@ -1,0 +1,3 @@
+importlib-metadata
+requests
+tqdm
