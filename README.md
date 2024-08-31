@@ -11,7 +11,7 @@ A collection of scripts which check hearing aids fitting software directly from 
 ## What does it do?
 This repository contains scripts which can check hearing aids fitting software (such as Phonak Target) directly from the software's servers, avoiding the need to distribute copyrighted files. (I am not a lawyer, this is not legal advice, this is merely my opinion.)
 
-## Currently Supported Software
+## Currently supported software
 The script currently supports:
 - Sonova
   - Phonak Target
@@ -49,7 +49,7 @@ The script currently supports:
 The script is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 
 Note: You need to have the latest version of Python installed for this to work.
-## How To Use it
+## How to use it
 1. Download the script from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
    Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
 2. Extract the ZIP to a folder
@@ -58,7 +58,7 @@ Note: You need to have the latest version of Python installed for this to work.
 5. Make sure you select `Add python.exe to PATH` in the start of the installer, and then click on `Install Now`
 6. **Reboot your computer**
 7. Now go back to the folder where you extracted the scripts (not the ZIP file, the extracted folder)
-8. Double-click the `start.bat` file and follow the instructions on-screen
+8. Double-click the `start-Windows.bat` file and follow the instructions on-screen
 
 NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start.bat`
 
