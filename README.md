@@ -170,3 +170,12 @@ THIS SCRIPT UNOFFICIAL AND IS NOT IN ANY AFFILIATED WITH THE AUTHORS OR COPYRIGH
 Bluebotlabz and any contributor of these scripts do not take any responsability for what you do using this software. All rights and credit go to their rightful owners. No copyright infringement intended.
 
 Bluebotlabz, any contributor of these scripts, and these checkers are not affiliated with or endorsed by any of the companies mentioned in this repository. Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the downloaded software. This is an UNOFFICIAL downloader and use of the software downloaded using it may be limited. (I am not a lawyer, this is not legal advice, this is merely my opinion.)
+
+## Appendix
+Some less common hearing aid brands can be checked via their official websites:
+- Audina [ezFIT](https://www.audina.net/en/professional/software)
+- AUSTAR [Fit](https://www.austar-hearing.net/Fitting+Software) and older software can be found [here](https://www.austar-hearing.com/soft-40.html) or [here](https://soft.austar-hearing.com:4431/software-center/#/)
+- NewSound [Fit](https://www.newsound.cn/软件下载)
+- Persona Medical [ProFit](https://personamedical.com/downloads/)
+
+Note: these software WON'T be included in the checker scripts.
