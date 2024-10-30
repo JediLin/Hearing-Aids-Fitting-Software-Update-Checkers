@@ -1,5 +1,6 @@
 @echo off
 
+mode 160,30
 cls
 echo Installing requirements...
 pip install -r ./requirements.txt
