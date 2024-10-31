@@ -4,11 +4,12 @@
 #                                                           #
 #############################################################
 import os
-import shutil
-import zipfile
+import html
+import ast
+import json
 import requests
+import rot_codec
 import libhearingdownloader
-import xml.etree.ElementTree as xml
 
 
 print("==================================================")
@@ -34,48 +35,33 @@ disclaimer = [
 # Display disclaimer
 libhearingdownloader.printDisclaimer(disclaimer)
 
+# Base information
+baseId = "CompassGPS"
+baseVer = "4.8.6193.0"
+baseDistributors = "US"
 
-# Special headers for the siavantos updater API
+# API key
+secretKey = "24fbe5gacg`hcdf535dd34ed6_237347"
+apiKey = rot_codec.rot47_decode(secretKey)
+
+# Special headers for the Widex updater API
 headers = {
-    "SOAPAction": "http://tempuri.org/IUpdateService/CheckForUpdates",
-    "Host": "widexautomaticupdate.cloudapp.net",
-    "Content-Type": "text/xml; charset=utf-8"
+    "Ocp-Apim-Subscription-Key": apiKey,
+    "x-ApiEnvironment": "prod",
+    "x-ClientProgram": baseId+"/"+baseVer,
+    "Content-Type": "application/json; charset=utf-8",
+    "Host": "apimgmt.widex.com"
 }
-
-updateData = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><CheckForUpdates xmlns="http://tempuri.org/"><statusDescriptor xmlns:a="http://schemas.datacontract.org/2004/07/Widex.AutomaticUpdate.UpdateService" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><a:ClientId>00000000-0000-0000-0000-000000000000</a:ClientId><a:DistributorCode>70039</a:DistributorCode><a:ProductStatusDescriptors><a:ProductStatusDescriptor><a:PackageStatusDescriptors><a:PackageStatusDescriptor><a:PackageName>Code</a:PackageName><a:PackageVersion xmlns:b="http://schemas.datacontract.org/2004/07/System"><b:_Build>3079</b:_Build><b:_Major>4</b:_Major><b:_Minor>3</b:_Minor><b:_Revision>0</b:_Revision></a:PackageVersion></a:PackageStatusDescriptor><a:PackageStatusDescriptor><a:PackageName>en-GB</a:PackageName><a:PackageVersion xmlns:b="http://schemas.datacontract.org/2004/07/System"><b:_Build>3079</b:_Build><b:_Major>4</b:_Major><b:_Minor>3</b:_Minor><b:_Revision>0</b:_Revision></a:PackageVersion></a:PackageStatusDescriptor><a:PackageStatusDescriptor><a:PackageName>Compass</a:PackageName><a:PackageVersion xmlns:b="http://schemas.datacontract.org/2004/07/System"><b:_Build>3079</b:_Build><b:_Major>4</b:_Major><b:_Minor>3</b:_Minor><b:_Revision>0</b:_Revision></a:PackageVersion></a:PackageStatusDescriptor></a:PackageStatusDescriptors><a:ProductIdentifier>CompassGPS</a:ProductIdentifier><a:ProductName>COMPASS GPS</a:ProductName><a:ProductVersion xmlns:b="http://schemas.datacontract.org/2004/07/System"><b:_Build>3079</b:_Build><b:_Major>4</b:_Major><b:_Minor>3</b:_Minor><b:_Revision>0</b:_Revision></a:ProductVersion></a:ProductStatusDescriptor></a:ProductStatusDescriptors></statusDescriptor></CheckForUpdates></s:Body></s:Envelope>'
-
-availableLanguages = [
-    ("Chinese-CN", "zh-CN"),
-    ("Chinese-TW", "zh-TW"),
-    ("Czech-CZ", "cs-CZ"),
-    ("Danish-DK", "da-DK"),
-#    ("English-GB", "en-GB"), (already downloaded without this list)
-    ("English-US", "en-US"),
-    ("Finnish-FI", "fi-FI"),
-    ("French-FR", "fr-FR"),
-    ("German-DE", "de-DE"),
-    ("Hungarian-HU", "hu-HU"),
-    ("Italian-IT", "it-IT"),
-    ("Japanese-JP", "ja-JP"),
-    ("Korean-KR", "ko-KR"),
-    ("Norwegian-NO", "nn-NO"),
-    ("Polish-PL", "pl-PL"),
-    ("Portuguese-PT", "pt-PT"),
-    ("Russian-RU", "ru-RU"),
-    ("Spanish-ES", "es-ES"),
-    ("Swedish-SE", "sv-SE"),
-    ("Turkish-TR", "tr-TR")
-]
-
-## targetLanguage = libhearingdownloader.selectFromList(availableLanguages, 'language', seperator='\t\t')
-## updateData = updateData.replace('en-GB', availableLanguages[targetLanguage][1])
 
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
         # Download update file list from updater API
-        rawXmlData = requests.post("http://widexautomaticupdate.cloudapp.net/UpdateService.svc", headers=headers, data=updateData)
-        data = xml.fromstring(rawXmlData.text)
+        postUrl = 'https://apimgmt.widex.com/fds/v1/api/Update?all=true&brevity=terse'
+        rawPostData = '{"Id":"'+baseId+'","Version":"'+baseVer+'","Environment":[{"Name":"distributors","Value":"'+baseDistributors+'"}]}'
+        rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData)
+        # Expect something like {"Packages": [],"CustomProperties": {}}
+        data = json.loads(rawJsonData.text)
         break
     except:
         pass
@@ -86,56 +72,67 @@ if (updaterRetries == 0):
     exit(1)
     
 if (libhearingdownloader.verboseDebug):
-    print(rawXmlData.text)
+    print(rawPostData)
+    print(rawJsonData.text)
 
-# Define XMLNS (the main one)
-packageXMLNS = '{http://schemas.datacontract.org/2004/07/Widex.AutomaticUpdate.UpdateService}'
-filesToDownload = [] # List of available files
 
-for child in data.find('{http://schemas.xmlsoap.org/soap/envelope/}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdatesResponse").find('{http://tempuri.org/}' + "CheckForUpdatesResult").find(packageXMLNS + "ProductTargetDescriptors").find(packageXMLNS + "ProductTargetDescriptor").find(packageXMLNS + "PackageTargetDescriptors"):
-    filesToDownload.append( (child.find(packageXMLNS + "Filename").text, child.find(packageXMLNS + "DownloadUrl").text) )
-
-    if (child.find(packageXMLNS + "Filename").text == 'en-GB.msi'):
-        for availableLanguage in availableLanguages:
-            filesToDownload.append( (child.find(packageXMLNS + "Filename").text.replace('en-GB', availableLanguage[1]), child.find(packageXMLNS + "DownloadUrl").text.replace('en-GB', availableLanguage[1])) )
-
-setupFileURL = data.find('{http://schemas.xmlsoap.org/soap/envelope/}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdatesResponse").find('{http://tempuri.org/}' + "CheckForUpdatesResult").find(packageXMLNS + "ProductTargetDescriptors").find(packageXMLNS + "ProductTargetDescriptor").find(packageXMLNS + "SetupFileDownloadUrl").text
-
-filesToDownload.append( (setupFileURL.split("/")[-1], setupFileURL) )
-
-if (libhearingdownloader.verboseDebug):
-    print(filesToDownload)
-
-# Select outputDir and targetFile
-outputDir = libhearingdownloader.selectOutputFolder()
-
-# Create download folder
-outputDir += "Widex Compass GPS/"
+# For now, show what we got...
+print("\n\nUpdate server responded:\n")
+print(rawJsonData.text)
 print("\n\n")
 
+# UNFINISHED!!!!
+# (These are copied from Starkey. Further modification required.)
+#
+# appVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
+# print ("Version info:")
+# print(appVer)
+# print(data['Update']['Description'])
+# filesList = json.dumps(ast.literal_eval(str(data['Update']['Files'][0])))
+# fileData = json.loads(filesList)
+#
+# availableFiles = [] # List of available files
+# availableFiles.append( (os.path.basename(fileData['Url']), fileData['Url']) )
 
-# Download and save the files
-print("Downloading " + str(len(filesToDownload)) + " files\n")
-currentFile = 1
-for fileToDownload in filesToDownload:
-    if (libhearingdownloader.verboseDebug):
-        print(fileToDownload)
 
-    # Download file
-    libhearingdownloader.downloadFile(fileToDownload[1], outputDir + fileToDownload[0], "Downloading " + fileToDownload[1].split("/")[-1] + " (" + str(currentFile) + "/" + str(len(filesToDownload)) + ")")
 
-    currentFile += 1
 
-print("\n\n")
-print("Creating installer from zip")
-with zipfile.ZipFile(outputDir + "Setup.exe.zip", 'r') as zipFile:
-    zipFile.extractall(outputDir)
-
-os.makedirs(outputDir + "installations/")
-
-for file in filesToDownload[:-1]:
-    shutil.move(outputDir + file[0], outputDir + "installations/" + file[0])
-
-os.remove(outputDir + filesToDownload[-1][0])
-
-print("\n\nDownload Complete!")
+# Nothing to download YET!
+# filesToDownload.append( (setupFileURL.split("/")[-1], setupFileURL) )
+# 
+# if (libhearingdownloader.verboseDebug):
+#     print(filesToDownload)
+# 
+# # Select outputDir and targetFile
+# outputDir = libhearingdownloader.selectOutputFolder()
+# 
+# # Create download folder
+# outputDir += "Widex Compass GPS/"
+# print("\n\n")
+# 
+# 
+# # Download and save the files
+# print("Downloading " + str(len(filesToDownload)) + " files\n")
+# currentFile = 1
+# for fileToDownload in filesToDownload:
+#     if (libhearingdownloader.verboseDebug):
+#         print(fileToDownload)
+# 
+#     # Download file
+#     libhearingdownloader.downloadFile(fileToDownload[1], outputDir + fileToDownload[0], "Downloading " + fileToDownload[1].split("/")[-1] + " (" + str(currentFile) + "/" + str(len(filesToDownload)) + ")")
+# 
+#     currentFile += 1
+# 
+# print("\n\n")
+# print("Creating installer from zip")
+# with zipfile.ZipFile(outputDir + "Setup.exe.zip", 'r') as zipFile:
+#     zipFile.extractall(outputDir)
+# 
+# os.makedirs(outputDir + "installations/")
+# 
+# for file in filesToDownload[:-1]:
+#     shutil.move(outputDir + file[0], outputDir + "installations/" + file[0])
+# 
+# os.remove(outputDir + filesToDownload[-1][0])
+# 
+# print("\n\nDownload Complete!")
