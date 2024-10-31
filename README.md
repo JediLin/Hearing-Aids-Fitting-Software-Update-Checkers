@@ -15,16 +15,16 @@ This repository contains scripts which can check hearing aids fitting software (
 The script currently supports:
 - Sonova
   - Phonak Target
-    - Phonak Target Media
-    - Phonak Target Sounds
+    - Phonak Target Media (hide from default menu)
+    - Phonak Target Sounds (hide from default menu)
   - Unitron TrueFit
   - Hansaton scout
 - Demant
-  - Oticon Genie 2 (v2024+)
-  - Oticon Genie
-  - Bernafon OasisNXT (v2024+)
-  - Sonic ExpressFit (v2024+)
-  - Philips HearSuite (v2024+)
+  - Oticon Genie 2 (v2024+, previous verson is hide from default menu)
+  - Oticon Genie (hide from default menu)
+  - Bernafon OasisNXT (v2024+, previous verson is hide from default menu)
+  - Sonic ExpressFit (v2024+, previous verson is hide from default menu)
+  - Philips HearSuite (v2024+, previous verson is hide from default menu)
 - GN
   - ReSound Smart Fit
   - Resound Aventa
@@ -40,7 +40,7 @@ The script currently supports:
   - Rexton Connexx
   - Audio Service Connexx
   - A&M Connexx
-  - Widex Compass GPS
+  - Widex Compass GPS (Currently broken. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1#issue-2624522881) for more information and follow up.)
 - Starkey
   - Starkey Pro Fit
   - Starkey Inspire OS
