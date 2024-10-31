@@ -41,12 +41,11 @@ baseVer = "4.8.6193.0"
 baseDistributors = "US"
 
 # API key
-secretKey = "24fbe5gacg`hcdf535dd34ed6_237347"
-apiKey = rot_codec.rot47_decode(secretKey)
+apiKey = "24fbe5gacg`hcdf535dd34ed6_237347"
 
 # Special headers for the Widex updater API
 headers = {
-    "Ocp-Apim-Subscription-Key": apiKey,
+    "Ocp-Apim-Subscription-Key": rot_codec.rot47_decode(apiKey),
     "x-ApiEnvironment": "prod",
     "x-ClientProgram": baseId+"/"+baseVer,
     "Content-Type": "application/json; charset=utf-8",
