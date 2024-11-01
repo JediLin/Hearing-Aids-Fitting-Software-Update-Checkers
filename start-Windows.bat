@@ -1,5 +1,4 @@
 @echo off
-
 mode 160,30
 cls
 echo Installing requirements...
@@ -11,5 +10,13 @@ pause
 cls
 python "./Checker Menu.py"
 
-pause
+echo:
+echo:
+echo Operation finished.
+echo:
+echo:
+:CHOICE
+set /P c=Do you want to check another software? [(Y)es/no]:
+if /I "%c%" EQU "N" exit
+if /I "%c%" EQU "NO" exit
 goto MENU
