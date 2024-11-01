@@ -15,8 +15,8 @@ This repository contains scripts which can check hearing aids fitting software (
 The script currently supports:
 - Sonova
   - Phonak Target
-    - Phonak Target Media (hide from default menu)
-    - Phonak Target Sounds (hide from default menu)
+    - Phonak Target Media (Need to input version number manually)
+    - Phonak Target Sounds (Need to input version number manually)
   - Unitron TrueFit
   - Hansaton scout
 - Demant
