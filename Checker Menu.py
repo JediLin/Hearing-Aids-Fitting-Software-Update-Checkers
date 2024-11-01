@@ -5,8 +5,8 @@ import os
 downloaders = [
     ("EXIT", "", "exit.py"),
     ("Phonak Target Update Checker", "", "Phonak Target Checker.py"),
-#    ("Phonak Target Media Update Checker", "", "Phonak Target Media Checker.py"),
-#    ("Phonak Target Sounds Update Checker", "", "Phonak Target Sounds Checker.py"),
+    ("Phonak Target Media Update Checker", "", "Phonak Target Media Checker.py"),
+    ("Phonak Target Sounds Update Checker", "", "Phonak Target Sounds Checker.py"),
     ("Unitron TrueFit Update Checker", "", "Unitron TrueFit Checker.py"),
     ("Hansaton scout Update Checker", "", "HANSATON scout Checker.py"),
     ("Oticon Genie 2 v2024+ Update Checker", "", "Oticon Genie 2 2024 Checker.py"),
@@ -43,7 +43,7 @@ libhearingdownloader.printDisclaimer(disclaimer)
 
 print("==================================================")
 print("= Hearing Aids Fitting Software Update Checkers  =")
-print("========================================= " + libhearingdownloader.downloaderVersion + " =")
+print("==================================== " + libhearingdownloader.downloaderVersion + " =")
 if (os.name != "nt"):
     print("NOTE: You are running this on a Unix (Or *NIX) Operating System, downloaded software is only available for Windows, but can still be downloaded via a Unix (Or *NIX) OS")
 print("")
