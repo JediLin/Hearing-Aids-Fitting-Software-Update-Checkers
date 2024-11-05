@@ -2,9 +2,9 @@
 mode 160,30
 cls
 echo Installing requirements...
-pip install -r ./requirements.txt
-pip install -r ./requirements_uncertain.txt
-pause
+echo:
+pip install --upgrade -r ./requirements.txt
+pip install --upgrade -r ./requirements_uncertain.txt
 
 :MENU
 cls
