@@ -49,6 +49,10 @@ The script currently supports:
 The script is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 
 Note: You need to have the latest version of Python installed for this to work.
+
+### Pre-release version
+If you don't want to wait for the proper release, the fresh work-in-progress version of script is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
+
 ## How to use it
 1. Download the script from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
    Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
