@@ -68,6 +68,21 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
+### Next version (work in progress)
+- Display: set CMD window/buffer size to 160x30
+- Display: fix menu layout for script version number
+- Menu: batter handle menu loop
+- Menu: present Phonak Target Media and Sound Update Checkers
+- Python: check Python first and open its download page if not installed yet
+- Python: Require rot-codec to store API keys
+- Python: automatically install/upgrade packages
+- Oticon/Bernafon/Sonici/Philips: clean-up unnecessary request content
+- Oticon/Bernafon/Sonici/Philips: comments on base version required to get further (newer) updates and how to set them if needed in the future
+- Widex: show update server responses
+- Starkey: using geoIP, baseVer, and baseOS variables for easier updating scripts in the future if needed
+- Starkey: better handle null update response
+- Phonak: fix version numbering for its scheme changed from v10.0.0
+
 ### v2024.08.31
 - Name changes
 - Versoning scheme changes to date-based
