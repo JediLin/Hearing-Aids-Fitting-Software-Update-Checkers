@@ -42,7 +42,10 @@ headers = {
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
-        # Download version data
+        # Download version data, pretending installed Oasis2 v20.22.95.0 with BernafonUpdater v27.3.26.0
+        # This is required to get update for newer (2024+) versions.
+        # Software names set by b:Name
+        # Version numbers set by b:Major . b:Minor . b:Build . b:Revision
         rawXmlData = requests.post("https://updater.bernafon.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.bernafon.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale>Default</b:Locale><b:Manufacturer>Bernafon</b:Manufacturer><b:OEM>Bernafon</b:OEM><b:OS>Microsoft Windows NT 10.0.22621.0</b:OS><b:RequestVersion>1</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>26</b:Build><b:Major>27</b:Major><b:Minor>3</b:Minor><b:Name>BernafonUpdater</b:Name><b:Revision>0</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>95</b:Build><b:Major>20</b:Major><b:Minor>22</b:Minor><b:Name>Oasis2</b:Name><b:Revision>0</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
         data = xml.fromstring(html.unescape(rawXmlData.text))
         break
