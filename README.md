@@ -71,7 +71,7 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 ### Next version (work in progress)
 - Display: set CMD window/buffer size to 160x30
 - Display: fix menu layout for script version number
-- Menu: batter handle menu loop
+- Menu: better handle menu loop
 - Menu: present Phonak Target Media and Sound Update Checkers
 - Python: check Python first and open its download page if not installed yet
 - Python: Require rot-codec to store API keys
