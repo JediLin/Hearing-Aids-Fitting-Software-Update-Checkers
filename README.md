@@ -27,7 +27,7 @@ The script currently supports:
   - Philips HearSuite (v2024+, previous verson is hide from default menu)
 - GN
   - ReSound Smart Fit
-  - Resound Aventa
+  - ReSound Aventa
   - ReSound Pro-Counsel
   - Beltone Solus Max
   - Beltone Solus
