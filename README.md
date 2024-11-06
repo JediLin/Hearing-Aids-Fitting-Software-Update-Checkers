@@ -81,7 +81,7 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 - Widex: show update server responses
 - Starkey: using geoIP, baseVer, and baseOS variables for easier updating scripts in the future if needed
 - Starkey: better handle null update response
-- Phonak: fix version numbering for its scheme changed from v10.0.0
+- Phonak: fix version numbering for its scheme changed since v10.0.0
 
 ### v2024.08.31
 - Name changes
