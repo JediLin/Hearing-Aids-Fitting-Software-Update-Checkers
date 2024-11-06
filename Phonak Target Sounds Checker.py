@@ -55,10 +55,11 @@ while updaterRetries > 0:
 if (updaterRetries == 0):
     print("Error: Update server could not be reached")
     exit(1)
-    
-# Get latest version number (Gets full version from xml and removes the fourth version number as that is not used in files)
-latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
 
+# Previous: Get latest version number (Gets full version from xml and removes the fourth version number as that is not used in files)
+# latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
+# Start from v10.0.0, version number from XML doesn't include fourth number anymore.
+latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
 
 # List of versions
 validVersions = [
