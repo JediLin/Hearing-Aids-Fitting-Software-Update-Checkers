@@ -191,6 +191,7 @@ Bluebotlabz and any contributor of these scripts do not take any responsability 
 Bluebotlabz, any contributor of these scripts, and these checkers are not affiliated with or endorsed by any of the companies mentioned in this repository. Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the downloaded software. This is an UNOFFICIAL downloader and use of the software downloaded using it may be limited. (I am not a lawyer, this is not legal advice, this is merely my opinion.)
 
 ## Appendix
+- Modern hearing aids fitting softwares usually work with Noahlink Wireless device. Please check its device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/
 - Starkey fitting softwares (Pro Fit or Inspire OS) need PatientBase to work with. Please check manually at https://patientbase.starkeyhearingtechnologies.com
 - Some less common hearing aid brands can be checked via their official websites:
   - [Audina ezFIT](https://www.audina.net/en/professional/software)
