@@ -79,7 +79,8 @@ if "statusCode" in data:
 
 if "Packages" in data:
     if (data['Packages']==[]):
-        print("\n\nNo update available.")
+        print("\n\nNo further update available.")
+        print("The last version of " + baseId + ": v" + baseVer)
     else:
         # For now, show what we got...
         print("\n\nUpdate server responded:\n")
