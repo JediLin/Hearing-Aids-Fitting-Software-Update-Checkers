@@ -72,6 +72,9 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
+### Next version (work-in-progress)
+- Widex: better handle server responses
+
 ### v2024.11.07
 - Display: set CMD window/buffer size to 160x30
 - Display: fix menu layout for script version number
