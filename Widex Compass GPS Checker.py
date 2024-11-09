@@ -74,13 +74,17 @@ if (libhearingdownloader.verboseDebug):
     print(rawPostData)
     print(rawJsonData.text)
 
-if (data['Packages']==[]):
-    print("\n\nNo update available.")
-else:
-    # For now, show what we got...
-    print("\n\nUpdate server responded:\n")
-    print(rawJsonData.text)
-    print("\n\n")
+if "statusCode" in data:
+    print("\n\n" + data['message'])
+
+if "Packages" in data:
+    if (data['Packages']==[]):
+        print("\n\nNo update available.")
+    else:
+        # For now, show what we got...
+        print("\n\nUpdate server responded:\n")
+        print(rawJsonData.text)
+        print("\n\n")
 
 # UNFINISHED!!!!
 # (These are copied from Starkey. Further modification required.)
