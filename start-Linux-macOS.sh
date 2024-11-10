@@ -5,8 +5,8 @@ cd -- "$(dirname "$0")"
 
 clear
 echo "Installing requirements..."
-pip install -r ./requirements.txt
-pip install -r ./requirements_uncertain.txt
+pip install --upgrade -r ./requirements.txt
+pip install --upgrade -r ./requirements_uncertain.txt
 
 clear
 python "./Checker Menu.py"
