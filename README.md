@@ -74,6 +74,8 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 ## Changelog
 ### Next version (work-in-progress)
 - Widex: better handle server responses
+- Remove unused batch file
+- Tweak Linux/macOS shell script
 
 ### v2024.11.07
 - Display: set CMD window/buffer size to 160x30
