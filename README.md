@@ -73,7 +73,7 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 
 ## Changelog
 ### Next version (work-in-progress)
-- Phonak/Unitron/HANSATON/Oticon/Bernafon/Sonici/Philips/Starkey: better provide the latest version information
+- Phonak/Unitron/HANSATON/Oticon/Bernafon/Sonici/Philips/Starkey/ReSound/Beltone/Interton/Signia/Rexton/Audio Service/A&M: better provide the latest version information
 - Widex: better handle server responses
 - Remove unused batch file
 - Tweak Linux/macOS shell script
