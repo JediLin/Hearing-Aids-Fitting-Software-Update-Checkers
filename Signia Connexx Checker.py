@@ -68,6 +68,8 @@ for child in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").fin
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
 
+print("\n\nThe latest available file is " + availableFiles[0][0] + "\n\n")
+
 # Select outputDir and targetFile
 outputDir = libhearingdownloader.selectOutputFolder()
 targetFile = availableFiles[libhearingdownloader.selectFromList(availableFiles)]

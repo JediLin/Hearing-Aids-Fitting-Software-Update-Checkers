@@ -76,6 +76,7 @@ for child in data:
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
 
+print("\n\nThe latest available version is " + list(availableFiles.keys())[0] + "\n\n")
 
 categories = []
 for category in availableFiles.keys():
