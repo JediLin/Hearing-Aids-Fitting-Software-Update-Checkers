@@ -60,6 +60,7 @@ if (updaterRetries == 0):
 # latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
 # Start from v10.0.0, version number from XML doesn't include fourth number anymore.
 latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
+print("\n\nThe latest available Phonak Target Media version is v" + latestVersion + "\n\n")
 
 # List of versions
 validVersions = [

@@ -54,7 +54,7 @@ if (updaterRetries == 0):
 
 # Get latest version number (Gets full version from xml and removes the fourth version number as that is not used in files)
 latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
-
+print("\n\nThe latest available Unitron TrueFit version is v" + latestVersion + "\n\n")
 
 # List of versions
 validVersions = [

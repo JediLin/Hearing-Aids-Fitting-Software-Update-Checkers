@@ -74,9 +74,8 @@ if (data['Update'] is None):
     exit(1)
 
 appVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
-print ("Version info:")
-print(appVer)
-print(data['Update']['Description'])
+print("\n\nThe latest available version is " + appVer)
+print(data['Update']['Description'] + "\n\n")
 filesList = json.dumps(ast.literal_eval(str(data['Update']['Files'][0])))
 fileData = json.loads(filesList)
 

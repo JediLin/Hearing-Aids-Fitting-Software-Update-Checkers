@@ -36,6 +36,7 @@ validVersions = [
     ("Genie 2017.1", "The last Genie 2017 Version", "https://installcdn.oticon.com/full/17.1/27.0.40.29/OTG214672OT_USB.zip"),
     ("Genie Medical 2016.1", "The old Genie Medical 2016 Version", "https://wdh02.azureedge.net/-/media/oticon-us/main/client-systems-support-and-remote-assistance/geniemedical2016.exe?la=en&rev=171A&hash=95AF6010585FD97B23A9FAB05FBAE761"),
 ]
+print("\n\nThe latest available version is Genie 2017.1 (v27.0.40.29)\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
