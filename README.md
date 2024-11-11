@@ -72,7 +72,7 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
-### Next version (work-in-progress)
+### v2024.11.11
 - Phonak/Unitron/HANSATON/Oticon/Bernafon/Sonici/Philips/Starkey/ReSound/Beltone/Interton/Signia/Rexton/Audio Service/A&M: better provide the latest version information
 - Widex: better handle server responses
 - Remove unused batch file
