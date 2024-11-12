@@ -32,20 +32,16 @@ disclaimer = [
 libhearingdownloader.printDisclaimer(disclaimer)
 print("\n\n")
 
-
-hostAppVer = ''
-while not hostAppVer:
-    hostAppVer = input("Please enter corresponding Phonak Target version (ex: 10.0.0): ")
-    if (len(hostAppVer.split('.')) != 3  or not hostAppVer.replace('.', '').isdecimal()):
-        print("The version you have selected is invalid.\nPlease try again. (hint: it should be in a similar format to a.b.c where a, b, and c are integers)\n")
-
-print("\n\nFetching Data...\n\n")
+print("Fetching Data...")
 xmlns = "{http://cocoon.phonak.com}" # Define the xmlns
 
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
-        xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=0.0.0.0;" + hostAppVer + "&dist=Phonak&country=US&subKeys=").text # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
+        hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=6.0.1.695&dist=Phonak&country=US&subKeys=").text # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
+        hostData = xml.fromstring(hostXmlData)
+        hostAppVer = hostData[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
+        xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=0.0.0.0;" + hostAppVer + "&dist=Phonak&country=US&subKeys=").text # Request the updater API with the latest version number of Phonak Target
         data = xml.fromstring(xmlData)
         break
     except:

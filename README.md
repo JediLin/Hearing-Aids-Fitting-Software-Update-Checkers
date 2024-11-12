@@ -15,8 +15,8 @@ This repository contains scripts which can check hearing aids fitting software (
 The script currently supports:
 - Sonova
   - Phonak Target
-    - Phonak Target Media (Need to input version number manually)
-    - Phonak Target Sounds (Need to input version number manually)
+    - Phonak Target Media
+    - Phonak Target Sounds
   - Unitron TrueFit
   - Hansaton scout
 - Demant
@@ -72,6 +72,10 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
+### v2024.11.12
+- Menu: fix version number display
+- Phonak: automatically query for latest version number of Target software while checking Target Media and Sounds, manually input required no more
+
 ### v2024.11.11
 - Checkers: better provide the latest version information so users can skip the download process without breaking the menu loop
 - Widex: better handle server responses
@@ -82,7 +86,7 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 - Display: set CMD window/buffer size to 160x30
 - Display: fix menu layout for script version number
 - Menu: better handle menu loop
-- Menu: present Phonak Target Media and Sound Update Checkers
+- Menu: present Phonak Target Media and Sounds Update Checkers
 - Python: check Python first and open its download page if not installed yet
 - Python: Require rot-codec to store API keys
 - Python: automatically install/upgrade packages
