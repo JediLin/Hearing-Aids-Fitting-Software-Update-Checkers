@@ -116,7 +116,7 @@ def selectFromList(selectionList, prompt = "version", headerSeperator='', sepera
 
 def selectOutputFolder():
     if (guiType == "wxpython"):
-        print("Please select a download location")
+        print("Please select a download location, or Cancel to skip")
         time.sleep(2)
 
         wxApp = wx.App(redirect=False, useBestVisual=True, clearSigInt=True)
@@ -131,7 +131,7 @@ def selectOutputFolder():
 
         wxApp.Destroy()
     elif (guiType == "tkinter"):
-        print("Please select a download location")
+        print("Please select a download location, or Cancel to skip")
         time.sleep(2)
 
         tkRoot = Tk()
