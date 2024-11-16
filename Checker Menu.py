@@ -7,7 +7,8 @@ updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
         checkerRelease = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest")
-        print("\n\n\nNEW VERSION AVAILABLE!!\n\nThe latest version of this script is " + checkerRelease.json()['tag_name'] + " (you are using "+ libhearingdownloader.downloaderVersion + ").\nPlease use 1) Self Update Checker option to download it.")
+        if not (checkerRelease.json()['tag_name'] == libhearingdownloader.downloaderVersion):
+            print("\n\n\nNEW VERSION AVAILABLE!!\n\nThe latest version of this script is " + checkerRelease.json()['tag_name'] + " (you are using "+ libhearingdownloader.downloaderVersion + ").\nPlease use 1) Self Update Checker option to download it.")
         break
     except:
         pass
