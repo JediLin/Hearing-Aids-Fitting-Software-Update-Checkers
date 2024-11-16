@@ -54,17 +54,20 @@ Note: You need to have the latest version of Python installed for this to work.
 If you don't want to wait for the proper release, the fresh work-in-progress version of script is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
 
 ## How to use it
-1. Download the script from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
+1. [Install Python](#pre-requirment-install-python) (and reboot your computer) if you don't have it yet
+2. Download the script from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
    Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
-2. Extract the ZIP to a folder
-3. Go to: https://www.python.org/downloads/
-4. Click on the yellow `Download Python` button and run the installer
-5. Make sure you select `Add python.exe to PATH` in the start of the installer, and then click on `Install Now`
-6. **Reboot your computer**
-7. Now go back to the folder where you extracted the scripts (not the ZIP file, the extracted folder)
-8. Double-click the `start-Windows.bat` file and follow the instructions on-screen
+3. Extract the ZIP to a folder
+4. Go the the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
 
 NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
+
+### Pre-requirment: Install Python
+The following steps only need to be done **ONCE** on each system:
+1. Go to: https://www.python.org/downloads/
+2. Click on the yellow `Download Python` button and run the installer
+3. Make sure you select `Add python.exe to PATH` in the start of the installer, and then click on `Install Now`
+4. **Reboot your computer**
 
 ## Credits
 - [@Bluebotlabz](https://bluebotlaboratories.com): Original author of this script
@@ -72,6 +75,10 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
+### v2024.11.16
+- Self Update Checker: automatically and manually check for latest release version of this script itself from GitHub
+- README: better instruction on installing Python
+
 ### v2024.11.12
 - Menu: fix version number display
 - Phonak: automatically query for latest version number of Target software while checking Target Media and Sounds, manually input required no more

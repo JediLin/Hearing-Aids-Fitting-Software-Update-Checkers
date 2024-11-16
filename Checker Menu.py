@@ -1,9 +1,23 @@
 import libhearingdownloader
 import os
+import requests
+import libhearingdownloader
+
+updaterRetries = libhearingdownloader.updaterRetries
+while updaterRetries > 0:
+    try:
+        checkerRelease = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest")
+        print("\n\n\nNEW VERSION AVAILABLE!!\n\nThe latest version of this script is " + checkerRelease.json()['tag_name'] + " (you are using "+ libhearingdownloader.downloaderVersion + ").\nPlease use 1) Self Update Checker option to download it.")
+        break
+    except:
+        pass
+
+    updaterRetries -= 1
 
 
 downloaders = [
     ("EXIT", "", "exit.py"),
+    ("Self (THIS script) Update Checker", "", "GitHub Checker.py"),
     ("Phonak Target Update Checker", "", "Phonak Target Checker.py"),
     ("Phonak Target Media Update Checker", "", "Phonak Target Media Checker.py"),
     ("Phonak Target Sounds Update Checker", "", "Phonak Target Sounds Checker.py"),
@@ -41,6 +55,7 @@ disclaimer = [
 ]
 libhearingdownloader.printDisclaimer(disclaimer)
 
+print("\n")
 print("==================================================")
 print("= Hearing Aids Fitting Software Update Checkers  =")
 print("==================================== " + libhearingdownloader.downloaderVersion + " =")
