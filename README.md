@@ -58,7 +58,7 @@ If you don't want to wait for the proper release, the fresh work-in-progress ver
 2. Download the script from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
    Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
 3. Extract the ZIP to a folder
-4. Go the the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
+4. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
 
 NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
