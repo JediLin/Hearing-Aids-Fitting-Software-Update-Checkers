@@ -5,6 +5,7 @@ python --version 2 > NUL
 if errorlevel 1 goto errorNoPython
 echo Installing requirements...
 echo:
+python -m pip install --upgrade pip
 pip install --upgrade -r ./requirements.txt
 pip install --upgrade -r ./requirements_uncertain.txt
 
