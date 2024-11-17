@@ -40,10 +40,11 @@ The script currently supports:
   - Rexton Connexx
   - Audio Service Connexx
   - A&M Connexx
-  - Widex Compass GPS (Currently broken. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1#issue-2624522881) for more information and follow up.)
+  - Widex Compass GPS (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1#issue-2624522881) for more information and follow up.)
 - Starkey
   - Starkey Pro Fit
   - Starkey Inspire OS
+- Hearing Aids Fitting Software Update Checkers (this script itself)
 
 ## Where to get it
 The script is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
