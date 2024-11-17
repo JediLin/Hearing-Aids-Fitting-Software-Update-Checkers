@@ -62,6 +62,8 @@ If you don't want to wait for the proper release, the fresh work-in-progress ver
 
 NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
+**WARNING**: This script always try to upgrade pip and some used packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
+
 ### Pre-requirment: Install Python
 The following steps only need to be done **ONCE** on each system:
 1. Go to: https://www.python.org/downloads/
@@ -75,6 +77,9 @@ The following steps only need to be done **ONCE** on each system:
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
+### Next version (work-in-progress)
+- Python: always try to upgrade pip
+
 ### v2024.11.16
 - Self Update Checker: automatically and manually check for latest release version of this script itself from GitHub
 - README: better instruction on installing Python
