@@ -62,23 +62,26 @@ if (libhearingdownloader.verboseDebug):
 packageXMLNS = '{http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS}'
 availableFiles = [] # List of available files
 
+appVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "NewVersion").text
+
 for child in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "PackageFiles"):
-    availableFiles.append( (child.find(packageXMLNS + "FileName").text, child.find(packageXMLNS + "DownloadURL").text) )
+    availableFiles.append( (appVer, child.find(packageXMLNS + "FileName").text, child.find(packageXMLNS + "DownloadURL").text) )
 
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
 
-print("\n\nThe latest available file is " + availableFiles[0][0] + "\n\n")
+print("\n\nThe latest available version is " + availableFiles[0][0] + "\n\n")
 
 # Select outputDir and targetFile
 outputDir = libhearingdownloader.selectOutputFolder()
 targetFile = availableFiles[libhearingdownloader.selectFromList(availableFiles)]
 
 # Create download folder
-outputDir += '.'.join(targetFile[0].split('.')[:-1]) + "/"
+downloadVer = 'Audio Service Connexx ' + targetFile[0]
+outputDir += '.'.join(downloadVer.split('.')) + "/"
 print("\n\n")
 
 # Download file
-libhearingdownloader.downloadFile(targetFile[1], outputDir + targetFile[0], "Downloading " + targetFile[0])
+libhearingdownloader.downloadFile(targetFile[2], outputDir + targetFile[1], "Downloading " + targetFile[1])
 
 print("\n\nDownload Complete!")

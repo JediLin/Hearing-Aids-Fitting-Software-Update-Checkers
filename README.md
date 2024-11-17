@@ -77,6 +77,10 @@ The following steps only need to be done **ONCE** on each system:
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
+### v2024.11.18
+- Signia/Rexton/Audio Service/A&M: better version info display
+- Minor display layout adjustment
+
 ### v2024.11.17
 - Python: always try to upgrade pip
 - Self Update Checker: offer the ability to fetch the latest release version, and the pre-release work-in-progress version

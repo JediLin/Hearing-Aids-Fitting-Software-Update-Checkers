@@ -21,7 +21,7 @@ import os
 # libhearingdownloader - A useful library for the downloader scripts
 ###
 
-downloaderVersion = "v2024.11.17"
+downloaderVersion = "v2024.11.18"
 updaterRetries = 3
 verboseDebug = False
 
@@ -98,7 +98,7 @@ def selectFromList(selectionList, prompt = "version", headerSeperator='', sepera
             listIndex += 1 # Increment list index
         
         try:
-            targetIndex = int(input("Please select a " + prompt + ": "))
+            targetIndex = int(input("\nPlease select a " + prompt + ": "))
         except ValueError:
             targetIndex = -1
         
