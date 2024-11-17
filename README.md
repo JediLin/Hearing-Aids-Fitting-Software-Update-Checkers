@@ -62,7 +62,7 @@ If you don't want to wait for the proper release, the fresh work-in-progress ver
 
 NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
-**WARNING**: This script always try to upgrade pip and some used packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
+**WARNING**: This script always tries to upgrade pip and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
 
 ### Pre-requirment: Install Python
 The following steps only need to be done **ONCE** on each system:
