@@ -77,8 +77,11 @@ The following steps only need to be done **ONCE** on each system:
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
-### Next version (work-in-progress)
+### v2024.11.17
 - Python: always try to upgrade pip
+- Self Update Checker: offer the ability to fetch the latest release version, and the pre-release work-in-progress version
+- Self Update Checker: better version info display
+- Starkey: better version info display
 
 ### v2024.11.16
 - Self Update Checker: automatically and manually check for latest release version of this script itself from GitHub

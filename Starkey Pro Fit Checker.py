@@ -74,7 +74,7 @@ filesList = json.dumps(ast.literal_eval(str(data['Update']['Files'][0])))
 fileData = json.loads(filesList)
 
 availableFiles = [] # List of available files
-availableFiles.append( (os.path.basename(fileData['Url']), fileData['Url']) )
+availableFiles.append( (appVer, os.path.basename(fileData['Url']), fileData['Url']) )
 
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
@@ -84,11 +84,11 @@ outputDir = libhearingdownloader.selectOutputFolder()
 targetFile = availableFiles[libhearingdownloader.selectFromList(availableFiles)]
 
 # Create download folder
-downloadVer = 'Starkey ProFit ' + data['Update']['Version']
+downloadVer = 'Starkey ' + targetFile[0]
 outputDir += '.'.join(downloadVer.split('.')) + "/"
 print("\n\n")
 
 # Download file
-libhearingdownloader.downloadFile(targetFile[1], outputDir + targetFile[0], "Downloading " + targetFile[0])
+libhearingdownloader.downloadFile(targetFile[2], outputDir + targetFile[1], "Downloading " + targetFile[1])
 
 print("\n\nDownload Complete!")
