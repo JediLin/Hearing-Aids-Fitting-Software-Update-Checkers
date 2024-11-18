@@ -3,7 +3,7 @@ mode 160,30
 cls
 python --version 2 > NUL
 if errorlevel 1 goto errorNoPython
-echo Installing requirements...
+echo Installing/upgrading requirements...
 echo:
 python -m pip install --upgrade pip
 pip install --upgrade -r ./requirements.txt
