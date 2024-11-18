@@ -4,6 +4,13 @@ import requests
 import json
 import libhearingdownloader
 
+print("\n\n")
+print("==================================================")
+print("= Hearing Aids Fitting Software Update Checkers  =")
+print("============================ Self Update Checker =")
+print("\n")
+print("Checking update from https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/ ...")
+
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
