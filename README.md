@@ -11,7 +11,7 @@ A collection of scripts which check hearing aids fitting software directly from 
 ## What does it do?
 This project (\"The Checker\") contains scripts which can check hearing aids fitting softwares (such as Phonak Target) directly from each own update servers with APIs, so that you can easily know if there is newer version available, and check corresponding files of those update.
 
-## Currently supported software
+## Currently supported softwares
 This project currently supports:
 - Sonova
   - Phonak Target
