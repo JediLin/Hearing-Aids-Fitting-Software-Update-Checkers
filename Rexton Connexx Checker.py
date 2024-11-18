@@ -16,7 +16,9 @@ libhearingdownloader.printWaranty()
 disclaimer = [
     "DISCLAIMER",
     "",
-    "I (Bluebotlabz), do not take any responsability for what you do using this software",
+    "The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Checker\")",
+    "do not take any responsability for what you do with The Checker.",
+    "",
     "Rexton is a trademark of SIVANTOS PTE. LTD.",
     "Siavantos is a trademark of SIVANTOS PTE. LTD.",
     "Rexton and Siavantos are subsidiaries of WS Audiology A/S",
@@ -25,9 +27,10 @@ disclaimer = [
     "Rexton Connexx is created by Rexton",
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
     "",
-    "Bluebotlabz and this checker are not affiliated with or endorsed by Signia GmbH, SIVANTOS PTE. LTD., WS Audiology A/S or Widex A/S",
-    "Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the associated software",
-    "This is an UNOFFICIAL update checker and use of the software associated may be limited"
+    "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by",
+    "Signia GmbH, SIVANTOS PTE. LTD., WS Audiology A/S or Widex A/S",
+    "Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software(s).",
+    "The Checker is an UNOFFICIAL project and the use of associated software(s) may be limited."
 ]
 
 # Display disclaimer

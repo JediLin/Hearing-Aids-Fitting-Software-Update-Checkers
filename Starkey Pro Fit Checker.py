@@ -20,14 +20,17 @@ libhearingdownloader.printWaranty()
 disclaimer = [
     "DISCLAIMER",
     "",
-    "I (Bluebotlabz), do not take any responsability for what you do using this software",
+    "The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Checker\")",
+    "do not take any responsability for what you do with The Checker.",
+    "",
     "Starkey is a trademark of Starkey Laboratories, Inc.",
     "Pro Fit is created by Starkey Laboratories, Inc.",
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
     "",
-    "Bluebotlabz and this checker are not affiliated with or endorsed by Starkey Laboratories, Inc.",
-    "Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the associated software",
-    "This is an UNOFFICIAL update checker and use of the software associated may be limited"
+    "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by",
+    "Starkey Laboratories, Inc.",
+    "Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software(s).",
+    "The Checker is an UNOFFICIAL project and the use of associated software(s) may be limited."
 ]
 
 # Display disclaimer

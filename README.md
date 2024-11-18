@@ -212,17 +212,17 @@ The following steps only need to be done **ONCE** on each system:
 
 
 ## Copyright & DMCA
-Since these scripts download data which is publically available online directly from software servers, it does not directly distribute any copyrighted content. If you are a company and are still unhappy with the way one of these scripts works, please open an issue describing how exactly the script violates your software's copyright and it will be modified immediately. (I am not a lawyer, this is not legal advice, this is merely my opinion.)
+The Hearing Aids Fitting Software Update Checkers (\"The Checker\") checks softwares update from associated update servers using associated APIs. The Checker does not contain or distribute any hearing aids fitting software or associated content, nor bypass any DRM protection if there is one. If anyone presents an associated company and believes that there are violations of copyright, please open an issue describing how exactly, so there is a chance to make all parties happy with the resolve.
 
 ## WARANTY/SUPPORT
-THE SOFTWARE PROVIDED BY THIS SCRIPT IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ANYTHING CAME FROM THE HEARING FITTING SOFTWARE UPDATE CHECKERS (\"THE CHECKER\") IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-THIS UNOFFICIAL SCRIPT IS NOT IN ANY AFFILIATED WITH THE AUTHORS OR COPYRIGHT HOLDERS OF ANY SOFTWARE ASSOCIATED VIA THE USE OF THIS SCRIPT. THEY HAVE NO REQUIREMENT TO PROVIDE ANY SUPPORT OR WARANTY TO ANY SOFTWARE ASSOCIATED VIA THE USE OF THIS SCRIPT. THE AUTHORS AND COPYRIGHT HOLDERS OF ANY SOFTWARE ASSOCIATED VIA THE USE OF THIS SCRIPT RESERVE THE RIGHT TO TERMINATE ANY USAGE OF SOFTWARE ASSOCIATED VIA THIS SCRIPT.
+THE CHECKER IS NOT IN ANY AFFILIATED WITH THE AUTHORS OR COPYRIGHT HOLDERS OF ANY SOFTWARE ASSOCIATED WITH THE USE OF THE CHECKER. THEY HAVE NO REQUIREMENT TO PROVIDE ANY SUPPORT OR WARANTY TO ANY SOFTWARE ASSOCIATED WITH THE USE OF THE CHECKER. THE AUTHORS AND COPYRIGHT HOLDERS OF ANY SOFTWARE ASSOCIATED WITH THE USE OF THE CHECKER RESERVE THE RIGHT TO TERMINATE ANY USAGE OF SOFTWARE ASSOCIATED WITH THE CHECKER.
 
 ## DISCLAIMER
-Bluebotlabz and any contributor of these scripts do not take any responsability for what you do using this software. All rights and credit go to their rightful owners. No copyright infringement intended.
+The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Checker\") do not take any responsability for what you do with The Checker. All rights and credit go to their rightful owners. No copyright infringement intended.
 
-Bluebotlabz, any contributor of these scripts, and these checkers are not affiliated with or endorsed by any of the companies mentioned in this repository. Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the associated software. This is an UNOFFICIAL update checker and use of the software associated may be limited. (I am not a lawyer, this is not legal advice, this is merely my opinion.)
+The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by any of the companies mentioned in The Checker. Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software(s). The Checker is an UNOFFICIAL project and the use of associated software(s) may be limited.
 
 ## Appendix
 - Modern hearing aids fitting softwares usually work with Noahlink Wireless device. Please check its device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/

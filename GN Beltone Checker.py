@@ -16,8 +16,10 @@ libhearingdownloader.printWaranty()
 disclaimer = [
     "DISCLAIMER",
     "",
-    "I (Bluebotlabz), do not take any responsability for what you do using this software",
-    "Beltone does not review the content of this script or the source that this script downloads from",
+    "The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Checker\")",
+    "do not take any responsability for what you do with The Checker.",
+    "",
+    "Beltone does not review the content of The Checker or the source that The Checker check against",
     "Please view the source disclaimer at:"
     "http://www.supportgn.com/beltone/subsites/disclaimer.php",
     "",
@@ -34,9 +36,10 @@ disclaimer = [
     "SelectaFit is created by Beltone"
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
     "",
-    "Bluebotlabz and this checker are not affiliated with or endorsed by Beltone, GN Hearing A/S, GN Group or GN Store Nord A/S",
-    "Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the associated software",
-    "This is an UNOFFICIAL update checker and use of the software associated may be limited"
+    "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by",
+    "Beltone, GN Hearing A/S, GN Group or GN Store Nord A/S",
+    "Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software(s).",
+    "The Checker is an UNOFFICIAL project and the use of associated software(s) may be limited."
 ]
 
 # Define variables

@@ -16,16 +16,19 @@ libhearingdownloader.printWaranty()
 disclaimer = [
     "DISCLAIMER",
     "",
-    "I (Bluebotlabz), do not take any responsability for what you do using this software",
+    "The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Checker\")",
+    "do not take any responsability for what you do with The Checker.",
+    "",
     "Phonak is a trademark of Sonova AG",
     "Sonova is a trademark of Sonova AG",
     "Phonak is a subsidiary of Sonova AG",
     "Phonak Target is created by Phonak",
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
     "",
-    "Bluebotlabz and this checker are not affiliated with or endorsed by Phonak or Sonova AG",
-    "Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the associated software",
-    "This is an UNOFFICIAL update checker and use of the software associated may be limited"
+    "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by",
+    "Phonak or Sonova AG",
+    "Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software(s).",
+    "The Checker is an UNOFFICIAL project and the use of associated software(s) may be limited."
 ]
 
 # Display disclaimer
