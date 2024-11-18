@@ -233,4 +233,4 @@ Bluebotlabz, any contributor of these scripts, and these checkers are not affili
   - [NewSound Fit](https://www.newsound.cn/软件下载)
   - [Persona Medical ProFit](https://personamedical.com/downloads/)
 
-Note: these software WON'T be included in the checker scripts.
+Note: these softwares WON'T be included in the checker scripts.
