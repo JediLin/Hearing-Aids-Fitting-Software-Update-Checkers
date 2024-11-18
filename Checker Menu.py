@@ -43,9 +43,9 @@ disclaimer = [
     "",
     "I (Bluebotlabz), do not take any responsability for what you do using this software",
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
-    "Bluebotlabz and this downloader are not affiliated with or endorsed by any of the companies mentioned in this repository",
-    "Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the downloaded software",
-    "This is an UNOFFICIAL downloader and use of the software downloaded using it may be limited"
+    "Bluebotlabz and this checker are not affiliated with or endorsed by any of the companies mentioned in this repository",
+    "Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the associated software",
+    "This is an UNOFFICIAL updtae checker and use of the software associated may be limited"
 ]
 libhearingdownloader.printDisclaimer(disclaimer)
 
@@ -54,7 +54,7 @@ print("==================================================")
 print("= Hearing Aids Fitting Software Update Checkers  =")
 print("==================================== " + libhearingdownloader.downloaderVersion + " =")
 if (os.name != "nt"):
-    print("NOTE: You are running this on a Unix (Or *NIX) Operating System, downloaded software is only available for Windows, but can still be downloaded via a Unix (Or *NIX) OS")
+    print("NOTE: You are running this script on an Unix (*NIX) or mac Operating System. Those hearing aids softwares require Windows OS to run, but can still be checked under Unix (*NIX) or mac OS")
 print("")
 
 selectedDownloader = libhearingdownloader.selectFromList(downloaders, "checker", numberSeperator=')', confirmationCheck=False)

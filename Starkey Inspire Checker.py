@@ -25,9 +25,9 @@ disclaimer = [
     "Inspire OS is created by Starkey Laboratories, Inc.",
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
     "",
-    "Bluebotlabz and this downloader are not affiliated with or endorsed by Starkey Laboratories, Inc.",
-    "Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the downloaded software",
-    "This is an UNOFFICIAL downloader and use of the software downloaded using it may be limited"
+    "Bluebotlabz and this checker are not affiliated with or endorsed by Starkey Laboratories, Inc.",
+    "Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the associated software",
+    "This is an UNOFFICIAL update checker and use of the software associated may be limited"
 ]
 
 # Display disclaimer

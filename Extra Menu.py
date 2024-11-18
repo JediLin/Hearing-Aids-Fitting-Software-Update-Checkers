@@ -19,7 +19,7 @@ print("===============================================")
 print("= Extra and Legacy Softwares Update Checkers  =")
 print("================================= " + libhearingdownloader.downloaderVersion + " =")
 if (os.name != "nt"):
-    print("NOTE: You are running this on a Unix (Or *NIX) Operating System, downloaded software is only available for Windows, but can still be downloaded via a Unix (Or *NIX) OS")
+    print("NOTE: You are running this script on an Unix (*NIX) or mac Operating System. Those hearing aids softwares require Windows OS to run, but can still be checked under Unix (*NIX) or mac OS")
 print("")
 
 selectedDownloader = libhearingdownloader.selectFromList(downloaders, "checker", numberSeperator=')', confirmationCheck=False)

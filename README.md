@@ -80,6 +80,7 @@ The following steps only need to be done **ONCE** on each system:
 ## Changelog
 ### Pre-release (work-in-progress)
 - Menu: Extra menu contains Phonak Target Media and Sounds, and legacy softwares of Demant brands (Oticon/Bernafon/Sonic/Philips)
+- Fix typo and terms
 
 ### v2024.11.18
 - Signia/Rexton/Audio Service/A&M: better version info display
@@ -216,12 +217,12 @@ Since these scripts download data which is publically available online directly 
 ## WARANTY/SUPPORT
 THE SOFTWARE PROVIDED BY THIS SCRIPT IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-THIS SCRIPT UNOFFICIAL AND IS NOT IN ANY AFFILIATED WITH THE AUTHORS OR COPYRIGHT HOLDERS OF ANY SOFTWARE DOWNLOADED VIA THE USE OF THIS SCRIPT. THEY HAVE NO REQUIREMENT TO PROVIDE ANY SUPPORT OR WARANTY TO ANY SOFTWARE DOWNLOADED VIA THE USE OF THIS SCRIPT. THE AUTHORS AND COPYRIGHT HOLDERS OF ANY SOFTWARE DOWNLOADED VIA THE USE OF THIS SCRIPT RESERVE THE RIGHT TO TERMINATE ANY USAGE OF SOFTWARE DOWNLOADED VIA THIS SCRIPT.
+THIS UNOFFICIAL SCRIPT IS NOT IN ANY AFFILIATED WITH THE AUTHORS OR COPYRIGHT HOLDERS OF ANY SOFTWARE ASSOCIATED VIA THE USE OF THIS SCRIPT. THEY HAVE NO REQUIREMENT TO PROVIDE ANY SUPPORT OR WARANTY TO ANY SOFTWARE ASSOCIATED VIA THE USE OF THIS SCRIPT. THE AUTHORS AND COPYRIGHT HOLDERS OF ANY SOFTWARE ASSOCIATED VIA THE USE OF THIS SCRIPT RESERVE THE RIGHT TO TERMINATE ANY USAGE OF SOFTWARE ASSOCIATED VIA THIS SCRIPT.
 
 ## DISCLAIMER
 Bluebotlabz and any contributor of these scripts do not take any responsability for what you do using this software. All rights and credit go to their rightful owners. No copyright infringement intended.
 
-Bluebotlabz, any contributor of these scripts, and these checkers are not affiliated with or endorsed by any of the companies mentioned in this repository. Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the downloaded software. This is an UNOFFICIAL downloader and use of the software downloaded using it may be limited. (I am not a lawyer, this is not legal advice, this is merely my opinion.)
+Bluebotlabz, any contributor of these scripts, and these checkers are not affiliated with or endorsed by any of the companies mentioned in this repository. Depending on how this software is used, it may violate the EULA and/or Terms and Conditions of the associated software. This is an UNOFFICIAL update checker and use of the software associated may be limited. (I am not a lawyer, this is not legal advice, this is merely my opinion.)
 
 ## Appendix
 - Modern hearing aids fitting softwares usually work with Noahlink Wireless device. Please check its device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/
