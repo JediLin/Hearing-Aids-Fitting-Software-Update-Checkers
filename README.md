@@ -55,7 +55,7 @@ Note: You need to have the latest version of Python installed for this to work.
 If you don't want to wait for the proper release, the fresh work-in-progress version of script is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
 
 ## How to use it
-1. [Install Python](#pre-requirment-install-python) (and reboot your computer) if you don't have it yet
+1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet
 2. Download the script from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
    Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
 3. Extract the ZIP to a folder
@@ -65,7 +65,7 @@ NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by 
 
 **WARNING**: This script always tries to upgrade pip and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
 
-### Pre-requirment: Install Python
+### Pre-requirement: Install Python
 The following steps only need to be done **ONCE** on each system:
 1. Go to: https://www.python.org/downloads/
 2. Click on the yellow `Download Python` button and run the installer
@@ -73,7 +73,7 @@ The following steps only need to be done **ONCE** on each system:
 4. **Reboot your computer**
 
 ## Credits
-- [@Bluebotlabz](https://bluebotlaboratories.com): Original author of this script
+- [@Bluebotlabz](https://bluebotlaboratories.com): Original author of this project
 - [@pvc](https://forum.hearingtracker.com/u/tenkan): Assisting with testing of the script and finding software links
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
