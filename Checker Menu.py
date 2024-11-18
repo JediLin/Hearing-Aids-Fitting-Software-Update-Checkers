@@ -17,7 +17,7 @@ while updaterRetries > 0:
 
 downloaders = [
     ("EXIT", "", "exit.py"),
-    ("Self (THIS script) Update Checker", "", "GitHub Checker.py"),
+    ("Self (THE CHECKER itself) Update Checker", "", "GitHub Checker.py"),
     ("Phonak Target Update Checker", "", "Phonak Target Checker.py"),
     ("Unitron TrueFit Update Checker", "", "Unitron TrueFit Checker.py"),
     ("Hansaton scout Update Checker", "", "HANSATON scout Checker.py"),
