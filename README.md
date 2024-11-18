@@ -6,13 +6,13 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers?style=for-the-badge)
 
-A collection of scripts which check hearing aids fitting software directly from their company's servers.
+A collection of scripts which check hearing aids fitting software directly from their own update servers.
 
 ## What does it do?
-This repository contains scripts which can check hearing aids fitting software (such as Phonak Target) directly from the software's servers, avoiding the need to distribute copyrighted files. (I am not a lawyer, this is not legal advice, this is merely my opinion.)
+This project (\"The Checker\") contains scripts which can check hearing aids fitting softwares (such as Phonak Target) directly from each own update servers with APIs, so that you can easily know if there is newer version available, and check corresponding files of those update.
 
 ## Currently supported software
-The script currently supports:
+This project currently supports:
 - Sonova
   - Phonak Target
     - Phonak Target Media
@@ -44,26 +44,26 @@ The script currently supports:
 - Starkey
   - Starkey Pro Fit
   - Starkey Inspire OS
-- Hearing Aids Fitting Software Update Checkers (this script itself)
+- Hearing Aids Fitting Software Update Checkers (The Checker itself)
 
 ## Where to get it
-The script is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
+The latest release version of The Checker is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 
 Note: You need to have the latest version of Python installed for this to work.
 
 ### Pre-release version
-If you don't want to wait for the proper release, the fresh work-in-progress version of script is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
+If you don't want to wait for the proper release, the fresh pre-release work-in-progress version is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
 
 ## How to use it
 1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet
-2. Download the script from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
+2. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
    Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
 3. Extract the ZIP to a folder
 4. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
 
-NOTE: If the script looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
+NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
-**WARNING**: This script always tries to upgrade pip and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
+**WARNING**: The Checker always tries to upgrade pip and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
 
 ### Pre-requirement: Install Python
 The following steps only need to be done **ONCE** on each system:
@@ -233,4 +233,4 @@ The contributors of The Checker, and The Checker itself are not affiliated with 
   - [NewSound Fit](https://www.newsound.cn/软件下载)
   - [Persona Medical ProFit](https://personamedical.com/downloads/)
 
-Note: these softwares WON'T be included in the checker scripts.
+Note: these softwares WON'T be included in The Checker.
