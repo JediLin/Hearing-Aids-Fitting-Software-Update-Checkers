@@ -73,9 +73,9 @@ The following steps only need to be done **ONCE** on each system:
 4. **Reboot your computer**
 
 ## Credits
-- [@Bluebotlabz](https://bluebotlaboratories.com): Original author of this project
-- [@pvc](https://forum.hearingtracker.com/u/tenkan): Assisting with testing of the script and finding software links
-- [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
+- [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project
+- [@pvc](https://forum.hearingtracker.com/u/pvc/summary): Assisting with testing of the script and finding software links
+- [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 
 ## Changelog
 ### Pre-release (work-in-progress)
