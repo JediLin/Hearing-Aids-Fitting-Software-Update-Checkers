@@ -20,11 +20,11 @@ The script currently supports:
   - Unitron TrueFit
   - Hansaton scout
 - Demant
-  - Oticon Genie 2 (v2024+, previous verson is hide from default menu)
-  - Oticon Genie (hide from default menu)
-  - Bernafon OasisNXT (v2024+, previous verson is hide from default menu)
-  - Sonic ExpressFit (v2024+, previous verson is hide from default menu)
-  - Philips HearSuite (v2024+, previous verson is hide from default menu)
+  - Oticon Genie 2
+  - Oticon Genie
+  - Bernafon OasisNXT
+  - Sonic ExpressFit
+  - Philips HearSuite
 - GN
   - ReSound Smart Fit
   - ReSound Aventa
@@ -78,6 +78,9 @@ The following steps only need to be done **ONCE** on each system:
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan): Finding the Genie (2) download page links
 
 ## Changelog
+### Pre-release (work-in-progress)
+- Menu: Extra menu contains Phonak Target Media and Sounds, and legacy softwares of Demant brands (Oticon/Bernafon/Sonic/Philips)
+
 ### v2024.11.18
 - Signia/Rexton/Audio Service/A&M: better version info display
 - Minor display layout adjustment
