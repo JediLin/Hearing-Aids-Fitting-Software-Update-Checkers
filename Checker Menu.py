@@ -35,7 +35,7 @@ downloaders = [
     ("Widex Compass GPS Update Checker", "", "Widex Compass GPS Checker.py"),
     ("Starkey Pro Fit Update Checker", "", "Starkey Pro Fit Checker.py"),
     ("Starkey Inspire OS Update Checker", "", "Starkey Inspire Checker.py"),
-    ("...Extra and Legacy Softwares Update Checker", "", "Extra Menu.py"),
+    ("...Extra and Legacy Softwares Update Checkers", "", "Extra Menu.py"),
 ]
 
 disclaimer = [
