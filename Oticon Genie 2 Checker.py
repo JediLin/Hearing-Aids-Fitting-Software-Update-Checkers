@@ -9,6 +9,7 @@ import libhearingdownloader
 import xml.etree.ElementTree as xml
 
 
+print("\n\n")
 print("==================================================")
 print("=          Oticon Genie 2 Update Checker          =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")

@@ -83,6 +83,7 @@ The following steps only need to be done **ONCE** on each system:
 - Menu: option names change and layout adjustment
 - Self Update Checker: better display new version information
 - Fix typo and terms
+- Minor display layout adjustment
 
 ### v2024.11.18
 - Signia/Rexton/Audio Service/A&M: better version info display

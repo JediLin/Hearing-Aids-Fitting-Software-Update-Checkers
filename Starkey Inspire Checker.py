@@ -12,6 +12,7 @@ import requests
 import libhearingdownloader
 
 
+print("\n\n")
 print("==================================================")
 print("=       Starkey Inspire OS Update Checker        =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")

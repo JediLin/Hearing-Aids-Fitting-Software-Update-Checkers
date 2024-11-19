@@ -12,6 +12,7 @@ import rot_codec
 import libhearingdownloader
 
 
+print("\n\n")
 print("==================================================")
 print("=        Widex Compass GPS Update Checker         =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")

@@ -9,6 +9,7 @@ import libhearingdownloader
 import xml.etree.ElementTree as xml
 
 
+print("\n\n")
 print("==================================================")
 print("=   Philips HearSuite (v2024+) Update Checker    =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")

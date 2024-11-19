@@ -6,6 +6,7 @@
 import libhearingdownloader
 
 
+print("\n\n")
 print("==================================================")
 print("=           Oticon Genie Update Checker           =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
