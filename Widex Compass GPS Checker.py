@@ -9,15 +9,19 @@ import ast
 import json
 import requests
 import rot_codec
+from pathlib import Path
 import libhearingdownloader
 
 
 print("\n\n")
 print("==================================================")
-print("=        Widex Compass GPS Update Checker         =")
+print("=        Widex Compass GPS Update Checker        =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
 
-libhearingdownloader.printWaranty()
+turboFile = Path("turbo.txt")
+if not turboFile.is_file():
+    libhearingdownloader.printWaranty()
+
 disclaimer = [
     "DISCLAIMER",
     "",
@@ -37,7 +41,8 @@ disclaimer = [
 ]
 
 # Display disclaimer
-libhearingdownloader.printDisclaimer(disclaimer)
+if not turboFile.is_file():
+    libhearingdownloader.printDisclaimer(disclaimer)
 
 # Base information
 baseId = "CompassGPS"

@@ -3,15 +3,19 @@
 #                   Copyright Bluebotlabz                   #
 #                                                           #
 #############################################################
+from pathlib import Path
 import libhearingdownloader
 
 
 print("\n\n")
 print("==================================================")
-print("=           Oticon Genie Update Checker           =")
+print("=      Oticon Genie (Legacy) Update Checker      =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
 
-libhearingdownloader.printWaranty()
+turboFile = Path("turbo.txt")
+if not turboFile.is_file():
+    libhearingdownloader.printWaranty()
+
 disclaimer = [
     "DISCLAIMER",
     "",
@@ -31,7 +35,8 @@ disclaimer = [
 ]
 
 # Display disclaimer
-libhearingdownloader.printDisclaimer(disclaimer)
+if not turboFile.is_file():
+    libhearingdownloader.printDisclaimer(disclaimer)
 
 
 # Define list of valid versions and their download links (direct from CDN)

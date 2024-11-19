@@ -78,6 +78,10 @@ The following steps only need to be done **ONCE** on each system:
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 
 ## Changelog
+### Pre-release (work-in-progress)
+- Turbo mode (secret)
+- Checkers: layout adjustment and name alignment
+
 ### v2024.11.19
 - Menu: Extra menu contains Phonak Target Media and Sounds, and legacy software of Demant brands (Oticon/Bernafon/Sonic/Philips)
 - Menu: option names change and layout adjustment
@@ -228,9 +232,9 @@ The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Che
 The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by any of the companies mentioned in The Checker. Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software. The Checker is an UNOFFICIAL project and the use of associated software may be limited.
 
 ## Appendix
-- Modern hearing aids fitting software usually works with Noahlink Wireless device. Please check its device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/
+- Modern hearing aids fitting software usually works with Noahlink Wireless or Noahlink Wireless 2 devices. Please check their device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/
 - Starkey fitting software (Pro Fit or Inspire OS) needs PatientBase to work with. Please check manually at https://patientbase.starkeyhearingtechnologies.com
-- Some less common hearing aids brands can be checked via their official websites:
+- Some less common hearing aids software can be checked via their official websites:
   - [Audina ezFIT](https://www.audina.net/en/professional/software)
   - [AUSTAR Fit](https://www.austar-hearing.net/Fitting+Software) and older software can be found [here](https://www.austar-hearing.com/soft-40.html) or [here](https://soft.austar-hearing.com:4431/software-center/#/)
   - [NewSound Fit](https://www.newsound.cn/软件下载)

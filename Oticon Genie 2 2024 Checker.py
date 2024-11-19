@@ -5,16 +5,20 @@
 #############################################################
 import html
 import requests
+from pathlib import Path
 import libhearingdownloader
 import xml.etree.ElementTree as xml
 
 
 print("\n\n")
 print("==================================================")
-print("=     Oticon Genie 2 (v2024+) Update Checker     =")
+print("=          Oticon Genie 2 Update Checker         =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
 
-libhearingdownloader.printWaranty()
+turboFile = Path("turbo.txt")
+if not turboFile.is_file():
+    libhearingdownloader.printWaranty()
+
 disclaimer = [
     "DISCLAIMER",
     "",
@@ -34,9 +38,10 @@ disclaimer = [
 ]
 
 # Display disclaimer
-libhearingdownloader.printDisclaimer(disclaimer)
+if not turboFile.is_file():
+    libhearingdownloader.printDisclaimer(disclaimer)
 
-print ("Downloading version index")
+print ("\n\nDownloading version index...")
 headers = {
     "Content-Type": "application/soap+xml; charset=utf-8"
 }

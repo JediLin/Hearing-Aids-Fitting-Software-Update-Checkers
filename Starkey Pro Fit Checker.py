@@ -9,6 +9,7 @@ import html
 import ast
 import json
 import requests
+from pathlib import Path
 import libhearingdownloader
 
 
@@ -17,7 +18,10 @@ print("==================================================")
 print("=         Starkey Pro Fit Update Checker         =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
 
-libhearingdownloader.printWaranty()
+turboFile = Path("turbo.txt")
+if not turboFile.is_file():
+    libhearingdownloader.printWaranty()
+
 disclaimer = [
     "DISCLAIMER",
     "",
@@ -35,7 +39,8 @@ disclaimer = [
 ]
 
 # Display disclaimer
-libhearingdownloader.printDisclaimer(disclaimer)
+if not turboFile.is_file():
+    libhearingdownloader.printDisclaimer(disclaimer)
 
 # Starkey updater API will check system time...
 currentTime = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(hours=8))).strftime('%m/%d/%Y %H:%M:%S')

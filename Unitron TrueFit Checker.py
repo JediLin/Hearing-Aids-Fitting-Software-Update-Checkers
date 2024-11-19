@@ -4,6 +4,7 @@
 #                                                           #
 #############################################################
 import requests
+from pathlib import Path
 import libhearingdownloader
 import xml.etree.ElementTree as xml
 
@@ -13,7 +14,10 @@ print("==================================================")
 print("=         Unitron TrueFit Update Checker         =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
 
-libhearingdownloader.printWaranty()
+turboFile = Path("turbo.txt")
+if not turboFile.is_file():
+    libhearingdownloader.printWaranty()
+
 disclaimer = [
     "DISCLAIMER",
     "",
@@ -33,12 +37,10 @@ disclaimer = [
 ]
 
 # Display disclaimer
-libhearingdownloader.printDisclaimer(disclaimer)
-print("\n\n")
+if not turboFile.is_file():
+    libhearingdownloader.printDisclaimer(disclaimer)
 
-
-
-print("Fetching Data...")
+print("\n\nFetching Data...")
 # Yh that's right, Phonak namespace...
 xmlns = "{http://cocoon.phonak.com}" # Define the xmlns
 

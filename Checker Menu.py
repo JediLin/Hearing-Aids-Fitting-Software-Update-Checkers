@@ -1,5 +1,6 @@
 import os
 import requests
+from pathlib import Path
 import libhearingdownloader
 
 selfUpdateOption = "Self Update Checker"
@@ -50,7 +51,10 @@ disclaimer = [
     "mentioned in The Checker. Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions",
     "of the associated software. The Checker is an UNOFFICIAL project and the use of associated software may be limited."
 ]
-libhearingdownloader.printDisclaimer(disclaimer)
+
+turboFile = Path("turbo.txt")
+if not turboFile.is_file():
+    libhearingdownloader.printDisclaimer(disclaimer)
 
 print("\n")
 print("==================================================")
