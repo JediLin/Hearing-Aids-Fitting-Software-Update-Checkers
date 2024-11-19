@@ -57,7 +57,10 @@ if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
 print("\n")
-print("==================================================")
+if turboFile.is_file():
+    print("=// TURBO //======================================")
+else:
+    print("==================================================")
 print("=  Hearing Aids Fitting Software Update Checkers =")
 print("==================================== " + libhearingdownloader.downloaderVersion + " =")
 if (os.name != "nt"):
