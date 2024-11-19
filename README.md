@@ -80,6 +80,8 @@ The following steps only need to be done **ONCE** on each system:
 ## Changelog
 ### Pre-release (work-in-progress)
 - Menu: Extra menu contains Phonak Target Media and Sounds, and legacy software of Demant brands (Oticon/Bernafon/Sonic/Philips)
+- Menu: option names change and layout adjustment
+- Self Update Checker: better display new version information
 - Fix typo and terms
 
 ### v2024.11.18
