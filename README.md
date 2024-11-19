@@ -78,7 +78,7 @@ The following steps only need to be done **ONCE** on each system:
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 
 ## Changelog
-### Pre-release (work-in-progress)
+### v2024.11.19
 - Menu: Extra menu contains Phonak Target Media and Sounds, and legacy software of Demant brands (Oticon/Bernafon/Sonic/Philips)
 - Menu: option names change and layout adjustment
 - Self Update Checker: better display new version information
