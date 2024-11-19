@@ -35,7 +35,7 @@ downloaders = [
     ("Widex Compass GPS Update Checker", "", "Widex Compass GPS Checker.py"),
     ("Starkey Pro Fit Update Checker", "", "Starkey Pro Fit Checker.py"),
     ("Starkey Inspire OS Update Checker", "", "Starkey Inspire Checker.py"),
-    ("...Extra and Legacy Softwares Update Checkers", "", "Extra Menu.py"),
+    ("...Extra and Legacy Software Update Checkers", "", "Extra Menu.py"),
 ]
 
 disclaimer = [
@@ -46,7 +46,7 @@ disclaimer = [
     "",
     "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by any of the companies",
     "mentioned in The Checker. Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions",
-    "of the associated software(s). The Checker is an UNOFFICIAL project and the use of associated software(s) may be limited."
+    "of the associated software. The Checker is an UNOFFICIAL project and the use of associated software may be limited."
 ]
 libhearingdownloader.printDisclaimer(disclaimer)
 
@@ -55,7 +55,7 @@ print("==================================================")
 print("= Hearing Aids Fitting Software Update Checkers  =")
 print("==================================== " + libhearingdownloader.downloaderVersion + " =")
 if (os.name != "nt"):
-    print("NOTE: You are running this script on an Unix (*NIX) or mac Operating System. Those hearing aids softwares require Windows OS to run, but can still be checked under Unix (*NIX) or mac OS")
+    print("NOTE: You are running The Checker on an Unix (*NIX) or mac Operating System. Hearing aids software requires Windows OS to run, but can still be checked on Unix (*NIX) or mac OS")
 print("")
 
 selectedDownloader = libhearingdownloader.selectFromList(downloaders, "checker", numberSeperator=')', confirmationCheck=False)

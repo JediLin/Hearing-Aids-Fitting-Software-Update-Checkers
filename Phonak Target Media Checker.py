@@ -27,8 +27,8 @@ disclaimer = [
     "",
     "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by",
     "Phonak or Sonova AG",
-    "Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software(s).",
-    "The Checker is an UNOFFICIAL project and the use of associated software(s) may be limited."
+    "Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software.",
+    "The Checker is an UNOFFICIAL project and the use of associated software may be limited."
 ]
 
 # Display disclaimer

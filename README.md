@@ -9,9 +9,9 @@
 A collection of scripts which check hearing aids fitting software directly from their own update servers.
 
 ## What does it do?
-This project (\"The Checker\") contains scripts which can check hearing aids fitting softwares (such as Phonak Target) directly from each own update servers with APIs, so that you can easily know if there is newer version available, and check corresponding files of those update.
+This project (\"The Checker\") contains scripts which can check hearing aids fitting software (such as Phonak Target) directly from each own update servers with APIs, so that you can easily know if there is newer version available, and check corresponding files of those update.
 
-## Currently supported softwares
+## Currently supported software
 This project currently supports:
 - Sonova
   - Phonak Target
@@ -79,7 +79,7 @@ The following steps only need to be done **ONCE** on each system:
 
 ## Changelog
 ### Pre-release (work-in-progress)
-- Menu: Extra menu contains Phonak Target Media and Sounds, and legacy softwares of Demant brands (Oticon/Bernafon/Sonic/Philips)
+- Menu: Extra menu contains Phonak Target Media and Sounds, and legacy software of Demant brands (Oticon/Bernafon/Sonic/Philips)
 - Fix typo and terms
 
 ### v2024.11.18
@@ -212,7 +212,7 @@ The following steps only need to be done **ONCE** on each system:
 
 
 ## Copyright & DMCA
-The Hearing Aids Fitting Software Update Checkers (\"The Checker\") checks softwares update from associated update servers using associated APIs. The Checker does not contain or distribute any hearing aids fitting software or associated content, nor bypass any DRM protection if there is one. If anyone presents an associated company and believes that there are violations of copyright, please open an issue describing how exactly, so there will be a chance to make all parties happy with the resolve.
+The Hearing Aids Fitting Software Update Checkers (\"The Checker\") checks software update from associated update servers using associated APIs. The Checker does not contain or distribute any hearing aids fitting software or associated content, nor bypass any DRM protection if there is one. If anyone presents an associated company and believes that there are violations of copyright, please open an issue describing how exactly, so there will be a chance to make all parties happy with the resolve.
 
 ## WARANTY/SUPPORT
 ANYTHING CAME FROM THE HEARING FITTING SOFTWARE UPDATE CHECKERS (\"THE CHECKER\") IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -222,15 +222,15 @@ THE CHECKER IS NOT IN ANY AFFILIATED WITH THE AUTHORS OR COPYRIGHT HOLDERS OF AN
 ## DISCLAIMER
 The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Checker\") do not take any responsability for what you do with The Checker. All rights and credit go to their rightful owners. No copyright infringement intended.
 
-The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by any of the companies mentioned in The Checker. Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software(s). The Checker is an UNOFFICIAL project and the use of associated software(s) may be limited.
+The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by any of the companies mentioned in The Checker. Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software. The Checker is an UNOFFICIAL project and the use of associated software may be limited.
 
 ## Appendix
-- Modern hearing aids fitting softwares usually work with Noahlink Wireless device. Please check its device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/
-- Starkey fitting softwares (Pro Fit or Inspire OS) need PatientBase to work with. Please check manually at https://patientbase.starkeyhearingtechnologies.com
+- Modern hearing aids fitting software usually work with Noahlink Wireless device. Please check its device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/
+- Starkey fitting software (Pro Fit or Inspire OS) need PatientBase to work with. Please check manually at https://patientbase.starkeyhearingtechnologies.com
 - Some less common hearing aid brands can be checked via their official websites:
   - [Audina ezFIT](https://www.audina.net/en/professional/software)
   - [AUSTAR Fit](https://www.austar-hearing.net/Fitting+Software) and older software can be found [here](https://www.austar-hearing.com/soft-40.html) or [here](https://soft.austar-hearing.com:4431/software-center/#/)
   - [NewSound Fit](https://www.newsound.cn/软件下载)
   - [Persona Medical ProFit](https://personamedical.com/downloads/)
 
-Note: these softwares WON'T be included in The Checker.
+Note: these software WON'T be included in The Checker.
