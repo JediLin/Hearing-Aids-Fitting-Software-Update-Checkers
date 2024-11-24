@@ -2,3 +2,4 @@ importlib-metadata
 requests
 tqdm
 rot-codec
+colorama

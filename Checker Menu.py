@@ -1,16 +1,19 @@
 import os
 import requests
 from pathlib import Path
+from colorama import just_fix_windows_console
+from colorama import Fore, Back, Style
 import libhearingdownloader
 
+just_fix_windows_console()
 selfUpdateOption = "Self Update Checker"
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
         checkerRelease = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest")
         if not (checkerRelease.json()['tag_name'] == libhearingdownloader.downloaderVersion):
-            selfUpdateOption += "  >> " + checkerRelease.json()['tag_name'] + " AVAILABLE <<"
-            print("\n\n\nNEW VERSION AVAILABLE!!\n\nThe latest version of The Checker is " + checkerRelease.json()['tag_name'] + " (you are using "+ libhearingdownloader.downloaderVersion + ").\nPlease use 1) Self Update Checker option to download it.")
+            selfUpdateOption += Fore.CYAN + "  >> " + Style.BRIGHT + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.NORMAL + " AVAILABLE " + Fore.CYAN + "<<" + Style.RESET_ALL
+            print("\n\n\n" + Fore.YELLOW + "NEW VERSION AVAILABLE!!" + Style.RESET_ALL + "\n\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using "+ Fore.RED + libhearingdownloader.downloaderVersion + Style.RESET_ALL + ").\nPlease use" + Fore.YELLOW + Back.BLUE + Style.BRIGHT + " 1" + Fore.WHITE + Style.NORMAL + ") Self Update Checker " + Style.RESET_ALL + "option to download it.")
         break
     except:
         pass
@@ -20,25 +23,25 @@ while updaterRetries > 0:
 
 downloaders = [
     ("EXIT", "", "exit.py"),
-    (selfUpdateOption + "\n    -------------------", "", "GitHub Checker.py"),
-    ("Phonak Target Update Checker", "", "Phonak Target Checker.py"),
-    ("Unitron TrueFit Update Checker", "", "Unitron TrueFit Checker.py"),
-    ("Hansaton scout Update Checker", "", "HANSATON scout Checker.py"),
-    ("Oticon Genie 2 Update Checker", "", "Oticon Genie 2 2024 Checker.py"),
-    ("Bernafon OasisNXT Update Checker", "", "Bernafon OasisNXT 2024 Checker.py"),
-    ("Sonic ExpressFit Update Checker", "", "Sonici ExpressFit 2024 Checker.py"),
-    ("Philips HearSuite Update Checker", "", "Philips HearSuite 2024 Checker.py"),
-    ("GN ReSound Update Checker", "", "GN ReSound Checker.py"),
-    ("GN Beltone Update Checker", "", "GN Beltone Checker.py"),
-    ("GN Interton Update Checker", "", "GN Interton Checker.py"),
-    ("Signia Connexx Update Checker", "", "Signia Connexx Checker.py"),
-    ("Rexton Connexx Update Checker", "", "Rexton Connexx Checker.py"),
-    ("Audio Service Connexx Update Checker", "", "Audio Service Connexx Checker.py"),
-    ("A&M Connexx Update Checker", "", "AM Connexx Checker.py"),
-    ("Widex Compass GPS Update Checker", "", "Widex Compass GPS Checker.py"),
-    ("Starkey Pro Fit Update Checker", "", "Starkey Pro Fit Checker.py"),
-    ("Starkey Inspire OS Update Checker", "", "Starkey Inspire Checker.py"),
-    ("...Extra & Legacy Software Update Checkers", "", "Extra Menu.py"),
+    (selfUpdateOption + "\n    " + Style.DIM + "----------------------------------------------" + Style.RESET_ALL, "", "GitHub Checker.py"),
+    (Style.BRIGHT + Fore.CYAN + "Sonova" + Style.RESET_ALL + ": Phonak Target" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Target Checker.py"),
+    (Fore.CYAN + "Sonova" + Style.RESET_ALL + ": Unitron TrueFit" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Unitron TrueFit Checker.py"),
+    (Style.BRIGHT + Fore.CYAN + "Sonova" + Style.RESET_ALL + ": Hansaton scout" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "HANSATON scout Checker.py"),
+    (Fore.BLUE + "Demant" + Style.RESET_ALL + ": Oticon Genie 2" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Oticon Genie 2 2024 Checker.py"),
+    (Style.BRIGHT + Fore.BLUE + "Demant" + Style.RESET_ALL + ": Bernafon OasisNXT" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Bernafon OasisNXT 2024 Checker.py"),
+    (Fore.BLUE + "Demant" + Style.RESET_ALL + ": Sonic ExpressFit" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Sonici ExpressFit 2024 Checker.py"),
+    (Style.BRIGHT + Fore.BLUE + "Demant" + Style.RESET_ALL + ": Philips HearSuite" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Philips HearSuite 2024 Checker.py"),
+    (Fore.MAGENTA + "GN" + Style.RESET_ALL + ": ReSound" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "GN ReSound Checker.py"),
+    (Style.BRIGHT + Fore.MAGENTA + "GN" + Style.RESET_ALL + ": Beltone" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "GN Beltone Checker.py"),
+    (Fore.MAGENTA + "GN" + Style.RESET_ALL + ": Interton" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "GN Interton Checker.py"),
+    (Style.BRIGHT + Fore.RED + "WSA" + Style.RESET_ALL + ": Signia Connexx" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Signia Connexx Checker.py"),
+    (Fore.RED + "WSA" + Style.RESET_ALL + ": Rexton Connexx" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Rexton Connexx Checker.py"),
+    (Style.BRIGHT + Fore.RED + "WSA" + Style.RESET_ALL + ": Audio Service Connexx" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Audio Service Connexx Checker.py"),
+    (Fore.RED + "WSA" + Style.RESET_ALL + ": A&M Connexx" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "AM Connexx Checker.py"),
+    (Style.BRIGHT + Fore.RED + "WSA" + Style.RESET_ALL + ": Widex Compass GPS" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Widex Compass GPS Checker.py"),
+    (Fore.YELLOW + "Starkey" + Style.RESET_ALL + ": Starkey Pro Fit" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Starkey Pro Fit Checker.py"),
+    (Style.BRIGHT + Fore.YELLOW + "Starkey" + Style.RESET_ALL + ": Starkey Inspire OS" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Starkey Inspire Checker.py"),
+    (Style.DIM + "...Extra & Legacy Software Update Checkers" + Style.RESET_ALL, "", "Extra Menu.py"),
 ]
 
 disclaimer = [
@@ -58,11 +61,11 @@ if not turboFile.is_file():
 
 print("\n")
 if turboFile.is_file():
-    print("=// TURBO //======================================")
+    print("=" + Style.BRIGHT + Fore.BLACK + "// " + Fore.RED + "T" + Fore.YELLOW + "U" + Fore.CYAN + "R" + Fore.GREEN + "B" + Fore.BLUE + "O" + Fore.BLACK + " //" + Style.RESET_ALL + "======================================")
 else:
     print("==================================================")
-print("=  Hearing Aids Fitting Software Update Checkers =")
-print("==================================== " + libhearingdownloader.downloaderVersion + " =")
+print("=  " + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL + " =")
+print("==================================== " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 if (os.name != "nt"):
     print("NOTE: You are running The Checker on an Unix (*NIX) or mac Operating System. Hearing aids software requires Windows OS to run, but can still be checked on Unix (*NIX) or mac OS")
 print("")
