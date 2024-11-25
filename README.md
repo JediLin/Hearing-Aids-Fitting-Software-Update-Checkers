@@ -79,7 +79,7 @@ The following steps only need to be done **ONCE** on each system:
 
 ## Changelog
 ### Pre-release (work-in-progress)
-- Menu: colorful
+- Colorful
 
 ### v2024.11.20
 - Turbo mode (secret)

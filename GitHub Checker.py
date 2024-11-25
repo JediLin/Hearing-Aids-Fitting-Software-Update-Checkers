@@ -2,14 +2,18 @@ import os
 import datetime
 import requests
 import json
+from colorama import just_fix_windows_console
+from colorama import Fore, Back, Style
 import libhearingdownloader
+
+just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("= Hearing Aids Fitting Software Update Checkers  =")
-print("============================ Self Update Checker =")
+print("= " + Style.BRIGHT + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL + "  =")
+print("============================" + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + "=")
 print("\n")
-print("Checking update from https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/ ...")
+print("Checking update from " + Fore.CYAN + "https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/" + Style.RESET_ALL + " ...")
 
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
@@ -22,14 +26,14 @@ while updaterRetries > 0:
 
     updaterRetries -= 1
 if (updaterRetries == 0):
-    print("Error: Update server could not be reached")
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
 
 if (libhearingdownloader.verboseDebug):
     print(rawJsonData.text)
 
-print("\n\nThe latest available version is " + data['tag_name'])
-print("\nYou are using " + libhearingdownloader.downloaderVersion + "\n")
+print("\n\nThe latest available version is " + Style.BRIGHT + Fore.GREEN + data['tag_name'] + Style.RESET_ALL)
+print("\nYou are using " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + "\n")
 
 if (data['tag_name'] == libhearingdownloader.downloaderVersion):
     print("No update available.\n")

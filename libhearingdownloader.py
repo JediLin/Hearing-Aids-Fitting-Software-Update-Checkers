@@ -1,5 +1,9 @@
 from tqdm import tqdm
+from colorama import just_fix_windows_console
+from colorama import Fore, Back, Style
 import requests
+
+just_fix_windows_console()
 
 try:
     import wx
@@ -90,7 +94,7 @@ def selectFromList(selectionList, prompt = "version", headerSeperator='', sepera
                 while len(strSelectionNumber) < len(str(len(selectionList))):
                     strSelectionNumber = " " + strSelectionNumber
 
-                print(str(strSelectionNumber) + numberSeperator + " " + selection[0] + seperator + selection[1])
+                print(Fore.GREEN + str(strSelectionNumber) + Style.RESET_ALL + numberSeperator + " " + Back.BLUE + selection[0] + Style.RESET_ALL + seperator + selection[1])
                 indexMap[selectionNumber] = listIndex
                 selectionNumber += 1 # Increment displayed index
             else:
@@ -98,7 +102,7 @@ def selectFromList(selectionList, prompt = "version", headerSeperator='', sepera
             listIndex += 1 # Increment list index
         
         try:
-            targetIndex = int(input("\nPlease select a " + prompt + ": "))
+            targetIndex = int(input("\nPlease select a " + Fore.GREEN + prompt + Style.RESET_ALL + ": "))
         except ValueError:
             targetIndex = -1
         
@@ -106,17 +110,17 @@ def selectFromList(selectionList, prompt = "version", headerSeperator='', sepera
             if (not confirmationCheck):
                 return indexMap[targetIndex]
 
-            if (input("You have selected " + prompt + " (" + selectionList[indexMap[targetIndex]][0] + ") are you sure you want to download it? [Y/n] ") == "n"):
+            if (input("You have selected " + prompt + " (" + Fore.YELLOW + selectionList[indexMap[targetIndex]][0] + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
                 targetIndex = ''
             else:
                 return indexMap[targetIndex]
         else:
-            print("The " + prompt + " you have selected is invalid.\nPlease try again.")
+            print("The " + prompt + " you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again.")
             targetIndex = ''
 
 def selectOutputFolder():
     if (guiType == "wxpython"):
-        print("Please select a download location, or Cancel to skip")
+        print("Please select a " + Fore.GREEN + "download location" + Style.RESET_ALL + ", or " + Fore.YELLOW + "Cancel" + Style.RESET_ALL + " to skip")
         time.sleep(2)
 
         wxApp = wx.App(redirect=False, useBestVisual=True, clearSigInt=True)
@@ -124,14 +128,14 @@ def selectOutputFolder():
         dialogReturn = wxDirDialog.ShowModal()
 
         if (dialogReturn == wx.ID_CANCEL):
-            print("No valid directory selected, exiting")
+            print("\n" + Fore.RED + "No valid directory selected" + Style.RESET_ALL + ", exiting")
             exit()
         else:
             outputDir = wxDirDialog.GetPath()
 
         wxApp.Destroy()
     elif (guiType == "tkinter"):
-        print("Please select a download location, or Cancel to skip")
+        print("Please select a " + Fore.GREEN + "download location" + Style.RESET_ALL + ", or " + Fore.YELLOW + "Cancel" + Style.RESET_ALL + " to skip")
         time.sleep(2)
 
         tkRoot = Tk()
@@ -142,7 +146,7 @@ def selectOutputFolder():
 
         outputDir = tkfiledialog.askdirectory( parent=tkRoot, title="Choose a download folder")
         if (not outputDir):
-            print("No valid directory selected, exiting")
+            print("\n" + Fore.RED + "No valid directory selected" + Style.RESET_ALL + ", exiting")
             exit()
 
         tkRoot.destroy()
@@ -150,12 +154,12 @@ def selectOutputFolder():
         outputDir = ''
         while not outputDir:
             print("\n\n")
-            outputDir = input("Enter an output directory: ")
+            outputDir = input("Enter an " + Fore.GREEN + "output directory" + Style.RESET_ALL + ": ")
             if (outputDir != ""):
-                if (input("Confirm download path (" + normalizePath(outputDir, False) + ") [Y/n] ") == "n"):
+                if (input("Confirm download path (" + Fore.YELLOW + normalizePath(outputDir, False) + Style.RESET_ALL + ") [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
                     outputDir = ''
             else:
-                print("The directory you have selected is invalid.\nPlease try again.")
+                print("The directory you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again.")
                 outputDir = ''
     
     return normalizePath(outputDir, False)
@@ -167,7 +171,7 @@ def downloadFile(url, saveLocation, downloadDescription):
     chunkSize = 2048
     
     if (str(fileData.status_code)[0] != '2'):
-        print("Error downloading file: [" + str(fileData.status_code) + "]")
+        print(Fore.RED + "Error downloading file" + Style.RESET_ALL + ": [" + str(fileData.status_code) + "]")
         exit(1)
 
     fileSize = int(fileData.headers['content-length'])
@@ -179,5 +183,5 @@ def downloadFile(url, saveLocation, downloadDescription):
             for chunk in tqdm(fileData.iter_content(chunk_size=chunkSize), desc=downloadDescription, total=int(int(fileData.headers['content-length'])/chunkSize), unit="B", unit_scale=chunkSize):
                 fd.write(chunk)
     else:
-        print("\n\nERROR: " + str(fileData.status_code))
+        print("\n\n" + Fore.RED + "ERROR" + Style.RESET_ALL + ": " + str(fileData.status_code))
         exit(1)
