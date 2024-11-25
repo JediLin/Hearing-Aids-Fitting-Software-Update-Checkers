@@ -58,7 +58,7 @@ def printWaranty():
 
 def printDisclaimer(disclaimer, disclaimerWidth = 150):
     print("\n\n")
-    print ("="*disclaimerWidth)
+    print (Style.DIM + Fore.RED + "="*disclaimerWidth + Style.RESET_ALL)
     for line in disclaimer:
         leftPad = (disclaimerWidth-len(line))/2
         rightPad = (disclaimerWidth-len(line))/2
@@ -70,9 +70,9 @@ def printDisclaimer(disclaimer, disclaimerWidth = 150):
         leftPad = int(leftPad)
         rightPad = int(rightPad)
 
-        print("=" + " "*(leftPad-1) + line + " "*(rightPad-1) + "=")
-    print ("="*disclaimerWidth)
-    input("Press enter to continue...")
+        print(Style.DIM + Fore.RED + "=" + Style.RESET_ALL + " "*(leftPad-1) + line + " "*(rightPad-1) + Style.DIM + Fore.RED + "=" + Style.RESET_ALL)
+    print (Style.DIM + Fore.RED + "="*disclaimerWidth + Style.RESET_ALL)
+    input("\nPress " + Fore.GREEN + "enter" + Style.RESET_ALL + " to continue...")
 
 def selectFromList(selectionList, prompt = "version", headerSeperator='', seperator='\t', numberSeperator='.', confirmationCheck=True):
     targetIndex = ''
@@ -115,7 +115,7 @@ def selectFromList(selectionList, prompt = "version", headerSeperator='', sepera
             else:
                 return indexMap[targetIndex]
         else:
-            print("The " + prompt + " you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again.")
+            print("\nThe " + prompt + " you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again.")
             targetIndex = ''
 
 def selectOutputFolder():
