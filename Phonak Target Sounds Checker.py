@@ -88,7 +88,7 @@ if (targetVersion == 'latest'):
 elif (targetVersion == 'manual'):
     targetVersion = ''
     while not targetVersion:
-        targetVersion = input("\nPlease enter " + Fore.GREEN + "manual target sounds version" + Style.RESET_ALL + ": ")
+        targetVersion = input("\nPlease enter " + Fore.GREEN + "manual Target Sounds version" + Style.RESET_ALL + ": ")
         if (len(targetVersion.split('.')) > 3 or not targetVersion.replace('.', '').isdecimal()):
             print("\nThe version you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a similar format to " + Fore.GREEN + "a.b.c" + Style.RESET_ALL + " where " + Fore.GREEN + "a" + Style.RESET_ALL + ", " + Fore.GREEN + "b" + Style.RESET_ALL + ", and " + Fore.GREEN + "c" + Style.RESET_ALL + " are integers)")
             targetVersion = ''
