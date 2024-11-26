@@ -80,6 +80,7 @@ The following steps only need to be done **ONCE** on each system:
 ## Changelog
 ### Pre-release (work-in-progress)
 - Extra Menu: option to download the pre-release version of \"The Checker\" (this project)
+- Unlockable achievement (secret)
 
 ### v2024.11.26
 - Colorful

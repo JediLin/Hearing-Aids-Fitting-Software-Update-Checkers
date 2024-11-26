@@ -2,6 +2,7 @@ import os
 import time
 import datetime
 import urllib.request
+from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
@@ -28,3 +29,20 @@ urllib.request.urlretrieve("https://github.com/JediLin/Hearing-Aids-Fitting-Soft
 
 print("\n\nDownload Complete!")
 
+# Unlock TURBO mode
+turboFile = Path("turbo.txt")
+if not turboFile.is_file():
+    with turboFile.open('w') as file:
+        file.write("Delete (or rename) this file to disable TURBO mode.")
+    print(Fore.YELLOW + "==============================================" + Style.RESET_ALL)
+    print(Fore.YELLOW + "=           " + Style.BRIGHT + "Achievement Unlocked!!" + Style.NORMAL + "           =" + Style.RESET_ALL)
+    print(Fore.YELLOW + "=  " + Style.DIM + Fore.WHITE + "----------------------------------------" + Style.NORMAL + Fore.YELLOW + "  =" + Style.RESET_ALL)
+    print(Fore.YELLOW + "=  " + Fore.WHITE + "You are brave and dare to try something" + Fore.YELLOW + "   =" + Style.RESET_ALL)
+    print(Fore.YELLOW + "=  " + Fore.WHITE + "new and unknown." + Fore.YELLOW + "                          =" + Style.RESET_ALL)
+    print(Fore.YELLOW + "=  " + Style.DIM + Fore.WHITE + "----------------------------------------" + Style.NORMAL + Fore.YELLOW + "  =" + Style.RESET_ALL)
+    print(Fore.YELLOW + "=  " + Fore.WHITE + "To reward your courage to take risk," + Fore.YELLOW + "      =" + Style.RESET_ALL)
+    print(Fore.YELLOW + "=  " + Fore.WHITE + "from now on, you can use The Checker in" + Fore.YELLOW + "   =" + Style.RESET_ALL)
+    print(Fore.YELLOW + "=  " + Style.BRIGHT + Fore.RED + "T" + Fore.YELLOW + "U" + Fore.CYAN + "R" + Fore.GREEN + "B" + Fore.BLUE + "O" + Style.NORMAL + Fore.WHITE + " mode. Enjoy!" + Fore.YELLOW + "                        =" + Style.RESET_ALL)
+    print(Fore.YELLOW + "==============================================" + Style.RESET_ALL)
+else:
+    print("\nNote: if you want to disable " + Style.BRIGHT + Fore.RED + "T" + Fore.YELLOW + "U" + Fore.CYAN + "R" + Fore.GREEN + "B" + Fore.BLUE + "O" + Style.RESET_ALL + " mode, simply delete or rename the " + Fore.GREEN + "turbo.txt" + Style.RESET_ALL + " file.")
