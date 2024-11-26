@@ -6,14 +6,17 @@
 import html
 import requests
 from pathlib import Path
+from colorama import just_fix_windows_console
+from colorama import Fore, Back, Style
 import libhearingdownloader
 import xml.etree.ElementTree as xml
 
+just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("=    Philips HearSuite (Legacy) Update Checker   =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
+print("=    " + Style.BRIGHT + Fore.BLUE + "Philips" + Style.RESET_ALL + " HearSuite (Legacy) Update Checker   =")
+print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
@@ -58,7 +61,7 @@ while updaterRetries > 0:
 
     updaterRetries -= 1
 if (updaterRetries == 0):
-    print("Error: Update server could not be reached")
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
     
 packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
@@ -83,7 +86,7 @@ validVersions = [
     (data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest Philips HearSuite Installer (OFFLINE) (from the updater)"),
     (data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest Philips HearSuite Installer (ONLINE) (from the updater)"),
 ]
-print("\n\nThe latest available version is " + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "\n\n")
+print("\n\nThe latest available version is " + Fore.GREEN + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + Style.RESET_ALL + "\n\n")
 
 if (libhearingdownloader.verboseDebug):
     print(filesToDownload)

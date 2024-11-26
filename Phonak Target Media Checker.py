@@ -60,7 +60,7 @@ while updaterRetries > 0:
 
     updaterRetries -= 1
 if (updaterRetries == 0):
-    print(Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
 
 # Previous: Get latest version number (Gets full version from xml and removes the fourth version number as that is not used in files)
