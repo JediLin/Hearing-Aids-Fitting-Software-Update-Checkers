@@ -1,5 +1,4 @@
 import os
-import datetime
 import requests
 import json
 from colorama import just_fix_windows_console
@@ -39,15 +38,8 @@ if (data['tag_name'] == libhearingdownloader.downloaderVersion):
     print("No update available.\n")
     # exit(1)
 
-# Pre-release downloading is NOT working!
-#print("You can download the latest release version, or the pre-release work-in-progress version AT YOUR OWN RISK!\n")
-
 availableFiles = [] # List of available files
 availableFiles.append( (data['tag_name'], os.path.basename(data['assets'][0]['browser_download_url']), data['assets'][0]['browser_download_url']) )
-currentTime = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y%m%d%H%M')
-wipName = "Hearing-Aids-Fitting-Software-Update-Checkers-WIP-" + currentTime + ".zip"
-# Pre-release downloading is NOT working!
-#availableFiles.append( ("Pre-release WIP", os.path.basename(wipName), "https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/main.zip") )
 
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
