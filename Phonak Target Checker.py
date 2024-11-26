@@ -14,7 +14,7 @@ just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("=          " + Style.BRIGHT + Fore.GREEN + "Phonak Target Update Checker" + Style.RESET_ALL + "          =")
+print("=          " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target Update Checker          =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")

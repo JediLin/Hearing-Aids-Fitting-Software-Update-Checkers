@@ -5,14 +5,17 @@
 #############################################################
 import requests
 from pathlib import Path
+from colorama import just_fix_windows_console
+from colorama import Fore, Back, Style
 import libhearingdownloader
 import xml.etree.ElementTree as xml
 
+just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("=       Phonak Target Media Update Checker       =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
+print("=       " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target Media Update Checker       =")
+print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
@@ -57,20 +60,20 @@ while updaterRetries > 0:
 
     updaterRetries -= 1
 if (updaterRetries == 0):
-    print("Error: Update server could not be reached")
+    print(Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
 
 # Previous: Get latest version number (Gets full version from xml and removes the fourth version number as that is not used in files)
 # latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
 # Start from v10.0.0, version number from XML doesn't include fourth number anymore.
 latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-print("\n\nThe latest available Phonak Target Media version is v" + latestVersion + "\n\n")
+print("\n\nThe latest available Phonak Target Media version is " + Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + "\n\n")
 
 # List of versions
 validVersions = [
     (latestVersion, 'The latest available Phonak Target Media verion'),
 #    ('6.2.8', 'The last version of Phonak Target compatible with the iCube (obsolete proprietary hearing aid programmer)'),
-    ('manual', 'Manually specify a version (WARNING: ADVANCED USERS ONLY)')
+    ('manual', 'Manually specify a version (' + Fore.RED + 'WARNING' + Style.RESET_ALL + ': ADVANCED USERS ONLY)')
 ]
 
 # Select outputDir and targetVersion
@@ -85,10 +88,11 @@ if (targetVersion == 'latest'):
 elif (targetVersion == 'manual'):
     targetVersion = ''
     while not targetVersion:
-        targetVersion = input("Please enter manual target media version: ")
+        targetVersion = input("\nPlease enter " + Fore.GREEN + "manual target media version" + Style.RESET_ALL + ": ")
         if (len(targetVersion.split('.')) > 3 or not targetVersion.replace('.', '').isdecimal()):
-            print("The version you have selected is invalid.\nPlease try again. (hint: it should be in a similar format to a.b.c where a, b, and c are integers)")
-        elif (input("You have selected version (" + targetVersion + ") are you sure you want to download it? [Y/n] ") == "n"):
+            print("\nThe version you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a similar format to " + Fore.GREEN + "a.b.c" + Style.RESET_ALL + " where " + Fore.GREEN + "a" + Style.RESET_ALL + ", " + Fore.GREEN + "b" + Style.RESET_ALL + ", and " + Fore.GREEN + "c" + Style.RESET_ALL + " are integers)")
+            targetVersion = ''
+        elif (input("\nYou have selected version (" + Fore.YELLOW + targetVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             targetVersion = ''
 
 # Create download folder
