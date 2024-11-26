@@ -78,7 +78,7 @@ The following steps only need to be done **ONCE** on each system:
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 
 ## Changelog
-### Pre-release (work-in-progress)
+### v2024.11.26
 - Colorful
 - Phonak/Unitron/Hansaton: fix manual version re-prompting while format error
 - Extra Menu: option to open GitHub page of this project with default web browser
