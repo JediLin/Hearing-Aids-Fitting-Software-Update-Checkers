@@ -81,6 +81,7 @@ The following steps only need to be done **ONCE** on each system:
 ### Pre-release (work-in-progress)
 - Colorful
 - Phonak/Unitron/Hansaton: fix manual version re-prompting while format error
+- Extra Menu: option to open GitHub page of this project with default web browser
 
 ### v2024.11.20
 - Turbo mode (secret)
