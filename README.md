@@ -44,7 +44,7 @@ This project currently supports:
 - Starkey
   - Starkey Pro Fit
   - Starkey Inspire OS
-- Hearing Aids Fitting Software Update Checkers (The Checker itself)
+- Hearing Aids Fitting Software Update Checkers (\"The Checker\" itself)
 
 ## Where to get it
 The latest release version of The Checker is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
