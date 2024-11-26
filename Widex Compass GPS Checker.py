@@ -10,13 +10,16 @@ import json
 import requests
 import rot_codec
 from pathlib import Path
+from colorama import just_fix_windows_console
+from colorama import Fore, Back, Style
 import libhearingdownloader
 
+just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("=        Widex Compass GPS Update Checker        =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
+print("=        " + Style.BRIGHT + Fore.WHITE + "Widex" + Style.RESET_ALL + " Compass GPS Update Checker        =")
+print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
@@ -76,7 +79,7 @@ while updaterRetries > 0:
 
     updaterRetries -= 1
 if (updaterRetries == 0):
-    print("Error: Update server could not be reached")
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
     
 if (libhearingdownloader.verboseDebug):
@@ -88,8 +91,8 @@ if "statusCode" in data:
 
 if "Packages" in data:
     if (data['Packages']==[]):
-        print("\n\nNo further update available.")
-        print("The last version of " + baseId + ": v" + baseVer)
+        print("\n\nThe latest available " + baseId + " version is " + Fore.GREEN + "v" + baseVer + Style.RESET_ALL + "\n\n")
+        print("No further update available.")
     else:
         # For now, show what we got...
         print("\n\nUpdate server responded:\n")

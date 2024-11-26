@@ -26,7 +26,7 @@ import os
 ###
 
 downloaderVersion = "Pre-release"
-# downloaderVersion = "v2024.11.20"
+#downloaderVersion = "v2024.11.20"
 updaterRetries = 3
 verboseDebug = False
 
@@ -72,7 +72,7 @@ def printDisclaimer(disclaimer, disclaimerWidth = 150):
 
         print(Style.DIM + Fore.RED + "=" + Style.RESET_ALL + " "*(leftPad-1) + line + " "*(rightPad-1) + Style.DIM + Fore.RED + "=" + Style.RESET_ALL)
     print (Style.DIM + Fore.RED + "="*disclaimerWidth + Style.RESET_ALL)
-    input("\nPress " + Fore.GREEN + "enter" + Style.RESET_ALL + " to continue...")
+    input("\nPress " + Fore.GREEN + "Enter" + Style.RESET_ALL + " to continue...")
 
 def selectFromList(selectionList, prompt = "version", headerSeperator='', seperator='\t', numberSeperator='.', confirmationCheck=True):
     targetIndex = ''
