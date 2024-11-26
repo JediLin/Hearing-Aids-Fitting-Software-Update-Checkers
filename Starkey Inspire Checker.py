@@ -10,13 +10,16 @@ import ast
 import json
 import requests
 from pathlib import Path
+from colorama import just_fix_windows_console
+from colorama import Fore, Back, Style
 import libhearingdownloader
 
+just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("=        Starkey Inspire OS Update Checker       =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + libhearingdownloader.downloaderVersion + " =")
+print("=        " + Style.BRIGHT + Fore.BLUE + "Starkey" + Style.RESET_ALL + " Inspire OS Update Checker       =")
+print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
@@ -71,7 +74,7 @@ while updaterRetries > 0:
 
     updaterRetries -= 1
 if (updaterRetries == 0):
-    print("Error: Update server could not be reached")
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
 
 if (libhearingdownloader.verboseDebug):
@@ -83,8 +86,8 @@ if (data['Update'] is None):
     exit(1)
 
 appVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
-print("\n\nThe latest available version is " + appVer)
-print(data['Update']['Description'] + "\n\n")
+print("\n\nThe latest available version is " + Fore.GREEN + appVer + Style.RESET_ALL)
+print("\n" + data['Update']['Description'] + "\n\n")
 filesList = json.dumps(ast.literal_eval(str(data['Update']['Files'][0])))
 fileData = json.loads(filesList)
 
