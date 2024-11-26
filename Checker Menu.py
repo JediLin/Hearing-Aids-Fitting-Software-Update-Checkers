@@ -58,6 +58,7 @@ disclaimer = [
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
+    print("\n\n\n")
     if not (checkerRelease.json()['tag_name'] == libhearingdownloader.downloaderVersion):
         selfUpdateOption = Back.BLUE + " Self Update Checker " + Style.RESET_ALL + Fore.CYAN + " >> " + Style.BRIGHT + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.NORMAL + " AVAILABLE " + Fore.CYAN + "<<" + Style.RESET_ALL
         print("\n\n\n" + Fore.YELLOW + "NEW VERSION AVAILABLE!!" + Style.RESET_ALL + "\n\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using "+ Fore.RED + libhearingdownloader.downloaderVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
