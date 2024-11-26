@@ -110,7 +110,7 @@ def selectFromList(selectionList, prompt = "version", headerSeperator='', sepera
             if (not confirmationCheck):
                 return indexMap[targetIndex]
 
-            if (input("You have selected " + prompt + " (" + Fore.YELLOW + selectionList[indexMap[targetIndex]][0] + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
+            if (input("\nYou have selected " + prompt + " (" + Fore.YELLOW + selectionList[indexMap[targetIndex]][0] + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
                 targetIndex = ''
             else:
                 return indexMap[targetIndex]

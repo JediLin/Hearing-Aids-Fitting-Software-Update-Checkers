@@ -80,6 +80,7 @@ The following steps only need to be done **ONCE** on each system:
 ## Changelog
 ### Pre-release (work-in-progress)
 - Colorful
+- Phonak: fix manual version re-prompting while format error
 
 ### v2024.11.20
 - Turbo mode (secret)
