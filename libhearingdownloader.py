@@ -175,8 +175,6 @@ def downloadFile(url, saveLocation, downloadDescription):
         exit(1)
 
     fileSize = int(fileData.headers['content-length'])
-    # dirty hack for GitHub issue...
-    fileSize = fileSize
     if (fileSize < chunkSize and fileSize > 0):
         chunkSize = fileSize
 
