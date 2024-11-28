@@ -51,8 +51,12 @@ The latest release version of The Checker is available here: https://github.com/
 
 Note: You need to have the latest version of Python installed for this to work.
 
+You can also get the latest release version via The Checker's built-in \"*Self Update Checker*\" option.
+
 ### Pre-release version
 If you don't want to wait for the proper release, the fresh pre-release work-in-progress version is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
+
+Note: You can also get the pre-release version via The Checker's \"*Extra & Legacy Software Update Checkers*\" option.
 
 ## How to use it
 1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet
