@@ -76,7 +76,7 @@ The following steps only need to be done **ONCE** on each system:
 3. Make sure you select `Add python.exe to PATH` in the start of the installer, and then click on `Install Now`
 4. **Reboot your computer**
 
-NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refused to run and bring you to Python download page instead.
+NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refuse to run and bring you to Python download page instead.
 
 ## Credits
 - [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project
