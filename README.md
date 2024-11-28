@@ -49,14 +49,14 @@ This project currently supports:
 ## Where to get it
 The latest release version of The Checker is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 
-Note: You need to have the latest version of Python installed for this to work.
+NOTE: You need to have the latest version of Python installed for this to work.
 
 You can also get the latest release version via The Checker's built-in \"*Self Update Checker*\" option.
 
 ### Pre-release version
 If you don't want to wait for the proper release, the fresh pre-release work-in-progress version is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
 
-Note: You can also get the pre-release version via The Checker's \"*Extra & Legacy Software Update Checkers*\" option.
+NOTE: You can also get the pre-release version via The Checker's \"*Extra & Legacy Software Update Checkers*\" option.
 
 ## How to use it
 1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet
@@ -75,6 +75,8 @@ The following steps only need to be done **ONCE** on each system:
 2. Click on the yellow `Download Python` button and run the installer
 3. Make sure you select `Add python.exe to PATH` in the start of the installer, and then click on `Install Now`
 4. **Reboot your computer**
+
+NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refused to run and bring you to Python download page instead.
 
 ## Credits
 - [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project
