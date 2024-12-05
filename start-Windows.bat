@@ -26,9 +26,9 @@ echo:
 echo:
 :CHOICE
 if %colorSupport%==Yes (
-  set /P c=Do you want to check another software? [[32mYES[0m/no]:
+  set /P c=Do you want to check another software? [[1;30m^([0;32mY[1;30m^)[0mes/no]:
 ) else (
-  set /P c=Do you want to check another software? [YES/no]:
+  set /P c=Do you want to check another software? [^(Y^)es/no]:
 )
 if /I "%c%" EQU "N" exit
 if /I "%c%" EQU "NO" exit
