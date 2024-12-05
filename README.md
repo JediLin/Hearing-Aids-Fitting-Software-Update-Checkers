@@ -85,6 +85,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### Pre-release (work-in-progress)
+- Fix display on older (before 10) Windows versions
 - Messages tweak
 
 ### v2024.11.27

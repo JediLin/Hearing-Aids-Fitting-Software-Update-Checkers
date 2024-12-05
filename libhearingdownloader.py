@@ -2,8 +2,10 @@ from tqdm import tqdm
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import requests
+import sys
 
 just_fix_windows_console()
+winVer = sys.getwindowsversion()
 
 try:
     import wx
@@ -72,7 +74,11 @@ def printDisclaimer(disclaimer, disclaimerWidth = 150):
 
         print(Style.DIM + Fore.RED + "=" + Style.RESET_ALL + " "*(leftPad-1) + line + " "*(rightPad-1) + Style.DIM + Fore.RED + "=" + Style.RESET_ALL)
     print (Style.DIM + Fore.RED + "="*disclaimerWidth + Style.RESET_ALL)
-    input("\nPress " + Fore.GREEN + "Enter" + Style.RESET_ALL + " to continue...")
+    
+    if (winVer[0] < 10):
+        input("\nPress Enter to continue...")
+    else:
+        input("\nPress " + Fore.GREEN + "Enter" + Style.RESET_ALL + " to continue...")
 
 def selectFromList(selectionList, prompt = "version", headerSeperator='', seperator='\t', numberSeperator='.', confirmationCheck=True):
     targetIndex = ''
@@ -102,7 +108,10 @@ def selectFromList(selectionList, prompt = "version", headerSeperator='', sepera
             listIndex += 1 # Increment list index
         
         try:
-            targetIndex = int(input("\nPlease select a " + Fore.GREEN + prompt + Style.RESET_ALL + ": "))
+            if (winVer[0] < 10):
+                targetIndex = int(input("\nPlease select a " + prompt + ": "))
+            else:
+                targetIndex = int(input("\nPlease select a " + Fore.GREEN + prompt + Style.RESET_ALL + ": "))
         except ValueError:
             targetIndex = -1
         
@@ -110,10 +119,16 @@ def selectFromList(selectionList, prompt = "version", headerSeperator='', sepera
             if (not confirmationCheck):
                 return indexMap[targetIndex]
 
-            if (input("\nYou have selected " + prompt + " (" + Fore.YELLOW + selectionList[indexMap[targetIndex]][0] + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
-                targetIndex = ''
+            if (winVer[0] < 10):
+                if (input("\nYou have selected " + prompt + " (" + selectionList[indexMap[targetIndex]][0] + ") are you sure you want to download it? [(Y)/n] ") == "n"):
+                    targetIndex = ''
+                else:
+                    return indexMap[targetIndex]
             else:
-                return indexMap[targetIndex]
+                if (input("\nYou have selected " + prompt + " (" + Fore.YELLOW + selectionList[indexMap[targetIndex]][0] + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
+                    targetIndex = ''
+                else:
+                    return indexMap[targetIndex]
         else:
             print("\nThe " + prompt + " you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again.")
             targetIndex = ''
@@ -154,10 +169,18 @@ def selectOutputFolder():
         outputDir = ''
         while not outputDir:
             print("\n\n")
-            outputDir = input("Enter an " + Fore.GREEN + "output directory" + Style.RESET_ALL + ": ")
+            if (winVer[0] < 10):
+            	outputDir = input("Enter an output directory: ")
+            else:
+                outputDir = input("Enter an " + Fore.GREEN + "output directory" + Style.RESET_ALL + ": ")
+
             if (outputDir != ""):
-                if (input("Confirm download path (" + Fore.YELLOW + normalizePath(outputDir, False) + Style.RESET_ALL + ") [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
-                    outputDir = ''
+                if (winVer[0] < 10):
+                    if (input("Confirm download path (" + normalizePath(outputDir, False) + ") [(Y)/n] ") == "n"):
+                        outputDir = ''
+                else:
+                    if (input("Confirm download path (" + Fore.YELLOW + normalizePath(outputDir, False) + Style.RESET_ALL + ") [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
+                        outputDir = ''
             else:
                 print("The directory you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again.")
                 outputDir = ''
