@@ -26,7 +26,8 @@ if /I "%c%" EQU "NO" exit
 goto MENU
 
 :errorNoPython
-echo Please install Python first. Press [32many key[0m to open Python download page with default web browser...
+echo Please install [1;34mPython[0m and [33mreboot[0m your computer first.
+echo Press [32many key[0m to open [1;34mPython[0m download page with default web browser...
 pause > nul
 start "" "https://www.python.org/downloads/"
 exit

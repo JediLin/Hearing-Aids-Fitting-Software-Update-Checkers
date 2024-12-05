@@ -84,6 +84,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 
 ## Changelog
+### Pre-release (work-in-progress)
+- Messages tweak
+
 ### v2024.11.27
 - Extra Menu: option to download the pre-release version of \"The Checker\" (this project)
 - Unlockable achievement (secret)
