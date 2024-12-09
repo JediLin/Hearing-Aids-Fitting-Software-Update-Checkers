@@ -14,37 +14,37 @@ This project (\"The Checker\") contains scripts which can check hearing aids fit
 ## Currently supported software
 This project currently supports:
 - Sonova
-  - Phonak Target
+  - Phonak [Target](https://www.phonak.com/en-int/professionals/innovations/target)
     - Phonak Target Media
     - Phonak Target Sounds
-  - Unitron TrueFit
-  - Hansaton scout
+  - Unitron [TrueFit](https://www.unitron.com/global/en_us/professionals/truefit.html)
+  - Hansaton [scout](https://www.hansaton.com/en-int/professionals/support/instr.html)
 - Demant
-  - Oticon Genie 2
+  - Oticon [Genie 2](https://www.oticon.com/professionals/tools-and-support/fitting)
   - Oticon Genie
-  - Bernafon OasisNXT
-  - Sonic ExpressFit
-  - Philips HearSuite
+  - Bernafon [OasisNXT](https://www.bernafon.com/for-professionals/fitting-software)
+  - Sonic [ExpressFit](https://www.sonici.com/professional-center/professional-support/software-download)
+  - Philips [HearSuite](https://www.hearingsolutions.philips.com/for-professionals/hearsuite)
 - GN
-  - ReSound Smart Fit
-  - ReSound Aventa
+  - ReSound [Smart Fit](https://pro.resound.com/en-us/products/resound/fsw-2)
+  - ReSound [Aventa](https://www.gnhearing.com/en/products/support-materials/fsw-support)
   - ReSound Pro-Counsel
-  - Beltone Solus Max
+  - Beltone [Solus Max](https://www.gnhearing.com/en/products/beltone/fsw-2)
   - Beltone Solus
   - Beltone SelectaFit
-  - Interton Fitting
+  - Interton [Fitting](https://www.interton.com/en/professionals/hearing-aid-fitting)
   - Interton Appraise
   - Interton CompuFit
 - WS Audiology
-  - Signia Connexx
-  - Rexton Connexx
+  - Signia [Connexx](https://www.signia-pro.com/en/business-support/connexx/)
+  - Rexton [Connexx](https://www.rexton.com/en/professional/connexx/)
   - Audio Service Connexx
   - A&M Connexx
-  - Widex Compass GPS (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1#issue-2624522881) for more information and follow up.)
+  - Widex [Compass GPS](https://www.widexpro.com/en/business-support/compass/) (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1#issue-2624522881) for more information and follow up.)
 - Starkey
-  - Starkey Pro Fit
-  - Starkey Inspire OS
-- Hearing Aids Fitting Software Update Checkers (\"The Checker\" itself)
+  - Starkey [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
+  - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
+- [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
 The latest release version of The Checker is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
@@ -253,7 +253,7 @@ The contributors of The Checker, and The Checker itself are not affiliated with 
 
 ## Appendix
 - Modern hearing aids fitting software usually works with Noahlink Wireless or Noahlink Wireless 2 devices. Please check their device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/
-- Starkey fitting software (Pro Fit or Inspire OS) needs PatientBase to work with. Please check manually at https://patientbase.starkeyhearingtechnologies.com
+- Starkey fitting software (Pro Fit or Inspire OS) needs [PatientBase](https://patientbase.starkeyhearingtechnologies.com) to work with. Please check manually at https://patientbase.starkeyhearingtechnologies.com
 - Some less common hearing aids software can be checked via their official websites:
   - [Audina ezFIT](https://www.audina.net/en/professional/software)
   - [AUSTAR Fit](https://www.austar-hearing.net/Fitting+Software) and older software can be found [here](https://www.austar-hearing.com/soft-40.html) or [here](https://soft.austar-hearing.com:4431/software-center/#/)
