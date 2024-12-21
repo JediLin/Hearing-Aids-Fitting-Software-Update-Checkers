@@ -261,3 +261,5 @@ The contributors of The Checker, and The Checker itself are not affiliated with 
   - [Persona Medical ProFit](https://personamedical.com/downloads/)
 
 Note: these software WON'T be included in The Checker.
+
+Modern hearing aids fitting software which supports [Noahlink Wireless](https://www.himsa.com/products/noahlink-wireless/) and/or [Noahlink Wireless 2](https://www.himsa.com/products/noahlink-wireless-2/) programming interface should be certified *BEFORE* release. This means one can also check [Certified Noahlink Wireless and Noahlink Wireless 2 Modules](https://www.himsa.com/products/noahlink-wireless-2/certified-noahlink-wireless-modules/) for upcoming new version of fitting software.
