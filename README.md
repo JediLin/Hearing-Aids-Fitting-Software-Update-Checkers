@@ -67,7 +67,7 @@ NOTE: You can also get the pre-release version via The Checker's \"*Extra & Lega
 
 NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
-**WARNING**: The Checker always tries to upgrade pip and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
+**WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
 
 ### Pre-requirement: Install Python
 The following steps only need to be done **ONCE** on each system:
