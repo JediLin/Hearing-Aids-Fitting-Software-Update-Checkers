@@ -84,8 +84,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 
 ## Changelog
-### Pre-release (work-in-progress)
-- Phonak: workaround for Target 10.0.1 seems not available in US market
+### v2024.12.22
+- Phonak: fix Target checker for v10.0.1
+- Phonak: failsafe for Target Media checker
 - Document (README) update
 
 ### v2024.12.06
