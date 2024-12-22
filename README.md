@@ -85,6 +85,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### Pre-release (work-in-progress)
+- Phonak: workaround for Target 10.0.1 seems not available in US market
 - Document (README) update
 
 ### v2024.12.06
