@@ -49,7 +49,7 @@ xmlns = "{http://cocoon.phonak.com}" # Define the xmlns
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
-        xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=6.0.1.695&dist=Phonak&country=UK&subKeys=").text # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
+        xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=6.0.1.695&dist=Phonak&country=GB&subKeys=").text # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
         data = xml.fromstring(xmlData)
         break
     except:
