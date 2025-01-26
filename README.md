@@ -83,10 +83,12 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@pvc](https://forum.hearingtracker.com/u/pvc/summary): Assisting with testing of the script and finding software links
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 - [@labuwx](https://github.com/labuwx): Provide [vital information](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/3) about rebranded private label variations of Bernafon OasisNXT
+- [@tux-mania](https://github.com/tux-mania): bug report
 
 ## Changelog
 ### Pre-release (work-in-progress)
 - Extra Menu: option to check Custom version of Bernafon OasisNXT for private label variations such as `Delight`, `ProAkustik`, `Lisound`, `Specsavers`, `Meditrend`, `GPL`, `Maico`, `Audilab`, `RITM`, `Hoerex`, and `Sonic`
+- Audio Service: fix version cap bug
 
 ### v2024.12.22
 - Phonak: fix Target checker for v10.0.1
