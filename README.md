@@ -23,6 +23,7 @@ This project currently supports:
   - Oticon [Genie 2](https://www.oticon.com/professionals/tools-and-support/fitting)
   - Oticon Genie
   - Bernafon [OasisNXT](https://www.bernafon.com/for-professionals/fitting-software)
+  - Bernafon OasisNXT Custom
   - Sonic [ExpressFit](https://www.sonici.com/professional-center/professional-support/software-download)
   - Philips [HearSuite](https://www.hearingsolutions.philips.com/for-professionals/hearsuite)
 - GN
@@ -88,7 +89,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ## Changelog
 ### Pre-release (work-in-progress)
 - Extra Menu: option to check Custom version of Bernafon OasisNXT for private label variations such as `Delight`, `ProAkustik`, `Lisound`, `Specsavers`, `Meditrend`, `GPL`, `Maico`, `Audilab`, `RITM`, `Hoerex`, and `Sonic`
-- Audio Service: fix version cap bug
+- Audio Service: fix Connexx checker for v9.12.0.1550
 
 ### v2024.12.22
 - Phonak: fix Target checker for v10.0.1
