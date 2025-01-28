@@ -88,6 +88,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### Pre-release (work-in-progress)
+- Windows: using code page 65001 (UTF-8)
 - Extra Menu: option to show version changes
 
 ### v2025.01.28
@@ -275,6 +276,6 @@ The contributors of The Checker, and The Checker itself are not affiliated with 
   - [NewSound Fit](https://www.newsound.cn/软件下载)
   - [Persona Medical ProFit](https://personamedical.com/downloads/)
 
-Note: these software WON'T be included in The Checker.
+Note: these software WILL NOT be included in The Checker.
 
 Modern hearing aids fitting software which supports [Noahlink Wireless](https://www.himsa.com/products/noahlink-wireless/) and/or [Noahlink Wireless 2](https://www.himsa.com/products/noahlink-wireless-2/) programming interface should be certified *BEFORE* release. This means one can check [Certified Noahlink Wireless and Noahlink Wireless 2 Modules](https://www.himsa.com/products/noahlink-wireless-2/certified-noahlink-wireless-modules/) for upcoming version of fitting software before its release.

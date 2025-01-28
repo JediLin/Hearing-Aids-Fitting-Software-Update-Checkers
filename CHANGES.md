@@ -165,4 +165,5 @@
 - Audio Service: fix Connexx checker for v9.12.0.1550
 
 ### Pre-release (work-in-progress)
+- Windows: using code page 65001 (UTF-8)
 - Extra Menu: option to show version changes
