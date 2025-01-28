@@ -80,11 +80,11 @@ The following steps only need to be done **ONCE** on each system:
 NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refuse to run and bring you to Python download page instead.
 
 ## Credits
-- [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project
+- [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project (up to v1.8.0)
 - [@pvc](https://forum.hearingtracker.com/u/pvc/summary): Assisting with testing of the script and finding software links
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 - [@labuwx](https://github.com/labuwx): Provide [vital information](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/3) about rebranded private label variations of Bernafon OasisNXT
-- [@tux-mania](https://github.com/tux-mania): bug report
+- [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
 ### Pre-release (work-in-progress)
