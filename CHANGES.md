@@ -164,6 +164,6 @@
 - Extra Menu: option to check Custom version of Bernafon OasisNXT for private label variations such as `Delight`, `ProAkustik`, `Lisound`, `Specsavers`, `Meditrend`, `GPL`, `Maico`, `Audilab`, `RITM`, `Hoerex`, and `Sonic`
 - Audio Service: fix Connexx checker for v9.12.0.1550
 
-### Pre-release (work-in-progress)
+### v2025.01.29
 - Windows: using code page 65001 (UTF-8)
 - Extra Menu: option to show version changes

@@ -87,7 +87,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
-### Pre-release (work-in-progress)
+### v2025.01.29
 - Windows: using code page 65001 (UTF-8)
 - Extra Menu: option to show version changes
 
