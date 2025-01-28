@@ -3,3 +3,4 @@ requests
 tqdm
 rot-codec
 colorama
+rich

@@ -87,6 +87,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): bug report
 
 ## Changelog
+### Pre-release (work-in-progress)
+- Extra Menu: option to show README.md (this file)
+
 ### v2025.01.28
 - Extra Menu: option to check Custom version of Bernafon OasisNXT for private label variations such as `Delight`, `ProAkustik`, `Lisound`, `Specsavers`, `Meditrend`, `GPL`, `Maico`, `Audilab`, `RITM`, `Hoerex`, and `Sonic`
 - Audio Service: fix Connexx checker for v9.12.0.1550
