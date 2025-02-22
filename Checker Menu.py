@@ -40,7 +40,6 @@ downloaders = [
     (Style.RESET_ALL + "WSA " + Fore.YELLOW + "A&M" + Style.RESET_ALL + " Connexx" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "AM Connexx Checker.py"),
     (Style.RESET_ALL + "WSA " + Style.BRIGHT + Fore.WHITE + "Widex" + Style.RESET_ALL + " Compass GPS" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Widex Compass GPS Checker.py"),
     (Style.RESET_ALL + Style.BRIGHT + Fore.BLUE + "Starkey" + Style.RESET_ALL + " Pro Fit" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Starkey Pro Fit Checker.py"),
-    (Style.RESET_ALL + Style.BRIGHT + Fore.BLUE + "Starkey" + Style.RESET_ALL + " Inspire OS" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Starkey Inspire Checker.py"),
     (Style.RESET_ALL + Style.DIM + "...Extra & Legacy Software Update Checkers" + Style.RESET_ALL, "", "Extra Menu.py"),
 ]
 

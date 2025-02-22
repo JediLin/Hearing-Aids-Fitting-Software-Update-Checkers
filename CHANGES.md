@@ -167,3 +167,6 @@
 ### v2025.01.29
 - Windows: using code page 65001 (UTF-8)
 - Extra Menu: option to show version changes
+
+### Pre-Release (work-in-progress)
+- Move Starkey Inspire OS Checker into Extra Menu
