@@ -168,6 +168,6 @@
 - Windows: using code page 65001 (UTF-8)
 - Extra Menu: option to show version changes
 
-### Pre-Release (work-in-progress)
+### v2025.03.04
 - Starkey: move Inspire OS Checker into Extra Menu
 - Oticon: add checker for Genie 2 2025+ and move previous checker (for 2024+) into Extra Menu
