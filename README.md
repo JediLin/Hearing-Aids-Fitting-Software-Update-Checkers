@@ -88,7 +88,8 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### Pre-Release (work-in-progress)
-- Move Starkey Inspire OS Checker into Extra Menu
+- Starkey: move Inspire OS Checker into Extra Menu
+- Oticon: add checker for Genie 2 2025+ and move previous checker (for 2024+) into Extra Menu
 
 ### v2025.01.29
 - Windows: using code page 65001 (UTF-8)

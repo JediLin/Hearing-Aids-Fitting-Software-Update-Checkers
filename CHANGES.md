@@ -169,4 +169,5 @@
 - Extra Menu: option to show version changes
 
 ### Pre-Release (work-in-progress)
-- Move Starkey Inspire OS Checker into Extra Menu
+- Starkey: move Inspire OS Checker into Extra Menu
+- Oticon: add checker for Genie 2 2025+ and move previous checker (for 2024+) into Extra Menu
