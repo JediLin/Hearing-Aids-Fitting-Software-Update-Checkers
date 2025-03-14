@@ -171,3 +171,6 @@
 ### v2025.03.04
 - Starkey: move Inspire OS Checker into Extra Menu
 - Oticon: add checker for Genie 2 2025+ and move previous checker (for 2024+) into Extra Menu
+
+### Pre-Release (work-in-progress)
+- Starkey: detailed message if no update available

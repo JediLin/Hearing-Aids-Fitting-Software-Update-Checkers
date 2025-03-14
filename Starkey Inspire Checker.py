@@ -82,7 +82,7 @@ if (libhearingdownloader.verboseDebug):
     print(rawJsonData.text)
 
 if (data['Update'] is None):
-    print("\n\nNo update available.")
+    print("\n\nNo update available since v" + baseVer + " (" + geoIP + ").")
     exit(1)
 
 appVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
