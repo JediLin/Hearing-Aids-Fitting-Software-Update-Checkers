@@ -174,3 +174,5 @@
 
 ### Pre-Release (work-in-progress)
 - Starkey: detailed message if no update available
+- Sonic: `ExpressFit` should be `ExpressFit Pro`
+- Documents improved

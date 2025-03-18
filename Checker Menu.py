@@ -29,7 +29,7 @@ downloaders = [
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.BLACK + "Hansaton" + Style.RESET_ALL + " scout" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "HANSATON scout Checker.py"),
     (Style.RESET_ALL + "Demant " + Style.BRIGHT + Fore.MAGENTA + "Oticon" + Style.RESET_ALL + " Genie 2" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Oticon Genie 2 2025 Checker.py"),
     (Style.RESET_ALL + "Demant " + Style.BRIGHT + Fore.RED + "Bernafon" + Style.RESET_ALL + " OasisNXT" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Bernafon OasisNXT 2024 Checker.py"),
-    (Style.RESET_ALL + "Demant " + Style.BRIGHT + Fore.CYAN + "Sonic" + Style.RESET_ALL + " ExpressFit" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Sonici ExpressFit 2024 Checker.py"),
+    (Style.RESET_ALL + "Demant " + Style.BRIGHT + Fore.CYAN + "Sonic" + Style.RESET_ALL + " ExpressFit Pro" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Sonici ExpressFit 2024 Checker.py"),
     (Style.RESET_ALL + "Demant " + Style.BRIGHT + Fore.BLUE + "Philips" + Style.RESET_ALL + " HearSuite" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Philips HearSuite 2024 Checker.py"),
     (Style.RESET_ALL + "GN " + Style.BRIGHT + Fore.RED + "ReSound" + Style.RESET_ALL + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "GN ReSound Checker.py"),
     (Style.RESET_ALL + "GN " + Style.BRIGHT + Fore.BLUE + "Beltone" + Style.RESET_ALL + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "GN Beltone Checker.py"),

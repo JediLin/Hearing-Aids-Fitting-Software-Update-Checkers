@@ -15,7 +15,7 @@ just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("=         " + Style.BRIGHT + Fore.CYAN + "Sonic" + Style.RESET_ALL + " ExpressFit Update Checker        =")
+print("=       " + Style.BRIGHT + Fore.CYAN + "Sonic" + Style.RESET_ALL + " ExpressFit Pro Update Checker      =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")

@@ -25,13 +25,14 @@ This project currently supports:
   - Oticon Genie
   - Bernafon [OasisNXT](https://www.bernafon.com/for-professionals/fitting-software)
   - Bernafon OasisNXT Custom
-  - Sonic [ExpressFit](https://www.sonici.com/professional-center/professional-support/software-download)
+  - Sonic [ExpressFit Pro](https://www.sonici.com/professional-center/professional-support/software-download)
   - Philips [HearSuite](https://www.hearingsolutions.philips.com/for-professionals/hearsuite)
 - GN
   - ReSound [Smart Fit](https://pro.resound.com/en-us/products/resound/fsw-2)
   - ReSound [Aventa](https://www.gnhearing.com/en/products/support-materials/fsw-support)
   - ReSound Pro-Counsel
   - Beltone [Solus Max](https://www.gnhearing.com/en/products/beltone/fsw-2)
+  - Beltone Solus Pro
   - Beltone Solus
   - Beltone SelectaFit
   - Interton [Fitting](https://www.interton.com/en/professionals/hearing-aid-fitting)
@@ -90,6 +91,8 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ## Changelog
 ### Pre-Release (work-in-progress)
 - Starkey: detailed message if no update available
+- Sonic: `ExpressFit` should be `ExpressFit Pro`
+- Documents improved
 
 ### v2025.03.04
 - Starkey: move Inspire OS Checker into Extra Menu
@@ -276,6 +279,7 @@ The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Che
 The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by any of the companies mentioned in The Checker. Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software. The Checker is an UNOFFICIAL project and the use of associated software may be limited.
 
 ## Appendix
+- Check our [Wiki](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki)!
 - Modern hearing aids fitting software usually works with Noahlink Wireless or Noahlink Wireless 2 devices. Please check their device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/
 - Starkey fitting software (Pro Fit or Inspire OS) needs [PatientBase](https://patientbase.starkeyhearingtechnologies.com) to work with. Please check manually at https://patientbase.starkeyhearingtechnologies.com
 - Some less common hearing aids software can be checked via their official websites:
