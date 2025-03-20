@@ -23,6 +23,7 @@ This project currently supports:
 - Demant
   - Oticon [Genie 2](https://www.oticon.com/professionals/tools-and-support/fitting)
   - Oticon Genie
+  - Oticon Genie Medical
   - Bernafon [OasisNXT](https://www.bernafon.com/for-professionals/fitting-software)
   - Bernafon OasisNXT Custom
   - Sonic [ExpressFit Pro](https://www.sonici.com/professional-center/professional-support/software-download)
