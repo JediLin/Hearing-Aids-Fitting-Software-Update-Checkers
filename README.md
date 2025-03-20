@@ -288,6 +288,7 @@ The contributors of The Checker, and The Checker itself are not affiliated with 
   - [AUSTAR Fit](https://www.austar-hearing.net/Fitting+Software) and older software can be found [here](https://www.austar-hearing.com/soft-40.html) or [here](https://soft.austar-hearing.com:4431/software-center/#/)
   - [NewSound Fit](https://www.newsound.cn/软件下载)
   - [Persona Medical ProFit](https://personamedical.com/downloads/)
+- Widex lunched a new cloud-based fitting software, [Compass Cloud](https://www.widexpro.com/en/business-support/compass-cloud/), for its new hearing aids using Allure platform. Cloud-based software usually updates only at the server (cloud) side.
 
 Note: these software WILL NOT be included in The Checker.
 
