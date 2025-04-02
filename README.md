@@ -48,7 +48,7 @@ This project currently supports:
 - Starkey
   - Starkey [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
   - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
-  - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com)
+  - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com) (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/5#issue-2966022558) for more information and follow up.)
 - [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
