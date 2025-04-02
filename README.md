@@ -94,7 +94,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
-### Pre-Release (work-in-progress)
+### v2025.04.02
 - Starkey: detailed message if no update available
 - Starkey: add checker for PatientBase in the Extra Menu
 - Sonic: `ExpressFit` should be `ExpressFit Pro`

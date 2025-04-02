@@ -172,7 +172,7 @@
 - Starkey: move Inspire OS Checker into Extra Menu
 - Oticon: add checker for Genie 2 2025+ and move previous checker (for 2024+) into Extra Menu
 
-### Pre-Release (work-in-progress)
+### v2025.04.02
 - Starkey: detailed message if no update available
 - Starkey: add checker for PatientBase in the Extra Menu
 - Sonic: `ExpressFit` should be `ExpressFit Pro`
