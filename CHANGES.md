@@ -174,5 +174,6 @@
 
 ### Pre-Release (work-in-progress)
 - Starkey: detailed message if no update available
+- Starkey: add checker for PatientBase in the Extra Menu
 - Sonic: `ExpressFit` should be `ExpressFit Pro`
 - Documents improved

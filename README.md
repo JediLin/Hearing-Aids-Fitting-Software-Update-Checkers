@@ -48,6 +48,7 @@ This project currently supports:
 - Starkey
   - Starkey [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
   - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
+  - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com)
 - [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
@@ -92,6 +93,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ## Changelog
 ### Pre-Release (work-in-progress)
 - Starkey: detailed message if no update available
+- Starkey: add checker for PatientBase in the Extra Menu
 - Sonic: `ExpressFit` should be `ExpressFit Pro`
 - Documents improved
 
@@ -282,7 +284,6 @@ The contributors of The Checker, and The Checker itself are not affiliated with 
 ## Appendix
 - Check our [Wiki](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki)!
 - Modern hearing aids fitting software usually works with Noahlink Wireless or Noahlink Wireless 2 devices. Please check their device driver and firmware update manually at https://www.himsa.com/himsa_download/noahlink-wireless-downloads/
-- Starkey fitting software (Pro Fit or Inspire OS) needs [PatientBase](https://patientbase.starkeyhearingtechnologies.com) to work with. Please check manually at https://patientbase.starkeyhearingtechnologies.com
 - Some less common hearing aids software can be checked via their official websites:
   - [Audina ezFIT](https://www.audina.net/en/professional/software)
   - [AUSTAR Fit](https://www.austar-hearing.net/Fitting+Software) and older software can be found [here](https://www.austar-hearing.com/soft-40.html) or [here](https://soft.austar-hearing.com:4431/software-center/#/)
