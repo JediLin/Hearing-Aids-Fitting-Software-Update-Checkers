@@ -48,7 +48,10 @@ This project currently supports:
 - Starkey
   - Starkey [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
   - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
-  - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com) (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/5#issue-2966022558) for more information and follow up.)
+  - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com) (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/5) for more information and follow up.)
+- HIMSA
+  - [Noahlink Wireless](https://www.himsa.com/products/noahlink-wireless-2/) Driver (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
+  - [Noahlink Wireless](https://www.himsa.com/products/noahlink-wireless-2/) Firmware Upgrader (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
 - [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
@@ -95,6 +98,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Starkey: detailed message if no update available
 - Starkey: add checker for PatientBase in the Extra Menu
 - Sonic: `ExpressFit` should be `ExpressFit Pro`
+- HIMSA: add checker for driver and firmware upgrader in the Extra Menu
 - Documents improved
 
 ### v2025.03.04

@@ -176,4 +176,5 @@
 - Starkey: detailed message if no update available
 - Starkey: add checker for PatientBase in the Extra Menu
 - Sonic: `ExpressFit` should be `ExpressFit Pro`
+- HIMSA: add checker for driver and firmware upgrader in the Extra Menu
 - Documents improved
