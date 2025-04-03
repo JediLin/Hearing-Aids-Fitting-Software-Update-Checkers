@@ -49,9 +49,9 @@ This project currently supports:
   - Starkey [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
   - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
   - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com) (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/5) for more information and follow up.)
-- HIMSA
-  - [Noahlink Wireless](https://www.himsa.com/products/noahlink-wireless-2/) Driver (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
-  - [Noahlink Wireless](https://www.himsa.com/products/noahlink-wireless-2/) Firmware Upgrader (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
+- HIMSA: [Noahlink Wireless 2 (NW2)](https://www.himsa.com/products/noahlink-wireless-2/) and [Noahlink Wireless (NW1)](https://www.himsa.com/products/noahlink-wireless/)
+  - Driver (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
+  - Firmware Upgrader (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
 - [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
