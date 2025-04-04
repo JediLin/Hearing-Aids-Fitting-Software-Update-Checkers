@@ -95,6 +95,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### v2025.04.02
+- HIMSA: update Noahlink Wireless firmware upgrader to v3.3.0.0
+
+### v2025.04.02
 - Starkey: detailed message if no update available
 - Starkey: add checker for PatientBase in the Extra Menu
 - Sonic: `ExpressFit` should be `ExpressFit Pro`

@@ -178,3 +178,6 @@
 - Sonic: `ExpressFit` should be `ExpressFit Pro`
 - HIMSA: add checker for driver and firmware upgrader in the Extra Menu
 - Documents improved
+
+### v2025.04.02
+- HIMSA: update Noahlink Wireless firmware upgrader to v3.3.0.0

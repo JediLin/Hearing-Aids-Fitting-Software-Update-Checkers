@@ -28,7 +28,7 @@ import os
 ###
 
 #downloaderVersion = "Pre-release"
-downloaderVersion = "v2025.04.02"
+downloaderVersion = "v2025.04.04"
 updaterRetries = 3
 verboseDebug = False
 
