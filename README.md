@@ -1,7 +1,7 @@
 # Hearing Aids Fitting Software Update Checkers
-![All releases downloads](https://img.shields.io/github/downloads/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/total?style=for-the-badge)
-![Latest release](https://img.shields.io/github/v/release/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers?label=LATEST%20RELEASE&style=for-the-badge)
-![Latest release downloads)](https://img.shields.io/github/downloads/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/latest/total?style=for-the-badge)
+![Total downloads](https://img.shields.io/github/downloads/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/total?label=Total%20downloads&style=for-the-badge)
+![Latest release](https://img.shields.io/github/v/release/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers?label=Latest%20release&style=for-the-badge)
+![Latest release downloads)](https://img.shields.io/github/downloads/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/latest/total?label=Latest%20release%20downloads&style=for-the-badge)
 <br/>
 ![Commits since tagged version](https://img.shields.io/github/commits-since/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/latest?style=for-the-badge)
 ![Last commit](https://img.shields.io/github/last-commit/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers?style=for-the-badge)
