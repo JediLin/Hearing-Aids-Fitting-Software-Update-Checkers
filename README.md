@@ -1,4 +1,6 @@
 # Hearing Aids Fitting Software Update Checkers
+A collection of scripts which check hearing aids fitting software directly from their own update servers.
+
 ![Total downloads](https://img.shields.io/github/downloads/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/total?label=Total%20downloads&style=for-the-badge)
 ![Latest release](https://img.shields.io/github/v/release/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers?label=Latest%20release&style=for-the-badge)
 ![Latest release downloads)](https://img.shields.io/github/downloads/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/latest/total?label=Latest%20release%20downloads&style=for-the-badge)
@@ -6,8 +8,6 @@
 ![Commits since tagged version](https://img.shields.io/github/commits-since/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/latest?style=for-the-badge)
 ![Last commit](https://img.shields.io/github/last-commit/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers?style=for-the-badge)
 ![Open issues](https://img.shields.io/github/issues/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers?style=for-the-badge)
-
-A collection of scripts which check hearing aids fitting software directly from their own update servers.
 
 ## What does it do?
 This project (\"The Checker\") contains scripts which can check hearing aids fitting software (such as Phonak Target) directly from each own update servers with APIs, so that you can easily know if there is a newer version available, and check corresponding files.
