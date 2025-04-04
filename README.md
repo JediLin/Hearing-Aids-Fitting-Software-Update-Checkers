@@ -94,7 +94,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
-### v2025.04.02
+### v2025.04.04
 - HIMSA: update Noahlink Wireless firmware upgrader to v3.3.0.0
 
 ### v2025.04.02
