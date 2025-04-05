@@ -181,3 +181,8 @@
 
 ### v2025.04.04
 - HIMSA: update Noahlink Wireless firmware upgrader to v3.3.0.0
+
+### v2025.04.05
+- Rexton: fix Connexx checker for v9.13.0.1436 by changing target market
+- Audio Service: fix Connexx checker for v9.13.0.1420 by changing target market
+- Signia/Rexton/Audio Service/A&M: script tweak for easy changing target market and base version
