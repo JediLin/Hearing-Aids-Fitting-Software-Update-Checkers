@@ -50,7 +50,11 @@ xmlns = "{http://cocoon.phonak.com}" # Define the xmlns
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
-        xmlData = requests.get("https://svc.myunitron.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=HANSATON%20scout&appVer=5.1.0.26954&dist=Balance&country=GB&subKeys=").text # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
+        # checker variables, may effect the latest version available from API
+        # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
+        targetMarket = "GB"
+        baseVer="5.1.0.26954"
+        xmlData = requests.get("https://svc.myunitron.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=HANSATON%20scout&appVer=" + baseVer + "&dist=Balance&country=" + targetMarket + "&subKeys=").text
         data = xml.fromstring(xmlData)
         break
     except:

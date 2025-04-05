@@ -49,15 +49,22 @@ xmlns = "{http://cocoon.phonak.com}" # Define the xmlns
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
-        hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=6.0.1.695&dist=Phonak&country=GB&subKeys=").text # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
+        # checker variables, may effect the latest version available from API
+        # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
+        targetMarket = "GB"
+        targetMarketFallback = "US"
+        hostBaseVer="6.0.1.695"
+        baseVer = "0.0.0.0"
+        hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
         hostData = xml.fromstring(hostXmlData)
         hostAppVer = hostData[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-        xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=0.0.0.0;" + hostAppVer + "&dist=Phonak&country=GB&subKeys=").text # Request the updater API with the latest version number of Phonak Target
+        # Request the updater API with the latest version number of Phonak Target
+        xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
         if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
-            hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=6.0.1.695&dist=Phonak&country=US&subKeys=").text # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
+            hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarketFallback + "&subKeys=").text
             hostData = xml.fromstring(hostXmlData)
             hostAppVer = hostData[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-            xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=0.0.0.0;" + hostAppVer + "&dist=Phonak&country=US&subKeys=").text # Request the updater API with the latest version number of Phonak Target
+            xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarketFallback + "&subKeys=").text
         data = xml.fromstring(xmlData)
         break
     except:

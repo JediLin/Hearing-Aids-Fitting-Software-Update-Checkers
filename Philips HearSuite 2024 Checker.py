@@ -51,11 +51,22 @@ headers = {
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
+        # checker variables, may effect the latest version available from API
         # Download version data, pretending installed HearSuite2 v20.22.95.0 with PhilipsHearSuiteUpdater v26.9.3.0
-        # This is required to get update for newer (2024+) versions.
+        # This is required to get update for newer (2024.2+) versions.
         # Software names set by b:Name
         # Version numbers set by b:Major . b:Minor . b:Build . b:Revision
-        rawXmlData = requests.post("https://updater.sbohearing.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.sbohearing.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Customer>Philips</b:Customer><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale i:nil="true"/><b:Manufacturer>Philips HearSuite</b:Manufacturer><b:Market>Default</b:Market><b:OEM i:nil="true"/><b:OS>Microsoft Windows NT 10.0.22621.0</b:OS><b:RequestVersion>2</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>95</b:Build><b:Major>20</b:Major><b:Minor>22</b:Minor><b:Name>HearSuite2</b:Name><b:Revision>0</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>3</b:Build><b:Major>26</b:Major><b:Minor>9</b:Minor><b:Name>PhilipsHearSuiteUpdater</b:Name><b:Revision>0</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
+        osVer = "Microsoft Windows NT 10.0.22621.0"
+        targetMarket = "Default"
+        baseVerMajor = "20"
+        baseVerMinor = "22"
+        baseVerBuild = "95"
+        baseVerRev = "0"
+        updrVerMajor = "26"
+        updrVerMinor = "9"
+        updrVerBuild = "3"
+        updrVerRev = "0"
+        rawXmlData = requests.post("https://updater.sbohearing.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.sbohearing.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Customer>Philips</b:Customer><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale i:nil="true"/><b:Manufacturer>Philips HearSuite</b:Manufacturer><b:Market>' + targetMarket + '</b:Market><b:OEM i:nil="true"/><b:OS>' + osVer + '</b:OS><b:RequestVersion>2</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>' + baseVerBuild + '</b:Build><b:Major>' + baseVerMajor + '</b:Major><b:Minor>' + baseVerMinor + '</b:Minor><b:Name>HearSuite2</b:Name><b:Revision>' + baseVerRev + '</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>' + updrVerBuild + '</b:Build><b:Major>' + updrVerMajor + '</b:Major><b:Minor>' + updrVerMinor + '</b:Minor><b:Name>PhilipsHearSuiteUpdater</b:Name><b:Revision>' + updrVerRev + '</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
         data = xml.fromstring(html.unescape(rawXmlData.text))
         break
     except Exception as e:

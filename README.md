@@ -94,6 +94,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
+### Pre-release (work-in-progress)
+- Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips: script tweak for easy changing target market and base version
+
 ### v2025.04.05
 - Rexton: fix Connexx checker for v9.13.0.1436 by changing target market
 - Audio Service: fix Connexx checker for v9.13.0.1420 by changing target market
