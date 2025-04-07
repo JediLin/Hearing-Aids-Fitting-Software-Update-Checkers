@@ -83,7 +83,12 @@ if (updaterRetries == 0):
     exit(1)
 
 # Get latest version number (Gets full version from xml and removes the fourth version number as that is not used in files)
-latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
+if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Unitron TrueFit version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
+    exit(1)
+else:
+    latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
+
 print("\n\nThe latest available Unitron TrueFit version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + "\n\n")
 
 # List of versions

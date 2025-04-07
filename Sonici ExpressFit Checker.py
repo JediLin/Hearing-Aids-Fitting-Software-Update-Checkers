@@ -93,6 +93,10 @@ while updaterRetries > 0:
 if (updaterRetries == 0):
     print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
+
+if (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdateResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><CheckForUpdateResponse xmlns="http://tempuri.org/"><CheckForUpdateResult/></CheckForUpdateResponse></s:Body></s:Envelope>'):
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
+    exit(1)
     
 packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
 filesToDownload = []

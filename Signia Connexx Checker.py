@@ -91,6 +91,10 @@ if (updaterRetries == 0):
 if (libhearingdownloader.verboseDebug):
     print(rawXmlData.text)
 
+if (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateManagerService/GetPackagesResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><GetPackagesResponse xmlns="http://tempuri.org/"><GetPackagesResult xmlns:b="http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></GetPackagesResponse></s:Body></s:Envelope>'):
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Signia Connexx version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
+    exit(1)
+
 # Define XMLNS (the main one)
 packageXMLNS = '{http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS}'
 availableFiles = [] # List of available files
