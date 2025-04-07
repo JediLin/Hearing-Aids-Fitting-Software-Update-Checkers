@@ -45,6 +45,20 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Please change geoIP country/region to match your IP address. The update server may check it.
+defaultGeoIP = "Taiwan"
+inputGeoIP = input("\nPlease enter " + Fore.GREEN + "the country name of your current location" + Style.RESET_ALL + " for Starkey API server to check [default: " + Fore.YELLOW + defaultGeoIP + Style.RESET_ALL + "]: ")
+if (inputGeoIP == ""):
+    geoIP = defaultGeoIP
+    print("\nChecking with " + Fore.GREEN + geoIP + Style.RESET_ALL + "...")
+else:
+    if inputGeoIP.replace(" ", "").replace(".", "").replace("'", "").isalpha():
+        geoIP = inputGeoIP
+        print("\nChecking with " + Fore.GREEN + geoIP + Style.RESET_ALL + "...")
+    else:
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Unable to process the country name. Using " + Fore.GREEN + defaultGeoIP + Style.RESET_ALL + " instead...")
+        geoIP = defaultGeoIP
+
 # Starkey updater API will check system time...
 currentTime = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(hours=8))).strftime('%m/%d/%Y %H:%M:%S')
 headers = {
@@ -55,8 +69,6 @@ updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
         postUrl = 'https://inspireupdater.com/api/Update'
-        # Please change geoIP country/region to match your IP address. The update server may check it.
-        geoIP = 'Taiwan'
         # Download version data, pretending installed ProFit v2.0.10074.0
         baseVer = '2.0.10074.0'
         rawPostData = '{"ClientID":"00000000-0000-0000-0000-000000000000","ClientID2":"00000000-0000-0000-0000-000000000000+0000000000000000000","Application":"ProFit","ApplicationProperties":[{"Name":"Version","TypeName":"System.String","Value":"' + baseVer + '"},{"Name":"manufacturer","TypeName":"System.String","Value":"Starkey"},{"Name":"targetAudience","TypeName":"System.String","Value":"Starkey International English"},{"Name":"locale","TypeName":"System.String","Value":"en"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"MachineName","TypeName":"System.String","Value":"0000"},{"Name":"Time","TypeName":"System.DateTime","Value":"' + currentTime + '"}],"TestMode":false}'

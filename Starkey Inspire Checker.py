@@ -45,6 +45,20 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Please change geoIP country/region to match your IP address. The update server may check it.
+defaultGeoIP = "Taiwan"
+inputGeoIP = input("\nPlease enter " + Fore.GREEN + "the country name of your current location" + Style.RESET_ALL + " for Starkey API server to check [default: " + Fore.YELLOW + defaultGeoIP + Style.RESET_ALL + "]: ")
+if (inputGeoIP == ""):
+    geoIP = defaultGeoIP
+    print("\nChecking with " + Fore.GREEN + geoIP + Style.RESET_ALL + "...")
+else:
+    if inputGeoIP.replace(" ", "").replace(".", "").replace("'", "").isalpha():
+        geoIP = inputGeoIP
+        print("\nChecking with " + Fore.GREEN + geoIP + Style.RESET_ALL + "...")
+    else:
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Unable to process the country name. Using " + Fore.GREEN + defaultGeoIP + Style.RESET_ALL + " instead...")
+        geoIP = defaultGeoIP
+
 # Starkey updater API will check system time...
 currentTime = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(hours=8))).strftime('%m/%d/%Y %H:%M:%S')
 headers = {
@@ -61,8 +75,6 @@ while updaterRetries > 0:
         # Windows 11: 'Microsoft Windows NT 10.0.22631.0'
         # Use [Environment]::OSVersion.VersionString under PowerShell to get the full version string.
         baseOS = 'Microsoft Windows NT 10.0.19045.0'
-        # Please change geoIP country/region to match your IP address. The update server may check it.
-        geoIP = 'Taiwan'
         # Download version data, pretending installed Inspire OS v27.0.10074.0
         baseVer = '27.0.10074.0'
         rawPostData = '{"ClientID":"00000000-0000-0000-0000-000000000000","ClientID2":"00000000-0000-0000-0000-000000000000+0000000000000000000","Application":"Inspire OS","ApplicationProperties":[{"Name":"Version","TypeName":"System.Version","Value":"' + baseVer + '"},{"Name":"manufacturer","TypeName":"System.String","Value":"Starkey"},{"Name":"targetAudience","TypeName":"System.String","Value":"Starkey International English"},{"Name":"locale","TypeName":"System.String","Value":"en"},{"Name":"BillToAccountNumber","TypeName":"System.String","Value":"unknown"},{"Name":"ShipToAccountNumber","TypeName":"System.String","Value":"unknown"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"MachineName","TypeName":"System.String","Value":"0000"},{"Name":"OSVersion","TypeName":"System.String","Value":"' + baseOS + '"},{"Name":"OSBitWidth","TypeName":"System.Byte","Value":"64"},{"Name":"Time","TypeName":"System.DateTime","Value":"' + currentTime + '"}],"TestMode":false}'

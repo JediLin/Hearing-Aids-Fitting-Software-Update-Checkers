@@ -97,6 +97,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ### Pre-release (work-in-progress)
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips: script tweak for easy changing target market and base version
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips/Signia/Rexton/Audio Service/A&M: prompt target market (country) code before checking
+- Starkey: prompt current location (country name) before checking
 
 ### v2025.04.05
 - Rexton: fix Connexx checker for v9.13.0.1436 by changing target market

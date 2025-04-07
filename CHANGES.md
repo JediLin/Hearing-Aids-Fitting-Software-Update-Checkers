@@ -190,3 +190,4 @@
 ### Pre-release (work-in-progress)
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips: script tweak for easy changing target market and base version
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips/Signia/Rexton/Audio Service/A&M: prompt target market (country) code before checking
+- Starkey: prompt current location (country name) before checking
