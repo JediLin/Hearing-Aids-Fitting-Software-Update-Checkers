@@ -187,7 +187,7 @@
 - Audio Service: fix Connexx checker for v9.13.0.1420 by changing target market
 - Signia/Rexton/Audio Service/A&M: script tweak for easy changing target market and base version
 
-### Pre-release (work-in-progress)
+### v2025.04.07
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips: script tweak for easy changing target market and base version
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips/Signia/Rexton/Audio Service/A&M: prompt target market (country) code before checking
 - Starkey: prompt current location (country name) before checking
