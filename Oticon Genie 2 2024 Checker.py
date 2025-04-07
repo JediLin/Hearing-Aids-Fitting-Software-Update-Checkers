@@ -44,6 +44,24 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Target market input
+defaultMarket = "GB"
+inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
+if (inputMarket == ""):
+    targetMarket = defaultMarket
+    print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+else:
+    if inputMarket.isalpha():
+        if (len(inputMarket) == 2):
+            targetMarket = inputMarket.upper()
+            print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+        else:
+            print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+            targetMarket = defaultMarket
+    else:
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+        targetMarket = defaultMarket
+
 print ("\n\nDownloading version index...")
 headers = {
     "Content-Type": "application/soap+xml; charset=utf-8"
@@ -58,7 +76,6 @@ while updaterRetries > 0:
         # Software names set by b:Name
         # Version numbers set by b:Major . b:Minor . b:Build . b:Revision
         osVer = "Microsoft Windows NT 10.0.22621.0"
-        targetMarket = "GB"
         baseVerMajor = "16"
         baseVerMinor = "26"
         baseVerBuild = "47"
@@ -101,7 +118,7 @@ validVersions = [
     ("Genie 2 2022.1.0", "The latest(ish) Genie 2 2022.1.0 Installer (OFFLINE INSTALLER, from the website)", "https://installcdn.oticon.com/full/22.1/15.19.13.0/OTG22_1237118OT_USB.zip"),
     ("Genie 2 2020.1", "The Genie 2 2020.1 Installer (OFFLINE INSTALLER)", "https://installcdn.oticon.com/full/20.1/9.3.116.0/OTG20_1214671OT_USB.zip")
 ]
-print("\n\nThe latest available version is " + Fore.GREEN + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + Style.RESET_ALL + "\n\n")
+print("\n\nThe latest available version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()

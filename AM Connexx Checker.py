@@ -45,6 +45,23 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Target market input
+defaultMarket = "TW"
+inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
+if (inputMarket == ""):
+    targetMarket = defaultMarket
+    print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+else:
+    if inputMarket.isalpha():
+        if (len(inputMarket) == 2):
+            targetMarket = inputMarket.upper()
+            print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+        else:
+            print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+            targetMarket = defaultMarket
+    else:
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+        targetMarket = defaultMarket
 
 # Special headers for the siavantos updater API
 headers = {
@@ -56,7 +73,6 @@ updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
         # checker variables, may effect the latest version available from API
-        targetMarket = "TW"
         baseVer = "9.9.1.989"
         supVer = "9.12.3.281"
         upmVer = "19.12.3.281"
@@ -87,7 +103,7 @@ for child in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").fin
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
 
-print("\n\nThe latest available A&M Connexx version is " + Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + "\n\n")
+print("\n\nThe latest available A&M Connexx version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetFile
 outputDir = libhearingdownloader.selectOutputFolder()

@@ -43,6 +43,24 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Target market input
+defaultMarket = "GB"
+inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
+if (inputMarket == ""):
+    targetMarket = defaultMarket
+    print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+else:
+    if inputMarket.isalpha():
+        if (len(inputMarket) == 2):
+            targetMarket = inputMarket.upper()
+            print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+        else:
+            print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+            targetMarket = defaultMarket
+    else:
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+        targetMarket = defaultMarket
+
 print("\n\nFetching Data...")
 # Yh that's right, Phonak namespace...
 xmlns = "{http://cocoon.phonak.com}" # Define the xmlns
@@ -52,7 +70,6 @@ while updaterRetries > 0:
     try:
         # checker variables, may effect the latest version available from API
         # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
-        targetMarket = "GB"
         baseVer="5.1.0.26954"
         xmlData = requests.get("https://svc.myunitron.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=HANSATON%20scout&appVer=" + baseVer + "&dist=Balance&country=" + targetMarket + "&subKeys=").text
         data = xml.fromstring(xmlData)
@@ -67,7 +84,7 @@ if (updaterRetries == 0):
 
 # Get latest version number (Gets full version from xml and removes the fourth version number as that is not used in files)
 latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
-print("\n\nThe latest available HANSATON scout version is " + Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + "\n\n")
+print("\n\nThe latest available HANSATON scout version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + "\n\n")
 
 # List of versions
 validVersions = [

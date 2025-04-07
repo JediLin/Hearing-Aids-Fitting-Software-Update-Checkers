@@ -45,6 +45,24 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Target market input
+defaultMarket = "Default"
+inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
+if (inputMarket == ""):
+    targetMarket = defaultMarket
+    print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+else:
+    if inputMarket.isalpha():
+        if (len(inputMarket) == 2):
+            targetMarket = inputMarket.upper()
+            print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+        else:
+            print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+            targetMarket = defaultMarket
+    else:
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+        targetMarket = defaultMarket
+
 print ("\n\nDownloading version index...")
 headers = {
 #    "Host": "updater.bernafon.com",
@@ -56,7 +74,6 @@ while updaterRetries > 0:
     try:
         # checker variables, may effect the latest version available from API
         osVer = "Microsoft Windows NT 10.0.22621.0"
-        targetMarket = "Default"
         baseVerMajor = "15"
         baseVerMinor = "26"
         baseVerBuild = "47"
@@ -99,7 +116,7 @@ validVersions = [
     (data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest SONIC EXPRESSFIT Installer (OFFLINE) (from the updater)"),
     (data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest SONIC EXPRESSFIT Installer (ONLINE) (from the updater)"),
 ]
-print("\n\nThe latest available version is " + Fore.GREEN + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + Style.RESET_ALL + "\n\n")
+print("\n\nThe latest available version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + Style.RESET_ALL + "\n\n")
 
 if (libhearingdownloader.verboseDebug):
     print(filesToDownload)
