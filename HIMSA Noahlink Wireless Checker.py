@@ -44,17 +44,27 @@ if not turboFile.is_file():
 
 # Get HIMSA Noahlink Wireless Download update using 3rd party web service (PolitePol)
 newsfeed = feedparser.parse('https://politepol.com/fd/smVib0t95riP')
-link0 = newsfeed.entries[0].link
-filename0 = os.path.basename(urlparse(link0).path)
-link1 = newsfeed.entries[1].link
-filename1 = os.path.basename(urlparse(link1).path)
+if(newsfeed.feed == {}):
+    title0 = "NOT FOUND"
+    link0 = ""
+    filename0 = "--"
+    title1 = title0
+    link1 = link0
+    filename1 = filename0
+else:
+    title0 = newsfeed.entries[0].title
+    link0 = newsfeed.entries[0].link
+    filename0 = os.path.basename(urlparse(link0).path)
+    title1 = newsfeed.entries[1].title
+    link1 = newsfeed.entries[1].link
+    filename1 = os.path.basename(urlparse(link1).path)
 
 # Define list of valid versions and their download links
 validVersions = [
     ("Current Downloads", "--"),
     ("=================", "--"),
-    (newsfeed.entries[0].title, filename0, newsfeed.entries[0].link),
-    (newsfeed.entries[1].title, filename1, newsfeed.entries[1].link),
+    (title0, filename0, link0),
+    (title1, filename1, link1),
     (" ", "--"),
     ("Archived Downloads", "--"),
     ("==================", "--"),
@@ -63,7 +73,10 @@ validVersions = [
     ("Noahlink Wireless Firmware v3.1.0.92", "v2.25 (NW1) / v3.17 (NW2) (May 2024)", "https://himsafiles.com/NoahlinkWireless/NLWUpgrader_3.1.0.92.exe"),
     ("Noahlink Wireless Firmware v2.24", "v2.24 (NW1 only)", "https://himsafiles.com/NoahlinkWireless/NLWUpgrader2.24.exe"),
 ]
-print("\n\nThe latest available version is " + Fore.GREEN + newsfeed.entries[0].title + Style.RESET_ALL + " / " + Fore.GREEN + newsfeed.entries[1].title + Style.RESET_ALL + "\n\n")
+if(newsfeed.feed == {}):
+    print("\n\nThe latest available version is " + Fore.GREEN + "Firmware v3.3.0.0" + Style.RESET_ALL + " / " + Fore.GREEN + "Driver v1.1.0.0" + Style.RESET_ALL + "\n\n")
+else:
+    print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + " / " + Fore.GREEN + title1 + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
