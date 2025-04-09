@@ -1,5 +1,6 @@
 importlib-metadata
 requests
+feedparser
 tqdm
 rot-codec
 colorama
