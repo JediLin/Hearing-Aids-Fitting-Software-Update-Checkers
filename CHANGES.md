@@ -192,7 +192,7 @@
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips/Signia/Rexton/Audio Service/A&M: prompt target market (country) code before checking
 - Starkey: prompt current location (country name) before checking
 
-### Pre-release (work-in-progress)
+### v2025.04.09
 - HIMSA: check actual update via 3rd-party web service
 - Starkey: check latest version of PatientBase from official webpage
 - Starkey: auto-detect country name of current geolocation

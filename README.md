@@ -94,7 +94,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
-### Pre-release (work-in-progress)
+### v2025.04.09
 - HIMSA: check actual update via 3rd-party web service
 - Starkey: check latest version of PatientBase from official webpage
 - Starkey: auto-detect country name of current geolocation
