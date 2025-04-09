@@ -193,4 +193,5 @@
 - Starkey: prompt current location (country name) before checking
 
 ### Pre-release (work-in-progress)
-- HIMSA: checking actual update via 3rd-party web service
+- HIMSA: check actual update via 3rd-party web service
+- Starkey: check latest version of PatientBase from official webpage

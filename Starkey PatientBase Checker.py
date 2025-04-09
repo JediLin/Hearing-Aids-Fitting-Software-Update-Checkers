@@ -3,6 +3,10 @@
 #                   Copyright Bluebotlabz                   #
 #                                                           #
 #############################################################
+import os
+import requests
+import lxml.html
+from urllib.parse import urlparse
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
@@ -39,16 +43,26 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Get PatientBase update from the webpage
+dom = lxml.html.fromstring(requests.get('https://patientbase.starkeyhearingtechnologies.com').content)
+hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
+filename0 = os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ')
 
 # Define list of valid versions and their download links (direct from CDN)
 # sadly az493319.vo.msecnd.net is no longer available...
 validVersions = [
+    ("Current Downloads", "--"),
+    ("=================", "--"),
+    ("PatientBase (Latest Version)", filename0, hrefs[0].replace('%20', ' ')),
+    (" ", "--"),
+    ("Archived Downloads", "--"),
+    ("==================", "--"),
     ("PatientBase 28.0.10003.0", "for Pro Fit 1.0+ and Inspire 2023.1+", "https://softwaredownload.starkey.com/PatientBase/PatientBase Setup 28.0.10003.0.exe"),
 #     ("PatientBase 26.0.10014.0", "for Inspire 2022.1 - 2023.0", "https://az493319.vo.msecnd.net/install/PatientBase Setup 26.0.10014.0.exe"),
 #     ("PatientBase 24.0.10102.0", "for Inspire 2021.0 - 2022.0", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
 #     ("PatientBase 15.0.386.0", "for Inspire 2016 - 2020", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
 ]
-print("\n\nThe latest available version is " + Fore.GREEN + "PatientBase 28.0.10003.0" + Style.RESET_ALL + "\n\n")
+print("\n\nThe latest available version is " + Fore.GREEN + filename0 + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()

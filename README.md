@@ -48,7 +48,7 @@ This project currently supports:
 - Starkey
   - Starkey [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
   - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
-  - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com) (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/5) for more information and follow up.)
+  - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com)
 - HIMSA: [Noahlink Wireless 2 (NW2)](https://www.himsa.com/products/noahlink-wireless-2/) and [Noahlink Wireless (NW1)](https://www.himsa.com/products/noahlink-wireless/)
   - Driver (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
   - Firmware Upgrader (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
@@ -95,7 +95,8 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### Pre-release (work-in-progress)
-- HIMSA: checking actual update via 3rd-party web service
+- HIMSA: check actual update via 3rd-party web service
+- Starkey: check latest version of PatientBase from official webpage
 
 ### v2025.04.07
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips: script tweak for easy changing target market and base version
