@@ -195,3 +195,4 @@
 ### Pre-release (work-in-progress)
 - HIMSA: check actual update via 3rd-party web service
 - Starkey: check latest version of PatientBase from official webpage
+- Starkey: auto-detect country name of current geolocation

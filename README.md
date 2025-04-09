@@ -97,6 +97,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ### Pre-release (work-in-progress)
 - HIMSA: check actual update via 3rd-party web service
 - Starkey: check latest version of PatientBase from official webpage
+- Starkey: auto-detect country name of current geolocation
 
 ### v2025.04.07
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips: script tweak for easy changing target market and base version

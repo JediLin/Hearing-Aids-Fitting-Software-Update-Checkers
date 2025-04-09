@@ -9,6 +9,7 @@ import html
 import ast
 import json
 import requests
+from iso3166 import countries
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
@@ -45,8 +46,40 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# get current country name
+def getIP():
+    ipEndpoint = 'https://ipinfo.io/json'
+    ipResponse = requests.get(ipEndpoint, verify = True)
+    if ipResponse.status_code != 200:
+        exit()
+    ipData = ipResponse.json()
+    return ipData['ip']
+
+def getCN(ip):
+    cnEndpoint = f'https://ipinfo.io/{ip}/json'
+    cnResponse = requests.get(cnEndpoint, verify = True)
+    if cnResponse.status_code != 200:
+        exit()
+    cnData = cnResponse.json()
+    return cnData['country']
+
+currentIP = ""
+currentCountry = ""
+currentIP = getIP()
+if(currentIP == ""):
+    currentCountry = "US"
+else:
+    currentCountry = getCN(currentIP)
+
+if(currentCountry == ""):
+    currentCountry = "US"
+else:
+    pass
+
+currentCountry_name = countries.get(currentCountry)
+
 # Please change geoIP country/region to match your IP address. The update server may check it.
-defaultGeoIP = "Taiwan"
+defaultGeoIP = currentCountry_name.apolitical_name
 inputGeoIP = input("\nPlease enter " + Fore.GREEN + "the country name of your current location" + Style.RESET_ALL + " for Starkey API server to check [default: " + Fore.YELLOW + defaultGeoIP + Style.RESET_ALL + "]: ")
 if (inputGeoIP == ""):
     geoIP = defaultGeoIP
