@@ -44,20 +44,28 @@ if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
 # Get PatientBase update from the webpage
-dom = lxml.html.fromstring(requests.get('https://patientbase.starkeyhearingtechnologies.com').content)
-hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
-filename0 = os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ')
+pbURI = "https://patientbase.starkeyhearingtechnologies.com"
+fallbackDownload = "https://softwaredownload.starkey.com/PatientBase/PatientBase Setup 28.0.10003.0.exe"
+try:
+    test = requests.get(pbURI)
+    dom = lxml.html.fromstring(requests.get(pbURI).content)
+    hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
+    filename0 = os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ')
+    link0 = hrefs[0].replace('%20', ' ')
+except:
+    filename0 = "NOT FOUND"
+    link0 = fallbackDownload
 
 # Define list of valid versions and their download links (direct from CDN)
 # sadly az493319.vo.msecnd.net is no longer available...
 validVersions = [
     ("Current Downloads", "--"),
     ("=================", "--"),
-    ("PatientBase (Latest Version)", filename0, hrefs[0].replace('%20', ' ')),
+    ("PatientBase (Latest Version)", filename0, link0),
     (" ", "--"),
     ("Archived Downloads", "--"),
     ("==================", "--"),
-    ("PatientBase 28.0.10003.0", "for Pro Fit 1.0+ and Inspire 2023.1+", "https://softwaredownload.starkey.com/PatientBase/PatientBase Setup 28.0.10003.0.exe"),
+    ("PatientBase 28.0.10003.0", "for Pro Fit 1.0+ and Inspire 2023.1+", fallbackDownload),
 #     ("PatientBase 26.0.10014.0", "for Inspire 2022.1 - 2023.0", "https://az493319.vo.msecnd.net/install/PatientBase Setup 26.0.10014.0.exe"),
 #     ("PatientBase 24.0.10102.0", "for Inspire 2021.0 - 2022.0", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
 #     ("PatientBase 15.0.386.0", "for Inspire 2016 - 2020", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
