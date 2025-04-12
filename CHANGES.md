@@ -156,13 +156,13 @@
 - Messages tweak
 
 ### v2024.12.22
-- Phonak: fix Target checker for v10.0.1
+- Phonak: fix Target checker for v10.0.1 [[issue 2](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/2) closed]
 - Phonak: failsafe for Target Media checker
 - Document (README) update
 
 ### v2025.01.28
-- Extra Menu: option to check Custom version of Bernafon OasisNXT for private label variations such as `Delight`, `ProAkustik`, `Lisound`, `Specsavers`, `Meditrend`, `GPL`, `Maico`, `Audilab`, `RITM`, `Hoerex`, and `Sonic`
-- Audio Service: fix Connexx checker for v9.12.0.1550
+- Extra Menu: option to check Custom version of Bernafon OasisNXT for private label variations such as `Delight`, `ProAkustik`, `Lisound`, `Specsavers`, `Meditrend`, `GPL`, `Maico`, `Audilab`, `RITM`, `Hoerex`, and `Sonic` [[issue 3](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/3) closed]
+- Audio Service: fix Connexx checker for v9.12.0.1550 [[issue 4](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/4) closed]
 
 ### v2025.01.29
 - Windows: using code page 65001 (UTF-8)
@@ -193,6 +193,6 @@
 - Starkey: prompt current location (country name) before checking
 
 ### v2025.04.09
-- HIMSA: check actual update via 3rd-party web service
-- Starkey: check latest version of PatientBase from official webpage
+- Starkey: check latest version of PatientBase from official webpage [[issue 5](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/5) closed]
+- HIMSA: check actual update via 3rd-party web service [[issue 6](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6) closed]
 - Starkey: auto-detect country name of current geolocation
