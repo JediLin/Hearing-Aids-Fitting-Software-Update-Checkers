@@ -7,6 +7,7 @@ import requests
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
+from iso3166 import countries
 import libhearingdownloader
 import xml.etree.ElementTree as xml
 
@@ -43,6 +44,20 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Target market input
+defaultMarket = "GB"
+inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
+if (inputMarket == ""):
+    targetMarket = defaultMarket
+    print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+else:
+    try:
+        targetMarket = countries.get(inputMarket).alpha2
+        print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+    except:
+        targetMarket = defaultMarket
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+
 print("\n\nFetching Data...")
 xmlns = "{http://cocoon.phonak.com}" # Define the xmlns
 
@@ -51,7 +66,6 @@ while updaterRetries > 0:
     try:
         # checker variables, may effect the latest version available from API
         # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
-        targetMarket = "GB"
         targetMarketFallback = "US"
         hostBaseVer="6.0.1.695"
         baseVer = "0.0.0.0"
@@ -61,10 +75,15 @@ while updaterRetries > 0:
         # Request the updater API with the latest version number of Phonak Target
         xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/SoundsInstaller/index?appName=Target%20Sounds&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
         if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
-            hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarketFallback + "&subKeys=").text
+            print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Sounds version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\nNow checking again for " + Fore.GREEN + targetMarketFallback + Style.RESET_ALL + " market...\n\n")
+            targetMarket = targetMarketFallback
+            hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
             hostData = xml.fromstring(hostXmlData)
             hostAppVer = hostData[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-            xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/SoundsInstaller/index?appName=Target%20Sounds&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarketFallback + "&subKeys=").text
+            xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/SoundsInstaller/index?appName=Target%20Sounds&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+            if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
+                print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Sounds version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
+                exit(1)
         data = xml.fromstring(xmlData)
         break
     except:
@@ -79,7 +98,7 @@ if (updaterRetries == 0):
 # latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
 # Start from v10.0.0, version number from XML doesn't include fourth number anymore.
 latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-print("\n\nThe latest available Phonak Target Sounds version is " + Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + "\n\n")
+print("\n\nThe latest available Phonak Target Sounds version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + "\n\n")
 
 # List of versions
 validVersions = [

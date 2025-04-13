@@ -8,6 +8,7 @@ import requests
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
+from iso3166 import countries
 import libhearingdownloader
 import xml.etree.ElementTree as xml
 
@@ -53,18 +54,14 @@ if (inputMarket == ""):
     targetMarket = defaultMarket
     print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
 else:
-    if inputMarket.isalpha():
-        if (len(inputMarket) == 2):
-            targetMarket = inputMarket.upper()
-            print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
-        else:
-            print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
-            targetMarket = defaultMarket
-    else:
-        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+    try:
+        targetMarket = countries.get(inputMarket).alpha2
+        print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+    except:
         targetMarket = defaultMarket
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
 
-print ("\n\nDownloading version index...")
+print ("\n\nFetching version index...")
 headers = {
     "Host": "updater.bernafon.com",
     "Content-Type": "application/soap+xml; charset=utf-8"
