@@ -6,10 +6,22 @@ import libhearingdownloader
 
 just_fix_windows_console()
 
+updaterRetries = libhearingdownloader.updaterRetries
+while updaterRetries > 0:
+    try:
+        checkerCommits = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/commits")
+        lastCommitDate = checkerCommits.json()[0]['commit']['committer']['date'][:10]
+        break
+    except:
+        lastCommitDate = "???"
+        pass
+
+    updaterRetries -= 1
+
 downloaders = [
     (Style.RESET_ALL + Style.DIM + "...Back to Main Menu" + Style.RESET_ALL, "", "Checker Menu.py"),
     (Style.RESET_ALL + "Show version changes", "", "README.py"),
-    (Style.RESET_ALL + "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    " + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "PreRelease.py"),
+    (Style.RESET_ALL + "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    (Last update: " + lastCommitDate + ")\n    " + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "PreRelease.py"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target MEDIA" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Target Media Checker.py"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target SOUNDS" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Target Sounds Checker.py"),
     (Style.RESET_ALL + "Demant " + Style.BRIGHT + Fore.MAGENTA + "Oticon" + Style.RESET_ALL + " Genie 2 (2024)" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Oticon Genie 2 2024 Checker.py"),
