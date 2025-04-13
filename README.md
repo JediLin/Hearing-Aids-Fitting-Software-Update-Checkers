@@ -95,7 +95,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### Pre-release (work-in-progress)
-- Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips/Signia/Rexton/Audio Service/A&M: target market (country) input accepts country name, 2-letter code, or 3-letter code; input value will be checked if valid and converted into 2-letter code
+- Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips/Signia/Rexton/Audio Service/A&M: target market (country) input accepts country name, 2-letter code, or 3-letter code; input value will be checked against ISO 3166 data and converted into 2-letter code accordingly
 
 ### v2025.04.09
 - Starkey: auto-detect country name of current geolocation
