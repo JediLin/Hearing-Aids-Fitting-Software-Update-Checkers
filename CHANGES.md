@@ -199,4 +199,4 @@
 
 ### Pre-release (work-in-progress)
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips/Signia/Rexton/Audio Service/A&M: target market (country) input accepts country name, 2-letter code, or 3-letter code; input value will be checked against ISO 3166 data and converted into 2-letter code accordingly
-- Extra Menu: provide last update date of pre-release version
+- Extra Menu: provide last update date and corresponding commit ID of pre-release version
