@@ -95,9 +95,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### v2025.04.09
-- Starkey: check latest version of PatientBase from official webpage [[issue 5](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/5) closed]
-- HIMSA: check actual update via 3rd-party web service [[issue 6](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6) closed]
 - Starkey: auto-detect country name of current geolocation
+- Starkey: check latest version of PatientBase from official webpage [close [issue #5](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/5)]
+- HIMSA: check actual update via 3rd-party web service [close [issue #6](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6)]
 
 ### v2025.04.07
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips: script tweak for easy changing target market and base version
@@ -128,11 +128,11 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Extra Menu: option to show version changes
 
 ### v2025.01.28
-- Extra Menu: option to check Custom version of Bernafon OasisNXT for private label variations such as `Delight`, `ProAkustik`, `Lisound`, `Specsavers`, `Meditrend`, `GPL`, `Maico`, `Audilab`, `RITM`, `Hoerex`, and `Sonic` [[issue 3](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/3) closed]
-- Audio Service: fix Connexx checker for v9.12.0.1550 [[issue 4](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/4) closed]
+- Extra Menu: option to check Custom version of Bernafon OasisNXT for private label variations such as `Delight`, `ProAkustik`, `Lisound`, `Specsavers`, `Meditrend`, `GPL`, `Maico`, `Audilab`, `RITM`, `Hoerex`, and `Sonic` [close [issue #3](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/3)]
+- Audio Service: fix Connexx checker for v9.12.0.1550 [close [issue #4](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/4)]
 
 ### v2024.12.22
-- Phonak: fix Target checker for v10.0.1 [[issue 2](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/2) closed]
+- Phonak: fix Target checker for v10.0.1 [close [issue #2](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/2)]
 - Phonak: failsafe for Target Media checker
 - Document (README) update
 
