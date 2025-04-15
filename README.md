@@ -77,7 +77,7 @@ NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by
 
 **WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
 
-## Pro-tip
+### Pro-tip
 Not all market regions get the same versions for all hearing aids fitting software. In case you see newer versions from some forums or sites yet the checkers report older ones, try change `target market` to other countries to get alternative results.
 
 ### Pre-requirement: Install Python
