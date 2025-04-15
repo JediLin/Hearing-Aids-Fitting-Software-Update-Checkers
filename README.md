@@ -80,6 +80,8 @@ NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by
 ### Pro-tip
 Not all market regions get the same versions for all hearing aids fitting software. In case you see newer versions from some forums or sites yet the checkers report older ones, try change `target market` to other countries to get alternative results.
 
+This project will try to keep up changing default tarket market for most up-to-date results. You can check [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki.
+
 ### Pre-requirement: Install Python
 The following steps only need to be done **ONCE** on each system:
 1. Go to: https://www.python.org/downloads/
