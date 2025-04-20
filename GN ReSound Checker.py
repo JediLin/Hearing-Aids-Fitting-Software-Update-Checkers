@@ -90,6 +90,8 @@ categories = []
 for category in availableFiles.keys():
     categories.append( (category, "") )
 
+categories.append( ('manual', 'Manually specify a version (' + Fore.RED + 'WARNING' + Style.RESET_ALL + ': ADVANCED USERS ONLY)') )
+
 # Select outputDir and targetFile
 outputDir = libhearingdownloader.selectOutputFolder()
 
@@ -98,7 +100,19 @@ targetCategory = categories[simpleSelection][0]
 if (libhearingdownloader.verboseDebug):
     print(targetCategory)
 
-availableFiles = availableFiles[targetCategory]
+if (targetCategory == 'manual'):
+    targetVersion = ''
+    while not targetVersion:
+        targetVersion = input("\nPlease enter " + Fore.GREEN + "manual Smart Fit version" + Style.RESET_ALL + ": ")
+        if (not len(targetVersion.split('.')) == 4 or not targetVersion.replace('.', '').isdecimal()):
+            print("\nThe version you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a similar format to " + Fore.GREEN + "a.b.c.d" + Style.RESET_ALL + " where " + Fore.GREEN + "a" + Style.RESET_ALL + ", " + Fore.GREEN + "b" + Style.RESET_ALL + ", " + Fore.GREEN + "c" + Style.RESET_ALL + ", and " + Fore.GREEN + "d" + Style.RESET_ALL + " are integers)")
+            targetVersion = ''
+        elif (input("\nYou have selected version (" + Fore.YELLOW + targetVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
+            targetVersion = ''
+    availableFiles = [('ReSound Smart Fit v' + targetVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/resound/smartfit_' + targetVersion + '_releaseversion.zip')]
+else:
+    availableFiles = availableFiles[targetCategory]
+
 selectedFile = libhearingdownloader.selectFromList(availableFiles, prompt="software to download", headerSeperator='\n')
 
 targetURL = availableFiles[selectedFile][2]

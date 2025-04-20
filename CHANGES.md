@@ -207,3 +207,4 @@
 
 ### Pre-release (work-in-progress)
 - Bernafon/Sonic/Philips: target market accepts manually input `default` rather than only accepts pressing Enter with default
+- ReSound/Beltone/Interton: add an option to manually specify a version
