@@ -46,7 +46,7 @@ if not turboFile.is_file():
 # Target market input
 defaultMarket = "Default"
 inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
-if (inputMarket == ""):
+if (inputMarket == "" or inputMarket.lower() == defaultMarket.lower()):
     targetMarket = defaultMarket
     print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
 else:

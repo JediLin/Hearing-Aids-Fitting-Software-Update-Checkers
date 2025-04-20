@@ -204,3 +204,6 @@
 ### v2025.04.14
 - Unitron: fix TrueFit checker for v5.7.1 by changing default target market
 - Hansaton: fix scout checker for v5.7.1 by changing default target market
+
+### Pre-release (work-in-progress)
+- Bernafon/Sonic/Philips: target market accepts manually input `default` rather than only accepts pressing Enter with default

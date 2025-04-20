@@ -99,6 +99,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
+### Pre-release (work-in-progress)
+- Bernafon/Sonic/Philips: target market accepts manually input `default` rather than only accepts pressing Enter with default
+
 ### v2025.04.14
 - Unitron: fix TrueFit checker for v5.7.1 by changing default target market
 - Hansaton: fix scout checker for v5.7.1 by changing default target market
