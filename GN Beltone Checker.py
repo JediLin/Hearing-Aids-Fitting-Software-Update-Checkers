@@ -97,7 +97,7 @@ categories = []
 for category in availableFiles.keys():
     categories.append( (category, "") )
 
-categories.append( ('manual', 'Manually specify a version (' + Fore.RED + 'WARNING' + Style.RESET_ALL + ': ADVANCED USERS ONLY)') )
+categories.append( ('manual', 'Manually specify a version of Beltone Solus Max (' + Fore.RED + 'WARNING' + Style.RESET_ALL + ': ADVANCED USERS ONLY)') )
 
 # Select outputDir and targetFile
 outputDir = libhearingdownloader.selectOutputFolder()
