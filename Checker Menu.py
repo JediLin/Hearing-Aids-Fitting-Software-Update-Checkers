@@ -6,6 +6,10 @@ from colorama import Fore, Back, Style
 import libhearingdownloader
 
 just_fix_windows_console()
+
+# clean screen
+print("\033c\033[3J", end='')
+
 selfUpdateOption = "Self Update Checker"
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:

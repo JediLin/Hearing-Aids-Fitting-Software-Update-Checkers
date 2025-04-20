@@ -6,6 +6,9 @@ import libhearingdownloader
 
 just_fix_windows_console()
 
+# clean screen
+print("\033c\033[3J", end='')
+
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
