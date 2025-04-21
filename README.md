@@ -103,6 +103,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Bernafon/Sonic/Philips: target market accepts manually input `default` rather than only accepts pressing Enter with default
 - ReSound/Beltone/Interton: add an option to manually specify a version
 - Clean screen before menus
+- Layout adjustment
 
 ### v2025.04.14
 - Unitron: fix TrueFit checker for v5.7.1 by changing default target market
