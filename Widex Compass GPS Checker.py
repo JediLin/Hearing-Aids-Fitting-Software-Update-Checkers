@@ -98,6 +98,7 @@ if (updaterRetries == 0):
     
 if (libhearingdownloader.verboseDebug):
     print(rawPostData)
+    print("\n\nUpdate server responded:\n")
     print(rawJsonData.text)
 
 if "statusCode" in data:
@@ -108,10 +109,8 @@ if "Packages" in data:
         print("\n\nThe latest available " + baseId + " version is " + Fore.GREEN + "v" + baseVer + Style.RESET_ALL + "\n\n")
         print("No further update available.")
     else:
-        # For now, show what we got...
-        print("\n\nUpdate server responded:\n")
-        print(rawJsonData.text)
-        print("\n\n")
+        print("\n\nUpdate available!")
+        print("\n\nPlease report back at https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1 so someone may work on this update.")
 
 # UNFINISHED!!!!
 # (These are copied from Starkey. Further modification required.)
