@@ -12,6 +12,7 @@ import rot_codec
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
+from iso3166 import countries
 import libhearingdownloader
 
 just_fix_windows_console()
@@ -47,10 +48,23 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Target market input
+defaultMarket = "US"
+inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
+if (inputMarket == "" or inputMarket.lower() == defaultMarket.lower()):
+    targetMarket = defaultMarket
+    print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+else:
+    try:
+        targetMarket = countries.get(inputMarket).alpha2
+        print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+    except:
+        targetMarket = defaultMarket
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+
 # Base information
 baseId = "CompassGPS"
 baseVer = "4.8.6193.0"
-baseDistributors = "US"
 
 # API key
 apiKey = "24fbe5gacg`hcdf535dd34ed6_237347"
@@ -69,7 +83,7 @@ while updaterRetries > 0:
     try:
         # Download update file list from updater API
         postUrl = 'https://apimgmt.widex.com/fds/v1/api/Update?all=true&brevity=terse'
-        rawPostData = '{"Id":"'+baseId+'","Version":"'+baseVer+'","Environment":[{"Name":"distributors","Value":"'+baseDistributors+'"}]}'
+        rawPostData = '{"Id":"'+baseId+'","Version":"'+baseVer+'","Environment":[{"Name":"distributors","Value":"' + targetMarket + '"}]}'
         rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData)
         # Expect something like {"Packages": [],"CustomProperties": {}}
         data = json.loads(rawJsonData.text)
