@@ -99,7 +99,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
-### Pre-release (work-in-progress)
+### v2025.04.21
 - Bernafon/Sonic/Philips: target market accepts manually input `default` rather than only accepts pressing Enter with default
 - ReSound/Beltone/Interton: add an option to manually specify a version
 - Widex: option to change target market (country)
