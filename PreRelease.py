@@ -1,6 +1,7 @@
 import os
 import time
 import datetime
+import requests
 import urllib.request
 from pathlib import Path
 from colorama import just_fix_windows_console
@@ -9,8 +10,22 @@ import libhearingdownloader
 
 just_fix_windows_console()
 
+updaterRetries = libhearingdownloader.updaterRetries
+while updaterRetries > 0:
+    try:
+        checkerCommits = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/commits")
+        lastCommitDate = checkerCommits.json()[0]['commit']['committer']['date'][:10]
+        lastCommitId = checkerCommits.json()[0]['sha'][:7]
+        break
+    except:
+        lastCommitDate = ""
+        lastCommitId = ""
+        pass
+
+    updaterRetries -= 1
+
 currentTime = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y%m%d%H%M')
-wipName = "Hearing-Aids-Fitting-Software-Update-Checkers-WIP-" + currentTime + ".zip"
+wipName = "Hearing-Aids-Fitting-Software-Update-Checkers-WIP(" + lastCommitDate + "_" + lastCommitId + ")-" + currentTime + ".zip"
 
 print("\nYou are about to download the pre-release work-in-progress version.\nPlease use it AT YOUR OWN RISK!\n")
 

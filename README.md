@@ -101,6 +101,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ## Changelog
 ### Pre-release (work-in-progress)
 - Extra Menu: text adjustment
+- Pre-Release Checker: change filename with latest commit date and ID
 
 ### v2025.04.21
 - Bernafon/Sonic/Philips: target market accepts manually input `default` rather than only accepts pressing Enter with default
