@@ -211,3 +211,6 @@
 - Widex: option to change target market (country)
 - Clean screen before menus
 - Layout adjustment
+
+### Pre-release (work-in-progress)
+- Extra Menu: text adjustment
