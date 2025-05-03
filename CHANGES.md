@@ -214,6 +214,7 @@
 
 ### Pre-release (work-in-progress)
 - Extra Menu: text adjustment
+- Extra Menu: ReBrand Code Viewer
 - Pre-Release Checker: change filename with latest commit date and ID
 - `StarkeyOtherBrands.bat`
 - Offline documents
