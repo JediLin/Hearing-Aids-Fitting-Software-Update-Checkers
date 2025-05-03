@@ -103,6 +103,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Extra Menu: text adjustment
 - Pre-Release Checker: change filename with latest commit date and ID
 - `StarkeyOtherBrands.bat`
+- Offline documents
 
 ### v2025.04.21
 - Bernafon/Sonic/Philips: target market accepts manually input `default` rather than only accepts pressing Enter with default
