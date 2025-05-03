@@ -93,7 +93,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Credits
 - [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project (up to v1.8.0)
-- [@pvc](https://forum.hearingtracker.com/u/pvc/summary): Assisting with testing of the script and finding software links
+- [@pvc](https://forum.hearingtracker.com/u/pvc/summary): Assisting with testing of the script and finding software links, providing `StarkeyOtherBrands.bat` and rebranded hearing aids information
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 - [@labuwx](https://github.com/labuwx): Provide [vital information](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/3) about rebranded private label variations of Bernafon OasisNXT
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
@@ -102,6 +102,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ### Pre-release (work-in-progress)
 - Extra Menu: text adjustment
 - Pre-Release Checker: change filename with latest commit date and ID
+- `StarkeyOtherBrands.bat`
 
 ### v2025.04.21
 - Bernafon/Sonic/Philips: target market accepts manually input `default` rather than only accepts pressing Enter with default

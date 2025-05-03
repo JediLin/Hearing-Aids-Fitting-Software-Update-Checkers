@@ -215,3 +215,4 @@
 ### Pre-release (work-in-progress)
 - Extra Menu: text adjustment
 - Pre-Release Checker: change filename with latest commit date and ID
+- `StarkeyOtherBrands.bat`
