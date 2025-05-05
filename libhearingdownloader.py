@@ -189,22 +189,32 @@ def selectOutputFolder():
 
 def downloadFile(url, saveLocation, downloadDescription):
     os.makedirs('/'.join(saveLocation.split("/")[:-1]), exist_ok=True) # Create path if it doesn't exist
-    fileData = requests.get(url, stream=True) # Get file stream
+    streamRetries = 3
+    # Workaround something like 'Akamai-Cache-Status': 'Miss from child'
+    while streamRetries > 0:
+        try:
+            fileData = requests.get(url, stream=True) # Get file stream
+            chunkSize = 2048
 
-    chunkSize = 2048
-    
-    if (str(fileData.status_code)[0] != '2'):
-        print(Fore.RED + "Error downloading file" + Style.RESET_ALL + ": [" + str(fileData.status_code) + "]")
-        exit(1)
+            if (str(fileData.status_code)[0] != '2'):
+                print(Fore.RED + "Error downloading file" + Style.RESET_ALL + ": [" + str(fileData.status_code) + "]")
+                exit(1)
 
-    fileSize = int(fileData.headers['content-length'])
-    if (fileSize < chunkSize and fileSize > 0):
-        chunkSize = fileSize
+            fileSize = int(fileData.headers['content-length'])
+            if (fileSize < chunkSize and fileSize > 0):
+                chunkSize = fileSize
 
-    if (fileData.status_code == 200):
-        with open(saveLocation, 'wb') as fd:
-            for chunk in tqdm(fileData.iter_content(chunk_size=chunkSize), desc=downloadDescription, total=int(int(fileData.headers['content-length'])/chunkSize), unit="B", unit_scale=chunkSize):
-                fd.write(chunk)
-    else:
-        print("\n\n" + Fore.RED + "ERROR" + Style.RESET_ALL + ": " + str(fileData.status_code))
-        exit(1)
+            if (fileData.status_code == 200):
+                with open(saveLocation, 'wb') as fd:
+                    for chunk in tqdm(fileData.iter_content(chunk_size=chunkSize), desc=downloadDescription, total=int(int(fileData.headers['content-length'])/chunkSize), unit="B", unit_scale=chunkSize):
+                        fd.write(chunk)
+            else:
+                print("\n\n" + Fore.RED + "ERROR" + Style.RESET_ALL + ": " + str(fileData.status_code))
+                exit(1)
+
+            break
+        except:
+            pass
+
+        streamRetries -= 1
+

@@ -18,6 +18,7 @@ This project currently supports:
   - Phonak [Target](https://www.phonak.com/en-int/professionals/innovations/target)
     - Phonak Target Media
     - Phonak Target Sounds
+  - Phonak [Roger Upgrader](https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrader)
   - Unitron [TrueFit](https://www.unitron.com/global/en_us/professionals/truefit.html)
   - Hansaton [scout](https://www.hansaton.com/en-int/professionals/support/instr.html)
 - Demant
@@ -100,6 +101,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### Pre-release (work-in-progress)
+- Phonak: Roger Upgrader update checker (in Extra Menu)
 - Extra Menu: text adjustment
 - Extra Menu: ReBrand Code Viewer
 - Pre-Release Checker: change filename with latest commit date and ID
