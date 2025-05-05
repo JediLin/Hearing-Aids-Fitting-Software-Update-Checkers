@@ -214,6 +214,7 @@
 
 ### Pre-release (work-in-progress)
 - Phonak: Roger Upgrader update checker (in Extra Menu)
+- Fix potential Akamai cache miss related bug
 - Extra Menu: text adjustment
 - Extra Menu: ReBrand Code Viewer
 - Pre-Release Checker: change filename with latest commit date and ID
