@@ -102,6 +102,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ## Changelog
 ### Pre-release (work-in-progress)
 - Phonak: Roger Upgrader update checker (in Extra Menu)
+- HIMSA: fix verbose log related bug
 - Fix potential Akamai cache miss related bug
 - Extra Menu: text adjustment
 - Extra Menu: ReBrand Code Viewer

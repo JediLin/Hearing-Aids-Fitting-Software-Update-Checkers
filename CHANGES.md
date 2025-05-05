@@ -214,6 +214,7 @@
 
 ### Pre-release (work-in-progress)
 - Phonak: Roger Upgrader update checker (in Extra Menu)
+- HIMSA: fix verbose log related bug
 - Fix potential Akamai cache miss related bug
 - Extra Menu: text adjustment
 - Extra Menu: ReBrand Code Viewer
