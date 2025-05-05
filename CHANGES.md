@@ -212,7 +212,7 @@
 - Clean screen before menus
 - Layout adjustment
 
-### Pre-release (work-in-progress)
+### v2025.05.05
 - Phonak: Roger Upgrader update checker (in Extra Menu)
 - HIMSA: fix verbose log related bug
 - Fix potential Akamai cache miss related bug
