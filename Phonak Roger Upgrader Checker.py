@@ -56,12 +56,16 @@ if(newsfeed.feed == {}):
     link1 = link0
     filename1 = filename0
 else:
-    title0 = newsfeed.entries[0].title
     link0 = newsfeed.entries[0].link
-    filename0 = os.path.basename(urlparse(link0).path)
-    title1 = newsfeed.entries[1].title
+    filename0 = re.sub(r"\....\.coredownload", "", os.path.basename(urlparse(link0).path))
+    title0 = newsfeed.entries[0].title
+    if(filename0.endswith("pdf")):
+        title0 = title0 + " Document"
     link1 = newsfeed.entries[1].link
-    filename1 = os.path.basename(urlparse(link1).path)
+    filename1 = re.sub(r"\....\.coredownload", "", os.path.basename(urlparse(link1).path))
+    title1 = newsfeed.entries[1].title
+    if(filename1.endswith("pdf")):
+        title1 = title1 + " Document"
 
 # Define list of valid versions and their download links
 validVersions = [

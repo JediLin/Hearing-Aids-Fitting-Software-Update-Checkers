@@ -221,3 +221,6 @@
 - Pre-Release Checker: change filename with latest commit date and ID
 - `StarkeyOtherBrands.bat`
 - Offline documents
+
+### Pre-release (work-in-progress)
+- Phonak: fix Roger Upgrader update title

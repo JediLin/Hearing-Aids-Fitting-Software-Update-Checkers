@@ -100,6 +100,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
+### Pre-release (work-in-progress)
+- Phonak: fix Roger Upgrader update title
+
 ### v2025.05.05
 - Phonak: Roger Upgrader update checker (in Extra Menu)
 - HIMSA: fix verbose log related bug
