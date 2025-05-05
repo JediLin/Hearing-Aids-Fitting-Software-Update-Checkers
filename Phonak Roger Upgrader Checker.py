@@ -4,6 +4,7 @@
 #                                                           #
 #############################################################
 import os
+import re
 import feedparser
 from urllib.parse import urlparse
 from pathlib import Path
@@ -73,8 +74,8 @@ validVersions = [
     ("==================", "--"),
     ("Roger Upgrader Software v1.30", "Roger_Upgrader1.30.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger_Upgrader1.30.zip.coredownload.zip"),
     ("Roger Upgrader Software v1.29", "Roger_Upgrader1.29.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger_Upgrader1.29.zip.coredownload.zip"),
-    ("Roger Upgrader Software v1.28", "Roger Upgrader1.28.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger%20Upgrader1.28.zip.coredownload.zip"),
-    ("Roger Upgrader Software v1.27", "Roger Upgrader1.27.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger%20Upgrader1.27.zip.coredownload.zip"),
+    ("Roger Upgrader Software v1.28", "Roger Upgrader1.28.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger Upgrader1.28.zip.coredownload.zip"),
+    ("Roger Upgrader Software v1.27", "Roger Upgrader1.27.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger Upgrader1.27.zip.coredownload.zip"),
     ("Roger On™ firmware update quick guide", "PH_QuickGuide_RogerOnUpgrader_210x297_EN.pdf", "https://www.phonak.com/content/dam/celum/phonak/master-assets/en/documents/accessories/roger/PH_QuickGuide_RogerOnUpgrader_210x297_EN.pdf.coredownload.pdf"),
 ]
 if(newsfeed.feed == {}):
@@ -95,6 +96,6 @@ if(libhearingdownloader.verboseDebug):
     print("T:" + validVersions[targetVersion][0])
 
 # Download the file
-libhearingdownloader.downloadFile(validVersions[targetVersion][2], outputDir + validVersions[targetVersion][2].split("/")[-1], "Downloading " + validVersions[targetVersion][0])
+libhearingdownloader.downloadFile(validVersions[targetVersion][2], outputDir + re.sub(r"\....\.coredownload", "", validVersions[targetVersion][2].split("/")[-1]), "Downloading " + validVersions[targetVersion][0])
 
 print("\n\nDownload Complete!")

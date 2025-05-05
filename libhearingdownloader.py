@@ -189,9 +189,11 @@ def selectOutputFolder():
 
 def downloadFile(url, saveLocation, downloadDescription):
     os.makedirs('/'.join(saveLocation.split("/")[:-1]), exist_ok=True) # Create path if it doesn't exist
-    streamRetries = 3
     # Workaround something like 'Akamai-Cache-Status': 'Miss from child'
+    streamRetries = updaterRetries
     while streamRetries > 0:
+        if(verboseDebug):
+            print("\nCounter: " + str(streamRetries) + "\n")
         try:
             fileData = requests.get(url, stream=True) # Get file stream
             chunkSize = 2048
@@ -217,4 +219,8 @@ def downloadFile(url, saveLocation, downloadDescription):
             pass
 
         streamRetries -= 1
+    if (streamRetries == 0):
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Can not get proper file data stream")
+        exit(1)
+
 
