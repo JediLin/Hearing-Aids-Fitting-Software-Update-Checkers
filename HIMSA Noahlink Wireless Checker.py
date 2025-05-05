@@ -88,7 +88,7 @@ outputDir += validVersions[targetVersion][0] + "/"
 
 if(libhearingdownloader.verboseDebug):
     print("V:" + str(targetVersion))
-    print("T:" + validVersions[targetVersion])
+    print("T:" + validVersions[targetVersion][0])
 
 # Download the file
 libhearingdownloader.downloadFile(validVersions[targetVersion][2], outputDir + validVersions[targetVersion][2].split("/")[-1], "Downloading " + validVersions[targetVersion][0])
