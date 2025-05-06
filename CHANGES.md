@@ -223,4 +223,4 @@
 - Offline documents
 
 ### Pre-release (work-in-progress)
-- Phonak: fix Roger Upgrader update title
+- Phonak: fix Roger Upgrader update title for documents

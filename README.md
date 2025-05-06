@@ -101,7 +101,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 ### Pre-release (work-in-progress)
-- Phonak: fix Roger Upgrader update title
+- Phonak: fix Roger Upgrader update title for documents
 
 ### v2025.05.05
 - Phonak: Roger Upgrader update checker (in Extra Menu)
