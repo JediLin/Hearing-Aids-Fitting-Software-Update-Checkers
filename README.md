@@ -102,7 +102,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ## Changelog
 ### Pre-release (work-in-progress)
 - Phonak: fix Roger Upgrader update title for documents
-- Turbo mode: Quick Scan for all main software
+- Add `Quick Scan` option to get all major hearing aids software update across several market at once (ONLY available in Turbo Mode, Extra Menu)
 
 ### v2025.05.05
 - Phonak: Roger Upgrader update checker (in Extra Menu)

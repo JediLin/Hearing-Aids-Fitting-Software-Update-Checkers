@@ -224,4 +224,4 @@
 
 ### Pre-release (work-in-progress)
 - Phonak: fix Roger Upgrader update title for documents
-- Turbo mode: Quick Scan for all main software
+- Add `Quick Scan` option to get all major hearing aids software update across several market at once (ONLY available in Turbo Mode, Extra Menu)
