@@ -27,8 +27,8 @@ import os
 # libhearingdownloader - A useful library for the downloader scripts
 ###
 
-downloaderVersion = "Pre-release"
-#downloaderVersion = "v2025.05.05"
+#downloaderVersion = "Pre-release"
+downloaderVersion = "v2025.05.08"
 updaterRetries = 3
 verboseDebug = False
 
