@@ -224,3 +224,4 @@
 
 ### Pre-release (work-in-progress)
 - Phonak: fix Roger Upgrader update title for documents
+- Turbo mode: Quick Scan for all main software
