@@ -14,10 +14,21 @@ import xml.etree.ElementTree as xml
 just_fix_windows_console()
 
 # Scan toggle
-scanSonova = True
-scanDemant = True
-scanGN = True
-scanWSA = True
+scanPhonak = True
+scanUnitron = True
+scanHansaton = True
+scanOticon = True
+scanBernafon = True
+scanSonic = True
+scanPhilips = True
+scanReSound = True
+scanBeltone = True
+scanInterton = True
+scanSignia = True
+scanRexton = True
+scanAudioService = True
+scanAM = True
+scanWidex = True
 scanStarkey = True
 
 print("\n\n")
@@ -553,7 +564,7 @@ def starkeyProFitChecker():
 
 print("\n=-= Quick Scan =-=\n")
 
-if (scanSonova):
+if (scanPhonak):
     print("Phonak Target: ", end="")
     phonakTargetChecker("GB")
     print(", ", end="")
@@ -568,6 +579,7 @@ if (scanSonova):
     phonakTargetChecker("TW")
     print(".")
 
+if (scanUnitron):
     print("Unitron TrueFit: ", end="")
     unitronTrueFitChecker("GB")
     print(", ", end="")
@@ -582,6 +594,7 @@ if (scanSonova):
     unitronTrueFitChecker("TW")
     print(".")
 
+if (scanHansaton):
     print("Hansaton scout: ", end="")
     hansatonScoutChecker("GB")
     print(", ", end="")
@@ -596,7 +609,7 @@ if (scanSonova):
     hansatonScoutChecker("TW")
     print(".")
 
-if (scanDemant):
+if (scanOticon):
     print("Oticon Genie 2: ", end="")
     oticonGenie2Checker("GB")
     print(", ", end="")
@@ -611,6 +624,7 @@ if (scanDemant):
     oticonGenie2Checker("TW")
     print(".")
 
+if (scanBernafon):
     print("Bernafon OasisNXT: ", end="")
     bernafonOasisNXTChecker("GB")
     print(", ", end="")
@@ -625,6 +639,7 @@ if (scanDemant):
     bernafonOasisNXTChecker("TW")
     print(".")
 
+if (scanSonic):
     print("Sonic EXPRESSfit Pro: ", end="")
     sonicExpressFitChecker("GB")
     print(", ", end="")
@@ -639,6 +654,7 @@ if (scanDemant):
     sonicExpressFitChecker("TW")
     print(".")
 
+if (scanPhilips):
     print("Philips HearSuite: ", end="")
     philipsHearSuiteChecker("GB")
     print(", ", end="")
@@ -653,15 +669,19 @@ if (scanDemant):
     philipsHearSuiteChecker("TW")
     print(".")
 
-if (scanGN):
+if (scanReSound):
     print("ReSound Smart Fit: ", end="")
     reSoundChecker()
+
+if (scanBeltone):
     print("Beltone Solus Max: ", end="")
     beltoneChecker()
+
+if (scanInterton):
     print("Interton Fitting: ", end="")
     intertonChecker()
 
-if (scanWSA):
+if (scanSignia):
     print("Signia Connexx: ", end="")
     signiaConnexxChecker("GB")
     print(", ", end="")
@@ -676,6 +696,7 @@ if (scanWSA):
     signiaConnexxChecker("TW")
     print(".")
 
+if (scanRexton):
     print("Rexton Connexx: ", end="")
     rextonConnexxChecker("GB")
     print(", ", end="")
@@ -690,6 +711,7 @@ if (scanWSA):
     rextonConnexxChecker("TW")
     print(".")
 
+if (scanAudioService):
     print("Audio Service Connexx: ", end="")
     audioServiceConnexxChecker("GB")
     print(", ", end="")
@@ -704,6 +726,7 @@ if (scanWSA):
     audioServiceConnexxChecker("TW")
     print(".")
 
+if (scanAM):
     print("A&M Connexx: ", end="")
     aMConnexxChecker("GB")
     print(", ", end="")
@@ -718,6 +741,7 @@ if (scanWSA):
     aMConnexxChecker("TW")
     print(".")
 
+if (scanWidex):
     print("Widex Compass GPS: ", end="")
     widexCompassGPSChecker("GB")
     print(", ", end="")
