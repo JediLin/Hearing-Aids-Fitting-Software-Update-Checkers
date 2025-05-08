@@ -51,8 +51,8 @@ This project currently supports:
   - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
   - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com)
 - HIMSA: [Noahlink Wireless 2 (NW2)](https://www.himsa.com/products/noahlink-wireless-2/) and [Noahlink Wireless (NW1)](https://www.himsa.com/products/noahlink-wireless/)
-  - Driver (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
-  - Firmware Upgrader (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/6#issue-2966085887) for more information and follow up.)
+  - Driver
+  - Firmware Upgrader
 - [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
