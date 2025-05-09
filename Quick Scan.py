@@ -54,6 +54,7 @@ disclaimer = [
 # Display disclaimer
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
+    exit(1)
 
 # Sonova: Phonak, Unitron, Hansaton
 def phonakTargetChecker(market):
