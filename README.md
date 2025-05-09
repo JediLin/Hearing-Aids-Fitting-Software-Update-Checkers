@@ -100,6 +100,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
+### Pre-release (work-in-progress)
+- Underhood bug fix
+
 ### v2025.05.08
 - Phonak: fix Roger Upgrader update title for documents
 - Add `Quick Scan` option to get all major hearing aids software update across several market at once (ONLY available in Turbo Mode, Extra Menu)
