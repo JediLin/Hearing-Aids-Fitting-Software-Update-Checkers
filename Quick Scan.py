@@ -35,6 +35,7 @@ scanStarkey = True
 print("\n\n")
 print("==================================================")
 print("=  " + Style.BRIGHT + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL + " =")
+print("=                   " + Fore.RED + "Q" + Fore.YELLOW + "U" + Fore.CYAN + "I" + Fore.GREEN + "C" + Fore.BLUE + "K" + Style.RESET_ALL + " Scan                   =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
@@ -563,7 +564,33 @@ def starkeyProFitChecker():
         print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + geoIP + ")", end="")
 
 
-print("\n=-= Quick Scan =-=\n")
+# check last time performing Quick Scan
+timestampPath = Path("Quick Scan.timestamp")
+if timestampPath.is_file():
+    with timestampPath.open("r+") as timestampFile:
+        timestampLast = datetime.datetime.strptime(timestampFile.read(), "%Y-%m-%d %H:%M:%S")
+        timestampCurrent = datetime.datetime.strptime(datetime.datetime.now(tz=tzlocal.get_localzone()).strftime("%Y-%m-%d %H:%M:%S"), "%Y-%m-%d %H:%M:%S")
+        timestampDiff = timestampCurrent - timestampLast
+        if (timestampDiff < datetime.timedelta(hours=1)):
+            print("\n" + Fore.RED + "WARNING" + Style.RESET_ALL + ": You have done Quick Scan within an hour (" + Fore.YELLOW + str(timestampDiff) + Style.RESET_ALL + " to be precise).")
+            print("You should cool down a while to prevent being blocked from API servers.\n")
+            inputCont = ""
+            inputCont = input("Do you want to perform Quick Scan anyway? [" + Style.BRIGHT + Fore.BLACK + "(" + Style.RESET_ALL + Fore.GREEN + "N" + Style.BRIGHT + Fore.BLACK + ")" + Style.RESET_ALL + "o/yes] ")
+            if (inputCont.lower() == "yes" or inputCont.lower() == "y"):
+                timestampFile.seek(0)
+                timestampFile.write(datetime.datetime.now(tz=tzlocal.get_localzone()).strftime('%Y-%m-%d %H:%M:%S'))
+                timestampFile.truncate()
+            else:
+                exit(1)
+        else:
+            timestampFile.seek(0)
+            timestampFile.write(datetime.datetime.now(tz=tzlocal.get_localzone()).strftime('%Y-%m-%d %H:%M:%S'))
+            timestampFile.truncate()
+else:
+    with timestampPath.open("w") as timestampFile:
+        timestampFile.write(datetime.datetime.now(tz=tzlocal.get_localzone()).strftime('%Y-%m-%d %H:%M:%S'))
+
+print("")
 
 if (scanPhonak):
     print("Phonak Target: ", end="")

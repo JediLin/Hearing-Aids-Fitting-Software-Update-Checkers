@@ -228,5 +228,6 @@
 
 ### Pre-release (work-in-progress)
 - Starkey: fix timezone bug
+- Quick Scan: add cool down warning
 - Quick Scan: fix timezone bug
 - Underhood bug fix
