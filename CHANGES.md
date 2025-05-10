@@ -227,4 +227,6 @@
 - Add `Quick Scan` option to get all major hearing aids software update across several market at once (ONLY available in Turbo Mode, Extra Menu)
 
 ### Pre-release (work-in-progress)
+- Starkey: fix timezone bug
+- Quick Scan: fix timezone bug
 - Underhood bug fix

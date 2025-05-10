@@ -1,5 +1,6 @@
 import re
 import datetime
+import tzlocal
 import html
 import json
 import requests
@@ -534,7 +535,7 @@ def starkeyProFitChecker():
     defaultGeoIP = currentCountry_name.apolitical_name
     geoIP = defaultGeoIP
 
-    currentTime = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(hours=8))).strftime('%m/%d/%Y %H:%M:%S')
+    currentTime = datetime.datetime.now(tz=tzlocal.get_localzone()).strftime('%m/%d/%Y %H:%M:%S')
     headers = {
         "Content-Type": "application/json; charset=utf-8"
     }
@@ -560,7 +561,6 @@ def starkeyProFitChecker():
 
         updateVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
         print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + geoIP + ")", end="")
-
 
 
 print("\n=-= Quick Scan =-=\n")

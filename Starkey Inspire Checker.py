@@ -5,6 +5,7 @@
 #############################################################
 import os
 import datetime
+import tzlocal
 import html
 import ast
 import json
@@ -93,7 +94,7 @@ else:
         geoIP = defaultGeoIP
 
 # Starkey updater API will check system time...
-currentTime = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(hours=8))).strftime('%m/%d/%Y %H:%M:%S')
+currentTime = datetime.datetime.now(tz=tzlocal.get_localzone()).strftime('%m/%d/%Y %H:%M:%S')
 headers = {
     "Content-Type": "application/json; charset=utf-8"
 }
