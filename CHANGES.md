@@ -226,9 +226,10 @@
 - Phonak: fix Roger Upgrader update title for documents
 - Add `Quick Scan` option to get all major hearing aids software update across several market at once (ONLY available in Turbo Mode, Extra Menu)
 
-### Pre-release (work-in-progress)
+### v2025.05.10
 - Starkey: fix timezone bug
 - Quick Scan: add cool down warning
 - Quick Scan: fix timezone bug
 - Extra Menu: show last timestamp performing Quick Scan
 - Underhood bug fix
+- Prompt adjustment
