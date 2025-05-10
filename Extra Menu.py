@@ -15,12 +15,18 @@ updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
         checkerCommits = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/commits")
+        checkerTags = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/tags")
         lastCommitDate = checkerCommits.json()[0]['commit']['committer']['date'][:10]
-        lastCommitId = checkerCommits.json()[0]['sha'][:7]
+        lastCommitSha = checkerCommits.json()[0]['sha']
+        lastCommitId = lastCommitSha[:7]
+        lastTagSha = checkerTags.json()[0]['commit']['sha']
+        if not (lastCommitSha == lastTagSha):
+            preReleaseDetailText = "(Latest commit: #" + lastCommitId + ", " + lastCommitDate + ")"
+        else:
+            preReleaseDetailText = Style.BRIGHT + Fore.BLACK + "(Release version contains the latest commit)" + Style.RESET_ALL
         break
     except:
-        lastCommitDate = "???"
-        lastCommitId = "???"
+        preReleaseDetailText = "(" + Fore.RED + "ERROR" + Style.RESET_ALL + ": unable to fetch Pre-release info)"
         pass
 
     updaterRetries -= 1
@@ -38,7 +44,7 @@ else:
 downloaders = [
     (Style.RESET_ALL + Style.DIM + "...Back to Main Menu" + Style.RESET_ALL, "", "Checker Menu.py"),
     (Style.RESET_ALL + "Show version changes", "", "README.py"),
-    (Style.RESET_ALL + "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    (Last update: " + lastCommitDate + ", commit #" + lastCommitId + ")\n    " + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "PreRelease.py") if not turboFile.is_file() else (Style.RESET_ALL + "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    (Last update: " + lastCommitDate + ", commit #" + lastCommitId + ")", "", "PreRelease.py"),
+    (Style.RESET_ALL + "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    " + preReleaseDetailText + "\n    " + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "PreRelease.py") if not turboFile.is_file() else (Style.RESET_ALL + "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    " + preReleaseDetailText, "", "PreRelease.py"),
     (Style.RESET_ALL + quickScanOptionText + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "Quick Scan.py") if turboFile.is_file() else ("", "--"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target MEDIA" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Target Media Checker.py"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target SOUNDS" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Target Sounds Checker.py"),

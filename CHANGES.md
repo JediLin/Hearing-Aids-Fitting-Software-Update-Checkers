@@ -235,3 +235,6 @@
 - Underhood bug fix
 - Prompt adjustment
 - Fix color
+
+### Pre-release (work-in-progress)
+- Extra Menu: check if the latest Release version contains the latest commit (thus Pre-release version is identical to Release version)

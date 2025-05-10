@@ -101,6 +101,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Extra Menu: check if the latest Release version contains the latest commit (thus Pre-release version is identical to Release version)
+
 ### v2025.05.10
 - Starkey: fix timezone bug
 - Quick Scan: add cool down warning
