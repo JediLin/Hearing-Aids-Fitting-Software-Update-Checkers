@@ -21,10 +21,11 @@ while updaterRetries > 0:
         lastCommitSha = checkerCommits.json()[0]['sha']
         lastCommitId = lastCommitSha[:7]
         lastTagSha = checkerTags.json()[0]['commit']['sha']
+        lastTagName = checkerTags.json()[0]['name']
         if not (lastCommitSha == lastTagSha):
             preReleaseDetailText = "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    (Latest commit: #" + lastCommitId + ", " + lastCommitDate + ")"
         else:
-            preReleaseDetailText = "Get Pre-release work-in-progress version" + Style.RESET_ALL + "\n    " + Style.DIM + "(Release version contains the latest commit)" + Style.RESET_ALL
+            preReleaseDetailText = "Get Pre-release work-in-progress version" + Style.RESET_ALL + "\n    " + Style.DIM + "[Note: currently identical to " + lastTagName + "]" + Style.RESET_ALL
         break
     except:
         preReleaseDetailText = Style.DIM + "Get Pre-release work-in-progress version" + Style.RESET_ALL + "\n    [" + Fore.RED + "ERROR" + Style.RESET_ALL + ": unavailable]"
