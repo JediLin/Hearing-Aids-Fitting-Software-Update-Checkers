@@ -654,6 +654,8 @@ if (scanOticon):
 
 if (scanBernafon):
     print("Bernafon OasisNXT: ", end="")
+    bernafonOasisNXTChecker("Default")
+    print(", ", end="")
     bernafonOasisNXTChecker("GB")
     print(", ", end="")
     bernafonOasisNXTChecker("US")
@@ -669,6 +671,8 @@ if (scanBernafon):
 
 if (scanSonic):
     print("Sonic EXPRESSfit Pro: ", end="")
+    sonicExpressFitChecker("Default")
+    print(", ", end="")
     sonicExpressFitChecker("GB")
     print(", ", end="")
     sonicExpressFitChecker("US")
@@ -684,6 +688,8 @@ if (scanSonic):
 
 if (scanPhilips):
     print("Philips HearSuite: ", end="")
+    philipsHearSuiteChecker("Default")
+    print(", ", end="")
     philipsHearSuiteChecker("GB")
     print(", ", end="")
     philipsHearSuiteChecker("US")

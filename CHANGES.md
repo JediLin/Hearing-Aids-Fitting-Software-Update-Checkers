@@ -233,3 +233,6 @@
 - Extra Menu: show last timestamp performing Quick Scan
 - Underhood bug fix
 - Prompt adjustment
+
+### Pre-release (work-in-progress)
+- Quick Scan: add `Default` market for certain software
