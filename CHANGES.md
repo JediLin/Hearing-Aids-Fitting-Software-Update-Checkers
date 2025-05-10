@@ -231,11 +231,9 @@
 - Quick Scan: add cool down warning
 - Quick Scan: fix timezone bug
 - Quick Scan: add `Default` market for certain software
+- Menu: better handle GitHub error
 - Extra Menu: show last timestamp performing Quick Scan
-- Underhood bug fix
+- Extra Menu: check if the latest Release version contains the latest commit (thus Pre-release version is identical to Release version)
 - Prompt adjustment
 - Fix color
-
-### Pre-release (work-in-progress)
-- Menu: better handle GitHub error
-- Extra Menu: check if the latest Release version contains the latest commit (thus Pre-release version is identical to Release version)
+- Underhood bug fix

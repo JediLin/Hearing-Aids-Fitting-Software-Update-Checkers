@@ -101,19 +101,17 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
-### Pre-release (work-in-progress)
-- Menu: better handle GitHub error
-- Extra Menu: check if the latest Release version contains the latest commit (thus Pre-release version is identical to Release version)
-
 ### v2025.05.10
 - Starkey: fix timezone bug
 - Quick Scan: add cool down warning
 - Quick Scan: fix timezone bug
 - Quick Scan: add `Default` market for certain software
+- Menu: better handle GitHub error
 - Extra Menu: show last timestamp performing Quick Scan
-- Underhood bug fix
+- Extra Menu: check if the latest Release version contains the latest commit (thus Pre-release version is identical to Release version)
 - Prompt adjustment
 - Fix color
+- Underhood bug fix
 
 ### v2025.05.08
 - Phonak: fix Roger Upgrader update title for documents
