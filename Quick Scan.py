@@ -35,7 +35,7 @@ scanStarkey = True
 print("\n\n")
 print("==================================================")
 print("=  " + Style.BRIGHT + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL + " =")
-print("=                   " + Fore.RED + "Q" + Fore.YELLOW + "U" + Fore.CYAN + "I" + Fore.GREEN + "C" + Fore.BLUE + "K" + Style.RESET_ALL + " Scan                   =")
+print("=                   " + Style.BRIGHT + Fore.RED + "Q" + Fore.YELLOW + "U" + Fore.CYAN + "I" + Fore.GREEN + "C" + Fore.BLUE + "K" + Style.RESET_ALL + " Scan                   =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")

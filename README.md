@@ -102,6 +102,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ## Changelog
 ### Pre-release (work-in-progress)
 - Quick Scan: add `Default` market for certain software
+- Fix color
 
 ### v2025.05.10
 - Starkey: fix timezone bug

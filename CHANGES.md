@@ -236,3 +236,4 @@
 
 ### Pre-release (work-in-progress)
 - Quick Scan: add `Default` market for certain software
+- Fix color
