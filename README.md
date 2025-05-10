@@ -100,17 +100,16 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
-### Pre-release (work-in-progress)
-- Quick Scan: add `Default` market for certain software
-- Fix color
 
 ### v2025.05.10
 - Starkey: fix timezone bug
 - Quick Scan: add cool down warning
 - Quick Scan: fix timezone bug
+- Quick Scan: add `Default` market for certain software
 - Extra Menu: show last timestamp performing Quick Scan
 - Underhood bug fix
 - Prompt adjustment
+- Fix color
 
 ### v2025.05.08
 - Phonak: fix Roger Upgrader update title for documents

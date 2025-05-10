@@ -230,10 +230,8 @@
 - Starkey: fix timezone bug
 - Quick Scan: add cool down warning
 - Quick Scan: fix timezone bug
+- Quick Scan: add `Default` market for certain software
 - Extra Menu: show last timestamp performing Quick Scan
 - Underhood bug fix
 - Prompt adjustment
-
-### Pre-release (work-in-progress)
-- Quick Scan: add `Default` market for certain software
 - Fix color
