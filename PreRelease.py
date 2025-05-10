@@ -47,7 +47,7 @@ print("\n\nDownload Complete!")
 # Unlock TURBO mode
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    with turboFile.open('w') as file:
+    with turboFile.open("w") as file:
         file.write("Delete (or rename) this file to disable TURBO mode.")
     print(Fore.YELLOW + "==============================================" + Style.RESET_ALL)
     print(Fore.YELLOW + "=           " + Style.BRIGHT + "Achievement Unlocked!!" + Style.NORMAL + "           =" + Style.RESET_ALL)
