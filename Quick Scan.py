@@ -575,7 +575,7 @@ if timestampPath.is_file():
             print("\n" + Fore.RED + "WARNING" + Style.RESET_ALL + ": You have done Quick Scan within an hour (" + Fore.YELLOW + str(timestampDiff) + Style.RESET_ALL + " to be precise).")
             print("You should cool down a while to prevent being blocked from API servers.\n")
             inputCont = ""
-            inputCont = input("Do you want to perform Quick Scan anyway? [" + Style.BRIGHT + Fore.BLACK + "(" + Style.RESET_ALL + Fore.GREEN + "No" + Style.BRIGHT + Fore.BLACK + ")" + Style.RESET_ALL + "/yes] ")
+            inputCont = input("Do you want to perform Quick Scan anyway? [" + Style.BRIGHT + Fore.BLACK + "(" + Style.RESET_ALL + Fore.GREEN + "No" + Style.BRIGHT + Fore.BLACK + ")" + Style.RESET_ALL + "/yes]: ")
             if (inputCont.lower() == "yes" or inputCont.lower() == "y"):
                 timestampFile.seek(0)
                 timestampFile.write(datetime.datetime.now(tz=tzlocal.get_localzone()).strftime('%Y-%m-%d %H:%M:%S'))
