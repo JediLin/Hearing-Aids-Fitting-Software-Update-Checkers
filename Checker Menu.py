@@ -21,8 +21,12 @@ while updaterRetries > 0:
                 print("\n\n\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
             else:
                 print("\n\n" + Fore.YELLOW + "!!! NEW VERSION AVAILABLE !!!" + Style.RESET_ALL + "\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using " + Fore.RED + libhearingdownloader.downloaderVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
+        else:
+            selfUpdateOption = "Self Update Checker"
+
         break
     except:
+        selfUpdateOption = Style.DIM + "Self Update Checker" + Style.RESET_ALL + " [" + Fore.RED + "ERROR" + Style.RESET_ALL + ": unavailable]"
         pass
 
     updaterRetries -= 1
