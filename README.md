@@ -104,6 +104,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Starkey: fix timezone bug
 - Quick Scan: add cool down warning
 - Quick Scan: fix timezone bug
+- Extra Menu: show last timestamp performing Quick Scan
 - Underhood bug fix
 
 ### v2025.05.08

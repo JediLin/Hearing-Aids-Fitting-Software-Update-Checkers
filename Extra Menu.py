@@ -1,4 +1,5 @@
 import os
+import datetime
 import requests
 from pathlib import Path
 from colorama import just_fix_windows_console
@@ -25,12 +26,20 @@ while updaterRetries > 0:
     updaterRetries -= 1
 
 turboFile = Path("turbo.txt")
+# check last time performing Quick Scan
+timestampPath = Path("Quick Scan.timestamp")
+if timestampPath.is_file():
+    with timestampPath.open("r") as timestampFile:
+        timestampLast = datetime.datetime.strptime(timestampFile.read(), "%Y-%m-%d %H:%M:%S")
+    quickScanOptionText = "Quick Scan (Last: " + str(timestampLast) + ")\n    "
+else:
+    quickScanOptionText = "Quick Scan\n    "
 
 downloaders = [
     (Style.RESET_ALL + Style.DIM + "...Back to Main Menu" + Style.RESET_ALL, "", "Checker Menu.py"),
     (Style.RESET_ALL + "Show version changes", "", "README.py"),
     (Style.RESET_ALL + "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    (Last update: " + lastCommitDate + ", commit #" + lastCommitId + ")\n    " + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "PreRelease.py") if not turboFile.is_file() else (Style.RESET_ALL + "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    (Last update: " + lastCommitDate + ", commit #" + lastCommitId + ")", "", "PreRelease.py"),
-    (Style.RESET_ALL + "Quick Scan\n    " + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "Quick Scan.py") if turboFile.is_file() else ("", "--"),
+    (Style.RESET_ALL + quickScanOptionText + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "Quick Scan.py") if turboFile.is_file() else ("", "--"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target MEDIA" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Target Media Checker.py"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target SOUNDS" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Target Sounds Checker.py"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak Roger" + Style.RESET_ALL + " Upgrader" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Roger Upgrader Checker.py"),
