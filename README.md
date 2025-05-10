@@ -266,16 +266,16 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Pausing after requirement-checks
 - Update README
 
-### v1.8.0
+### v1.8.0 / 2022.12.06
 - Add native Linux and MacOS Support
 
-### v1.7.6
+### v1.7.6 / 2022.12.04
 - Fix debug logging utility bug
 
-### v1.7.5
+### v1.7.5 / 2022.12.04
 - Add debug logging utility
 
-### v1.7.4
+### v1.7.4 / 2022.11.24
 - Fixed Widex Compass GPS Localisation Errors
 - Fixed Typos
 
@@ -295,43 +295,43 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Add catch for server index download errors
 - Fix download location bugs in Bernafon Oasis & Oticon Genie 2 checkers
 
-### v1.6.3
+### v1.6.3 / 2022.11.20
 - Fix folder path selection bug
 
-### v1.6.2
+### v1.6.2 / 2022.11.11
 - Fix Unitron checker Bug
 
-### v1.6.1
+### v1.6.1 / 2022.11.02
 - Fix Phonak Target checker Bug
 - Fix script name mistake
 
-### v1.6.0
+### v1.6.0 / 2022.10.31
 - Add support for Rexton Connexx
 
-### v1.5.0
+### v1.5.0 / 2022.10.31
 - Add support for OasisNXT
 - Fix bugs
 
-### v1.4.0
+### v1.4.0 / 2022.10.31
 - Split up the Genie checkers into separate versions
 - Update Genie 2 checker to also use updater
 - Fix bugs
 
-### v1.3.0
+### v1.3.0 / 2022.10.30
 - Add support for Widex Compass GPS
 
-### v1.2.0
+### v1.2.0 / 2022.10.30
 - Add support for Unitron TrueFit
 - Add downloading progress bar
 - Reduce RAM usage when running the script
 
-### v1.1.2
+### v1.1.2 / 2022.10.30
 - Fix bugs with selecting download version
 
-### v1.1.0
+### v1.1.0 / 2022.10.30
 - Add support for Oticon Genie & Oticon Genie 2
 
-### v1.0.0
+### v1.0.0 / 2022.10.27
 - Add support for Phonak Target & Signia Connexx
 - Release it publically
 
