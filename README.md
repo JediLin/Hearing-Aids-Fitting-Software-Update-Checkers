@@ -101,6 +101,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Unitron: fix TrueFit checker for v5.8.0.29338 by changing target market
+
 ### v2025.05.10
 - Starkey: fix timezone bug
 - Quick Scan: add cool down warning

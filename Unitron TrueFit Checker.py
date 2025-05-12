@@ -45,7 +45,7 @@ if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
 # Target market input
-defaultMarket = "ES"
+defaultMarket = "FR"
 inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
 if (inputMarket == "" or inputMarket.lower() == defaultMarket.lower()):
     targetMarket = defaultMarket

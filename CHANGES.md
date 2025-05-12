@@ -237,3 +237,6 @@
 - Prompt adjustment
 - Fix color
 - Underhood bug fix
+
+### Pre-release (work-in-progress)
+- Unitron: fix TrueFit checker for v5.8.0.29338 by changing target market
