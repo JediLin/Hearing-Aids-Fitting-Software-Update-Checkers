@@ -50,17 +50,20 @@ if not turboFile.is_file():
 fallbackMarket = "US"
 localMarketPath = Path("Rexton.market")
 onlineMarketPath = "https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/raw/refs/heads/main/Rexton.market"
+defaultMarketSrc = ""
 try:
     onlineMarketFile = requests.get(onlineMarketPath)
     onlineMarket = onlineMarketFile.text.split("\n", 1)[0]
     if (onlineMarket.isalpha()):
         defaultMarket = onlineMarket
+        defaultMarketSrc = "online-"
     else:
         if localMarketPath.is_file():
             with localMarketPath.open("r") as localMarketFile:
                 localMarket = localMarketFile.read().split("\n", 1)[0]
                 if (localMarket.isalpha()):
                     defaultMarket = localMarket
+                    defaultMarketSrc = "local-"
                 else:
                     defaultMarket = fallbackMarket
         else:
@@ -71,13 +74,14 @@ except:
             localMarket = localMarketFile.read().split("\n", 1)[0]
             if (localMarket.isalpha()):
                 defaultMarket = localMarket
+                defaultMarketSrc = "local-"
             else:
                 defaultMarket = fallbackMarket
     else:
         defaultMarket = fallbackMarket
 
 # Target market input
-inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
+inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [" + defaultMarketSrc + "default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
 if (inputMarket == "" or inputMarket.lower() == defaultMarket.lower()):
     targetMarket = defaultMarket
     print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
