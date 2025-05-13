@@ -44,8 +44,37 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Read target market from GitHub or local configuration
+fallbackMarket = "ES"
+localMarketPath = Path("HANSATON.market")
+onlineMarketPath = "https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/raw/refs/heads/main/HANSATON.market"
+try:
+    onlineMarketFile = requests.get(onlineMarketPath)
+    onlineMarket = onlineMarketFile.text.split("\n", 1)[0]
+    if (onlineMarket.isalpha()):
+        defaultMarket = onlineMarket
+    else:
+        if localMarketPath.is_file():
+            with localMarketPath.open("r") as localMarketFile:
+                localMarket = localMarketFile.read().split("\n", 1)[0]
+                if (localMarket.isalpha()):
+                    defaultMarket = localMarket
+                else:
+                    defaultMarket = fallbackMarket
+        else:
+            defaultMarket = fallbackMarket
+except:
+    if localMarketPath.is_file():
+        with localMarketPath.open("r") as localMarketFile:
+            localMarket = localMarketFile.read().split("\n", 1)[0]
+            if (localMarket.isalpha()):
+                defaultMarket = localMarket
+            else:
+                defaultMarket = fallbackMarket
+    else:
+        defaultMarket = fallbackMarket
+
 # Target market input
-defaultMarket = "ES"
 inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
 if (inputMarket == "" or inputMarket.lower() == defaultMarket.lower()):
     targetMarket = defaultMarket

@@ -240,3 +240,4 @@
 
 ### Pre-release (work-in-progress)
 - Unitron: fix TrueFit checker for v5.8.0.29338 by changing target market
+- Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips/Signia/Rexton/Audio Service/A&M/Widex: LiveUpdate-ish default target market code with local fallback
