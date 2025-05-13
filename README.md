@@ -101,7 +101,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2025.05.13
 - Unitron: fix TrueFit checker for v5.8.0.29338 by changing target market
 - Phonak/Unitron/Hansaton/Oticon/Bernafon/Sonic/Philips/Signia/Rexton/Audio Service/A&M/Widex: LiveUpdate-ish default target market code with local fallback (Note: From next Release version on, target market updates will no longer be logged in Changelog anymore.)
 
