@@ -101,8 +101,8 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
-### Pre-release (work-in-progress)
-- Widex: fix checker for Compass GPS v4.9+ [close [issue #1](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1)]
+### v2025.05.24
+- Widex: fix Compass GPS checker for v4.9+ [close [issue #1](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1)]
 
 ### v2025.05.13
 - Unitron: fix TrueFit checker for v5.8.0.29338 by changing target market
