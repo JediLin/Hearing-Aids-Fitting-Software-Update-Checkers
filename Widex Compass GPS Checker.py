@@ -12,7 +12,6 @@ import rot_codec
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
-from iso3166 import countries
 import libhearingdownloader
 
 just_fix_windows_console()
@@ -83,17 +82,18 @@ except:
         defaultMarket = fallbackMarket
 
 # Target market input
-inputMarket = input("\nPlease enter " + Fore.GREEN + "target market country code" + Style.RESET_ALL + " [" + defaultMarketSrc + "default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
+possibleMarkets = ("Acuitis", "Albania", "Algeria", "Alternate_Test_Distributor", "Argentina", "Audigy", "Australia", "Austria", "Belarus", "Belgium", "Bolivia", "Bosnia Herzegovina", "Brazil", "Bulgaria", "Canada", "Chile", "China", "Colombia", "ConHearing", "Costa Rica", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Estonia", "F.Y.R.O.M.", "Finland", "France", "Germany", "Ghana", "Grand Audition", "Greece", "Guyana", "Hong Kong", "Huier", "Hungary", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Korea", "Kosovo", "Kuwait", "Kyrgyzstan", "Latvia", "Lebanon", "Libya", "Lithuania", "Main_Test_Distributor", "Malaysia", "Malta", "Mexico", "Mongolia", "Morocco", "Namibia", "Netherlands", "New Zealand", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Romania", "Russia", "Saudi Arabia", "SayWhat", "Serbia", "Singapore", "Slovakia", "Slovenia", "South Africa", "Spain", "Specsavers", "Sri Lanka", "Sudan", "Sweden", "Switzerland", "Syria", "Taiwan", "Thailand", "Tunisia", "Turkey", "Ukraine", "United Arab Emirates", "United Kingdom", "Uruguay", "USA", "Venezuela", "Veteran Affairs US", "Vietnam", "Widex Monitoring System", "Yemen")
+possibleMarketsSet = set(possibleMarkets)
+inputMarket = input("\nPlease enter " + Fore.GREEN + "target market ID (Case-Sensitive!)" + Style.RESET_ALL + " [" + defaultMarketSrc + "default: " + Fore.YELLOW + defaultMarket + Style.RESET_ALL + "]: ")
 if (inputMarket == "" or inputMarket.lower() == defaultMarket.lower()):
     targetMarket = defaultMarket
     print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
+elif (inputMarket in possibleMarketsSet):
+    targetMarket = inputMarket
+    print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
 else:
-    try:
-        targetMarket = countries.get(inputMarket).alpha2
-        print("\nChecking for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market...")
-    except:
-        targetMarket = defaultMarket
-        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market code is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
+    targetMarket = defaultMarket
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Market ID is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
 
 # Base information
 baseId = "CompassGPS"
@@ -142,7 +142,8 @@ if "Packages" in data:
         print("\n\nThe latest available " + baseId + " version is " + Fore.GREEN + "v" + baseVer + Style.RESET_ALL + "\n\n")
         print("No further update available.")
     else:
-        print("\n\nThe latest available " + baseId + " version is " + Fore.GREEN + "v" + data['Packages'][0]['Version'] + "." + str(data['Packages'][0]['Revision']) + Style.RESET_ALL + "\n\n")
+        appVer = data['Packages'][0]['Version'] + "." + str(data['Packages'][0]['Revision'])
+        print("\n\nThe latest available " + baseId + " version is " + Fore.GREEN + "v" + appVer + Style.RESET_ALL + "\n\n")
 
 # UNFINISHED!!!!
 # (These are copied from Starkey. Further modification required.)
