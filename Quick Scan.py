@@ -497,7 +497,7 @@ def widexCompassGPSChecker(market):
         if (data['Packages']==[]):
             print(Fore.GREEN + "v" + baseVer + Style.RESET_ALL + " (" + targetMarket + ")", end="")
         else:
-            print(Fore.GREEN + "Update available!"+ Style.RESET_ALL + " (" + targetMarket + ")", end="")
+            print(Fore.GREEN + "v" + data['Packages'][0]['Version'] + "." + str(data['Packages'][0]['Revision']) + Style.RESET_ALL + " (" + targetMarket + ")", end="")
     else:
         print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
 
@@ -633,6 +633,8 @@ if (scanHansaton):
     hansatonScoutChecker("ES")
     print(", ", end="")
     hansatonScoutChecker("FR")
+    print(", ", end="")
+    hansatonScoutChecker("DE")
     print(", ", end="")
     hansatonScoutChecker("TW")
     print(".")
@@ -777,17 +779,13 @@ if (scanAM):
 
 if (scanWidex):
     print("Widex Compass GPS: ", end="")
-    widexCompassGPSChecker("GB")
+    widexCompassGPSChecker("Main_Test_Distributor")
     print(", ", end="")
-    widexCompassGPSChecker("US")
+    widexCompassGPSChecker("Alternate_Test_Distributor")
     print(", ", end="")
-    widexCompassGPSChecker("CA")
+    widexCompassGPSChecker("USA")
     print(", ", end="")
-    widexCompassGPSChecker("ES")
-    print(", ", end="")
-    widexCompassGPSChecker("FR")
-    print(", ", end="")
-    widexCompassGPSChecker("TW")
+    widexCompassGPSChecker("United Kingdom")
     print(".")
 
 if (scanStarkey):

@@ -49,7 +49,7 @@ if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
 # Read target market from GitHub or local configuration
-fallbackMarket = "US"
+fallbackMarket = "Main_Test_Distributor"
 localMarketPath = Path("Widex.market")
 onlineMarketPath = "https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/raw/refs/heads/main/Widex.market"
 defaultMarketSrc = ""
@@ -142,8 +142,7 @@ if "Packages" in data:
         print("\n\nThe latest available " + baseId + " version is " + Fore.GREEN + "v" + baseVer + Style.RESET_ALL + "\n\n")
         print("No further update available.")
     else:
-        print("\n\nUpdate available!")
-        print("\n\nPlease report back at https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1 so someone may work on this update.")
+        print("\n\nThe latest available " + baseId + " version is " + Fore.GREEN + "v" + data['Packages'][0]['Version'] + "." + str(data['Packages'][0]['Revision']) + Style.RESET_ALL + "\n\n")
 
 # UNFINISHED!!!!
 # (These are copied from Starkey. Further modification required.)
