@@ -195,12 +195,12 @@ with zipfile.ZipFile(outputDir + "Setup.exe.zip", 'r') as zipFile:
 
 os.makedirs(outputDir + "installations/")
 
-currentFile = 1
 for fileDownloaded in filesToDownload.keys():
     if fileDownloaded != "Setup.exe.zip":
         shutil.move(outputDir + fileDownloaded, outputDir + "installations/" + fileDownloaded)
     else:
-        os.remove(outputDir + fileDownloaded)
-    currentFile += 1
+        setupFile = Path(outputDir + "Setup.exe")
+        if setupFile.is_file():
+            os.remove(outputDir + fileDownloaded)
 
 print("\n\nDownload Complete!")
