@@ -45,7 +45,7 @@ This project currently supports:
   - Rexton [Connexx](https://www.rexton.com/en/professional/connexx/)
   - Audio Service Connexx
   - A&M Connexx
-  - Widex [Compass GPS](https://www.widexpro.com/en/business-support/compass/) (limited function. See [related issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1#issue-2624522881) for more information and follow up.)
+  - Widex [Compass GPS](https://www.widexpro.com/en/business-support/compass/)
 - Starkey
   - Starkey [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
   - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
@@ -100,6 +100,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
+
+### Pre-release (work-in-progress)
+- Widex: fix checker for Compass GPS v4.9+ [close [issue #1](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1)]
 
 ### v2025.05.13
 - Unitron: fix TrueFit checker for v5.8.0.29338 by changing target market
