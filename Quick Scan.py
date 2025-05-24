@@ -497,7 +497,9 @@ def widexCompassGPSChecker(market):
         if (data['Packages']==[]):
             print(Fore.GREEN + "v" + baseVer + Style.RESET_ALL + " (" + targetMarket + ")", end="")
         else:
-            print(Fore.GREEN + "v" + data['Packages'][0]['Version'] + "." + str(data['Packages'][0]['Revision']) + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+            latestBaseVersion = data['Packages'][0]['Version']
+            latestRevision = str(data['Packages'][0]['Revision'])
+            print(Fore.GREEN + "v" + latestBaseVersion + " Rev." + latestRevision + Style.RESET_ALL + " (" + targetMarket + ")", end="")
     else:
         print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
 

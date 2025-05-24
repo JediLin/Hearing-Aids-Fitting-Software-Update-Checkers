@@ -105,6 +105,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ### v2025.05.24
 - Widex: fix Compass GPS checker for v4.9+ [close [issue #1](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1)]
+- Widex: add manual version support
 - Phonak: add iPFG and PFG (options in Target checker)
 - Quick Scan: add skip messages
 - Add retry messages

@@ -143,7 +143,9 @@ if "Packages" in data:
         print("No further update available.")
         exit(1)
     else:
-        latestVersion = data['Packages'][0]['Version'] + "." + str(data['Packages'][0]['Revision'])
+        latestBaseVersion = data['Packages'][0]['Version']
+        latestRevision = str(data['Packages'][0]['Revision'])
+        latestVersion = latestBaseVersion + " (Revision " + latestRevision + ")"
 
 
 print("\n\nThe latest available " + baseId + " version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " distributor is " + Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + "\n\n")
@@ -151,12 +153,36 @@ print("\n\nThe latest available " + baseId + " version for " + Fore.GREEN + targ
 # List of versions
 validVersions = [
     (latestVersion, 'The latest available ' + baseId + ' verion'),
+    ('manual', 'Manually specify a version (' + Fore.RED + 'WARNING' + Style.RESET_ALL + ': ADVANCED USERS ONLY)'),
 ]
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
 targetVersion = validVersions[libhearingdownloader.selectFromList(validVersions)][0]
 print("\n\n")
+
+# Logic for "manual" versions
+if (targetVersion == 'manual'):
+    manualVersion = True
+    targetVersion = ''
+    while not targetVersion:
+        targetBaseVersion = ''
+        while not targetBaseVersion:
+            targetBaseVersion = input("\nPlease enter " + Fore.GREEN + "manual Compass GPS version" + Style.RESET_ALL + ": ")
+            if (not len(targetBaseVersion.split('.')) == 3 or not targetBaseVersion.replace('.', '').isdecimal()):
+                print("\nThe version you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a similar format to " + Fore.GREEN + "a.b.c" + Style.RESET_ALL + " where " + Fore.GREEN + "a" + Style.RESET_ALL + ", " + Fore.GREEN + "b" + Style.RESET_ALL + ", and " + Fore.GREEN + "c" + Style.RESET_ALL + " are integers)")
+                targetBaseVersion = ''
+        targetRevision = ''
+        while not targetRevision:
+            targetRevision = input("\nPlease enter " + Fore.GREEN + "revision" + Style.RESET_ALL + ": ")
+            if (not targetRevision.isdecimal()):
+                print("\nThe revision you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a single integer)")
+                targetRevision = ''
+        targetVersion = targetBaseVersion + " (Revision " + targetRevision + ")"
+        if (input("\nYou have selected version (" + Fore.YELLOW + targetVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
+            targetVersion = ''
+else:
+    manualVersion = False
 
 # Create download folder
 outputDir += "Widex Compass GPS " + targetVersion + "/"
@@ -168,8 +194,13 @@ print ("Downloading directory index")
 packageResources = data['Packages'][0]['Resources']
 
 filesToDownload = {}
-for resourceFile in packageResources:
-    filesToDownload[resourceFile['Value'].split("/")[-1]] = resourceFile['Value']
+if (manualVersion):
+    slash = "/"
+    for resourceFile in packageResources:
+        filesToDownload[resourceFile['Value'].split("/")[-1]] = slash.join(resourceFile['Value'].split("/")[:-3]) + "/" + targetBaseVersion + "/" + targetRevision + "/" + resourceFile['Value'].split("/")[-1]
+else:
+    for resourceFile in packageResources:
+        filesToDownload[resourceFile['Value'].split("/")[-1]] = resourceFile['Value']
 
 if (libhearingdownloader.verboseDebug):
     print(filesToDownload)
