@@ -244,3 +244,7 @@
 
 ### v2025.05.24
 - Widex: fix Compass GPS checker for v4.9+ [close [issue #1](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1)]
+
+### Pre-release (work-in-progress)
+- Message adjustment
+

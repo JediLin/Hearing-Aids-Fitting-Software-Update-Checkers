@@ -27,8 +27,8 @@ import os
 # libhearingdownloader - A useful library for the downloader scripts
 ###
 
-#downloaderVersion = "Pre-release"
-downloaderVersion = "v2025.05.24"
+downloaderVersion = "Pre-release"
+#downloaderVersion = "v2025.05.24"
 updaterRetries = 3
 verboseDebug = False
 
@@ -200,6 +200,8 @@ def downloadFile(url, saveLocation, downloadDescription):
 
             if (str(fileData.status_code)[0] != '2'):
                 print(Fore.RED + "Error downloading file" + Style.RESET_ALL + ": [" + str(fileData.status_code) + "]")
+                if streamRetries > 1:
+                    print("Try again...")
                 exit(1)
 
             fileSize = int(fileData.headers['content-length'])
@@ -212,6 +214,8 @@ def downloadFile(url, saveLocation, downloadDescription):
                         fd.write(chunk)
             else:
                 print("\n\n" + Fore.RED + "ERROR" + Style.RESET_ALL + ": " + str(fileData.status_code))
+                if streamRetries > 1:
+                    print("Try again...")
                 exit(1)
 
             break
