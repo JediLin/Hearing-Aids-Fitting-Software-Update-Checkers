@@ -592,8 +592,8 @@ else:
 
 print("")
 
+print("Phonak Target: ", end="")
 if (scanPhonak):
-    print("Phonak Target: ", end="")
     phonakTargetChecker("GB")
     print(", ", end="")
     phonakTargetChecker("US")
@@ -606,9 +606,11 @@ if (scanPhonak):
     print(", ", end="")
     phonakTargetChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Unitron TrueFit: ", end="")
 if (scanUnitron):
-    print("Unitron TrueFit: ", end="")
     unitronTrueFitChecker("GB")
     print(", ", end="")
     unitronTrueFitChecker("US")
@@ -621,9 +623,11 @@ if (scanUnitron):
     print(", ", end="")
     unitronTrueFitChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Hansaton scout: ", end="")
 if (scanHansaton):
-    print("Hansaton scout: ", end="")
     hansatonScoutChecker("GB")
     print(", ", end="")
     hansatonScoutChecker("US")
@@ -638,9 +642,11 @@ if (scanHansaton):
     print(", ", end="")
     hansatonScoutChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Oticon Genie 2: ", end="")
 if (scanOticon):
-    print("Oticon Genie 2: ", end="")
     oticonGenie2Checker("GB")
     print(", ", end="")
     oticonGenie2Checker("US")
@@ -653,9 +659,11 @@ if (scanOticon):
     print(", ", end="")
     oticonGenie2Checker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Bernafon OasisNXT: ", end="")
 if (scanBernafon):
-    print("Bernafon OasisNXT: ", end="")
     bernafonOasisNXTChecker("Default")
     print(", ", end="")
     bernafonOasisNXTChecker("GB")
@@ -670,9 +678,11 @@ if (scanBernafon):
     print(", ", end="")
     bernafonOasisNXTChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Sonic EXPRESSfit Pro: ", end="")
 if (scanSonic):
-    print("Sonic EXPRESSfit Pro: ", end="")
     sonicExpressFitChecker("Default")
     print(", ", end="")
     sonicExpressFitChecker("GB")
@@ -687,9 +697,11 @@ if (scanSonic):
     print(", ", end="")
     sonicExpressFitChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Philips HearSuite: ", end="")
 if (scanPhilips):
-    print("Philips HearSuite: ", end="")
     philipsHearSuiteChecker("Default")
     print(", ", end="")
     philipsHearSuiteChecker("GB")
@@ -704,21 +716,29 @@ if (scanPhilips):
     print(", ", end="")
     philipsHearSuiteChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("ReSound Smart Fit: ", end="")
 if (scanReSound):
-    print("ReSound Smart Fit: ", end="")
     reSoundChecker()
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Beltone Solus Max: ", end="")
 if (scanBeltone):
-    print("Beltone Solus Max: ", end="")
     beltoneChecker()
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Interton Fitting: ", end="")
 if (scanInterton):
-    print("Interton Fitting: ", end="")
     intertonChecker()
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Signia Connexx: ", end="")
 if (scanSignia):
-    print("Signia Connexx: ", end="")
     signiaConnexxChecker("GB")
     print(", ", end="")
     signiaConnexxChecker("US")
@@ -731,9 +751,11 @@ if (scanSignia):
     print(", ", end="")
     signiaConnexxChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Rexton Connexx: ", end="")
 if (scanRexton):
-    print("Rexton Connexx: ", end="")
     rextonConnexxChecker("GB")
     print(", ", end="")
     rextonConnexxChecker("US")
@@ -746,9 +768,11 @@ if (scanRexton):
     print(", ", end="")
     rextonConnexxChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Audio Service Connexx: ", end="")
 if (scanAudioService):
-    print("Audio Service Connexx: ", end="")
     audioServiceConnexxChecker("GB")
     print(", ", end="")
     audioServiceConnexxChecker("US")
@@ -761,9 +785,11 @@ if (scanAudioService):
     print(", ", end="")
     audioServiceConnexxChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("A&M Connexx: ", end="")
 if (scanAM):
-    print("A&M Connexx: ", end="")
     aMConnexxChecker("GB")
     print(", ", end="")
     aMConnexxChecker("US")
@@ -776,9 +802,11 @@ if (scanAM):
     print(", ", end="")
     aMConnexxChecker("TW")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Widex Compass GPS: ", end="")
 if (scanWidex):
-    print("Widex Compass GPS: ", end="")
     widexCompassGPSChecker("Main_Test_Distributor")
     print(", ", end="")
     widexCompassGPSChecker("Alternate_Test_Distributor")
@@ -787,8 +815,12 @@ if (scanWidex):
     print(", ", end="")
     widexCompassGPSChecker("United Kingdom")
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("Starkey Pro Fit: ", end="")
 if (scanStarkey):
-    print("Starkey Pro Fit: ", end="")
     starkeyProFitChecker()
     print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
