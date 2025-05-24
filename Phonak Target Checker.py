@@ -126,7 +126,10 @@ print("\n\nThe latest available Phonak Target version for " + Fore.GREEN + targe
 validVersions = [
     (latestVersion, 'The latest available Phonak Target verion'),
 #    ('6.2.8', 'The last version of Phonak Target compatible with the iCube (obsolete proprietary hearing aid programmer)'),
-    ('manual', 'Manually specify a version (' + Fore.RED + 'WARNING' + Style.RESET_ALL + ': ADVANCED USERS ONLY)')
+    ('manual', 'Manually specify a version (' + Fore.RED + 'WARNING' + Style.RESET_ALL + ': ADVANCED USERS ONLY)'),
+    ("\nLegacy Software", '--'),
+    ('iPFG 2.6e', 'The latest available Phonak iPFG Successware version', 'https://www.phonakpro.com/content/dam/phonakpro/gc_hq/en/products_solutions/other_products/documents/iPFG2.6e.zip'),
+    ('PFG 8.6c Slim Version', 'The latest available Phonak PFG version', 'https://www.phonakpro.com/content/dam/phonakpro/gc_hq/en/products_solutions/other_products/documents/PFG_8.6c_SlimVersion.zip'),
 ]
 
 # Select outputDir and targetVersion
@@ -147,6 +150,13 @@ elif (targetVersion == 'manual'):
             targetVersion = ''
         elif (input("\nYou have selected version (" + Fore.YELLOW + targetVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             targetVersion = ''
+else:
+    # Create download folder
+    fileToDownload = [item for item in validVersions if item[0] == targetVersion][0][2]
+    outputDir += "Phonak " + targetVersion + "/"
+    libhearingdownloader.downloadFile(fileToDownload, outputDir + fileToDownload.split("/")[-1], "Downloading " + fileToDownload.split("/")[-1])
+    print("\n\nDownload Complete!")
+    exit(1)
 
 # Create download folder
 outputDir += "Phonak Target " + targetVersion + "/"

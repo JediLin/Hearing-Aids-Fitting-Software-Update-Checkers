@@ -247,4 +247,4 @@
 
 ### Pre-release (work-in-progress)
 - Message adjustment
-
+- Phonak: add iPFG and PFG (options in Target checker)

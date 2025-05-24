@@ -18,6 +18,8 @@ This project currently supports:
   - Phonak [Target](https://www.phonak.com/en-int/professionals/innovations/target)
     - Phonak Target Media
     - Phonak Target Sounds
+  - Phonak iPFG Successware
+  - Phonak PFG
   - Phonak [Roger Upgrader](https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrader)
   - Unitron [TrueFit](https://www.unitron.com/global/en_us/professionals/truefit.html)
   - Hansaton [scout](https://www.hansaton.com/en-int/professionals/support/instr.html)
@@ -103,6 +105,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ### Pre-release (work-in-progress)
 - Message adjustment
+- Phonak: add iPFG and PFG (options in Target checker)
 
 ### v2025.05.24
 - Widex: fix Compass GPS checker for v4.9+ [close [issue #1](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/1)]
