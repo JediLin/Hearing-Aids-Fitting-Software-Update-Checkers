@@ -248,3 +248,6 @@
 - Phonak: add iPFG and PFG (options in Target checker)
 - Quick Scan: add skip messages
 - Add retry messages
+
+### Pre-release (work-in-progress)
+- Quick Scan: use configuration file

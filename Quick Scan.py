@@ -1,3 +1,4 @@
+import configparser
 import re
 import datetime
 import tzlocal
@@ -14,23 +15,25 @@ import xml.etree.ElementTree as xml
 
 just_fix_windows_console()
 
-# Scan toggle
-scanPhonak = True
-scanUnitron = True
-scanHansaton = True
-scanOticon = True
-scanBernafon = True
-scanSonic = True
-scanPhilips = True
-scanReSound = True
-scanBeltone = True
-scanInterton = True
-scanSignia = True
-scanRexton = True
-scanAudioService = True
-scanAM = True
-scanWidex = True
-scanStarkey = True
+# Read configuration file for toggles with default True
+config = configparser.ConfigParser()
+config.read('config.ini')
+scanPhonak = config.getboolean('QuickScan', 'Phonak', fallback='True')
+scanUnitron = config.getboolean('QuickScan', 'Unitron', fallback='True')
+scanHansaton = config.getboolean('QuickScan', 'Hansaton', fallback='True')
+scanOticon = config.getboolean('QuickScan', 'Oticon', fallback='True')
+scanBernafon = config.getboolean('QuickScan', 'Bernafon', fallback='True')
+scanSonic = config.getboolean('QuickScan', 'Sonic', fallback='True')
+scanPhilips = config.getboolean('QuickScan', 'Philips', fallback='True')
+scanReSound = config.getboolean('QuickScan', 'ReSound', fallback='True')
+scanBeltone = config.getboolean('QuickScan', 'Beltone', fallback='True')
+scanInterton = config.getboolean('QuickScan', 'Interton', fallback='True')
+scanSignia = config.getboolean('QuickScan', 'Signia', fallback='True')
+scanRexton = config.getboolean('QuickScan', 'Rexton', fallback='True')
+scanAudioService = config.getboolean('QuickScan', 'AudioService', fallback='True')
+scanAM = config.getboolean('QuickScan', 'AM', fallback='True')
+scanWidex = config.getboolean('QuickScan', 'Widex', fallback='True')
+scanStarkey = config.getboolean('QuickScan', 'Starkey', fallback='True')
 
 print("\n\n")
 print("==================================================")
