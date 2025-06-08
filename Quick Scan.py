@@ -139,16 +139,16 @@ def oticonGenie2Checker(market):
     while updaterRetries > 0:
         try:
             osVer = config.get('Oticon', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
-            baseVer = config.get('Oticon', 'Version', fallback='20.22.95.0')
-            updrVer = config.get('Oticon', 'Updater', fallback='27.2.19.0')
-            baseVerMajor = baseVer.split('.')[0]
-            baseVerMinor = baseVer.split('.')[1]
-            baseVerBuild = baseVer.split('.')[2]
-            baseVerRev = baseVer.split('.')[3]
-            updrVerMajor = updrVer.split('.')[0]
-            updrVerMinor = updrVer.split('.')[1]
-            updrVerBuild = updrVer.split('.')[2]
-            updrVerRev = updrVer.split('.')[3]
+            baseVer = config.get('Oticon', 'Version', fallback='20.22.95.0').split('.')
+            updrVer = config.get('Oticon', 'Updater', fallback='27.2.19.0').split('.')
+            baseVerMajor = baseVer[0]
+            baseVerMinor = baseVer[1]
+            baseVerBuild = baseVer[2]
+            baseVerRev = baseVer[3]
+            updrVerMajor = updrVer[0]
+            updrVerMinor = updrVer[1]
+            updrVerBuild = updrVer[2]
+            updrVerRev = updrVer[3]
             rawXmlData = requests.post("https://updater.oticon.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.oticon.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale>' + targetMarket + '</b:Locale><b:Manufacturer>Oticon</b:Manufacturer><b:OEM>Oticon</b:OEM><b:OS>' + osVer + '</b:OS><b:RequestVersion>1</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>' + baseVerBuild + '</b:Build><b:Major>' + baseVerMajor + '</b:Major><b:Minor>' + baseVerMinor + '</b:Minor><b:Name>Genie2</b:Name><b:Revision>' + baseVerRev + '</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>' + updrVerBuild + '</b:Build><b:Major>' + updrVerMajor + '</b:Major><b:Minor>' + updrVerMinor + '</b:Minor><b:Name>OticonUpdater</b:Name><b:Revision>' + updrVerRev + '</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
             data = xml.fromstring(html.unescape(rawXmlData.text))
             break
@@ -176,16 +176,16 @@ def bernafonOasisNXTChecker(market):
     while updaterRetries > 0:
         try:
             osVer = config.get('Bernafon', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
-            baseVer = config.get('Bernafon', 'Version', fallback='20.22.95.0')
-            updrVer = config.get('Bernafon', 'Updater', fallback='27.3.26.0')
-            baseVerMajor = baseVer.split('.')[0]
-            baseVerMinor = baseVer.split('.')[1]
-            baseVerBuild = baseVer.split('.')[2]
-            baseVerRev = baseVer.split('.')[3]
-            updrVerMajor = updrVer.split('.')[0]
-            updrVerMinor = updrVer.split('.')[1]
-            updrVerBuild = updrVer.split('.')[2]
-            updrVerRev = updrVer.split('.')[3]
+            baseVer = config.get('Bernafon', 'Version', fallback='20.22.95.0').split('.')
+            updrVer = config.get('Bernafon', 'Updater', fallback='27.3.26.0').split('.')
+            baseVerMajor = baseVer[0]
+            baseVerMinor = baseVer[1]
+            baseVerBuild = baseVer[2]
+            baseVerRev = baseVer[3]
+            updrVerMajor = updrVer[0]
+            updrVerMinor = updrVer[1]
+            updrVerBuild = updrVer[2]
+            updrVerRev = updrVer[3]
             rawXmlData = requests.post("https://updater.bernafon.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.bernafon.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale>' + targetMarket + '</b:Locale><b:Manufacturer>Bernafon</b:Manufacturer><b:OEM>Bernafon</b:OEM><b:OS>' + osVer + '</b:OS><b:RequestVersion>1</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>' + updrVerBuild + '</b:Build><b:Major>' + updrVerMajor + '</b:Major><b:Minor>' + updrVerMinor + '</b:Minor><b:Name>BernafonUpdater</b:Name><b:Revision>' + updrVerRev + '</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>' + baseVerBuild + '</b:Build><b:Major>' + baseVerMajor + '</b:Major><b:Minor>' + baseVerMinor + '</b:Minor><b:Name>Oasis2</b:Name><b:Revision>' + baseVerRev + '</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
             data = xml.fromstring(html.unescape(rawXmlData.text))
             break
@@ -212,16 +212,16 @@ def sonicExpressFitChecker(market):
     while updaterRetries > 0:
         try:
             osVer = config.get('Sonic', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
-            baseVer = config.get('Sonic', 'Version', fallback='20.22.95.0')
-            updrVer = config.get('Sonic', 'Updater', fallback='26.9.3.0')
-            baseVerMajor = baseVer.split('.')[0]
-            baseVerMinor = baseVer.split('.')[1]
-            baseVerBuild = baseVer.split('.')[2]
-            baseVerRev = baseVer.split('.')[3]
-            updrVerMajor = updrVer.split('.')[0]
-            updrVerMinor = updrVer.split('.')[1]
-            updrVerBuild = updrVer.split('.')[2]
-            updrVerRev = updrVer.split('.')[3]
+            baseVer = config.get('Sonic', 'Version', fallback='20.22.95.0').split('.')
+            updrVer = config.get('Sonic', 'Updater', fallback='26.9.3.0').split('.')
+            baseVerMajor = baseVer[0]
+            baseVerMinor = baseVer[1]
+            baseVerBuild = baseVer[2]
+            baseVerRev = baseVer[3]
+            updrVerMajor = updrVer[0]
+            updrVerMinor = updrVer[1]
+            updrVerBuild = updrVer[2]
+            updrVerRev = updrVer[3]
             rawXmlData = requests.post("https://updater.sonicinnovations.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.sonicinnovations.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Customer>Sonic</b:Customer><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale i:nil="true"/><b:Manufacturer>Sonic</b:Manufacturer><b:Market>' + targetMarket + '</b:Market><b:OEM i:nil="true"/><b:OS>' + osVer + '</b:OS><b:RequestVersion>2</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>' + baseVerBuild + '</b:Build><b:Major>' + baseVerMajor + '</b:Major><b:Minor>' + baseVerMinor + '</b:Minor><b:Name>ExpressFit2</b:Name><b:Revision>' + baseVerRev + '</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>' + updrVerBuild + '</b:Build><b:Major>' + updrVerMajor + '</b:Major><b:Minor>' + updrVerMinor + '</b:Minor><b:Name>SonicUpdater</b:Name><b:Revision>' + updrVerRev + '</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
             data = xml.fromstring(html.unescape(rawXmlData.text))
             break
@@ -248,16 +248,16 @@ def philipsHearSuiteChecker(market):
     while updaterRetries > 0:
         try:
             osVer = config.get('Philips', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
-            baseVer = config.get('Philips', 'Version', fallback='20.22.95.0')
-            updrVer = config.get('Philips', 'Updater', fallback='26.9.3.0')
-            baseVerMajor = baseVer.split('.')[0]
-            baseVerMinor = baseVer.split('.')[1]
-            baseVerBuild = baseVer.split('.')[2]
-            baseVerRev = baseVer.split('.')[3]
-            updrVerMajor = updrVer.split('.')[0]
-            updrVerMinor = updrVer.split('.')[1]
-            updrVerBuild = updrVer.split('.')[2]
-            updrVerRev = updrVer.split('.')[3]
+            baseVer = config.get('Philips', 'Version', fallback='20.22.95.0').split('.')
+            updrVer = config.get('Philips', 'Updater', fallback='26.9.3.0').split('.')
+            baseVerMajor = baseVer[0]
+            baseVerMinor = baseVer[1]
+            baseVerBuild = baseVer[2]
+            baseVerRev = baseVer[3]
+            updrVerMajor = updrVer[0]
+            updrVerMinor = updrVer[1]
+            updrVerBuild = updrVer[2]
+            updrVerRev = updrVer[3]
             rawXmlData = requests.post("https://updater.sbohearing.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.sbohearing.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Customer>Philips</b:Customer><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale i:nil="true"/><b:Manufacturer>Philips HearSuite</b:Manufacturer><b:Market>' + targetMarket + '</b:Market><b:OEM i:nil="true"/><b:OS>' + osVer + '</b:OS><b:RequestVersion>2</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>' + baseVerBuild + '</b:Build><b:Major>' + baseVerMajor + '</b:Major><b:Minor>' + baseVerMinor + '</b:Minor><b:Name>HearSuite2</b:Name><b:Revision>' + baseVerRev + '</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>' + updrVerBuild + '</b:Build><b:Major>' + updrVerMajor + '</b:Major><b:Minor>' + updrVerMinor + '</b:Minor><b:Name>PhilipsHearSuiteUpdater</b:Name><b:Revision>' + updrVerRev + '</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
             data = xml.fromstring(html.unescape(rawXmlData.text))
             break
