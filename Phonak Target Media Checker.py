@@ -3,6 +3,7 @@
 #                   Copyright Bluebotlabz                   #
 #                                                           #
 #############################################################
+import configparser
 import requests
 from pathlib import Path
 from colorama import just_fix_windows_console
@@ -44,8 +45,12 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Read configuration file for toggles with default True
+config = configparser.ConfigParser()
+config.read('config.ini')
+fallbackMarket = config.get('Phonak', 'Market', fallback='GB')
+
 # Read target market from GitHub or local configuration
-fallbackMarket = "GB"
 localMarketPath = Path("Phonak.market")
 onlineMarketPath = "https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/raw/refs/heads/main/Phonak.market"
 defaultMarketSrc = ""
@@ -99,8 +104,8 @@ while updaterRetries > 0:
     try:
         # checker variables, may effect the latest version available from API
         # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
-        targetMarketFallback = "US"
-        hostBaseVer="6.0.1.695"
+        targetMarketFallback = config.get('Phonak', 'MarketFallback', fallback='US')
+        hostBaseVer = config.get('Phonak', 'Version', fallback='6.0.1.695')
         baseVer = "0.0.0.0"
         hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
         hostData = xml.fromstring(hostXmlData)
