@@ -18,22 +18,22 @@ just_fix_windows_console()
 # Read configuration file for toggles with default True
 config = configparser.ConfigParser()
 config.read('config.ini')
-scanPhonak = config.getboolean('QuickScan', 'Phonak', fallback='True')
-scanUnitron = config.getboolean('QuickScan', 'Unitron', fallback='True')
-scanHansaton = config.getboolean('QuickScan', 'Hansaton', fallback='True')
-scanOticon = config.getboolean('QuickScan', 'Oticon', fallback='True')
-scanBernafon = config.getboolean('QuickScan', 'Bernafon', fallback='True')
-scanSonic = config.getboolean('QuickScan', 'Sonic', fallback='True')
-scanPhilips = config.getboolean('QuickScan', 'Philips', fallback='True')
-scanReSound = config.getboolean('QuickScan', 'ReSound', fallback='True')
-scanBeltone = config.getboolean('QuickScan', 'Beltone', fallback='True')
-scanInterton = config.getboolean('QuickScan', 'Interton', fallback='True')
-scanSignia = config.getboolean('QuickScan', 'Signia', fallback='True')
-scanRexton = config.getboolean('QuickScan', 'Rexton', fallback='True')
-scanAudioService = config.getboolean('QuickScan', 'AudioService', fallback='True')
-scanAM = config.getboolean('QuickScan', 'AM', fallback='True')
-scanWidex = config.getboolean('QuickScan', 'Widex', fallback='True')
-scanStarkey = config.getboolean('QuickScan', 'Starkey', fallback='True')
+scanPhonak = config.getboolean('Phonak', 'QuickScan', fallback='True')
+scanUnitron = config.getboolean('Unitron', 'QuickScan', fallback='True')
+scanHansaton = config.getboolean('Hansaton', 'QuickScan', fallback='True')
+scanOticon = config.getboolean('Oticon', 'QuickScan', fallback='True')
+scanBernafon = config.getboolean('Bernafon', 'QuickScan', fallback='True')
+scanSonic = config.getboolean('Sonic', 'QuickScan', fallback='True')
+scanPhilips = config.getboolean('Philips', 'QuickScan', fallback='True')
+scanReSound = config.getboolean('ReSound', 'QuickScan', fallback='True')
+scanBeltone = config.getboolean('Beltone', 'QuickScan', fallback='True')
+scanInterton = config.getboolean('Interton', 'QuickScan', fallback='True')
+scanSignia = config.getboolean('Signia', 'QuickScan', fallback='True')
+scanRexton = config.getboolean('Rexton', 'QuickScan', fallback='True')
+scanAudioService = config.getboolean('AudioService', 'QuickScan', fallback='True')
+scanAM = config.getboolean('AM', 'QuickScan', fallback='True')
+scanWidex = config.getboolean('Widex', 'QuickScan', fallback='True')
+scanStarkey = config.getboolean('Starkey', 'QuickScan', fallback='True')
 
 print("\n\n")
 print("==================================================")
@@ -64,7 +64,7 @@ if not turboFile.is_file():
 # Sonova: Phonak, Unitron, Hansaton
 def phonakTargetChecker(market):
     targetMarket = market
-    baseVer="6.0.1.695"
+    baseVer = config.get('Phonak', 'Version', fallback='6.0.1.695')
     xmlns = "{http://cocoon.phonak.com}"
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
@@ -86,7 +86,7 @@ def phonakTargetChecker(market):
 
 def unitronTrueFitChecker(market):
     targetMarket = market
-    baseVer="5.1.0.25391"
+    baseVer = config.get('Unitron', 'Version', fallback='5.1.0.25391')
     xmlns = "{http://cocoon.phonak.com}"
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
@@ -108,7 +108,7 @@ def unitronTrueFitChecker(market):
 
 def hansatonScoutChecker(market):
     targetMarket = market
-    baseVer="5.1.0.26954"
+    baseVer = config.get('Hansaton', 'Version', fallback='5.1.0.26954')
     xmlns = "{http://cocoon.phonak.com}"
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
