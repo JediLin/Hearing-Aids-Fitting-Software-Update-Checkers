@@ -250,4 +250,4 @@
 - Add retry messages
 
 ### Pre-release (work-in-progress)
-- Quick Scan: use configuration file
+- Using configuration file `config.ini`

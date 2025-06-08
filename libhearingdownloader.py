@@ -1,3 +1,4 @@
+import configparser
 from tqdm import tqdm
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
@@ -30,7 +31,10 @@ import os
 downloaderVersion = "Pre-release"
 #downloaderVersion = "v2025.05.24"
 updaterRetries = 3
-verboseDebug = False
+# Read configuration file for toggles with default True
+config = configparser.ConfigParser()
+config.read('config.ini')
+verboseDebug = config.getboolean('General', 'Verbose', fallback='False')
 
 def normalizePath(path, correctWindowsChars=True):
     if (path[-1] != "/"):
