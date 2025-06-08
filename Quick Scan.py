@@ -247,15 +247,17 @@ def philipsHearSuiteChecker(market):
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            osVer = "Microsoft Windows NT 10.0.22621.0"
-            baseVerMajor = "20"
-            baseVerMinor = "22"
-            baseVerBuild = "95"
-            baseVerRev = "0"
-            updrVerMajor = "26"
-            updrVerMinor = "9"
-            updrVerBuild = "3"
-            updrVerRev = "0"
+            osVer = config.get('Philips', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+            baseVer = config.get('Philips', 'Version', fallback='20.22.95.0')
+            updrVer = config.get('Philips', 'Updater', fallback='26.9.3.0')
+            baseVerMajor = baseVer.split('.')[0]
+            baseVerMinor = baseVer.split('.')[1]
+            baseVerBuild = baseVer.split('.')[2]
+            baseVerRev = baseVer.split('.')[3]
+            updrVerMajor = updrVer.split('.')[0]
+            updrVerMinor = updrVer.split('.')[1]
+            updrVerBuild = updrVer.split('.')[2]
+            updrVerRev = updrVer.split('.')[3]
             rawXmlData = requests.post("https://updater.sbohearing.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.sbohearing.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Customer>Philips</b:Customer><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale i:nil="true"/><b:Manufacturer>Philips HearSuite</b:Manufacturer><b:Market>' + targetMarket + '</b:Market><b:OEM i:nil="true"/><b:OS>' + osVer + '</b:OS><b:RequestVersion>2</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>' + baseVerBuild + '</b:Build><b:Major>' + baseVerMajor + '</b:Major><b:Minor>' + baseVerMinor + '</b:Minor><b:Name>HearSuite2</b:Name><b:Revision>' + baseVerRev + '</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>' + updrVerBuild + '</b:Build><b:Major>' + updrVerMajor + '</b:Major><b:Minor>' + updrVerMinor + '</b:Minor><b:Name>PhilipsHearSuiteUpdater</b:Name><b:Revision>' + updrVerRev + '</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
             data = xml.fromstring(html.unescape(rawXmlData.text))
             break
