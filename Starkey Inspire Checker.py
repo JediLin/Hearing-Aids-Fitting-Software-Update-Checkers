@@ -3,6 +3,7 @@
 #                   Copyright Bluebotlabz                   #
 #                                                           #
 #############################################################
+import configparser
 import os
 import datetime
 import tzlocal
@@ -46,6 +47,10 @@ disclaimer = [
 # Display disclaimer
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
+
+# Read configuration file for toggles with default True
+config = configparser.ConfigParser()
+config.read('config.ini')
 
 # get current country name
 def getIP():
@@ -108,9 +113,9 @@ while updaterRetries > 0:
         # Windows 10 22H2: 'Microsoft Windows NT 10.0.19045.0'
         # Windows 11: 'Microsoft Windows NT 10.0.22631.0'
         # Use [Environment]::OSVersion.VersionString under PowerShell to get the full version string.
-        baseOS = 'Microsoft Windows NT 10.0.19045.0'
+        baseOS = config.get('Starkey', 'OS', fallback='Microsoft Windows NT 10.0.19045.0')
         # Download version data, pretending installed Inspire OS v27.0.10074.0
-        baseVer = '27.0.10074.0'
+        baseVer = config.get('Starkey', 'Inspire', fallback='27.0.10074.0')
         rawPostData = '{"ClientID":"00000000-0000-0000-0000-000000000000","ClientID2":"00000000-0000-0000-0000-000000000000+0000000000000000000","Application":"Inspire OS","ApplicationProperties":[{"Name":"Version","TypeName":"System.Version","Value":"' + baseVer + '"},{"Name":"manufacturer","TypeName":"System.String","Value":"Starkey"},{"Name":"targetAudience","TypeName":"System.String","Value":"Starkey International English"},{"Name":"locale","TypeName":"System.String","Value":"en"},{"Name":"BillToAccountNumber","TypeName":"System.String","Value":"unknown"},{"Name":"ShipToAccountNumber","TypeName":"System.String","Value":"unknown"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"MachineName","TypeName":"System.String","Value":"0000"},{"Name":"OSVersion","TypeName":"System.String","Value":"' + baseOS + '"},{"Name":"OSBitWidth","TypeName":"System.Byte","Value":"64"},{"Name":"Time","TypeName":"System.DateTime","Value":"' + currentTime + '"}],"TestMode":false}'
         rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData, verify='inspireupdater-com-chain.pem')
         data = json.loads(rawJsonData.text)
