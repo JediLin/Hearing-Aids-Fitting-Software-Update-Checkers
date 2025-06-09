@@ -3,6 +3,7 @@
 #                   Copyright Bluebotlabz                   #
 #                                                           #
 #############################################################
+import configparser
 import os
 import json
 import shutil
@@ -46,6 +47,11 @@ disclaimer = [
 # Display disclaimer
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
+
+# Read configuration file for toggles with default True
+config = configparser.ConfigParser()
+config.read('config.ini')
+fallbackMarket = config.get('Widex', 'Market', fallback='Main_Test_Distributor')
 
 # Read target market from GitHub or local configuration
 fallbackMarket = "Main_Test_Distributor"
@@ -96,11 +102,11 @@ else:
     print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Distributor ID is invalid. Using " + Fore.GREEN + defaultMarket + Style.RESET_ALL + " instead...")
 
 # Base information
-baseId = "CompassGPS"
-baseVer = "4.8.6193.0"
+baseId = config.get('Widex', 'ID', fallback='CompassGPS')
+baseVer = config.get('Widex', 'Version', fallback='4.8.6193.0')
 
 # API key
-apiKey = "24fbe5gacg`hcdf535dd34ed6_237347"
+apiKey = config.get('Widex', 'Key', fallback='24fbe5gacg`hcdf535dd34ed6_237347')
 
 # Special headers for the Widex updater API
 headers = {

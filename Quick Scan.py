@@ -478,9 +478,9 @@ def aMConnexxChecker(market):
 
 def widexCompassGPSChecker(market):
     targetMarket = market
-    baseId = "CompassGPS"
-    baseVer = "4.8.6193.0"
-    apiKey = "24fbe5gacg`hcdf535dd34ed6_237347"
+    baseId = config.get('Widex', 'ID', fallback='CompassGPS')
+    baseVer = config.get('Widex', 'Version', fallback='4.8.6193.0')
+    apiKey = config.get('Widex', 'Key', fallback='24fbe5gacg`hcdf535dd34ed6_237347')
     headers = {
         "Ocp-Apim-Subscription-Key": rot_codec.rot47_decode(apiKey),
         "x-ApiEnvironment": "prod",
