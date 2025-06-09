@@ -536,12 +536,12 @@ def starkeyProFitChecker():
     currentCountry = ""
     currentIP = getIP()
     if(currentIP == ""):
-        currentCountry = "US"
+        currentCountry = config.get('Starkey', 'Market', fallback='US')
     else:
         currentCountry = getCN(currentIP)
 
     if(currentCountry == ""):
-        currentCountry = "US"
+        currentCountry = config.get('Starkey', 'Market', fallback='US')
     else:
         pass
 
@@ -607,128 +607,134 @@ print("")
 
 print("Phonak Target: ", end="")
 if (scanPhonak):
-    phonakTargetChecker("GB")
-    print(", ", end="")
-    phonakTargetChecker("US")
-    print(", ", end="")
-    phonakTargetChecker("CA")
-    print(", ", end="")
-    phonakTargetChecker("ES")
-    print(", ", end="")
-    phonakTargetChecker("FR")
-    print(", ", end="")
-    phonakTargetChecker("TW")
-    print(".")
+    marketList = config.get('Phonak', 'MarketScan', fallback='GB,US,CA,ES,FR,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            phonakTargetChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("Unitron TrueFit: ", end="")
 if (scanUnitron):
-    unitronTrueFitChecker("GB")
-    print(", ", end="")
-    unitronTrueFitChecker("US")
-    print(", ", end="")
-    unitronTrueFitChecker("CA")
-    print(", ", end="")
-    unitronTrueFitChecker("ES")
-    print(", ", end="")
-    unitronTrueFitChecker("FR")
-    print(", ", end="")
-    unitronTrueFitChecker("TW")
-    print(".")
+    marketList = config.get('Unitron', 'MarketScan', fallback='GB,US,CA,ES,FR,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            unitronTrueFitChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("Hansaton scout: ", end="")
 if (scanHansaton):
-    hansatonScoutChecker("GB")
-    print(", ", end="")
-    hansatonScoutChecker("US")
-    print(", ", end="")
-    hansatonScoutChecker("CA")
-    print(", ", end="")
-    hansatonScoutChecker("ES")
-    print(", ", end="")
-    hansatonScoutChecker("FR")
-    print(", ", end="")
-    hansatonScoutChecker("DE")
-    print(", ", end="")
-    hansatonScoutChecker("TW")
-    print(".")
+    marketList = config.get('Hansaton', 'MarketScan', fallback='GB,US,CA,ES,FR,DE,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            hansatonScoutChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("Oticon Genie 2: ", end="")
 if (scanOticon):
-    oticonGenie2Checker("GB")
-    print(", ", end="")
-    oticonGenie2Checker("US")
-    print(", ", end="")
-    oticonGenie2Checker("CA")
-    print(", ", end="")
-    oticonGenie2Checker("ES")
-    print(", ", end="")
-    oticonGenie2Checker("FR")
-    print(", ", end="")
-    oticonGenie2Checker("TW")
-    print(".")
+    marketList = config.get('Oticon', 'MarketScan', fallback='GB,US,CA,ES,FR,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            oticonGenie2Checker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("Bernafon OasisNXT: ", end="")
 if (scanBernafon):
-    bernafonOasisNXTChecker("Default")
-    print(", ", end="")
-    bernafonOasisNXTChecker("GB")
-    print(", ", end="")
-    bernafonOasisNXTChecker("US")
-    print(", ", end="")
-    bernafonOasisNXTChecker("CA")
-    print(", ", end="")
-    bernafonOasisNXTChecker("ES")
-    print(", ", end="")
-    bernafonOasisNXTChecker("FR")
-    print(", ", end="")
-    bernafonOasisNXTChecker("TW")
-    print(".")
+    marketList = config.get('Bernafon', 'MarketScan', fallback='Default,GB,US,CA,ES,FR,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            bernafonOasisNXTChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("Sonic EXPRESSfit Pro: ", end="")
 if (scanSonic):
-    sonicExpressFitChecker("Default")
-    print(", ", end="")
-    sonicExpressFitChecker("GB")
-    print(", ", end="")
-    sonicExpressFitChecker("US")
-    print(", ", end="")
-    sonicExpressFitChecker("CA")
-    print(", ", end="")
-    sonicExpressFitChecker("ES")
-    print(", ", end="")
-    sonicExpressFitChecker("FR")
-    print(", ", end="")
-    sonicExpressFitChecker("TW")
-    print(".")
+    marketList = config.get('Sonic', 'MarketScan', fallback='Default,GB,US,CA,ES,FR,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            sonicExpressFitChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("Philips HearSuite: ", end="")
 if (scanPhilips):
-    philipsHearSuiteChecker("Default")
-    print(", ", end="")
-    philipsHearSuiteChecker("GB")
-    print(", ", end="")
-    philipsHearSuiteChecker("US")
-    print(", ", end="")
-    philipsHearSuiteChecker("CA")
-    print(", ", end="")
-    philipsHearSuiteChecker("ES")
-    print(", ", end="")
-    philipsHearSuiteChecker("FR")
-    print(", ", end="")
-    philipsHearSuiteChecker("TW")
-    print(".")
+    marketList = config.get('Philips', 'MarketScan', fallback='Default,GB,US,CA,ES,FR,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            philipsHearSuiteChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
@@ -752,82 +758,96 @@ else:
 
 print("Signia Connexx: ", end="")
 if (scanSignia):
-    signiaConnexxChecker("GB")
-    print(", ", end="")
-    signiaConnexxChecker("US")
-    print(", ", end="")
-    signiaConnexxChecker("CA")
-    print(", ", end="")
-    signiaConnexxChecker("ES")
-    print(", ", end="")
-    signiaConnexxChecker("FR")
-    print(", ", end="")
-    signiaConnexxChecker("TW")
-    print(".")
+    marketList = config.get('Signia', 'MarketScan', fallback='GB,US,CA,ES,FR,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            signiaConnexxChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("Rexton Connexx: ", end="")
 if (scanRexton):
-    rextonConnexxChecker("GB")
-    print(", ", end="")
-    rextonConnexxChecker("US")
-    print(", ", end="")
-    rextonConnexxChecker("CA")
-    print(", ", end="")
-    rextonConnexxChecker("ES")
-    print(", ", end="")
-    rextonConnexxChecker("FR")
-    print(", ", end="")
-    rextonConnexxChecker("TW")
-    print(".")
+    marketList = config.get('Rexton', 'MarketScan', fallback='GB,US,ES,FR,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            rextonConnexxChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("Audio Service Connexx: ", end="")
 if (scanAudioService):
-    audioServiceConnexxChecker("GB")
-    print(", ", end="")
-    audioServiceConnexxChecker("US")
-    print(", ", end="")
-    audioServiceConnexxChecker("CA")
-    print(", ", end="")
-    audioServiceConnexxChecker("ES")
-    print(", ", end="")
-    audioServiceConnexxChecker("FR")
-    print(", ", end="")
-    audioServiceConnexxChecker("TW")
-    print(".")
+    marketList = config.get('AudioService', 'MarketScan', fallback='GB,ES,FR,TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            audioServiceConnexxChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("A&M Connexx: ", end="")
 if (scanAM):
-    aMConnexxChecker("GB")
-    print(", ", end="")
-    aMConnexxChecker("US")
-    print(", ", end="")
-    aMConnexxChecker("CA")
-    print(", ", end="")
-    aMConnexxChecker("ES")
-    print(", ", end="")
-    aMConnexxChecker("FR")
-    print(", ", end="")
-    aMConnexxChecker("TW")
-    print(".")
+    marketList = config.get('AM', 'MarketScan', fallback='TW').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            aMConnexxChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("Widex Compass GPS: ", end="")
 if (scanWidex):
-    widexCompassGPSChecker("Main_Test_Distributor")
-    print(", ", end="")
-    widexCompassGPSChecker("Alternate_Test_Distributor")
-    print(", ", end="")
-    widexCompassGPSChecker("USA")
-    print(", ", end="")
-    widexCompassGPSChecker("United Kingdom")
-    print(".")
+    marketList = config.get('Widex', 'MarketScan', fallback='Main_Test_Distributor,Alternate_Test_Distributor,USA,United Kingdom').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            widexCompassGPSChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 

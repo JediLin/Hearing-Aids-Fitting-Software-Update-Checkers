@@ -73,12 +73,12 @@ currentIP = ""
 currentCountry = ""
 currentIP = getIP()
 if(currentIP == ""):
-    currentCountry = "US"
+    currentCountry = config.get('Starkey', 'Market', fallback='US')
 else:
     currentCountry = getCN(currentIP)
 
 if(currentCountry == ""):
-    currentCountry = "US"
+    currentCountry = config.get('Starkey', 'Market', fallback='US')
 else:
     pass
 
