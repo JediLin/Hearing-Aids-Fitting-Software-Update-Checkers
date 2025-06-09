@@ -105,7 +105,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2025.06.09
 - Using configuration file `config.ini`
 
 ### v2025.05.24

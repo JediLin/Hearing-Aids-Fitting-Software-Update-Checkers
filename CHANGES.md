@@ -249,5 +249,5 @@
 - Quick Scan: add skip messages
 - Add retry messages
 
-### Pre-release (work-in-progress)
+### v2025.06.09
 - Using configuration file `config.ini`
