@@ -81,11 +81,11 @@ NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by
 **WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
 
 ### Pro-tip & Configuration
-Not all market regions get the same versions for all hearing aids fitting software. In case you see newer versions from some forums or sites yet the checkers report older ones, try changing `target market` on-the-fly to other countries to get alternative results.
+Not all market regions get the same versions for all hearing aids fitting software. In case you see newer versions from some forums or sites yet the checkers report older ones, try changing `target market` on-the-fly to other countries to get alternative results. You can check [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki.
 
 To change checking variables such as (target) `Market` or (spoof) `Version`, simply edit `config.ini` with any plain-text editor. This file is sectioned by hearing aid brands.
 
-This project will try to keep up changing default target market for most up-to-date results. Scripts automatically fetch this information from this project (*LiveUpdate*-ish) without needing to re-download the whole release package. You can check [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki.
+This project will try to keep up changing default target market for most up-to-date results. Scripts automatically fetch this information from this project (*LiveUpdate*-ish) without needing to re-download the whole release package.
 
 ### Pre-requirement: Install Python
 The following steps only need to be done **ONCE** on each system:
