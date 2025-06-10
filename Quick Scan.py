@@ -34,6 +34,9 @@ scanAudioService = config.getboolean('AudioService', 'QuickScan', fallback='True
 scanAM = config.getboolean('AM', 'QuickScan', fallback='True')
 scanWidex = config.getboolean('Widex', 'QuickScan', fallback='True')
 scanStarkey = config.getboolean('Starkey', 'QuickScan', fallback='True')
+scanSkipAll = False
+if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanSignia or scanRexton or scanAudioService or scanAM or scanWidex or scanStarkey):
+    scanSkipAll = True
 
 print("\n\n")
 print("==================================================")
@@ -576,6 +579,13 @@ def starkeyProFitChecker():
         updateVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
         print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + geoIP + ")", end="")
 
+# Give instruction and skip the rest script if all skipped
+if scanSkipAll:
+    print("\n" + Fore.YELLOW + "Notice" + Style.RESET_ALL + ": All scans are " + Fore.RED + "skipped" + Style.RESET_ALL + ".\n")
+    print("Please edit " + Fore.GREEN + "config.ini" + Style.RESET_ALL + " file with any plain-text editor")
+    print("to enable Quick Scan by setting " + Fore.BLUE + "QuickScan" + Style.RESET_ALL + " to " + Fore.GREEN + "True" + Style.RESET_ALL + " for")
+    print("each hearing aid brand as you like.")
+    exit(1)
 
 # check last time performing Quick Scan
 timestampPath = Path("Quick Scan.timestamp")
