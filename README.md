@@ -106,7 +106,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ## Changelog
 
 ### v2025.06.10
-- Quick Scan: skip all by default
+- Quick Scan: skip all by default (please edit `config.ini` to enable each scan)
 
 ### v2025.06.09
 - Using configuration file `config.ini`

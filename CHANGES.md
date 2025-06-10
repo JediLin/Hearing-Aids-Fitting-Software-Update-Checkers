@@ -253,4 +253,4 @@
 - Using configuration file `config.ini`
 
 ### v2025.06.10
-- Quick Scan: skip all by default
+- Quick Scan: skip all by default (please edit `config.ini` to enable each scan)
