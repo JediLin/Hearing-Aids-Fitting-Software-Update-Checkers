@@ -69,6 +69,7 @@ validVersions = [
     ("Archived Downloads", "--"),
     ("==================", "--"),
     ("Noahlink Wireless Driver v1.1.0.0", "for Windows 10 and 11 (March 2017)", "https://himsafiles.com/NoahlinkWireless/Driver_NLW_V.1.1.0.0.exe"),
+    ("Noahlink Wireless Firmware v3.5.0.0", "v2.25 (NW1) / v3.25 (NW2) (July 2025)", "https://www.himsa.com/wp-content/uploads/2025/07/NLWUpgrader_3.5.0.0.exe"),
     ("Noahlink Wireless Firmware v3.3.0.0", "v2.25 (NW1) / v3.23 (NW2) (April 2025)", "https://himsafiles.com/NoahlinkWireless/NLWUpgrader_3.3.0.0.exe"),
     ("Noahlink Wireless Firmware v3.1.0.92", "v2.25 (NW1) / v3.17 (NW2) (May 2024)", "https://himsafiles.com/NoahlinkWireless/NLWUpgrader_3.1.0.92.exe"),
     ("Noahlink Wireless Firmware v2.24", "v2.24 (NW1 only)", "https://himsafiles.com/NoahlinkWireless/NLWUpgrader2.24.exe"),

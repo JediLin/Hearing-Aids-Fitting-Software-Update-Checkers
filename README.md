@@ -105,6 +105,10 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- HIMSA: add archived version v3.5.0.0 for Noahlink Wireless firmware upgrader
+- HIMSA: workaround for error checking file data stream
+
 ### v2025.06.10
 - Quick Scan: skip all by default (please edit `config.ini` to enable each scan)
 
