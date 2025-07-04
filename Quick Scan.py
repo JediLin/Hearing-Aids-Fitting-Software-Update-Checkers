@@ -7,6 +7,7 @@ import html
 import json
 import requests
 import lxml.html
+import feedparser
 import rot_codec
 from urllib.parse import urlparse
 from pathlib import Path
@@ -37,8 +38,9 @@ scanAudioService = config.getboolean('AudioService', 'QuickScan', fallback='True
 scanAM = config.getboolean('AM', 'QuickScan', fallback='True')
 scanWidex = config.getboolean('Widex', 'QuickScan', fallback='True')
 scanStarkey = config.getboolean('Starkey', 'QuickScan', fallback='True')
+scanHIMSA = config.getboolean('HIMSA', 'QuickScan', fallback='True')
 scanSkipAll = False
-if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanSignia or scanRexton or scanAudioService or scanAM or scanWidex or scanStarkey):
+if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanSignia or scanRexton or scanAudioService or scanAM or scanWidex or scanStarkey or scanHIMSA):
     scanSkipAll = True
 
 print("\n\n")
@@ -593,6 +595,15 @@ def starkeyPatientBaseChecker():
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer, end="")
 
+# HIMSA
+def himsaChecker():
+    newsfeed = feedparser.parse('https://politepol.com/fd/smVib0t95riP')
+    if(newsfeed.feed == {}):
+        updateVer = Fore.RED + "Error" + Style.RESET_ALL
+    else:
+        updateVer = Fore.GREEN + "v" + newsfeed.entries[0].title.replace('Noahlink Wireless Firmware Upgrader ', '') + Style.RESET_ALL
+    print(updateVer, end="")
+
 # Give instruction and skip the rest script if all skipped
 if scanSkipAll:
     print("\n" + Fore.YELLOW + "Notice" + Style.RESET_ALL + ": All scans are " + Fore.RED + "skipped" + Style.RESET_ALL + ".\n")
@@ -888,3 +899,11 @@ if (scanStarkey):
     print(".")
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
+
+print("HIMSA Noahlink Wireless Firmware Upgrader: ", end="")
+if (scanHIMSA):
+    himsaChecker()
+    print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
+
