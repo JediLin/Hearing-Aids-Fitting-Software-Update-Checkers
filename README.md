@@ -105,7 +105,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2025.07.04
 - Spoof User-Agent string
 - HIMSA: add archived version v3.5.0.0 for Noahlink Wireless firmware upgrader
 - HIMSA: workaround for error checking file data stream
