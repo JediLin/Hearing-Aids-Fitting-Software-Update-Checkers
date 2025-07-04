@@ -1,3 +1,4 @@
+import os
 import configparser
 import re
 import datetime
@@ -5,7 +6,9 @@ import tzlocal
 import html
 import json
 import requests
+import lxml.html
 import rot_codec
+from urllib.parse import urlparse
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
@@ -579,6 +582,17 @@ def starkeyProFitChecker():
         updateVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
         print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + geoIP + ")", end="")
 
+def starkeyPatientBaseChecker():
+    pbURI = "https://patientbase.starkeyhearingtechnologies.com"
+    try:
+        test = requests.get(pbURI)
+        dom = lxml.html.fromstring(requests.get(pbURI).content)
+        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
+        updateVer = Fore.GREEN + "v" + os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ').replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL
+    except:
+        updateVer = Fore.RED + "Error" + Style.RESET_ALL
+    print(updateVer, end="")
+
 # Give instruction and skip the rest script if all skipped
 if scanSkipAll:
     print("\n" + Fore.YELLOW + "Notice" + Style.RESET_ALL + ": All scans are " + Fore.RED + "skipped" + Style.RESET_ALL + ".\n")
@@ -864,6 +878,13 @@ else:
 print("Starkey Pro Fit: ", end="")
 if (scanStarkey):
     starkeyProFitChecker()
+    print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
+
+print("Starkey PatientBase: ", end="")
+if (scanStarkey):
+    starkeyPatientBaseChecker()
     print(".")
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
