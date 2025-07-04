@@ -35,6 +35,7 @@ updaterRetries = 3
 config = configparser.ConfigParser()
 config.read('config.ini')
 verboseDebug = config.getboolean('General', 'Verbose', fallback='False')
+uaString = config.get('General', 'UA', fallback='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3')
 
 def normalizePath(path, correctWindowsChars=True):
     if (path[-1] != "/"):
@@ -199,7 +200,7 @@ def downloadFile(url, saveLocation, downloadDescription):
         if(verboseDebug):
             print("\nCounter: " + str(streamRetries) + "\n")
         try:
-            fileData = requests.get(url, stream=True) # Get file stream
+            fileData = requests.get(url, headers={'User-Agent': uaString}, stream=True) # Get file stream
             chunkSize = 2048
 
             if (str(fileData.status_code)[0] != '2'):
