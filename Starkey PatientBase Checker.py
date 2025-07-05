@@ -3,9 +3,11 @@
 #                   Copyright Bluebotlabz                   #
 #                                                           #
 #############################################################
+import configparser
 import os
 import requests
 import lxml.html
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from urllib.parse import urlparse
 from pathlib import Path
 from colorama import just_fix_windows_console
@@ -43,16 +45,33 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Read configuration file for toggles with default True
+config = configparser.ConfigParser()
+config.read('config.ini')
+certVerify = config.getboolean('Starkey', 'PatientBaseVerify', fallback='True')
+
 # Get PatientBase update from the webpage
 pbURI = "https://patientbase.starkeyhearingtechnologies.com"
 fallbackDownload = "https://softwaredownload.starkey.com/PatientBase/PatientBase Setup 28.0.10003.0.exe"
 try:
-    test = requests.get(pbURI)
-    dom = lxml.html.fromstring(requests.get(pbURI).content)
+    if (certVerify == False):
+        print("\n\n" + Fore.RED + "WARNING" + Style.RESET_ALL + ": Ignorning certification security verification for \n" + Fore.GREEN + pbURI + Style.RESET_ALL)
+        print("\nYou shouldn't trust anything you get from this request.\nProceed with " + Fore.RED + "YOUR OWN RISK!!!" + Style.RESET_ALL)
+        print("\nTo turn on the security verification, please \nedit " + Fore.GREEN + "config.ini" + Style.RESET_ALL + " file with any plain-text editor, \nsetting " + Fore.BLUE + "PatientBaseVerify" + Style.RESET_ALL + " to " + Fore.GREEN + "True" + Style.RESET_ALL + " in the " + Fore.BLUE + "[Starkey]" + Style.RESET_ALL + " section.")
+        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+        test = requests.get(pbURI, verify=False)
+        dom = lxml.html.fromstring(requests.get(pbURI, verify=False).content)
+    else:
+        test = requests.get(pbURI)
+        dom = lxml.html.fromstring(requests.get(pbURI).content)
     hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
     filename0 = os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ')
     link0 = hrefs[0].replace('%20', ' ')
 except:
+    if (certVerify == True):
+        print("\n\nSomething goes wrong.")
+        print("\nIt is possible that the server certification is expired \nso that the security verification is failed.")
+        print("\nNote: If you want to turn off the security verification, \nplease edit " + Fore.GREEN + "config.ini" + Style.RESET_ALL + " file with any plain-text editor, \nsetting " + Fore.BLUE + "PatientBaseVerify" + Style.RESET_ALL + " to " + Fore.GREEN + "False" + Style.RESET_ALL + " in the " + Fore.BLUE + "[Starkey]" + Style.RESET_ALL + " section.")
     filename0 = "NOT FOUND"
     link0 = fallbackDownload
 
@@ -70,7 +89,7 @@ validVersions = [
 #     ("PatientBase 24.0.10102.0", "for Inspire 2021.0 - 2022.0", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
 #     ("PatientBase 15.0.386.0", "for Inspire 2016 - 2020", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
 ]
-print("\n\nThe latest available version is " + Fore.GREEN + filename0 + Style.RESET_ALL + "\n\n")
+print("\n\nThe latest available version is " + Fore.GREEN + filename0.replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()

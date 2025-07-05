@@ -260,3 +260,6 @@
 - HIMSA: add archived version v3.5.0.0 for Noahlink Wireless firmware upgrader
 - HIMSA: workaround for error checking file data stream
 - Quick Scan: add Starkey PatientBase and HIMSA Noahlink Wireless Firmware Upgrader
+
+### v2025.07.05
+- Starkey: provide a workaronud for PatientBase website certification expiration

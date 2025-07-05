@@ -9,6 +9,7 @@ import requests
 import lxml.html
 import feedparser
 import rot_codec
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from urllib.parse import urlparse
 from pathlib import Path
 from colorama import just_fix_windows_console
@@ -586,14 +587,23 @@ def starkeyProFitChecker():
 
 def starkeyPatientBaseChecker():
     pbURI = "https://patientbase.starkeyhearingtechnologies.com"
+    certVerify = config.getboolean('Starkey', 'PatientBaseVerify', fallback='True')
     try:
-        test = requests.get(pbURI)
-        dom = lxml.html.fromstring(requests.get(pbURI).content)
+        if (certVerify == False):
+            requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+            test = requests.get(pbURI, verify=False)
+            dom = lxml.html.fromstring(requests.get(pbURI, verify=False).content)
+        else:
+            test = requests.get(pbURI)
+            dom = lxml.html.fromstring(requests.get(pbURI).content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
         updateVer = Fore.GREEN + "v" + os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ').replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
-    print(updateVer, end="")
+    if (certVerify == False):
+        print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + updateVer, end="")
+    else:
+        print(updateVer, end="")
 
 # HIMSA
 def himsaChecker():
