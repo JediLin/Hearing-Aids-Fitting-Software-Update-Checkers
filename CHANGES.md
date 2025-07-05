@@ -262,4 +262,4 @@
 - Quick Scan: add Starkey PatientBase and HIMSA Noahlink Wireless Firmware Upgrader
 
 ### v2025.07.05
-- Starkey: provide a workaronud for PatientBase website certification expiration
+- Starkey: provide a workaround for PatientBase website certification expiration
