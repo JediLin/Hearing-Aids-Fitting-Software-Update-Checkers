@@ -263,3 +263,6 @@
 
 ### v2025.07.05
 - Starkey: provide a workaround for PatientBase website certification expiration
+
+### Pre-release (work-in-progress)
+- Quick Scan: automatically turn off certification security verification for Starkey PatientBase (with warning) if needed

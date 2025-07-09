@@ -599,7 +599,15 @@ def starkeyPatientBaseChecker():
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
         updateVer = Fore.GREEN + "v" + os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ').replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL
     except:
-        updateVer = Fore.RED + "Error" + Style.RESET_ALL
+        try:
+            certVerify = False
+            requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+            test = requests.get(pbURI, verify=False)
+            dom = lxml.html.fromstring(requests.get(pbURI, verify=False).content)
+            hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
+            updateVer = Fore.GREEN + "v" + os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ').replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL
+        except:
+            updateVer = Fore.RED + "Error" + Style.RESET_ALL
     if (certVerify == False):
         print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + updateVer, end="")
     else:
