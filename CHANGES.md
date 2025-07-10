@@ -266,3 +266,5 @@
 
 ### Pre-release (work-in-progress)
 - Quick Scan: automatically turn off certification security verification for Starkey PatientBase (with warning) if needed
+- Signia: update configuration for Signia Connexx v9.13.5.1814
+- Rexton/Audio Service/A&M: using `SupportTools` and `UpdateManager` configuration from `[Signia]` section of `config.ini`
