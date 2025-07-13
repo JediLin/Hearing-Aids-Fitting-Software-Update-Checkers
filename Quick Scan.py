@@ -93,6 +93,14 @@ def phonakTargetChecker(market):
         latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
         print(Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + " (" + targetMarket + ")", end="")
 
+def phonakRogerChecker():
+    newsfeed = feedparser.parse('https://politepol.com/fd/uGyRlUyOYsXs.xml')
+    if(newsfeed.feed == {}):
+        updateVer = Fore.RED + "Error" + Style.RESET_ALL
+    else:
+        updateVer = Fore.GREEN + newsfeed.entries[0].title.replace('Roger Upgrader Software ', '') + Style.RESET_ALL
+    print(updateVer, end="")
+
 def unitronTrueFitChecker(market):
     targetMarket = market
     baseVer = config.get('Unitron', 'Version', fallback='5.1.0.25391')
@@ -674,6 +682,13 @@ if (scanPhonak):
             pass
 
         marketListItem += 1
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
+
+print("Phonak Roger Upgrader: ", end="")
+if (scanPhonak):
+    phonakRogerChecker()
+    print(".")
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
