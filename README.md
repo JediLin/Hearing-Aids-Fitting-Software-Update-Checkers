@@ -106,6 +106,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 ## Changelog
 
 ### Pre-release (work-in-progress)
+- Skip on individual file checking error, rather than break on it
 - Quick Scan: automatically turn off certification security verification for Starkey PatientBase (with warning) if needed
 - Quick Scan: add Phonak Roger Upgrader
 - Signia: update configuration for Signia Connexx v9.13.5.1814
