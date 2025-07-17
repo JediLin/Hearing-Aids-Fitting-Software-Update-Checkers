@@ -98,7 +98,10 @@ def phonakRogerChecker():
     if(newsfeed.feed == {}):
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
     else:
-        updateVer = Fore.GREEN + newsfeed.entries[0].title.replace('Roger Upgrader Software ', '') + Style.RESET_ALL
+        try:
+            updateVer = Fore.GREEN + "v" + re.sub(r"Roger.Upgrader", "", re.sub(r"\.zip\.coredownload\.zip", "", os.path.basename(urlparse(newsfeed.entries[1].link).path))) + Style.RESET_ALL
+        except:
+            updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer, end="")
 
 def unitronTrueFitChecker(market):

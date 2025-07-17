@@ -56,16 +56,26 @@ if(newsfeed.feed == {}):
     link1 = link0
     filename1 = filename0
 else:
-    link0 = newsfeed.entries[0].link
-    filename0 = re.sub(r"\....\.coredownload", "", os.path.basename(urlparse(link0).path))
-    title0 = newsfeed.entries[0].title
-    if(filename0.endswith("pdf")):
-        title0 = title0 + " Document"
-    link1 = newsfeed.entries[1].link
-    filename1 = re.sub(r"\....\.coredownload", "", os.path.basename(urlparse(link1).path))
-    title1 = newsfeed.entries[1].title
-    if(filename1.endswith("pdf")):
-        title1 = title1 + " Document"
+    try:
+        link0 = newsfeed.entries[1].link
+        filename0 = re.sub(r"\....\.coredownload", "", os.path.basename(urlparse(link0).path))
+        title0 = "Roger Upgrader Software v" + re.sub(r"\.zip", "", re.sub(r"Roger.Upgrader", "", filename0))
+        if(filename0.endswith("pdf")):
+            title0 = title0 + " Document"
+    except:
+        title0 = "NOT FOUND"
+        link0 = ""
+        filename0 = "--"
+    try:
+        link1 = newsfeed.entries[2].link
+        filename1 = re.sub(r"\....\.coredownload", "", os.path.basename(urlparse(link1).path))
+        title1 = newsfeed.entries[2].title
+        if(filename1.endswith("pdf")):
+            title1 = title1 + " Document"
+    except:
+        title1 = "NOT FOUND"
+        link1 = ""
+        filename1 = "--"
 
 # Define list of valid versions and their download links
 validVersions = [

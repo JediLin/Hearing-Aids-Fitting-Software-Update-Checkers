@@ -109,6 +109,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Skip on individual file checking error, rather than break on it
 - Quick Scan: automatically turn off certification security verification for Starkey PatientBase (with warning) if needed
 - Quick Scan: add Phonak Roger Upgrader
+- Phonak: fix Roger Upgrader checker against official Roger Upgrader site changing
 - Signia: update configuration for Signia Connexx v9.13.5.1814
 - Rexton/Audio Service/A&M: using `SupportTools` and `UpdateManager` configuration from `[Signia]` section of `config.ini`
 
