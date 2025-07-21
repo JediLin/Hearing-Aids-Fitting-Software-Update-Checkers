@@ -630,7 +630,10 @@ def himsaChecker():
     if(newsfeed.feed == {}):
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
     else:
-        updateVer = Fore.GREEN + "v" + newsfeed.entries[0].title.replace('Noahlink Wireless Firmware Upgrader ', '') + Style.RESET_ALL
+        try:
+            updateVer = Fore.GREEN + "v" + newsfeed.entries[0].title.replace('Noahlink Wireless Firmware Upgrader ', '') + Style.RESET_ALL
+        except:
+            updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer, end="")
 
 # Give instruction and skip the rest script if all skipped

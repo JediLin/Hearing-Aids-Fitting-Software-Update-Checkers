@@ -52,12 +52,22 @@ if(newsfeed.feed == {}):
     link1 = link0
     filename1 = filename0
 else:
-    title0 = newsfeed.entries[0].title
-    link0 = newsfeed.entries[0].link
-    filename0 = os.path.basename(urlparse(link0).path)
-    title1 = newsfeed.entries[1].title
-    link1 = newsfeed.entries[1].link
-    filename1 = os.path.basename(urlparse(link1).path)
+    try:
+        title0 = newsfeed.entries[0].title
+        link0 = newsfeed.entries[0].link
+        filename0 = os.path.basename(urlparse(link0).path)
+    except:
+        title0 = "NOT FOUND"
+        link0 = ""
+        filename0 = "--"
+    try:
+        title1 = newsfeed.entries[1].title
+        link1 = newsfeed.entries[1].link
+        filename1 = os.path.basename(urlparse(link1).path)
+    except:
+        title1 = "NOT FOUND"
+        link1 = ""
+        filename1 = "--"
 
 # Define list of valid versions and their download links
 validVersions = [
