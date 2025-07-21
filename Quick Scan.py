@@ -86,12 +86,12 @@ def phonakTargetChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-        print(Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def phonakRogerChecker():
     newsfeed = feedparser.parse('https://politepol.com/fd/uGyRlUyOYsXs.xml')
@@ -119,12 +119,12 @@ def unitronTrueFitChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-        print(Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def hansatonScoutChecker(market):
     targetMarket = market
@@ -141,12 +141,12 @@ def hansatonScoutChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-        print(Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 # Demant: Oticon, Bernafon, Sonic, Philips
 def oticonGenie2Checker(market):
@@ -177,13 +177,13 @@ def oticonGenie2Checker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdateResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><CheckForUpdateResponse xmlns="http://tempuri.org/"><CheckForUpdateResult/></CheckForUpdateResponse></s:Body></s:Envelope>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
         updateVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text
-        print(Fore.GREEN + "v" + re.sub(r"Genie 2 . ", "", updateVer) + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + re.sub(r"Genie 2 . ", "", updateVer) + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def bernafonOasisNXTChecker(market):
     targetMarket = market
@@ -214,13 +214,13 @@ def bernafonOasisNXTChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdateResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><CheckForUpdateResponse xmlns="http://tempuri.org/"><CheckForUpdateResult/></CheckForUpdateResponse></s:Body></s:Envelope>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
         updateVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text
-        print(Fore.GREEN + "v" + re.sub(r"OasisNXT ", "", updateVer) + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + re.sub(r"OasisNXT ", "", updateVer) + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def sonicExpressFitChecker(market):
     targetMarket = market
@@ -250,13 +250,13 @@ def sonicExpressFitChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdateResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><CheckForUpdateResponse xmlns="http://tempuri.org/"><CheckForUpdateResult/></CheckForUpdateResponse></s:Body></s:Envelope>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
         updateVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text
-        print(Fore.GREEN + "v" + re.sub(r"EXPRESSfit Pro ", "", updateVer) + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + re.sub(r"EXPRESSfit Pro ", "", updateVer) + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def philipsHearSuiteChecker(market):
     targetMarket = market
@@ -286,13 +286,13 @@ def philipsHearSuiteChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdateResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><CheckForUpdateResponse xmlns="http://tempuri.org/"><CheckForUpdateResult/></CheckForUpdateResponse></s:Body></s:Envelope>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
         updateVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text
-        print(Fore.GREEN + "v" + re.sub(r"Philips HearSuite ", "", updateVer) + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + re.sub(r"Philips HearSuite ", "", updateVer) + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 # GN: ReSound, Beltone, Interton
 def reSoundChecker():
@@ -389,16 +389,16 @@ def signiaConnexxChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateManagerService/GetPackagesResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><GetPackagesResponse xmlns="http://tempuri.org/"><GetPackagesResult xmlns:b="http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></GetPackagesResponse></s:Body></s:Envelope>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         packageXMLNS = '{http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS}'
         availableFiles = []
         appVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "NewVersion").text
         for child in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "PackageFiles"):
             availableFiles.append( (appVer, child.find(packageXMLNS + "FileName").text, child.find(packageXMLNS + "DownloadURL").text) )
-        print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def rextonConnexxChecker(market):
     targetMarket = market
@@ -421,16 +421,16 @@ def rextonConnexxChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateManagerService/GetPackagesResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><GetPackagesResponse xmlns="http://tempuri.org/"><GetPackagesResult xmlns:b="http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></GetPackagesResponse></s:Body></s:Envelope>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         packageXMLNS = '{http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS}'
         availableFiles = []
         appVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "NewVersion").text
         for child in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "PackageFiles"):
             availableFiles.append( (appVer, child.find(packageXMLNS + "FileName").text, child.find(packageXMLNS + "DownloadURL").text) )
-        print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def audioServiceConnexxChecker(market):
     targetMarket = market
@@ -453,16 +453,16 @@ def audioServiceConnexxChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateManagerService/GetPackagesResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><GetPackagesResponse xmlns="http://tempuri.org/"><GetPackagesResult xmlns:b="http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></GetPackagesResponse></s:Body></s:Envelope>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         packageXMLNS = '{http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS}'
         availableFiles = []
         appVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "NewVersion").text
         for child in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "PackageFiles"):
             availableFiles.append( (appVer, child.find(packageXMLNS + "FileName").text, child.find(packageXMLNS + "DownloadURL").text) )
-        print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def aMConnexxChecker(market):
     targetMarket = market
@@ -485,16 +485,16 @@ def aMConnexxChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateManagerService/GetPackagesResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><GetPackagesResponse xmlns="http://tempuri.org/"><GetPackagesResult xmlns:b="http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></GetPackagesResponse></s:Body></s:Envelope>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
         packageXMLNS = '{http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS}'
         availableFiles = []
         appVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "NewVersion").text
         for child in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "PackageFiles"):
             availableFiles.append( (appVer, child.find(packageXMLNS + "FileName").text, child.find(packageXMLNS + "DownloadURL").text) )
-        print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def widexCompassGPSChecker(market):
     targetMarket = market
@@ -521,18 +521,18 @@ def widexCompassGPSChecker(market):
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif "statusCode" in data:
-        print(data['message'] + " (" + targetMarket + ")", end="")
+        print(data['message'] + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     elif "Packages" in data:
         if (data['Packages']==[]):
-            print(Fore.GREEN + "v" + baseVer + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+            print(Fore.GREEN + "v" + baseVer + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
         else:
             latestBaseVersion = data['Packages'][0]['Version']
             latestRevision = str(data['Packages'][0]['Revision'])
-            print(Fore.GREEN + "v" + latestBaseVersion + " Rev." + latestRevision + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+            print(Fore.GREEN + "v" + latestBaseVersion + " Rev." + latestRevision + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
     else:
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + targetMarket + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 # Starkey
 def getIP():
@@ -588,13 +588,13 @@ def starkeyProFitChecker():
 
         updaterRetries -= 1
     if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + geoIP + ")", end="")
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
     else:
         if (data['Update'] is None):
-            print(Fore.GREEN + "v" + baseVer + Style.RESET_ALL + " (" + geoIP + ")", end="")
+            print(Fore.GREEN + "v" + baseVer + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
 
         updateVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
-        print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + geoIP + ")", end="")
+        print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
 
 def starkeyPatientBaseChecker():
     pbURI = "https://patientbase.starkeyhearingtechnologies.com"
