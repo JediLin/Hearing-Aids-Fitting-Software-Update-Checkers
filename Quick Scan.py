@@ -94,14 +94,15 @@ def phonakTargetChecker(market):
         print(Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def phonakRogerChecker():
-    newsfeed = feedparser.parse('https://politepol.com/fd/uGyRlUyOYsXs.xml')
-    if(newsfeed.feed == {}):
+    ruURI = "https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrader"
+    try:
+        test = requests.get(ruURI)
+        dom = lxml.html.fromstring(requests.get(ruURI).content)
+        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
+        link0 = hrefs[0].replace('%20', ' ')
+        updateVer = Fore.GREEN + "v" + re.sub(r"Roger.Upgrader", "", re.sub(r"\.zip\.coredownload\.zip", "", os.path.basename(urlparse(link0).path))) + Style.RESET_ALL
+    except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
-    else:
-        try:
-            updateVer = Fore.GREEN + "v" + re.sub(r"Roger.Upgrader", "", re.sub(r"\.zip\.coredownload\.zip", "", os.path.basename(urlparse(newsfeed.entries[1].link).path))) + Style.RESET_ALL
-        except:
-            updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer, end="")
 
 def unitronTrueFitChecker(market):
