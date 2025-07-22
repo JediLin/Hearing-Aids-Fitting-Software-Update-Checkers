@@ -3,6 +3,7 @@
 #                   Copyright Bluebotlabz                   #
 #                                                           #
 #############################################################
+import configparser
 import requests
 from pathlib import Path
 from colorama import just_fix_windows_console
@@ -44,8 +45,12 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Read configuration file for toggles with default True
+config = configparser.ConfigParser()
+config.read('config.ini')
+fallbackMarket = config.get('Hansaton', 'Market', fallback='ES')
+
 # Read target market from GitHub or local configuration
-fallbackMarket = "ES"
 localMarketPath = Path("HANSATON.market")
 onlineMarketPath = "https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/raw/refs/heads/main/HANSATON.market"
 defaultMarketSrc = ""
@@ -100,7 +105,7 @@ while updaterRetries > 0:
     try:
         # checker variables, may effect the latest version available from API
         # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
-        baseVer="5.1.0.26954"
+        baseVer = config.get('Hansaton', 'Version', fallback='5.1.0.26954')
         xmlData = requests.get("https://svc.myunitron.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=HANSATON%20scout&appVer=" + baseVer + "&dist=Balance&country=" + targetMarket + "&subKeys=").text
         data = xml.fromstring(xmlData)
         break
