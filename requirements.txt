@@ -1,7 +1,6 @@
 tzlocal
 importlib-metadata
 requests
-feedparser
 lxml
 iso3166
 tqdm

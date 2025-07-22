@@ -7,7 +7,6 @@ import html
 import json
 import requests
 import lxml.html
-import feedparser
 import rot_codec
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from urllib.parse import urlparse
