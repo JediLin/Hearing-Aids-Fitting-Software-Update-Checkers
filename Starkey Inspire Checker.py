@@ -7,7 +7,6 @@ import configparser
 import os
 import datetime
 import tzlocal
-import html
 import ast
 import json
 import requests
