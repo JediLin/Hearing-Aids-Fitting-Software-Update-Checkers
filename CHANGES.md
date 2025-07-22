@@ -273,6 +273,7 @@
 - Quick Scan: color adjustment
 - Phonak: check Roger Upgrader directly from official Roger Upgrader site, removing 3rd-party services dependency
 - Phonak: fix Roger Upgrader checker fallback version display logic
+- Hansaton: properly using `config.ini`
 - Signia: update configuration for Signia Connexx v9.13.5.1814
 - Rexton/Audio Service/A&M: using `SupportTools` and `UpdateManager` configuration from `[Signia]` section of `config.ini`
 - Starkey: tweak version number display format for PatientBase
