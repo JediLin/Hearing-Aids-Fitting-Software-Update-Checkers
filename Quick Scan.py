@@ -627,14 +627,15 @@ def starkeyPatientBaseChecker():
 
 # HIMSA
 def himsaChecker():
-    newsfeed = feedparser.parse('https://politepol.com/fd/smVib0t95riP')
-    if(newsfeed.feed == {}):
+    uaString = config.get('General', 'UA', fallback='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3')
+    nwURI = "https://www.himsa.com/himsa_download/noahlink-wireless-downloads/?1"
+    try:
+        test = requests.get(nwURI, headers={'User-Agent': uaString})
+        dom = lxml.html.fromstring(test.content)
+        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
+        updateVer = Fore.GREEN + "v" + re.sub(r"\.exe", "", re.sub(r"NLWUpgrader.", "", os.path.basename(urlparse(hrefs[0].replace('%20', ' ')).path))) + Style.RESET_ALL
+    except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
-    else:
-        try:
-            updateVer = Fore.GREEN + "v" + newsfeed.entries[0].title.replace('Noahlink Wireless Firmware Upgrader ', '') + Style.RESET_ALL
-        except:
-            updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer, end="")
 
 # Give instruction and skip the rest script if all skipped

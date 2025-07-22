@@ -118,6 +118,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Signia: update configuration for Signia Connexx v9.13.5.1814
 - Rexton/Audio Service/A&M: using `SupportTools` and `UpdateManager` configuration from `[Signia]` section of `config.ini`
 - Starkey: tweak version number display format for PatientBase
+- HIMSA: check from official Noahlink Wireless site, removing 3rd-party services dependency
 
 ### v2025.07.05
 - Starkey: provide a workaround for PatientBase website certification expiration

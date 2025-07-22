@@ -277,3 +277,4 @@
 - Signia: update configuration for Signia Connexx v9.13.5.1814
 - Rexton/Audio Service/A&M: using `SupportTools` and `UpdateManager` configuration from `[Signia]` section of `config.ini`
 - Starkey: tweak version number display format for PatientBase
+- HIMSA: check from official Noahlink Wireless site, removing 3rd-party services dependency
