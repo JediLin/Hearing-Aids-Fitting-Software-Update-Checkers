@@ -75,7 +75,7 @@ validVersions = [
     ("Roger Upgrader Software v1.27", "Roger Upgrader1.27.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger Upgrader1.27.zip.coredownload.zip"),
 ]
 if(link0 == ""):
-    print("\n\nThe latest available version is " + Fore.GREEN + "Roger Upgrader Software v1.30" + Style.RESET_ALL + "\n\n")
+    print("\n\nThe latest available version is " + Fore.GREEN + validVersions[6][0] + Style.RESET_ALL + "\n\n")
 else:
     print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + "\n\n")
 
