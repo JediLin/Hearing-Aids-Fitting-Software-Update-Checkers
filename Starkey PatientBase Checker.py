@@ -60,10 +60,10 @@ try:
         print("\nTo turn on the security verification, please \nedit " + Fore.GREEN + "config.ini" + Style.RESET_ALL + " file with any plain-text editor, \nsetting " + Fore.BLUE + "PatientBaseVerify" + Style.RESET_ALL + " to " + Fore.GREEN + "True" + Style.RESET_ALL + " in the " + Fore.BLUE + "[Starkey]" + Style.RESET_ALL + " section.")
         requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
         test = requests.get(pbURI, verify=False)
-        dom = lxml.html.fromstring(requests.get(pbURI, verify=False).content)
+        dom = lxml.html.fromstring(test.content)
     else:
         test = requests.get(pbURI)
-        dom = lxml.html.fromstring(requests.get(pbURI).content)
+        dom = lxml.html.fromstring(test.content)
     hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
     filename0 = os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ')
     link0 = hrefs[0].replace('%20', ' ')

@@ -51,7 +51,7 @@ if not turboFile.is_file():
 ruURI = "https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrader"
 try:
     test = requests.get(ruURI)
-    dom = lxml.html.fromstring(requests.get(ruURI).content)
+    dom = lxml.html.fromstring(test.content)
     hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
     link0 = hrefs[0].replace('%20', ' ')
     filename0 = re.sub(r"\....\.coredownload", "", os.path.basename(urlparse(link0).path))

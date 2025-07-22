@@ -268,6 +268,7 @@
 - Skip on individual file checking error, rather than break on it
 - Workaround for potential 3rd-party feed service error
 - Clean-up unused module
+- Reduce requests
 - Quick Scan: automatically turn off certification security verification for Starkey PatientBase (with warning) if needed
 - Quick Scan: add Phonak Roger Upgrader
 - Quick Scan: color adjustment

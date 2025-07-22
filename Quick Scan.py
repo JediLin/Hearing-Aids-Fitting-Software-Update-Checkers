@@ -97,7 +97,7 @@ def phonakRogerChecker():
     ruURI = "https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrader"
     try:
         test = requests.get(ruURI)
-        dom = lxml.html.fromstring(requests.get(ruURI).content)
+        dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
         link0 = hrefs[0].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"Roger.Upgrader", "", re.sub(r"\.zip\.coredownload\.zip", "", os.path.basename(urlparse(link0).path))) + Style.RESET_ALL
@@ -604,10 +604,10 @@ def starkeyPatientBaseChecker():
         if (certVerify == False):
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             test = requests.get(pbURI, verify=False)
-            dom = lxml.html.fromstring(requests.get(pbURI, verify=False).content)
+            dom = lxml.html.fromstring(test.content)
         else:
             test = requests.get(pbURI)
-            dom = lxml.html.fromstring(requests.get(pbURI).content)
+            dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
         updateVer = Fore.GREEN + "v" + os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ').replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL
     except:
@@ -615,7 +615,7 @@ def starkeyPatientBaseChecker():
             certVerify = False
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             test = requests.get(pbURI, verify=False)
-            dom = lxml.html.fromstring(requests.get(pbURI, verify=False).content)
+            dom = lxml.html.fromstring(test.content)
             hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
             updateVer = Fore.GREEN + "v" + os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ').replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL
         except:
