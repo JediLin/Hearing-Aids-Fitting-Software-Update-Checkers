@@ -276,3 +276,4 @@
 - Phonak: fix Roger Upgrader checker fallback version display logic
 - Signia: update configuration for Signia Connexx v9.13.5.1814
 - Rexton/Audio Service/A&M: using `SupportTools` and `UpdateManager` configuration from `[Signia]` section of `config.ini`
+- Starkey: tweak version number display format for PatientBase

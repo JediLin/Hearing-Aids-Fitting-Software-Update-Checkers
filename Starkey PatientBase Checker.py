@@ -80,16 +80,16 @@ except:
 validVersions = [
     ("Current Downloads", "--"),
     ("=================", "--"),
-    ("PatientBase (Latest Version)", filename0, link0),
+    ("PatientBase v" + filename0.replace('PatientBase Setup ', '').replace('.exe', ''), filename0, link0),
     (" ", "--"),
     ("Archived Downloads", "--"),
     ("==================", "--"),
-    ("PatientBase 28.0.10003.0", "for Pro Fit 1.0+ and Inspire 2023.1+", fallbackDownload),
+    ("PatientBase v28.0.10003.0", "for Pro Fit 1.0+ and Inspire 2023.1+", fallbackDownload),
 #     ("PatientBase 26.0.10014.0", "for Inspire 2022.1 - 2023.0", "https://az493319.vo.msecnd.net/install/PatientBase Setup 26.0.10014.0.exe"),
 #     ("PatientBase 24.0.10102.0", "for Inspire 2021.0 - 2022.0", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
 #     ("PatientBase 15.0.386.0", "for Inspire 2016 - 2020", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
 ]
-print("\n\nThe latest available version is " + Fore.GREEN + filename0.replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL + "\n\n")
+print("\n\nThe latest available version is " + Fore.GREEN + "v" + filename0.replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
