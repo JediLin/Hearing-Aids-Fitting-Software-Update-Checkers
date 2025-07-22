@@ -264,7 +264,7 @@
 ### v2025.07.05
 - Starkey: provide a workaround for PatientBase website certification expiration
 
-### Pre-release (work-in-progress)
+### v2025.07.22
 - Skip on individual file checking error, rather than break on it
 - Clean-up unused module
 - Reduce requests
