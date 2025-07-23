@@ -100,6 +100,7 @@ else:
 # Starkey updater API will check system time...
 currentTime = datetime.datetime.now(tz=tzlocal.get_localzone()).strftime('%m/%d/%Y %H:%M:%S')
 headers = {
+    "Host": "inspireupdater.com",
     "Content-Type": "application/json; charset=utf-8"
 }
 

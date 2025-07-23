@@ -100,7 +100,7 @@ else:
 
 print ("\n\nFetching version index...")
 headers = {
-#    "Host": "updater.bernafon.com",
+    "Host": "updater.sonicinnovations.com",
     "Content-Type": "application/soap+xml; charset=utf-8"
 }
 

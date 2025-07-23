@@ -226,6 +226,7 @@ def bernafonOasisNXTChecker(market):
 def sonicExpressFitChecker(market):
     targetMarket = market
     headers = {
+        "Host": "updater.sonicinnovations.com",
         "Content-Type": "application/soap+xml; charset=utf-8"
     }
 
@@ -262,6 +263,7 @@ def sonicExpressFitChecker(market):
 def philipsHearSuiteChecker(market):
     targetMarket = market
     headers = {
+        "Host": "updater.sbohearing.com",
         "Content-Type": "application/soap+xml; charset=utf-8"
     }
 
@@ -372,6 +374,7 @@ def intertonChecker():
 def signiaConnexxChecker(market):
     targetMarket = market
     headers = {
+        "Host": "upman-client.cloudapi.sivantos.com",
         "Content-Type": "application/soap+xml; charset=utf-8",
         "Connection": "Keep-Alive"
     }
@@ -404,6 +407,7 @@ def signiaConnexxChecker(market):
 def rextonConnexxChecker(market):
     targetMarket = market
     headers = {
+        "Host": "upman-client.cloudapi.sivantos.com",
         "Content-Type": "application/soap+xml; charset=utf-8",
         "Connection": "Keep-Alive"
     }
@@ -436,6 +440,7 @@ def rextonConnexxChecker(market):
 def audioServiceConnexxChecker(market):
     targetMarket = market
     headers = {
+        "Host": "upman-client.cloudapi.sivantos.com",
         "Content-Type": "application/soap+xml; charset=utf-8",
         "Connection": "Keep-Alive"
     }
@@ -468,6 +473,7 @@ def audioServiceConnexxChecker(market):
 def aMConnexxChecker(market):
     targetMarket = market
     headers = {
+        "Host": "upman-client.cloudapi.sivantos.com",
         "Content-Type": "application/soap+xml; charset=utf-8",
         "Connection": "Keep-Alive"
     }
@@ -572,6 +578,7 @@ def starkeyProFitChecker():
 
     currentTime = datetime.datetime.now(tz=tzlocal.get_localzone()).strftime('%m/%d/%Y %H:%M:%S')
     headers = {
+        "Host": "inspireupdater.com",
         "Content-Type": "application/json; charset=utf-8"
     }
 

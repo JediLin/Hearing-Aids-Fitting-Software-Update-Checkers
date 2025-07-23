@@ -101,6 +101,7 @@ else:
 print ("\n\nFetching version index...")
 # Special headers for the siavantos updater API
 headers = {
+    "Host": "upman-client.cloudapi.sivantos.com",
     "Content-Type": "application/soap+xml; charset=utf-8",
     "Connection": "Keep-Alive"
 }
