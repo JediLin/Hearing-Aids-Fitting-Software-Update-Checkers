@@ -152,6 +152,7 @@ def hansatonScoutChecker(market):
 def oticonGenie2Checker(market):
     targetMarket = market
     headers = {
+        "Host": "updater.oticon.com",
         "Content-Type": "application/soap+xml; charset=utf-8"
     }
 

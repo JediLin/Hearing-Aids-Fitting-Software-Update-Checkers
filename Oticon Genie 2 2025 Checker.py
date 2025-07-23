@@ -99,6 +99,7 @@ else:
 
 print ("\n\nFetching version index...")
 headers = {
+    "Host": "updater.oticon.com",
     "Content-Type": "application/soap+xml; charset=utf-8"
 }
 
