@@ -278,3 +278,6 @@
 - Rexton/Audio Service/A&M: using `SupportTools` and `UpdateManager` configuration from `[Signia]` section of `config.ini`
 - Starkey: tweak version number display format for PatientBase
 - HIMSA: check from official Noahlink Wireless site, removing 3rd-party services dependency
+
+### Pre-release (work-in-progress)
+- HIMSA: workaround for official site limitation

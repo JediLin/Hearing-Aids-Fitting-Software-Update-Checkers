@@ -105,6 +105,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- HIMSA: workaround for official site limitation
+
 ### v2025.07.22
 - Skip on individual file checking error, rather than break on it
 - Clean-up unused module
