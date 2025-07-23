@@ -107,6 +107,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ### Pre-release (work-in-progress)
 - HIMSA: official site is using br encoding (need to import `brotli` for that)
+- HIMSA: headers spoof
 
 ### v2025.07.22
 - Skip on individual file checking error, rather than break on it

@@ -281,3 +281,4 @@
 
 ### Pre-release (work-in-progress)
 - HIMSA: official site is using br encoding (need to import `brotli` for that)
+- HIMSA: headers spoof
