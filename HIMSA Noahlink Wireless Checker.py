@@ -54,7 +54,7 @@ uaString = config.get('General', 'UA', fallback='Mozilla/5.0 (Windows NT 10.0; W
 # Get HIMSA Noahlink Wireless update from the webpage
 nwURI = "https://www.himsa.com/himsa_download/noahlink-wireless-downloads/"
 try:
-    test = requests.get(nwURI, headers={"Host": "www.himsa.com", "Referer": nwURI, "User-Agent": uaString})
+    test = requests.get(nwURI, headers={"Host": "www.himsa.com", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate, br", "Connection": "keep-alive", "Upgrade-Insecure-Requests": "1", "Referer": nwURI, "User-Agent": uaString})
     if (libhearingdownloader.verboseDebug):
         print(test.status_code)
         print(test.headers)
