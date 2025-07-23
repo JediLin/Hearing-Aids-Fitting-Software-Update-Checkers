@@ -280,4 +280,4 @@
 - HIMSA: check from official Noahlink Wireless site, removing 3rd-party services dependency
 
 ### Pre-release (work-in-progress)
-- HIMSA: workaround for official site limitation
+- HIMSA: official site is using br encoding (need to import `brotli` for that)

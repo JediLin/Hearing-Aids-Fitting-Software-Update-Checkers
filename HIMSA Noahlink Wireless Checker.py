@@ -6,6 +6,7 @@
 import configparser
 import os
 import requests
+import brotli
 import lxml.html
 import re
 from urllib.parse import urlparse
@@ -53,11 +54,19 @@ uaString = config.get('General', 'UA', fallback='Mozilla/5.0 (Windows NT 10.0; W
 # Get HIMSA Noahlink Wireless update from the webpage
 nwURI = "https://www.himsa.com/himsa_download/noahlink-wireless-downloads/"
 try:
-    test = requests.get(nwURI + "?1", headers={"Host": "www.himsa.com", "Accept-Language": "en-US,en;q=0.5", "Referer": nwURI, "Content-Type": "text/html; charset=utf-8", "Connection": "Keep-Alive", "User-Agent": uaString})
+    test = requests.get(nwURI, headers={"Host": "www.himsa.com", "Referer": nwURI, "User-Agent": uaString})
     if (libhearingdownloader.verboseDebug):
-        print(test)
         print(test.status_code)
+        print(test.headers)
         print(test.content)
+    # just import brotli makes requests can handle br encoding(?) ,no further decompression needed...let's keep code here just in case:
+    #
+    #if (test.headers.get("Content-Encoding") == "br"):
+    #    data = brotli.decompress(test.content).decode("utf-8")
+    #    print(data)
+    #    dom = lxml.html.fromstring(data)
+    #else:
+    #
     dom = lxml.html.fromstring(test.content)
     hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
     if (libhearingdownloader.verboseDebug):

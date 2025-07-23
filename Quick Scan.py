@@ -6,6 +6,7 @@ import tzlocal
 import html
 import json
 import requests
+import brotli
 import lxml.html
 import rot_codec
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -637,7 +638,7 @@ def himsaChecker():
     uaString = config.get('General', 'UA', fallback='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3')
     nwURI = "https://www.himsa.com/himsa_download/noahlink-wireless-downloads/"
     try:
-        test = requests.get(nwURI + "?1", headers={"Host": "www.himsa.com", "Accept-Language": "en-US,en;q=0.5", "Referer": nwURI, "Content-Type": "text/html; charset=utf-8", "Connection": "Keep-Alive", "User-Agent": uaString})
+        test = requests.get(nwURI, headers={"Host": "www.himsa.com", "Referer": nwURI, "User-Agent": uaString})
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
         updateVer = Fore.GREEN + "v" + re.sub(r"\.exe", "", re.sub(r"NLWUpgrader.", "", os.path.basename(urlparse(hrefs[0].replace('%20', ' ')).path))) + Style.RESET_ALL

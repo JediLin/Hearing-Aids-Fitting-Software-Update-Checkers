@@ -1,6 +1,7 @@
 tzlocal
 importlib-metadata
 requests
+Brotli
 lxml
 iso3166
 tqdm
