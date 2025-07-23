@@ -49,27 +49,26 @@ if not turboFile.is_file():
 config = configparser.ConfigParser()
 config.read('config.ini')
 uaString = config.get('General', 'UA', fallback='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3')
-updaterRetries = libhearingdownloader.updaterRetries
 
 # Get HIMSA Noahlink Wireless update from the webpage
-nwURI = "https://www.himsa.com/himsa_download/noahlink-wireless-downloads/?1"
-while updaterRetries > 0:
-    try:
-        test = requests.get(nwURI, headers={'User-Agent': uaString})
-        dom = lxml.html.fromstring(test.content)
-        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
-        link0 = hrefs[0].replace('%20', ' ')
-        filename0 = os.path.basename(urlparse(link0).path)
-        title0 = "Noahlink Wireless Firmware Upgrader v" + re.sub(r"\.exe", "", re.sub(r"NLWUpgrader.", "", filename0))
-        link1 = hrefs[1].replace('%20', ' ')
-        filename1 = os.path.basename(urlparse(link1).path)
-        title1 = "Noahlink Wireless Driver v" + re.sub(r"\.exe", "", re.sub(r"Driver_NLW_V.", "", filename1))
-        break
-    except:
-        pass
-    updaterRetries -= 1
-
-if (updaterRetries == 0):
+nwURI = "https://www.himsa.com/himsa_download/noahlink-wireless-downloads/"
+try:
+    test = requests.get(nwURI + "?1", headers={"Host": "www.himsa.com", "Accept-Language": "en-US,en;q=0.5", "Referer": nwURI, "Content-Type": "text/html; charset=utf-8", "Connection": "Keep-Alive", "User-Agent": uaString})
+    if (libhearingdownloader.verboseDebug):
+        print(test)
+        print(test.status_code)
+        print(test.content)
+    dom = lxml.html.fromstring(test.content)
+    hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
+    if (libhearingdownloader.verboseDebug):
+        print(hrefs)
+    link0 = hrefs[0].replace('%20', ' ')
+    filename0 = os.path.basename(urlparse(link0).path)
+    title0 = "Noahlink Wireless Firmware Upgrader v" + re.sub(r"\.exe", "", re.sub(r"NLWUpgrader.", "", filename0))
+    link1 = hrefs[1].replace('%20', ' ')
+    filename1 = os.path.basename(urlparse(link1).path)
+    title1 = "Noahlink Wireless Driver v" + re.sub(r"\.exe", "", re.sub(r"Driver_NLW_V.", "", filename1))
+except:
     link0 = ""
     filename0 = "--"
     title0 = "NOT FOUND"
