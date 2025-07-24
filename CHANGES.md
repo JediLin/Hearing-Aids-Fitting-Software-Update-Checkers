@@ -279,6 +279,6 @@
 - Starkey: tweak version number display format for PatientBase
 - HIMSA: check from official Noahlink Wireless site, removing 3rd-party services dependency
 
-### Pre-release (work-in-progress)
-- HIMSA: official site is using br encoding (need to import `brotli` for that)
+### v2025.07.24
+- HIMSA: import `brotli` for checking from official site with `br` content-encoding
 - HIMSA: headers spoof

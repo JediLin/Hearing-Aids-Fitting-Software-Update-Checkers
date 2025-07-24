@@ -105,8 +105,8 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
-### Pre-release (work-in-progress)
-- HIMSA: official site is using br encoding (need to import `brotli` for that)
+### v2025.07.24
+- HIMSA: import `brotli` for checking from official site with `br` content-encoding
 - HIMSA: headers spoof
 
 ### v2025.07.22
