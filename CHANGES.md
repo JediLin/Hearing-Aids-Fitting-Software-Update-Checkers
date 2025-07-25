@@ -283,5 +283,5 @@
 - HIMSA: import `brotli` for checking from official site with `br` content-encoding
 - HIMSA: headers spoof
 
-### Pre-release (work-in-progress)
+### v2025.07.26
 - Fix configuration bug which may cause checking error
