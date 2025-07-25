@@ -105,6 +105,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Fix configuration bug which may cause checking error
+
 ### v2025.07.24
 - HIMSA: import `brotli` for checking from official site with `br` content-encoding
 - HIMSA: headers spoof
