@@ -103,7 +103,7 @@ def phonakRogerChecker():
         updateVer = Fore.GREEN + "v" + re.sub(r"Roger.Upgrader", "", re.sub(r"\.zip\.coredownload\.zip", "", os.path.basename(urlparse(link0).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
-    print(updateVer, end="")
+    print(updateVer)
 
 def unitronTrueFitChecker(market):
     targetMarket = market
@@ -629,9 +629,9 @@ def starkeyPatientBaseChecker():
         except:
             updateVer = Fore.RED + "Error" + Style.RESET_ALL
     if (certVerify == False):
-        print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + updateVer, end="")
+        print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + updateVer)
     else:
-        print(updateVer, end="")
+        print(updateVer)
 
 # HIMSA
 def himsaChecker():
@@ -644,7 +644,7 @@ def himsaChecker():
         updateVer = Fore.GREEN + "v" + re.sub(r"\.exe", "", re.sub(r"NLWUpgrader.", "", os.path.basename(urlparse(hrefs[0].replace('%20', ' ')).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
-    print(updateVer, end="")
+    print(updateVer)
 
 # Give instruction and skip the rest script if all skipped
 if scanSkipAll:
@@ -704,7 +704,6 @@ else:
 print("Phonak Roger Upgrader: ", end="")
 if (scanPhonak):
     phonakRogerChecker()
-    print(".")
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
@@ -945,14 +944,12 @@ else:
 print("Starkey PatientBase: ", end="")
 if (scanStarkey):
     starkeyPatientBaseChecker()
-    print(".")
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
 print("HIMSA Noahlink Wireless Firmware Upgrader: ", end="")
 if (scanHIMSA):
     himsaChecker()
-    print(".")
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 

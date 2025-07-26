@@ -285,3 +285,6 @@
 
 ### v2025.07.26
 - Fix configuration bug which may cause checking error
+
+### Pre-release (work-in-progress)
+- Quick Scan: minor display adjustment

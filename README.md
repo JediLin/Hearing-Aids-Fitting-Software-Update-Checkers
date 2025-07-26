@@ -105,6 +105,9 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Quick Scan: minor display adjustment
+
 ### v2025.07.26
 - Fix configuration bug which may cause checking error
 
