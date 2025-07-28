@@ -125,7 +125,7 @@ while updaterRetries > 0:
         # 0965	RITM
         # 1069	Hoerex
         # 2501	Sonic
-        osVer = config.get('Bernafon', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+        osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
         baseOEM = config.get('Bernafon', 'OEM', fallback='0153')
         baseVer = config.get('Bernafon', 'Version', fallback='20.22.95.0').split('.')
         updrVer = config.get('Bernafon', 'Updater', fallback='27.3.26.0').split('.')

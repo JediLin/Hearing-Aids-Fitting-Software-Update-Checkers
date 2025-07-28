@@ -113,7 +113,7 @@ while updaterRetries > 0:
         # This is required to get update for newer (2024+) versions.
         # Software names set by b:Name
         # Version numbers set by b:Major . b:Minor . b:Build . b:Revision
-        osVer = config.get('Bernafon', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+        osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
         baseVer = config.get('Bernafon', 'Version', fallback='20.22.95.0').split('.')
         updrVer = config.get('Bernafon', 'Updater', fallback='27.3.26.0').split('.')
         baseVerMajor = baseVer[0]

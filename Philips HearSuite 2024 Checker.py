@@ -109,7 +109,7 @@ while updaterRetries > 0:
         # This is required to get update for newer (2024.2+) versions.
         # Software names set by b:Name
         # Version numbers set by b:Major . b:Minor . b:Build . b:Revision
-        osVer = config.get('Philips', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+        osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
         baseVer = config.get('Philips', 'Version', fallback='20.22.95.0').split('.')
         updrVer = config.get('Philips', 'Updater', fallback='26.9.3.0').split('.')
         baseVerMajor = baseVer[0]

@@ -160,7 +160,7 @@ def oticonGenie2Checker(market):
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            osVer = config.get('Oticon', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+            osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
             baseVer = config.get('Oticon', 'Version', fallback='20.22.95.0').split('.')
             updrVer = config.get('Oticon', 'Updater', fallback='27.2.19.0').split('.')
             baseVerMajor = baseVer[0]
@@ -197,7 +197,7 @@ def bernafonOasisNXTChecker(market):
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            osVer = config.get('Bernafon', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+            osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
             baseVer = config.get('Bernafon', 'Version', fallback='20.22.95.0').split('.')
             updrVer = config.get('Bernafon', 'Updater', fallback='27.3.26.0').split('.')
             baseVerMajor = baseVer[0]
@@ -234,7 +234,7 @@ def sonicExpressFitChecker(market):
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            osVer = config.get('Sonic', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+            osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
             baseVer = config.get('Sonic', 'Version', fallback='20.22.95.0').split('.')
             updrVer = config.get('Sonic', 'Updater', fallback='26.9.3.0').split('.')
             baseVerMajor = baseVer[0]
@@ -271,7 +271,7 @@ def philipsHearSuiteChecker(market):
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            osVer = config.get('Philips', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+            osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
             baseVer = config.get('Philips', 'Version', fallback='20.22.95.0').split('.')
             updrVer = config.get('Philips', 'Updater', fallback='26.9.3.0').split('.')
             baseVerMajor = baseVer[0]

@@ -287,4 +287,5 @@
 - Fix configuration bug which may cause checking error
 
 ### Pre-release (work-in-progress)
+- Using the same `OS` string from `General` section of `config.ini` for all checkers
 - Quick Scan: minor display adjustment
