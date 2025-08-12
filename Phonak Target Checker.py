@@ -146,6 +146,8 @@ print("\n\n")
 # Logic for "special" versions
 if (targetVersion == 'latest'):
     targetVersion = latestVersion
+elif (targetVersion == latestVersion):
+    pass
 elif (targetVersion == 'manual'):
     targetVersion = ''
     while not targetVersion:
