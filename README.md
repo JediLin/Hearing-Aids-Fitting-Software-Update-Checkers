@@ -105,7 +105,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2025.08.12
 - Using the same `OS` string from `General` section of `config.ini` for all checkers
 - Quick Scan: minor display adjustment
 - Phonak: fix critical bug on checking files from latest Target version

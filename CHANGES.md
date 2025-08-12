@@ -286,7 +286,7 @@
 ### v2025.07.26
 - Fix configuration bug which may cause checking error
 
-### Pre-release (work-in-progress)
+### v2025.08.12
 - Using the same `OS` string from `General` section of `config.ini` for all checkers
 - Quick Scan: minor display adjustment
 - Phonak: fix critical bug on checking files from latest Target version
