@@ -109,6 +109,7 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 - Using the same `OS` string from `General` section of `config.ini` for all checkers
 - Quick Scan: minor display adjustment
 - Phonak: fix critical bug on checking files from latest Target version
+- Phonak: workaround for Target Media checker
 
 ### v2025.07.26
 - Fix configuration bug which may cause checking error

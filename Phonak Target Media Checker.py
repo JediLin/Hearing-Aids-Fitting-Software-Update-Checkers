@@ -120,8 +120,12 @@ while updaterRetries > 0:
             hostAppVer = hostData[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
             xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
             if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
-                print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Media version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
-                exit(1)
+                print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Media version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\nNow checking for previous known version...\n\n")
+                hostAppVer = "10.1.2" # latest known Target version with Media available
+                xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+                if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
+                    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Media version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
+                    exit(1)
         data = xml.fromstring(xmlData)
         break
     except:

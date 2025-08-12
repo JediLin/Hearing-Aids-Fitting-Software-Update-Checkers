@@ -290,3 +290,4 @@
 - Using the same `OS` string from `General` section of `config.ini` for all checkers
 - Quick Scan: minor display adjustment
 - Phonak: fix critical bug on checking files from latest Target version
+- Phonak: workaround for Target Media checker
