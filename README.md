@@ -72,7 +72,7 @@ NOTE: You can also get the pre-release version via The Checker's \"*Extra & Lega
 ## How to use it
 1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet; you can skip this step if you want to use the `portable` release (portable release works only on Windows x86/x64 system)
 2. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
-   Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` (standard) or `HAFSUC-Win32-Portable.zip` (portable) link to download it
+   Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` (standard) or `Hearing-Aids-Fitting-Software-Update-Checkers_Win32-Portable.zip` (portable) link to download it
 3. Extract the ZIP to a folder
 4. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
 
