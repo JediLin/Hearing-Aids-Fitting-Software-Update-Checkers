@@ -96,6 +96,8 @@ The following steps only need to be done **ONCE** on each system:
 
 NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refuse to run and bring you to Python download page instead.
 
+NOTE: The portable release is bundled with Windows x86 version of Python, thus can be used without Python installed on Windows x86/x64 system.
+
 ## Credits
 - [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project (up to v1.8.0)
 - [@pvc](https://forum.hearingtracker.com/u/pvc/summary): Assisting with testing of the script and finding software links, providing `StarkeyOtherBrands.bat` and rebranded hearing aids information
