@@ -39,7 +39,10 @@ if (data['tag_name'] == libhearingdownloader.downloaderVersion):
     # exit(1)
 
 availableFiles = [] # List of available files
-availableFiles.append( (data['tag_name'], os.path.basename(data['assets'][0]['browser_download_url']), data['assets'][0]['browser_download_url']) )
+availableFilesCount = len(data['assets'])
+while availableFilesCount > 0:
+    availableFilesCount -= 1
+    availableFiles.append( (data['tag_name'], os.path.basename(data['assets'][availableFilesCount]['browser_download_url']), data['assets'][availableFilesCount]['browser_download_url']) )
 
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)

@@ -291,3 +291,6 @@
 - Quick Scan: minor display adjustment
 - Phonak: fix critical bug on checking files from latest Target version
 - Phonak: workaround for Target Media checker
+
+### Pre-release (work-in-progress)
+- Self Update Checker: prepare for portable release
