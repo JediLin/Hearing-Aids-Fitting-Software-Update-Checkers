@@ -96,7 +96,7 @@ The following steps only need to be done **ONCE** on each system:
 
 NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refuse to run and bring you to Python download page instead.
 
-NOTE: The portable release is bundled with Windows x86 version of Python, thus can be used without Python installed on Windows x86/x64 system.
+NOTE: The portable release is bundled with Windows x86 version of Python, thus can work on Windows x86/x64 system without needing to install Python first.
 
 ## Credits
 - [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project (up to v1.8.0)
