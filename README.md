@@ -112,10 +112,12 @@ If you want to make portable version of The Checker by yourself, you can:
 > cd c:\Users\WDAGUtilityAccount\Downloads\Hearing-Aids-Fitting-Software-Update-Checkers
 8. Install `pip` by this command:
 > python.exe get-pip.py
-9. Install necessary modules by these commands:
+9. Edit `python313._pth` (`313` means Python v3.13; this filename will be different for each Python version you downloaded from step 5.) with any plain-text editor, uncomment (delete the leading `#`) the last line so the last line of this file should be like this:
+> import site
+10. Install necessary modules by these commands:
 > python.exe -m pip install --upgrade -r ./requirements.txt<br>
 > python.exe -m pip install --upgrade -r ./requirements_uncertain.txt
-10. That's all, you made it! Now you can bring the whole folder (or make a ZIP/RAR/7z/whatever archive file of it) with you.
+11. That's all, you made it! Now you can bring the whole folder (or make a ZIP/RAR/7z/whatever archive file of it) with you.
 
 ## Credits
 - [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project (up to v1.8.0)
@@ -126,9 +128,9 @@ If you want to make portable version of The Checker by yourself, you can:
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2025.08.18
 - Self Update Checker: prepare for portable release by showing all available release files
-- Portable release: bundled with [python-3.13.7-embed-win32](https://www.python.org/ftp/python/3.13.7/python-3.13.7-embed-win32.zip) and necessary modules
+- Portable release: bundled with [python-3.13.7-embed-win32](https://www.python.org/ftp/python/3.13.7/python-3.13.7-embed-win32.zip) package and necessary modules
 
 ### v2025.08.12
 - Using the same `OS` string from `General` section of `config.ini` for all checkers

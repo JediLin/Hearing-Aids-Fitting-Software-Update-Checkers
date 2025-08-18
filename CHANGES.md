@@ -292,6 +292,6 @@
 - Phonak: fix critical bug on checking files from latest Target version
 - Phonak: workaround for Target Media checker
 
-### Pre-release (work-in-progress)
+### v2025.08.18
 - Self Update Checker: prepare for portable release by showing all available release files
-- Portable release: bundled with [python-3.13.7-embed-win32](https://www.python.org/ftp/python/3.13.7/python-3.13.7-embed-win32.zip) and necessary modules
+- Portable release: bundled with [python-3.13.7-embed-win32](https://www.python.org/ftp/python/3.13.7/python-3.13.7-embed-win32.zip) package and necessary modules
