@@ -60,7 +60,7 @@ This project currently supports:
 ## Where to get it
 The latest release version of The Checker is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 
-NOTE: You need to have the latest version of Python installed for standard release to work. In case you don't or can't have Python installed, there is a portable release available too.
+NOTE: You need to have the latest version of Python installed for standard release to work. In case you don't and can't have Python installed, there is a portable release available too.
 
 You can also get the latest release version via The Checker's built-in \"*Self Update Checker*\" option.
 
@@ -108,7 +108,8 @@ NOTE: The portable release (`Hearing-Aids-Fitting-Software-Update-Checkers_Win32
 ## Changelog
 
 ### Pre-release (work-in-progress)
-- Self Update Checker: prepare for portable release
+- Self Update Checker: prepare for portable release by showing all available release files
+- Portable release: bundled with [python-3.13.7-embed-win32](https://www.python.org/ftp/python/3.13.7/python-3.13.7-embed-win32.zip) and necessary modules
 
 ### v2025.08.12
 - Using the same `OS` string from `General` section of `config.ini` for all checkers
