@@ -113,7 +113,7 @@ If you want to make portable version of The Checker by yourself, you can:
 8. Install `pip` by this command:
 > python.exe get-pip.py
 9. Install necessary modules by these commands:
-> python.exe -m pip install --upgrade -r ./requirements.txt
+> python.exe -m pip install --upgrade -r ./requirements.txt<br>
 > python.exe -m pip install --upgrade -r ./requirements_uncertain.txt
 10. That's all, you made it! Now you can bring the whole folder (or make a ZIP/RAR/7z/whatever archive file of it) with you.
 
