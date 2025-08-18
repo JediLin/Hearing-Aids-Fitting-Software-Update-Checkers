@@ -98,6 +98,25 @@ NOTE: If you run The Checker (on Windows OS) without Python installed yet, The C
 
 NOTE: The portable release (`Hearing-Aids-Fitting-Software-Update-Checkers_Win32-Portable.zip`) is bundled with Windows x86 version of Python, thus can work on Windows x86/x64 system without needing to install Python first.
 
+### Making portable by yourself
+If you want to make portable version of The Checker by yourself, you can:
+1. It's highly recommended that making portable version on a clean, no-Python-installed system, so that you can easily make all necessary modules portable too. ([Windows Sandbox](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/) works perfectly.)
+2. Download the standard release of The Checker from https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
+3. Extract the ZIP to a folder
+4. Go to: https://www.python.org/downloads/windows/
+5. Download latest version of `Windows embeddable package` (ZIP archive file) according to your system architecture (64-bit, 32-bit, or ARM64)
+6. Extract the ZIP to the folder in step 3, you should get `python.exe`, `requirements.txt`, and `start-Windows.bat` (among other files) in the same folder
+5. Download (right click and Save link as...) [get-pip.py](https://bootstrap.pypa.io/get-pip.py) and put it into the folder in step 3
+6. Run [Windows Command Prompt (cmd)](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmd)
+7. Use [cd](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cd) command to change working path to the folder in step 3; for example:
+> cd c:\Users\WDAGUtilityAccount\Downloads\Hearing-Aids-Fitting-Software-Update-Checkers
+8. Install `pip` by this command:
+> python.exe get-pip.py
+9. Install necessary modules by these commands:
+> python.exe -m pip install --upgrade -r ./requirements.txt
+> python.exe -m pip install --upgrade -r ./requirements_uncertain.txt
+10. That's all, you made it! Now you can bring the whole folder (or make a ZIP/RAR/7z/whatever archive file of it) with you.
+
 ## Credits
 - [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project (up to v1.8.0)
 - [@pvc](https://forum.hearingtracker.com/u/pvc/summary): Assisting with testing of the script and finding software links, providing `StarkeyOtherBrands.bat` and rebranded hearing aids information
