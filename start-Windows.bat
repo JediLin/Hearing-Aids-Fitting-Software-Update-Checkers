@@ -13,8 +13,8 @@ if errorlevel 1 goto errorNoPython
 echo Installing/upgrading requirements...
 echo:
 python -m pip install --upgrade pip
-pip install --upgrade -r ./requirements.txt
-pip install --upgrade -r ./requirements_uncertain.txt
+python -m pip install --upgrade -r ./requirements.txt
+python -m pip install --upgrade -r ./requirements_uncertain.txt
 
 :MENU
 cls
