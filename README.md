@@ -60,7 +60,7 @@ This project currently supports:
 ## Where to get it
 The latest release version of The Checker is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 
-NOTE: You need to have the latest version of Python installed for this to work.
+NOTE: You need to have the latest version of Python installed for standard release to work. In case you don't or can't have Python installed, there is a portable release available too.
 
 You can also get the latest release version via The Checker's built-in \"*Self Update Checker*\" option.
 
