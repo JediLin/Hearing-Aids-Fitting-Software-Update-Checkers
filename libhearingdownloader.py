@@ -28,8 +28,8 @@ import os
 # libhearingdownloader - A useful library for the downloader scripts
 ###
 
-#downloaderVersion = "Pre-release"
-downloaderVersion = "v2025.08.18"
+downloaderVersion = "Pre-release"
+#downloaderVersion = "v2025.08.18"
 updaterRetries = 3
 # Read configuration file for toggles with default True
 config = configparser.ConfigParser()

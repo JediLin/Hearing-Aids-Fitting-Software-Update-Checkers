@@ -320,8 +320,8 @@ def reSoundChecker():
                 currentCategory = child[0].text
             else:
                 availableFiles[currentCategory] = availableFiles.get(currentCategory, [])
-                availableFiles[currentCategory].append( (child.find("BUTTONTEXTDOWN").text, '', child.find("LINK").text) )
-        print(Fore.GREEN + "v" + re.sub(r"ReSound Smart Fit ", "", list(availableFiles.keys())[0]) + Style.RESET_ALL)
+                availableFiles[currentCategory].append( (child.find("DESCIPTIONTITLE").text, '', child.find("LINK").text) )
+        print(Fore.GREEN + "v" + re.sub(r"ReSound Smart Fit ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def beltoneChecker():
     updaterRetries = libhearingdownloader.updaterRetries
@@ -344,8 +344,8 @@ def beltoneChecker():
                 currentCategory = child[0].text
             else:
                 availableFiles[currentCategory] = availableFiles.get(currentCategory, [])
-                availableFiles[currentCategory].append( (child.find("BUTTONTEXTDOWN").text, '', child.find("LINK").text) )
-        print(Fore.GREEN + "v" + re.sub(r"Beltone Solus Max ", "", list(availableFiles.keys())[0]) + Style.RESET_ALL)
+                availableFiles[currentCategory].append( (child.find("DESCIPTIONTITLE").text, '', child.find("LINK").text) )
+        print(Fore.GREEN + "v" + re.sub(r"Beltone Solus Max ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def intertonChecker():
     updaterRetries = libhearingdownloader.updaterRetries
@@ -368,8 +368,8 @@ def intertonChecker():
                 currentCategory = child[0].text
             else:
                 availableFiles[currentCategory] = availableFiles.get(currentCategory, [])
-                availableFiles[currentCategory].append( (child.find("BUTTONTEXTDOWN").text, '', child.find("LINK").text) )
-        print(Fore.GREEN + "v" + re.sub(r"Interton Fitting ", "", list(availableFiles.keys())[0]) + Style.RESET_ALL)
+                availableFiles[currentCategory].append( (child.find("DESCIPTIONTITLE").text, '', child.find("LINK").text) )
+        print(Fore.GREEN + "v" + re.sub(r"Interton Fitting ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 # WSA: Signia, Rexton, Audio Service, A&M, Widex
 def signiaConnexxChecker(market):

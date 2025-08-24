@@ -79,12 +79,13 @@ for child in data:
     else:
         #availableFiles.append( (child.find("BUTTONTEXTDOWN").text, '', child.find("LINK").text) )
         availableFiles[currentCategory] = availableFiles.get(currentCategory, [])
-        availableFiles[currentCategory].append( (child.find("BUTTONTEXTDOWN").text, '', child.find("LINK").text) )
+        availableFiles[currentCategory].append( (child.find("DESCIPTIONTITLE").text, '', child.find("LINK").text) )
 
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
 
-print("\n\nThe latest available version is " + Fore.GREEN + list(availableFiles.keys())[0] + Style.RESET_ALL + "\n\n")
+#print("\n\nThe latest available version is " + Fore.GREEN + list(availableFiles.keys())[0] + Style.RESET_ALL + "\n\n")
+print("\n\nThe latest available version is " + Fore.GREEN + availableFiles[list(availableFiles.keys())[0]][0][0] + Style.RESET_ALL + "\n\n")
 
 categories = []
 for category in availableFiles.keys():

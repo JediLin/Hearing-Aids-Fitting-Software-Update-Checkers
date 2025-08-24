@@ -128,6 +128,9 @@ If you want to make portable version of The Checker by yourself, you can:
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- ReSound/Beltone/Interton: display full version numbers
+
 ### v2025.08.18
 - Self Update Checker: prepare for portable release by showing all available release files
 - Portable release: bundled with [python-3.13.7-embed-win32](https://www.python.org/ftp/python/3.13.7/python-3.13.7-embed-win32.zip) package and necessary modules
