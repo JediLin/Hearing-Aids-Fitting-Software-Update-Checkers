@@ -80,7 +80,7 @@ Pre-release version is a work-in-progress based on Standard release. This means 
 
 ## How to use it
 
-### Standard release / Pre-release
+### Standard release
 1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet
 2. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
 3. Extract the ZIP to a folder
