@@ -58,27 +58,46 @@ This project currently supports:
 - [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
-The latest release version of The Checker is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
+There should be 3 \"edition\" of the Checker available: Standard release version, Portable release version, and Pre-release version.
 
-NOTE: You need to have the latest version of Python installed for standard release to work. In case you don't and can't have Python installed, there is a portable release available too.
+The latest Standard/Portable release version of The Checker is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 
-You can also get the latest release version via The Checker's built-in \"*Self Update Checker*\" option.
+NOTE: You can also get the latest Standard/Portable release version via The Checker's built-in \"*Self Update Checker*\" option.
+
+### Standard vs. Portable release version
+For Standard release version, you need to have the latest version of Python installed for standard release to work.
+
+Portable release version contains not only all the very same script files from the Standard release, but also 32-bit Windows embeddable Python package and required modules. The Portable release version works on 32/64-bit Windows systems without needing to install Python first, thus called \"Portable\" release.
+
+Portable release version is rather large in total files size and may have some function limitation. However, this version is suitable for who have trouble getting Python installed.
 
 ### Pre-release version
 If you don't want to wait for the proper release, the fresh pre-release work-in-progress version is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
 
 NOTE: You can also get the pre-release version via The Checker's \"*Extra & Legacy Software Update Checkers*\" option.
 
+Pre-release version is a work-in-progress based on Standard release. This means that you need to have the latest version of Python installed for Pre-release to work; or you can replace files in Portable release to make Pre-release portable.
+
 ## How to use it
-1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet; you can skip this step if you want to use the `portable` release (portable release works only on Windows x86/x64 system)
-2. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>
-   Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` (standard) or `Hearing-Aids-Fitting-Software-Update-Checkers_Win32-Portable.zip` (portable) link to download it
+
+### Standard release / Pre-release
+1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet
+2. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
 3. Extract the ZIP to a folder
 4. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
 
 NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
 **WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
+
+### Portable release
+1. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers_Win32-Portable.zip` link to download it
+2. Extract the ZIP to a folder
+3. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
+
+NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
+
+**WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you have Python installed on the system for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
 
 ### Pro-tip & Configuration
 Not all market regions get the same versions for all hearing aids fitting software. In case you see newer versions from some forums or sites yet the checkers report older ones, try changing `target market` on-the-fly to other countries to get alternative results. You can check [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki.
@@ -88,7 +107,7 @@ To change checking variables such as (target) `Market` or (spoof) `Version`, sim
 This project will try to keep up changing default target market for most up-to-date results. Scripts automatically fetch this information from this project (*LiveUpdate*-ish) without needing to re-download the whole release package.
 
 ### Pre-requirement: Install Python
-The following steps only need to be done **ONCE** on each system:
+For Standard release of The Checker, the following steps need to be done **ONCE** on each system:
 1. Go to: https://www.python.org/downloads/
 2. Click on the yellow `Download Python` button and run the installer
 3. Make sure you select `Add python.exe to PATH` in the start of the installer, and then click on `Install Now`
