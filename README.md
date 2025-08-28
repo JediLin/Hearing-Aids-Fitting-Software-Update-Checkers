@@ -86,7 +86,7 @@ Pre-release version is a work-in-progress based on Standard release. This means 
 1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet
 2. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
 3. Extract the ZIP to a folder
-4. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
+4. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen; for Linux or macOS users, there is a corresponding `start-Linux-macOS.sh` which should do the job, too
 
 NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
