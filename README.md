@@ -156,6 +156,7 @@ If you want to make portable version of The Checker by yourself, you can:
 - ReSound/Beltone/Interton: display full version numbers
 - Quick Scan: fix `config.ini` missing bug
 - Document update
+- Portable release: use [python-3.8.10-embed-win32](https://www.python.org/ftp/python/3.8.10/python-3.8.10-embed-win32.zip) package instead for Windows 7 compatibility
 
 ### v2025.08.18
 - Self Update Checker: prepare for portable release by showing all available release files

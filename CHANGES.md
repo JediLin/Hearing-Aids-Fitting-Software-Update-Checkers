@@ -301,3 +301,4 @@
 - ReSound/Beltone/Interton: display full version numbers
 - Quick Scan: fix `config.ini` missing bug
 - Document update
+- Portable release: use [python-3.8.10-embed-win32](https://www.python.org/ftp/python/3.8.10/python-3.8.10-embed-win32.zip) package instead for Windows 7 compatibility
