@@ -60,7 +60,7 @@ This project currently supports:
 - [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
-There should be 3 \"editions\" (versions) of the Checker available: the Standard release version, the Portable release version, and the Pre-release version.
+There are 3 \"editions\" (versions) of the Checker available: the Standard release version, the Portable release version, and the Pre-release version.
 
 The latest Standard/Portable release versions of The Checker are available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 
