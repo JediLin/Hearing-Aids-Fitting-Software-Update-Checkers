@@ -32,14 +32,11 @@ disclaimer = [
     "The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Checker\")",
     "do not take any responsability for what you do with The Checker.",
     "",
-    "Widex is a trademark of Widex A/S",
-    "Widex A/S is a subsidiaries of WS Audiology A/S",
-    "WS Audiology A/S is a trademark of Widex A/S",
-    "Widex Compass GPS is created by Widex A/S",
+    "Widex is a trademark of WS Audiology A/S",
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
     "",
     "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by",
-    "WS Audiology A/S or Widex A/S",
+    "WS Audiology A/S",
     "Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software.",
     "The Checker is an UNOFFICIAL project and the use of associated software may be limited."
 ]

@@ -29,16 +29,12 @@ disclaimer = [
     "The contributors of the Hearing Aids Fitting Software Update Checkers (\"The Checker\")",
     "do not take any responsability for what you do with The Checker.",
     "",
-    "Rexton is a trademark of SIVANTOS PTE. LTD.",
-    "Siavantos is a trademark of SIVANTOS PTE. LTD.",
-    "Rexton and Siavantos are subsidiaries of WS Audiology A/S",
-    "WS Audiology A/S is a trademark of Widex A/S",
-    "Widex is a trademark of Widex A/S",
+    "Rexton is a trademark of WS Audiology A/S",
     "Rexton Connexx is created by Rexton",
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
     "",
     "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by",
-    "Signia GmbH, SIVANTOS PTE. LTD., WS Audiology A/S or Widex A/S",
+    "WS Audiology A/S",
     "Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software.",
     "The Checker is an UNOFFICIAL project and the use of associated software may be limited."
 ]
