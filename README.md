@@ -129,18 +129,20 @@ If you want to make portable version of The Checker by yourself, you can:
 4. Go to: https://www.python.org/downloads/windows/
 5. Download latest version of `Windows embeddable package` (ZIP archive file) according to your system architecture (64-bit, 32-bit, or ARM64)
 6. Extract the ZIP to the folder in step 3, you should get `python.exe`, `requirements.txt`, and `start-Windows.bat` (among other files) in the same folder
-5. Download (right click and Save link as...) [get-pip.py](https://bootstrap.pypa.io/get-pip.py) and put it into the folder in step 3, so you get `python.exe` and `get-pip.py` in the same folder
-6. Run [Windows Command Prompt (cmd)](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmd)
-7. Use [cd](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cd) command to change working path to the folder in step 3; for example:
+7. Download (right click and Save link as...) [get-pip.py](https://bootstrap.pypa.io/get-pip.py) and put it into the folder in step 3, so you get `python.exe` and `get-pip.py` in the same folder
+8. Run [Windows Command Prompt (cmd)](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmd)
+9. Use [cd](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cd) command to change working path to the folder in step 3; for example:
 > cd c:\Users\WDAGUtilityAccount\Downloads\Hearing-Aids-Fitting-Software-Update-Checkers
-8. Install `pip` by this command:
+10. Install `pip` by this command:
 > python.exe get-pip.py
-9. Edit `python313._pth` (`313` means Python v3.13; this filename will be different for each Python version you downloaded from step 5.) with any plain-text editor, uncomment (delete the leading `#`) the last line so the last line of this file should be like this:
+11. Edit `python313._pth` (`313` means Python v*3.13*; this filename will be different for each Python version you downloaded from step 5.) with any plain-text editor, uncomment (delete the leading `#`) the last line so the last line of this file should be like this:
 > import site
-10. Install necessary modules by these commands:
+12. Install necessary modules by these commands:
 > python.exe -m pip install --upgrade -r ./requirements.txt<br>
 > python.exe -m pip install --upgrade -r ./requirements_uncertain.txt
-11. That's all, you made it! Now you can bring the whole folder (or make a ZIP/RAR/7z/whatever archive file of it) with you.
+13. That's all, you made it! Now you can bring the whole folder (or make a ZIP/RAR/7z/whatever archive file of it) with you.
+
+NOTE: In case you want to make a portable version for Windows 7, you have to use Windows embeddable package for Python *3.8*.x instead in step 5., [get-pip.py for Python 3.8.x](https://bootstrap.pypa.io/pip/3.8/get-pip.py) in step 7., and edit `python38._pth` instead in step 11..
 
 ## Credits
 - [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project (up to v1.8.0)
@@ -150,6 +152,9 @@ If you want to make portable version of The Checker by yourself, you can:
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
+
+### Pre-release (work-in-progress)
+- Fix document
 
 ### v2025.08.29
 - Add support for Miracle-Ear Harmony II
