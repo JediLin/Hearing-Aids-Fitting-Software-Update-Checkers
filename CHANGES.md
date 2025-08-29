@@ -296,7 +296,7 @@
 - Self Update Checker: prepare for portable release by showing all available release files
 - Portable release: bundled with [python-3.13.7-embed-win32](https://www.python.org/ftp/python/3.13.7/python-3.13.7-embed-win32.zip) package and necessary modules
 
-### Pre-release (work-in-progress)
+### v2025.08.29
 - Add support for Miracle-Ear Harmony II
 - ReSound/Beltone/Interton: display full version numbers
 - Quick Scan: fix `config.ini` missing bug
