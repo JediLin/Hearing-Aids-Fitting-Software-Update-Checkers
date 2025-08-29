@@ -150,7 +150,9 @@ If you want to make portable version of The Checker by yourself, you can:
 ## Changelog
 
 ### Pre-release (work-in-progress)
+- Add support for Miracle-Ear Harmony II
 - ReSound/Beltone/Interton: display full version numbers
+- Quick Scan: fix `config.ini` missing bug
 - Document update
 
 ### v2025.08.18

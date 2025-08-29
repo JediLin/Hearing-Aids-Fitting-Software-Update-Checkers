@@ -23,25 +23,28 @@ just_fix_windows_console()
 # Read configuration file for toggles with default True
 config = configparser.ConfigParser()
 config.read('config.ini')
-scanPhonak = config.getboolean('Phonak', 'QuickScan', fallback='True')
-scanUnitron = config.getboolean('Unitron', 'QuickScan', fallback='True')
-scanHansaton = config.getboolean('Hansaton', 'QuickScan', fallback='True')
-scanOticon = config.getboolean('Oticon', 'QuickScan', fallback='True')
-scanBernafon = config.getboolean('Bernafon', 'QuickScan', fallback='True')
-scanSonic = config.getboolean('Sonic', 'QuickScan', fallback='True')
-scanPhilips = config.getboolean('Philips', 'QuickScan', fallback='True')
-scanReSound = config.getboolean('ReSound', 'QuickScan', fallback='True')
-scanBeltone = config.getboolean('Beltone', 'QuickScan', fallback='True')
-scanInterton = config.getboolean('Interton', 'QuickScan', fallback='True')
-scanSignia = config.getboolean('Signia', 'QuickScan', fallback='True')
-scanRexton = config.getboolean('Rexton', 'QuickScan', fallback='True')
-scanAudioService = config.getboolean('AudioService', 'QuickScan', fallback='True')
-scanAM = config.getboolean('AM', 'QuickScan', fallback='True')
-scanWidex = config.getboolean('Widex', 'QuickScan', fallback='True')
-scanStarkey = config.getboolean('Starkey', 'QuickScan', fallback='True')
-scanHIMSA = config.getboolean('HIMSA', 'QuickScan', fallback='True')
+scanPhonak = config.getboolean('Phonak', 'QuickScan', fallback='False')
+scanUnitron = config.getboolean('Unitron', 'QuickScan', fallback='False')
+scanHansaton = config.getboolean('Hansaton', 'QuickScan', fallback='False')
+scanOticon = config.getboolean('Oticon', 'QuickScan', fallback='False')
+scanBernafon = config.getboolean('Bernafon', 'QuickScan', fallback='False')
+scanSonic = config.getboolean('Sonic', 'QuickScan', fallback='False')
+scanPhilips = config.getboolean('Philips', 'QuickScan', fallback='False')
+scanReSound = config.getboolean('ReSound', 'QuickScan', fallback='False')
+scanBeltone = config.getboolean('Beltone', 'QuickScan', fallback='False')
+scanInterton = config.getboolean('Interton', 'QuickScan', fallback='False')
+scanSignia = config.getboolean('Signia', 'QuickScan', fallback='False')
+scanRexton = config.getboolean('Rexton', 'QuickScan', fallback='False')
+scanAudioService = config.getboolean('AudioService', 'QuickScan', fallback='False')
+scanAM = config.getboolean('AM', 'QuickScan', fallback='False')
+scanMiracleEar = config.getboolean('MiracleEar', 'QuickScan', fallback='False')
+scanWidex = config.getboolean('Widex', 'QuickScan', fallback='False')
+scanStarkey = config.getboolean('Starkey', 'QuickScan', fallback='False')
+scanHIMSA = config.getboolean('HIMSA', 'QuickScan', fallback='False')
 scanSkipAll = False
-if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanSignia or scanRexton or scanAudioService or scanAM or scanWidex or scanStarkey or scanHIMSA):
+if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanSignia or scanRexton or scanAudioService or scanAM or scanMiracleEar or scanWidex or scanStarkey or scanHIMSA):
+    scanSkipAll = True
+if not os.path.isfile('config.ini'):
     scanSkipAll = True
 
 print("\n\n")
@@ -504,6 +507,39 @@ def aMConnexxChecker(market):
             availableFiles.append( (appVer, child.find(packageXMLNS + "FileName").text, child.find(packageXMLNS + "DownloadURL").text) )
         print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
+def miracleEarHermony2Checker(market):
+    targetMarket = market
+    headers = {
+        "Host": "upman-client.cloudapi.sivantos.com",
+        "Content-Type": "application/soap+xml; charset=utf-8",
+        "Connection": "Keep-Alive"
+    }
+
+    updaterRetries = libhearingdownloader.updaterRetries
+    while updaterRetries > 0:
+        try:
+            baseVer = config.get('MiracleEar', 'Version', fallback='9.11.15.784')
+            supVer = config.get('Signia', 'SupportTools', fallback='9.13.5.290')
+            upmVer = config.get('Signia', 'UpdateManager', fallback='19.13.5.290')
+            rawXmlData = requests.post("https://upman-client.cloudapi.sivantos.com/Service/UpdateManagerService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateManagerService/GetPackages</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://upman-client.cloudapi.sivantos.com/Service/UpdateManagerService.svc</a:To></s:Header><s:Body><GetPackages xmlns="http://tempuri.org/"><products xmlns:b="http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ProductInfo><b:CurrentVersion>' + supVer + '</b:CurrentVersion><b:ProductName>Programmer</b:ProductName><b:PublisherName>SAT</b:PublisherName><b:Countries xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><c:string>' + targetMarket + '</c:string></b:Countries><b:FieldTestCode/><b:CustomerID>00000000-0000-0000-0000-000000000000</b:CustomerID></b:ProductInfo><b:ProductInfo><b:CurrentVersion>' + upmVer + '</b:CurrentVersion><b:ProductName>Update Manager</b:ProductName><b:PublisherName>SAT</b:PublisherName><b:Countries xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><c:string>' + targetMarket + '</c:string></b:Countries><b:FieldTestCode/><b:CustomerID>00000000-0000-0000-0000-000000000000</b:CustomerID></b:ProductInfo><b:ProductInfo><b:CurrentVersion>' + supVer + '</b:CurrentVersion><b:ProductName>Support Tools</b:ProductName><b:PublisherName>SAT</b:PublisherName><b:Countries xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><c:string>' + targetMarket + '</c:string></b:Countries><b:FieldTestCode/><b:CustomerID>00000000-0000-0000-0000-000000000000</b:CustomerID></b:ProductInfo><b:ProductInfo><b:CurrentVersion>' + baseVer + '</b:CurrentVersion><b:ProductName>MEHarmony</b:ProductName><b:PublisherName>SAT</b:PublisherName><b:Countries xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><c:string>' + targetMarket + '</c:string></b:Countries><b:FieldTestCode/><b:CustomerID>00000000-0000-0000-0000-000000000000</b:CustomerID></b:ProductInfo><b:ProductInfo><b:CurrentVersion>4.8.0.0</b:CurrentVersion><b:ProductName>DotNetFramework</b:ProductName><b:PublisherName>SAT</b:PublisherName><b:Countries xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><c:string>' + targetMarket + '</c:string></b:Countries><b:FieldTestCode/><b:CustomerID>00000000-0000-0000-0000-000000000000</b:CustomerID></b:ProductInfo><b:ProductInfo><b:CurrentVersion/><b:ProductName>DotNetCoreRuntime</b:ProductName><b:PublisherName>SAT</b:PublisherName><b:Countries xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><c:string>' + targetMarket + '</c:string></b:Countries><b:FieldTestCode/><b:CustomerID>00000000-0000-0000-0000-000000000000</b:CustomerID></b:ProductInfo><b:ProductInfo><b:CurrentVersion>10.0.22.0</b:CurrentVersion><b:ProductName>OperatingSystem</b:ProductName><b:PublisherName>SAT</b:PublisherName><b:Countries xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><c:string>' + targetMarket + '</c:string></b:Countries><b:FieldTestCode/><b:CustomerID>00000000-0000-0000-0000-000000000000</b:CustomerID></b:ProductInfo><b:ProductInfo><b:CurrentVersion>14.32.31.00</b:CurrentVersion><b:ProductName>VC2015Redistributable</b:ProductName><b:PublisherName>SAT</b:PublisherName><b:Countries xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><c:string>' + targetMarket + '</c:string></b:Countries><b:FieldTestCode/><b:CustomerID>00000000-0000-0000-0000-000000000000</b:CustomerID></b:ProductInfo></products></GetPackages></s:Body></s:Envelope>')
+            data = xml.fromstring(rawXmlData.text)
+            break
+        except:
+            pass
+
+        updaterRetries -= 1
+    if (updaterRetries == 0):
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
+    elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateManagerService/GetPackagesResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><GetPackagesResponse xmlns="http://tempuri.org/"><GetPackagesResult xmlns:b="http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></GetPackagesResponse></s:Body></s:Envelope>'):
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
+    else:
+        packageXMLNS = '{http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS}'
+        availableFiles = []
+        appVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "NewVersion").text
+        for child in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "PackageFiles"):
+            availableFiles.append( (appVer, child.find(packageXMLNS + "FileName").text, child.find(packageXMLNS + "DownloadURL").text) )
+        print(Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
+
 def widexCompassGPSChecker(market):
     targetMarket = market
     baseId = config.get('Widex', 'ID', fallback='CompassGPS')
@@ -904,6 +940,25 @@ if (scanAM):
     while marketListItem < marketListCount:
         try:
             aMConnexxChecker(marketList[marketListItem])
+            if (marketListItem + 1 == marketListCount):
+                print(".")
+            else:
+                print(", ", end="")
+        except:
+            pass
+
+        marketListItem += 1
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
+
+print("Miracle-Ear Harmony II: ", end="")
+if (scanMiracleEar):
+    marketList = config.get('MiracleEar', 'MarketScan', fallback='US').split(',')
+    marketListCount = len(marketList)
+    marketListItem = 0
+    while marketListItem < marketListCount:
+        try:
+            miracleEarHermony2Checker(marketList[marketListItem])
             if (marketListItem + 1 == marketListCount):
                 print(".")
             else:
