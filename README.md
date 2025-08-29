@@ -151,6 +151,7 @@ If you want to make portable version of The Checker by yourself, you can:
 
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton: display full version numbers
+- Document update
 
 ### v2025.08.18
 - Self Update Checker: prepare for portable release by showing all available release files

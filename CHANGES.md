@@ -298,3 +298,4 @@
 
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton: display full version numbers
+- Document update
