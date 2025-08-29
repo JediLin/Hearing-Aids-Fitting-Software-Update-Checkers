@@ -60,25 +60,25 @@ This project currently supports:
 - [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
-There should be 3 \"edition\" of the Checker available: Standard release version, Portable release version, and Pre-release version.
+There should be 3 \"editions\" (versions) of the Checker available: the Standard release version, the Portable release version, and the Pre-release version.
 
-The latest Standard/Portable release version of The Checker is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
+The latest Standard/Portable release versions of The Checker are available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 
 NOTE: You can also get the latest Standard/Portable release version via The Checker's built-in \"*Self Update Checker*\" option.
 
 ### Standard vs. Portable release version
-For Standard release version, you need to have the latest version of Python installed for standard release to work.
+For the Standard release version, you need to have the latest version of Python installed on the system.
 
-Portable release version contains not only all the very same script files from the Standard release, but also 32-bit Windows embeddable Python package and required modules. The Portable release version works on 32/64-bit Windows systems without needing to install Python first, thus called \"Portable\" release.
+Portable release version contains not only all the very same script files from the Standard release, but also 32-bit Windows embeddable Python package and required modules. The Portable release version works on 32/64-bit Windows systems without needing to install Python, hence called \"Portable\" release.
 
-Portable release version is rather large in total files size and may have some function limitation. However, this version is suitable for who have trouble getting Python installed.
+The Portable release version is rather large in total files size and may have some function limitation. However, this version is suitable for who have trouble getting Python installed.
 
 ### Pre-release version
 If you don't want to wait for the proper release, the fresh pre-release work-in-progress version is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
 
 NOTE: You can also get the pre-release version via The Checker's \"*Extra & Legacy Software Update Checkers*\" option.
 
-Pre-release version is a work-in-progress based on Standard release. This means that you need to have the latest version of Python installed for Pre-release to work; or you can replace files in Portable release to make Pre-release portable.
+The Pre-release version is a work-in-progress based on the Standard release. This means that you need to have the latest version of Python installed for Pre-release version to work, too; or you can replace files in Portable release to make the Pre-release package portable.
 
 ## How to use it
 
