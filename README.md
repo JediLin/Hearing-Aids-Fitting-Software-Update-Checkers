@@ -50,6 +50,8 @@ This project currently supports:
   - Audio Service Connexx
   - A&M Connexx
   - Widex [Compass GPS](https://www.widexpro.com/en/business-support/compass/)
+- Miracle-Ear
+  - Miracle-Ear Harmony II
 - Starkey
   - Starkey [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
   - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
