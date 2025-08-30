@@ -145,8 +145,8 @@ If you want to make portable version of The Checker by yourself, you can:
 NOTE: In case you want to make a portable version for Windows 7, you have to use Windows embeddable package for Python *3.8*.x instead in step 5., [get-pip.py for Python 3.8.x](https://bootstrap.pypa.io/pip/3.8/get-pip.py) in step 7., and edit `python38._pth` instead in step 11..
 
 ## Credits
-- [@Blue](https://forum.hearingtracker.com/u/blue/summary): Original author of this project (up to v1.8.0)
-- [@pvc](https://forum.hearingtracker.com/u/pvc/summary): Assisting with testing of the script and finding software links, providing `StarkeyOtherBrands.bat` and rebranded hearing aids information
+- [@Blue](https://forum.hearingtracker.com/u/blue/summary)/[@HackerDude](https://www.hearingaidtalk.com/community/members/hackerdude.5760/): Original author of this project (up to v1.8.0)
+- [@pvc](https://forum.hearingtracker.com/u/pvc/summary)/[@pvc](https://www.hearingaidtalk.com/community/members/pvc.4015/): Assisting with testing of the script and finding software links, providing `StarkeyOtherBrands.bat` and rebranded hearing aids information
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 - [@labuwx](https://github.com/labuwx): Provide [vital information](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/3) about rebranded private label variations of Bernafon OasisNXT
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
