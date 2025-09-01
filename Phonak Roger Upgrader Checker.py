@@ -55,7 +55,7 @@ try:
     hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
     link0 = hrefs[0].replace('%20', ' ')
     filename0 = re.sub(r"\....\.coredownload", "", os.path.basename(urlparse(link0).path))
-    title0 = "Roger Upgrader Software v" + re.sub(r"\.zip", "", re.sub(r"Roger.Upgrader", "", filename0))
+    title0 = "Roger Upgrader Software v1." + re.sub(r"\.zip", "", re.sub(r"[Rr]oger.*[Uu]pgrader1\.*", "", filename0))
 except:
     link0 = ""
     filename0 = "--"
@@ -69,6 +69,7 @@ validVersions = [
     (" ", "--"),
     ("Archived Downloads", "--"),
     ("==================", "--"),
+    ("Roger Upgrader Software v1.31", "rogerupgrader131.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/rogerupgrader131.zip.coredownload.zip"),
     ("Roger Upgrader Software v1.30", "Roger_Upgrader1.30.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger_Upgrader1.30.zip.coredownload.zip"),
     ("Roger Upgrader Software v1.29", "Roger_Upgrader1.29.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger_Upgrader1.29.zip.coredownload.zip"),
     ("Roger Upgrader Software v1.28", "Roger Upgrader1.28.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger Upgrader1.28.zip.coredownload.zip"),

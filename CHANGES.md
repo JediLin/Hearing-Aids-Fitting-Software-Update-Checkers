@@ -304,4 +304,5 @@
 - Portable release: use [python-3.8.10-embed-win32](https://www.python.org/ftp/python/3.8.10/python-3.8.10-embed-win32.zip) package instead for Windows 7 compatibility
 
 ### Pre-release (work-in-progress)
+- Phonak: update Roger Upgrader checker [close [issue #8](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/8)]
 - Fix document
