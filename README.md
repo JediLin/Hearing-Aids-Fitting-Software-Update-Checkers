@@ -153,9 +153,10 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2025.09.02
 - Phonak: update Roger Upgrader checker [close [issue #8](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/8)]
 - Fix document
+- Portable release: cache clean-up
 
 ### v2025.08.29
 - Add support for Miracle-Ear Harmony II
