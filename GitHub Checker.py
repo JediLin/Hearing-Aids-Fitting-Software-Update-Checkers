@@ -44,6 +44,8 @@ while availableFilesCount > 0:
     availableFilesCount -= 1
     availableFiles.append( (data['tag_name'], os.path.basename(data['assets'][availableFilesCount]['browser_download_url']), data['assets'][availableFilesCount]['browser_download_url']) )
 
+availableFiles.reverse()
+
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
 
