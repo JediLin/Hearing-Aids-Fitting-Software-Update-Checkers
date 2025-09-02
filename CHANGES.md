@@ -305,6 +305,7 @@
 
 ### v2025.09.02
 - Phonak: update Roger Upgrader checker [close [issue #8](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/8)]
+- Self Update Checker: correct file list order
 - Fix document
 - Portable release: cache clean-up
 - Release filenames change to `HAFS-Update-Checkers.zip` and `HAFS-Update-Checkers_Win32-Portable.zip`
