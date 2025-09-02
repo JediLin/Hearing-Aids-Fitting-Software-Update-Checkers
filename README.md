@@ -86,7 +86,7 @@ The Pre-release version is a work-in-progress based on the Standard release. Thi
 
 ### Standard release
 1. [Install Python](#pre-requirement-install-python) (and reboot your computer) if you don't have it yet
-2. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers.zip` link to download it
+2. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `HAFS-Update-Checkers.zip` link to download it
 3. Extract the ZIP to a folder
 4. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen; for Linux or macOS users, there is a corresponding `start-Linux-macOS.sh` which should do the job, too
 
@@ -95,7 +95,7 @@ NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by
 **WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
 
 ### Portable release
-1. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `Hearing-Aids-Fitting-Software-Update-Checkers_Win32-Portable.zip` link to download it
+1. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `HAFS-Update-Checkers_Win32-Portable.zip` link to download it
 2. Extract the ZIP to a folder
 3. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
 
@@ -119,7 +119,7 @@ For Standard release of The Checker, the following steps need to be done **ONCE*
 
 NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refuse to run and bring you to Python download page instead.
 
-NOTE: The portable release (`Hearing-Aids-Fitting-Software-Update-Checkers_Win32-Portable.zip`) is bundled with Windows x86 version of Python, thus can work on Windows x86/x64 system without needing to install Python first.
+NOTE: The portable release (`HAFS-Update-Checkers_Win32-Portable.zip`) is bundled with Windows x86 version of Python, thus can work on Windows x86/x64 system without needing to install Python first.
 
 ### Making portable by yourself
 If you want to make portable version of The Checker by yourself, you can:
@@ -157,6 +157,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 - Phonak: update Roger Upgrader checker [close [issue #8](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/8)]
 - Fix document
 - Portable release: cache clean-up
+- Release filenames change to `HAFS-Update-Checkers.zip` and `HAFS-Update-Checkers_Win32-Portable.zip`
 
 ### v2025.08.29
 - Add support for Miracle-Ear Harmony II
