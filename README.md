@@ -154,6 +154,10 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Miracle-Ear: fix checker banner color to match brand color (as menu did)
+- Document: Add yet another screenshot
+
 ### v2025.09.02
 - Phonak: update Roger Upgrader checker [close [issue #8](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/8)]
 - Self Update Checker: correct file list order

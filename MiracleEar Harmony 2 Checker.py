@@ -16,7 +16,7 @@ just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("=      " + Fore.YELLOW + "Miracle-Ear" + Style.RESET_ALL + " Harmony II Update Checker     =")
+print("=      " + Fore.GREEN + "Miracle-Ear" + Style.RESET_ALL + " Harmony II Update Checker     =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
