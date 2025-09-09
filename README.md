@@ -9,7 +9,8 @@
 
 A collection of scripts which check hearing aids fitting software directly from their own update servers.
 
-<img width="515" height="503" alt="Screenshot of The Checker's main menu" src="https://github.com/user-attachments/assets/58686cf8-e52f-4b63-90bb-1ca314d6528b" />
+<img width="515" height="503" alt="Screenshot of The Checker's main menu" src="https://github.com/user-attachments/assets/58686cf8-e52f-4b63-90bb-1ca314d6528b" /><img width="537" height="526" alt="Screenshot of The Checker's extra menu" src="https://github.com/user-attachments/assets/51d74b09-8607-4efd-a3cd-8a6c10f20c97" />
+
 
 ## What does it do?
 This project (\"The Checker\") contains scripts which can check hearing aids fitting software (such as Phonak Target) directly from each own update servers with APIs, so that you can easily know if there is a newer version available, and check corresponding files.
