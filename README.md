@@ -70,7 +70,7 @@ The latest Standard/Portable release versions of The Checker are available here:
 NOTE: You can also get the latest Standard/Portable release version via The Checker's built-in \"*Self Update Checker*\" option.
 
 ### Standard vs. Portable release version
-For the Standard release version, you need to have the latest version of Python installed on the system.
+For the Standard release version, you need to have the latest *3.13.x* version of Python installed on the system.
 
 Portable release version contains not only all the very same script files from the Standard release, but also 32-bit Windows embeddable Python package and required modules. The Portable release version works on 32/64-bit Windows systems without needing to install Python, hence called \"Portable\" release.
 
@@ -81,7 +81,7 @@ If you don't want to wait for the proper release, the fresh pre-release work-in-
 
 NOTE: You can also get the pre-release version via The Checker's \"*Extra & Legacy Software Update Checkers*\" option.
 
-The Pre-release version is a work-in-progress based on the Standard release. This means that you need to have the latest version of Python installed for Pre-release version to work, too; or you can replace files in Portable release to make the Pre-release package portable.
+The Pre-release version is a work-in-progress based on the Standard release. This means that you need to have the latest *3.13.x* version of Python installed for Pre-release version to work, too; or you can replace files in Portable release to make the Pre-release package portable.
 
 ## How to use it
 
@@ -114,13 +114,18 @@ This project will try to keep up changing default target market for most up-to-d
 ### Pre-requirement: Install Python
 For Standard release of The Checker, the following steps need to be done **ONCE** on each system:
 1. Go to: https://www.python.org/downloads/
-2. Click on the yellow `Download Python` button and run the installer
-3. Make sure you select `Add python.exe to PATH` in the start of the installer, and then click on `Install Now`
-4. **Reboot your computer**
+2. Scroll down to `Looking for a specific release?` section
+3. Find the latest 3.13.x version, then click on the corresponding `Download` link
+4. Scroll down to `Files` section, click `Version` link according to your operation system environment (such as Windows 64-bit) to download the installer
+5. Run the installer you just downloaded
+6. Make sure you select `Add python.exe to PATH` in the start of the installer, and then click on `Install Now`
+7. **Reboot your computer**
 
 NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refuse to run and bring you to Python download page instead.
 
 NOTE: The portable release (`HAFS-Update-Checkers_Win32-Portable.zip`) is bundled with Windows x86 version of Python, thus can work on Windows x86/x64 system without needing to install Python first.
+
+NOTE: There is known component compatability issue [[#9](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/9)] for newer (3.14.x) version of Python. Please use Python 3.13.x before the issue is resolved.
 
 ### Making portable by yourself
 If you want to make portable version of The Checker by yourself, you can:
