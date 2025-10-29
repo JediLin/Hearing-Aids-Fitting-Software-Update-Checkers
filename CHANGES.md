@@ -311,6 +311,7 @@
 - Release filenames change to `HAFS-Update-Checkers.zip` and `HAFS-Update-Checkers_Win32-Portable.zip`
 
 ### Pre-release (work-in-progress)
+- Temporary workaround Python 3.14.x support for Brotli issue
 - Starkey: workaround SSL Certificate error
 - Miracle-Ear: fix checker banner color to match brand color (as menu did)
 - Document: Add yet another screenshot

@@ -160,6 +160,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 ## Changelog
 
 ### Pre-release (work-in-progress)
+- Temporary workaround Python 3.14.x support for Brotli issue
 - Starkey: workaround SSL Certificate error
 - Miracle-Ear: fix checker banner color to match brand color (as menu did)
 - Document: Add yet another screenshot
