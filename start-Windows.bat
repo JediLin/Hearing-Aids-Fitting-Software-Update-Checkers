@@ -14,7 +14,7 @@ echo Installing/upgrading requirements...
 echo:
 python -m pip install --upgrade pip
 python -m pip install --upgrade -r ./requirements.txt
-python -m pip install --upgrade -r ./requirements_waiting.txt
+python -m pip install --upgrade -r ./requirements_pending.txt
 python -m pip install --upgrade -r ./requirements_uncertain.txt
 
 :MENU
