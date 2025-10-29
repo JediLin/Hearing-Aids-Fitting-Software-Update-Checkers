@@ -311,5 +311,6 @@
 - Release filenames change to `HAFS-Update-Checkers.zip` and `HAFS-Update-Checkers_Win32-Portable.zip`
 
 ### Pre-release (work-in-progress)
+- Starkey: workaround SSL Certificate error
 - Miracle-Ear: fix checker banner color to match brand color (as menu did)
 - Document: Add yet another screenshot
