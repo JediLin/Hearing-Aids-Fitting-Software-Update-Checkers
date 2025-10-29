@@ -6,13 +6,17 @@
 import configparser
 import os
 import requests
-import brotli
 import lxml.html
 import re
 from urllib.parse import urlparse
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
+try:
+    noBrotli = ""
+    import brotli
+except:
+    noBrotli = True
 import libhearingdownloader
 
 just_fix_windows_console()
@@ -84,6 +88,10 @@ except:
     link1 = ""
     filename1 = "--"
     title1 = "NOT FOUND"
+
+if (noBrotli):
+    print("\n" + Fore.RED + "WARNING" + Style.RESET_ALL + ": This checker is not supported in this version of Python.")
+    print("You can try to use different version of Python to solve this issue.")
 
 # Define list of valid versions and their download links
 validVersions = [

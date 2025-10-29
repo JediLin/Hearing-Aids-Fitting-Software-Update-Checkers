@@ -6,7 +6,6 @@ import tzlocal
 import html
 import json
 import requests
-import brotli
 import lxml.html
 import rot_codec
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -15,8 +14,13 @@ from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 from iso3166 import countries
-import libhearingdownloader
+try:
+    noBrotli = ""
+    import brotli
+except:
+    noBrotli = True
 import xml.etree.ElementTree as xml
+import libhearingdownloader
 
 just_fix_windows_console()
 
