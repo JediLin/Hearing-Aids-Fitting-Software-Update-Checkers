@@ -133,7 +133,7 @@ If you want to make portable version of The Checker by yourself, you can:
 2. Download the standard release of The Checker from https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 3. Extract the ZIP to a folder
 4. Go to: https://www.python.org/downloads/windows/
-5. Download latest *3.13.x* or *3.8.x* version of `Windows embeddable package` (ZIP archive file) according to your system architecture (64-bit, 32-bit, or ARM64)
+5. Download latest *3.13.x* (recommended) or *3.8.x* (for Windows 7 compatability) version of `Windows embeddable package` (ZIP archive file) according to your system architecture (64-bit, 32-bit, or ARM64)
 6. Extract the ZIP to the folder in step 3, you should get `python.exe`, `requirements.txt`, and `start-Windows.bat` (among other files) in the same folder
 7. Download (right click and Save link as...) [get-pip.py](https://bootstrap.pypa.io/get-pip.py) (or [get-pip.py for Python 3.8.x](https://bootstrap.pypa.io/pip/3.8/get-pip.py) if working with Python 3.8.x) and put it into the folder in step 3, so you get `python.exe` and `get-pip.py` in the same folder
 8. Run [Windows Command Prompt (cmd)](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmd)
