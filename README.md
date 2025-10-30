@@ -160,7 +160,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 ## Changelog
 
 ### Pre-release (work-in-progress)
-- Temporary workaround for Brotli's Python 3.14.x support issue [[issue #9](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/9)]
+- Temporary workaround for Brotli's Python 3.14.x support issue [close [issue #9](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/9)]
 - Starkey: update self-sign certification chain file
 - Miracle-Ear: fix checker banner color to match brand color (as menu did)
 - Document: Add yet another screenshot
