@@ -312,7 +312,8 @@
 
 ### v2025.10.30
 - Python: temporary workaround for Brotli's Python 3.14.x support issue [close [issue #9](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/9)]
+- Rexton: update default market
 - Starkey: update self-sign certification chain file
 - Miracle-Ear: fix checker banner color to match brand color (as menu did)
 - Document: Update and add yet another screenshot
-- Portable release: packages update
+- Portable release: update Python modules
