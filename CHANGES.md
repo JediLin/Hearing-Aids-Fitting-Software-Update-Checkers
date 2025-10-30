@@ -310,8 +310,9 @@
 - Portable release: cache clean-up
 - Release filenames change to `HAFS-Update-Checkers.zip` and `HAFS-Update-Checkers_Win32-Portable.zip`
 
-### Pre-release (work-in-progress)
+### v2025.10.30
 - Temporary workaround for Brotli's Python 3.14.x support issue [close [issue #9](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/9)]
 - Starkey: update self-sign certification chain file
 - Miracle-Ear: fix checker banner color to match brand color (as menu did)
-- Document: Add yet another screenshot
+- Document: Update and add yet another screenshot
+- Portable release: packages update
