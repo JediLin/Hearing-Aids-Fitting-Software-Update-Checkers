@@ -133,15 +133,15 @@ If you want to make portable version of The Checker by yourself, you can:
 2. Download the standard release of The Checker from https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
 3. Extract the ZIP to a folder
 4. Go to: https://www.python.org/downloads/windows/
-5. Download latest *3.13.x* version of `Windows embeddable package` (ZIP archive file) according to your system architecture (64-bit, 32-bit, or ARM64)
+5. Download latest *3.13.x* or *3.8.x* version of `Windows embeddable package` (ZIP archive file) according to your system architecture (64-bit, 32-bit, or ARM64)
 6. Extract the ZIP to the folder in step 3, you should get `python.exe`, `requirements.txt`, and `start-Windows.bat` (among other files) in the same folder
-7. Download (right click and Save link as...) [get-pip.py](https://bootstrap.pypa.io/get-pip.py) and put it into the folder in step 3, so you get `python.exe` and `get-pip.py` in the same folder
+7. Download (right click and Save link as...) [get-pip.py](https://bootstrap.pypa.io/get-pip.py) (or [get-pip.py for Python 3.8.x](https://bootstrap.pypa.io/pip/3.8/get-pip.py) if working with Python 3.8.x) and put it into the folder in step 3, so you get `python.exe` and `get-pip.py` in the same folder
 8. Run [Windows Command Prompt (cmd)](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmd)
 9. Use [cd](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cd) command to change working path to the folder in step 3; for example:
 > cd c:\Users\WDAGUtilityAccount\Downloads\Hearing-Aids-Fitting-Software-Update-Checkers
 10. Install `pip` by this command:
 > python.exe get-pip.py
-11. Edit `python313._pth` (`313` means Python v*3.13*; this filename will be different for each Python version you downloaded from step 5.) with any plain-text editor, uncomment (delete the leading `#`) the last line so the last line of this file should be like this:
+11. Edit `python313._pth` (`313` means Python v*3.13*; this filename will be different for each Python version you downloaded from step 5. So you should edit `python38._pth` if dealing with Python v3.8) with any plain-text editor, uncomment (delete the leading `#`) the last line so the last line of this file should be like this:
 > import site
 12. Install necessary modules by these commands:
 > python.exe -m pip install --upgrade -r ./requirements.txt<br>
