@@ -149,7 +149,7 @@ If you want to make portable version of The Checker by yourself, you can:
 > python.exe -m pip install --upgrade -r ./requirements_uncertain.txt
 13. That's all, you made it! Now you can bring the whole folder (or make a ZIP/RAR/7z/whatever archive file of it) with you.
 
-NOTE: In case you want to make a portable version for Windows 7, you have to use Windows embeddable package for Python *3.8*.x instead in step 5., [get-pip.py for Python 3.8.x](https://bootstrap.pypa.io/pip/3.8/get-pip.py) in step 7., and edit `python38._pth` instead in step 11..
+NOTE: In case you want to make a portable version for Windows 7, you have to use Windows embeddable package for Python *3.8*.x instead in step 5, [get-pip.py for Python 3.8.x](https://bootstrap.pypa.io/pip/3.8/get-pip.py) in step 7, and edit `python38._pth` instead in step 11.
 
 ## Credits
 - [@Blue](https://forum.hearingtracker.com/u/blue/summary)/[@HackerDude](https://www.hearingaidtalk.com/community/members/hackerdude.5760/): Original author of this project (up to v1.8.0)
