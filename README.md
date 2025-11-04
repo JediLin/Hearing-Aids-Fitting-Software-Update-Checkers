@@ -41,7 +41,6 @@ This project currently supports:
   - Beltone [Solus Max](https://www.gnhearing.com/en/products/beltone/fsw-2)
   - Beltone Solus Pro
   - Beltone Solus
-  - Beltone SelectaFit
   - Interton [Fitting](https://www.interton.com/en/professionals/hearing-aid-fitting)
   - Interton Appraise
   - Interton CompuFit
@@ -162,6 +161,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ### Pre-release (work-in-progress)
 - Oticon/Bernafon/Philips: update `config.ini` for checking version 2025.2
+- Beltone: check against public update site (no longer support Beltone SelectaFit)
 
 ### v2025.10.30
 - Python: temporary workaround for Brotli's Python 3.14.x support issue [close [issue #9](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/9)]

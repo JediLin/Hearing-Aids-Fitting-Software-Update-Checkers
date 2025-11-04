@@ -320,3 +320,4 @@
 
 ### Pre-release (work-in-progress)
 - Oticon/Bernafon/Philips: update `config.ini` for checking version 2025.2
+- Beltone: check against public update site (no longer support Beltone SelectaFit)

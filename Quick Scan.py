@@ -331,6 +331,18 @@ def reSoundChecker():
         print(Fore.GREEN + "v" + re.sub(r"ReSound Smart Fit ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def beltoneChecker():
+    bsmURI = "https://www.gnhearing.com/en/products/beltone/fitting-software-download"
+    try:
+        test = requests.get(bsmURI)
+        dom = lxml.html.fromstring(test.content)
+        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
+        link1 = hrefs[1].replace('%20', ' ')
+        updateVer = Fore.GREEN + "v" + re.sub(r"solusmax_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
+    except:
+        updateVer = Fore.RED + "Error" + Style.RESET_ALL
+    print(updateVer)
+
+def beltoneLegacyChecker():
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
