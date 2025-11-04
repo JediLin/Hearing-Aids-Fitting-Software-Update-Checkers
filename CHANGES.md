@@ -317,3 +317,6 @@
 - Miracle-Ear: fix checker banner color to match brand color (as menu did)
 - Document: Update and add yet another screenshot
 - Portable release: update Python modules
+
+### Pre-release (work-in-progress)
+- Oticon/Bernafon/Philips: update `config.ini` for checking version 2025.2

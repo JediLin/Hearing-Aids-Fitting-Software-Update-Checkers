@@ -160,6 +160,9 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Oticon/Bernafon/Philips: update `config.ini` for checking version 2025.2
+
 ### v2025.10.30
 - Python: temporary workaround for Brotli's Python 3.14.x support issue [close [issue #9](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/9)]
 - Rexton: update default market
