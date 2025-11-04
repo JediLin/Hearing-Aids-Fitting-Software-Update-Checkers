@@ -85,20 +85,21 @@ validVersions = [
     ("=================", "--"),
     (title1, filename1, link1),
     (title0, filename0, link0),
+    ("manual", "Manually specify a version of Beltone Solus Max (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
     ("Archived Downloads", "--"),
     ("==================", "--"),
-    ("Beltone Solus Max 2.2.209.13", "solusmax_2.2.209.13_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_2.2.209.13_releaseversion.zip"),
-    ("Beltone Solus Max 2.2", "solusmax_2.2.209.5_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_2.2.209.5_releaseversion.zip"),
-    ("Beltone Solus Max 2.1 Update 2", "solusmax_2.1.305.17_releaseversion", "https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_2.1.305.17_releaseversion"),
-    ("Beltone Solus Max 2.0 Update 3", "solusmax_2.0.132.26_releaseversion", "https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_2.0.132.26_releaseversion"),
-    ("Beltone Solus Max 1.18", "Beltone_Solus_Max_1.18.324.0-ReleaseVersion.zip", "https://supportgn.gnonlineservices.com/downloads/beltone/Beltone_Solus_Max_1.18.324.0-ReleaseVersion.zip"),
-    ("Beltone Solus Pro 1.10", "soluspro1.10.0.78.zip", "http://www.supportgn.com/files/beltone/soluspro1.10.0.78.zip"),
-    ("Beltone Solus 2.7", "solus2.70.14.2c.zip", "http://www.supportgn.com/files/beltone/solus2.70.14.2c.zip"),
+    ("Beltone Solus Max v2.2.209.13", "solusmax_2.2.209.13_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_2.2.209.13_releaseversion.zip"),
+    ("Beltone Solus Max v2.2", "solusmax_2.2.209.5_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_2.2.209.5_releaseversion.zip"),
+    ("Beltone Solus Max v2.1 Update 2", "solusmax_2.1.305.17_releaseversion", "https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_2.1.305.17_releaseversion"),
+    ("Beltone Solus Max v2.0 Update 3", "solusmax_2.0.132.26_releaseversion", "https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_2.0.132.26_releaseversion"),
+    ("Beltone Solus Max v1.18", "Beltone_Solus_Max_1.18.324.0-ReleaseVersion.zip", "https://supportgn.gnonlineservices.com/downloads/beltone/Beltone_Solus_Max_1.18.324.0-ReleaseVersion.zip"),
+    ("Beltone Solus Pro v1.10", "soluspro1.10.0.78.zip", "http://www.supportgn.com/files/beltone/soluspro1.10.0.78.zip"),
+    ("Beltone Solus v2.7", "solus2.70.14.2c.zip", "http://www.supportgn.com/files/beltone/solus2.70.14.2c.zip"),
 ]
 if(link1 == ""):
     if(link0 == ""):
-        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[7][0] + Style.RESET_ALL + "\n\n")
+        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[8][0] + Style.RESET_ALL + "\n\n")
     else:
         print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + "\n\n")
 else:
@@ -107,6 +108,17 @@ else:
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
 targetVersion = libhearingdownloader.selectFromList(validVersions)
+if (validVersions[targetVersion][0] == "manual"):
+    validVersion = ""
+    while not validVersion:
+        validVersion = input("\nPlease enter " + Fore.GREEN + "manual Solus Max version" + Style.RESET_ALL + ": ")
+        if (not len(validVersion.split('.')) == 4 or not validVersion.replace('.', '').isdecimal()):
+            print("\nThe version you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a similar format to " + Fore.GREEN + "a.b.c.d" + Style.RESET_ALL + " where " + Fore.GREEN + "a" + Style.RESET_ALL + ", " + Fore.GREEN + "b" + Style.RESET_ALL + ", " + Fore.GREEN + "c" + Style.RESET_ALL + ", and " + Fore.GREEN + "d" + Style.RESET_ALL + " are integers)")
+            validVersion = ""
+        elif (input("\nYou have selected version (" + Fore.YELLOW + "Beltone Solus Max v" + validVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
+            validVersion = ""
+    validVersions[targetVersion] = ('Beltone Solus Max v' + validVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_' + validVersion + '_releaseversion.zip')
+
 print("\n\n")
 
 # Create download folder
