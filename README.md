@@ -159,7 +159,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
-### v2025.11.04
+### Pre-release (work-in-progress)
 - Oticon/Bernafon/Philips: update `config.ini` for checking version 2025.2
 - Beltone: check against public update site (no longer support Beltone SelectaFit) [close [issue #10](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/10)]
 
