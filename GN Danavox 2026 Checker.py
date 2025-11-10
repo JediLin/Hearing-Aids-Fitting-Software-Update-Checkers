@@ -33,6 +33,7 @@ disclaimer = [
     "Danavox is a trademark of GN Hearing A/S and/or its affiliates (\"GN Group\")",
     "GN is a trademark of GN Store Nord A/S",
     "Danavox XE BeMore is a trademark of GN Group",
+    "Danavox Danalogic is a trademark of GN Group",
     "GN Hearing A/S is a subsidiary of GN Store Nord A/S",
     "Danavox is a subsidiary of GN Hearing A/S",
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
@@ -56,46 +57,73 @@ try:
     link0 = hrefs[0].replace('%20', ' ')
     filename0 = os.path.basename(urlparse(link0).path)
     title0 = "Danavox XE BeMore v" + re.sub(r"_releaseversion\.zip", "", re.sub(r"xebemore_", "", filename0))
+    link3 = link0.replace('bemore/xebemore', 'danalogic/danalogic')
+    filename3 = filename0.replace('xebemore', 'danalogic')
+    title3 = title0.replace('XE BeMore', 'Danalogic')
     try:
         link1 = hrefs[1].replace('%20', ' ')
         filename1 = os.path.basename(urlparse(link1).path)
         title1 = "Danavox XE BeMore v" + re.sub(r"_releaseversion\.zip", "", re.sub(r"xebemore_", "", filename1))
+        link2 = link1.replace('bemore/xebemore', 'danalogic/danalogic')
+        filename2 = filename1.replace('xebemore', 'danalogic')
+        title2 = title1.replace('XE BeMore', 'Danalogic')
     except:
         link1 = ""
         filename1 = "--"
         title1 = "NOT FOUND"
+        link2 = ""
+        filename2 = "--"
+        title2 = "NOT FOUND"
 except:
     link0 = ""
     filename0 = "--"
     title0 = "NOT FOUND"
+    link1 = ""
+    filename1 = "--"
+    title1 = "NOT FOUND"
+    link2 = ""
+    filename2 = "--"
+    title2 = "NOT FOUND"
+    link3 = ""
+    filename3 = "--"
+    title3 = "NOT FOUND"
 
 # Define list of valid versions and their download links
 validVersions = [
-    ("Current Downloads", "--"),
-    ("=================", "--"),
+    ("Current XE BeMore Downloads", "--"),
+    ("===========================", "--"),
     (title1, filename1, link1),
     (title0, filename0, link0),
-    ("manual", "Manually specify a version of Danavox XE BeMore (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
+    ("XE BeMore/manual", "Manually specify a version of Danavox XE BeMore (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
+    (" ", "--"),
+    ("Current Danalogic Downloads", "--"),
+    ("===========================", "--"),
+    (title2, filename2, link2),
+    (title3, filename3, link3),
+    ("Danalogic/manual", "Manually specify a version of Danavox Danalogic (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
     ("Archived Downloads", "--"),
     ("==================", "--"),
     ("Danavox XE BeMore v2.2", "xebemore_2.2.209.13_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/bemore/xebemore_2.2.209.13_releaseversion.zip"),
+    ("Danavox Danalogic v2.2", "danalogic_2.2.209.13_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/danalogic/danalogic_2.2.209.13_releaseversion.zip"),
     ("Danavox XE BeMore v2.1 Update 2", "xebemore_2.1.305.17_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/bemore/xebemore_2.1.305.17_releaseversion.zip"),
+    ("Danavox Danalogic v2.1 Update 2", "danalogic_2.1.305.17_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/danalogic/danalogic_2.1.305.17_releaseversion.zip"),
     ("Danavox XE BeMore v2.0 Update 3", "xebemore_2.0.132.26_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/bemore/xebemore_2.0.132.26_releaseversion.zip"),
+    ("Danavox Danalogic v2.0 Update 3", "danalogic_2.0.132.26_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/danalogic/danalogic_2.0.132.26_releaseversion.zip"),
     ("Danavox XE BeMore v1.18", "XE_BeMore_1.18.324.0-ReleaseVersion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/bemore/XE_BeMore_1.18.324.0-ReleaseVersion.zip"),
 ]
 if(link1 == ""):
     if(link0 == ""):
-        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[8][0] + Style.RESET_ALL + "\n\n")
+        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[13][0] + Style.RESET_ALL + " / " + Fore.GREEN + validVersions[14][0] + Style.RESET_ALL + "\n\n")
     else:
-        print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + "\n\n")
+        print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + " / " + Fore.GREEN + title3 + Style.RESET_ALL + "\n\n")
 else:
-    print("\n\nThe latest available version is " + Fore.GREEN + title1 + Style.RESET_ALL + "\n\n")
+    print("\n\nThe latest available version is " + Fore.GREEN + title1 + Style.RESET_ALL + " / " + Fore.GREEN + title2 + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
 targetVersion = libhearingdownloader.selectFromList(validVersions)
-if (validVersions[targetVersion][0] == "manual"):
+if (validVersions[targetVersion][0] == "XE BeMore/manual"):
     validVersion = ""
     while not validVersion:
         validVersion = input("\nPlease enter " + Fore.GREEN + "manual XE BeMore version" + Style.RESET_ALL + ": ")
@@ -105,6 +133,17 @@ if (validVersions[targetVersion][0] == "manual"):
         elif (input("\nYou have selected version (" + Fore.YELLOW + "Danavox XE BeMore v" + validVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             validVersion = ""
     validVersions[targetVersion] = ('Danavox XE BeMore v' + validVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/ka/bemore/xebemore_' + validVersion + '_releaseversion.zip')
+
+if (validVersions[targetVersion][0] == "Danalogic/manual"):
+    validVersion = ""
+    while not validVersion:
+        validVersion = input("\nPlease enter " + Fore.GREEN + "manual Danalogic version" + Style.RESET_ALL + ": ")
+        if (not len(validVersion.split('.')) == 4 or not validVersion.replace('.', '').isdecimal()):
+            print("\nThe version you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a similar format to " + Fore.GREEN + "a.b.c.d" + Style.RESET_ALL + " where " + Fore.GREEN + "a" + Style.RESET_ALL + ", " + Fore.GREEN + "b" + Style.RESET_ALL + ", " + Fore.GREEN + "c" + Style.RESET_ALL + ", and " + Fore.GREEN + "d" + Style.RESET_ALL + " are integers)")
+            validVersion = ""
+        elif (input("\nYou have selected version (" + Fore.YELLOW + "Danavox Danalogic v" + validVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
+            validVersion = ""
+    validVersions[targetVersion] = ('Danavox Danalogic v' + validVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/ka/danalogic/danalogic_' + validVersion + '_releaseversion.zip')
 
 print("\n\n")
 

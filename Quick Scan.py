@@ -928,7 +928,7 @@ if (scanInterton):
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
-print("Danavox XE BeMore: ", end="")
+print("Danavox XE BeMore / Danalogic: ", end="")
 if (scanDanavox):
     danavoxChecker()
 else:

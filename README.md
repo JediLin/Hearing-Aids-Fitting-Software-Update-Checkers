@@ -45,6 +45,7 @@ This project currently supports:
   - Interton Appraise
   - Interton CompuFit
   - Danavox XE BeMore
+  - Danavox Danalogic
 - WS Audiology
   - Signia [Connexx](https://www.signia-pro.com/en/business-support/connexx/)
   - Rexton [Connexx](https://www.rexton.com/en/professional/connexx/)
@@ -156,7 +157,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton: fix error handling
-- Add support for Danavox XE BeMore
+- Add support for Danavox XE BeMore and Danavox Danalogic
 
 ### v2025.11.10
 - ReSound/Interton: check against public update site
