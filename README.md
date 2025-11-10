@@ -101,7 +101,7 @@ NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by
 
 NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
-**WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you have Python installed on the system for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
+**WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you have Python installed on the system for other reasons and need to keep particular version, be advised to make your own backup or prepare a separate environment.
 
 ### Pro-tip & Configuration
 Not all market regions get the same versions for all hearing aids fitting software. In case you see newer versions from some forums or sites yet the checkers report older ones, try changing `target market` on-the-fly to other countries to get alternative results. You can check [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki.
