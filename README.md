@@ -44,6 +44,7 @@ This project currently supports:
   - Interton [Fitting](https://www.interton.com/en/professionals/hearing-aid-fitting)
   - Interton Appraise
   - Interton CompuFit
+  - Danavox XE BeMore
 - WS Audiology
   - Signia [Connexx](https://www.signia-pro.com/en/business-support/connexx/)
   - Rexton [Connexx](https://www.rexton.com/en/professional/connexx/)
@@ -152,6 +153,9 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 
 ## Changelog
+
+### Pre-release (work-in-progress)
+- Add support for Danavox XE BeMore
 
 ### v2025.11.10
 - ReSound/Interton: check against public update site

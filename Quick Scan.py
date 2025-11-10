@@ -37,6 +37,7 @@ scanPhilips = config.getboolean('Philips', 'QuickScan', fallback='False')
 scanReSound = config.getboolean('ReSound', 'QuickScan', fallback='False')
 scanBeltone = config.getboolean('Beltone', 'QuickScan', fallback='False')
 scanInterton = config.getboolean('Interton', 'QuickScan', fallback='False')
+scanDanavox = config.getboolean('Danavox', 'QuickScan', fallback='False')
 scanSignia = config.getboolean('Signia', 'QuickScan', fallback='False')
 scanRexton = config.getboolean('Rexton', 'QuickScan', fallback='False')
 scanAudioService = config.getboolean('AudioService', 'QuickScan', fallback='False')
@@ -46,7 +47,7 @@ scanWidex = config.getboolean('Widex', 'QuickScan', fallback='False')
 scanStarkey = config.getboolean('Starkey', 'QuickScan', fallback='False')
 scanHIMSA = config.getboolean('HIMSA', 'QuickScan', fallback='False')
 scanSkipAll = False
-if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanSignia or scanRexton or scanAudioService or scanAM or scanMiracleEar or scanWidex or scanStarkey or scanHIMSA):
+if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanDanavox or scanSignia or scanRexton or scanAudioService or scanAM or scanMiracleEar or scanWidex or scanStarkey or scanHIMSA):
     scanSkipAll = True
 if not os.path.isfile('config.ini'):
     scanSkipAll = True
@@ -305,7 +306,7 @@ def philipsHearSuiteChecker(market):
         updateVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text
         print(Fore.GREEN + "v" + re.sub(r"Philips HearSuite ", "", updateVer) + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
-# GN: ReSound, Beltone, Interton
+# GN: ReSound, Beltone, Interton, Danavox
 def reSoundChecker():
     rssfURI = "https://www.gnhearing.com/en/products/resound/fitting-software-download"
     try:
@@ -413,6 +414,18 @@ def intertonLegacyChecker():
                 availableFiles[currentCategory] = availableFiles.get(currentCategory, [])
                 availableFiles[currentCategory].append( (child.find("DESCIPTIONTITLE").text, '', child.find("LINK").text) )
         print(Fore.GREEN + "v" + re.sub(r"Interton Fitting ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
+
+def danavoxChecker():
+    dxebmURI = "https://www.gnhearing.com/en/products/danavox/fitting-software-download"
+    try:
+        test = requests.get(dxebmURI)
+        dom = lxml.html.fromstring(test.content)
+        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
+        link1 = hrefs[1].replace('%20', ' ')
+        updateVer = Fore.GREEN + "v" + re.sub(r"xebemore_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
+    except:
+        updateVer = Fore.RED + "Error" + Style.RESET_ALL
+    print(updateVer)
 
 # WSA: Signia, Rexton, Audio Service, A&M, Widex
 def signiaConnexxChecker(market):
@@ -912,6 +925,12 @@ else:
 print("Interton Fitting: ", end="")
 if (scanInterton):
     intertonChecker()
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
+
+print("Danavox XE BeMore: ", end="")
+if (scanDanavox):
+    danavoxChecker()
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
