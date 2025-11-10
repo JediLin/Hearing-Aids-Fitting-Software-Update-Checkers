@@ -103,13 +103,13 @@ targetVersion = libhearingdownloader.selectFromList(validVersions)
 if (validVersions[targetVersion][0] == "manual"):
     validVersion = ""
     while not validVersion:
-        validVersion = input("\nPlease enter " + Fore.GREEN + "manual Solus Max version" + Style.RESET_ALL + ": ")
+        validVersion = input("\nPlease enter " + Fore.GREEN + "manual Smart Fit version" + Style.RESET_ALL + ": ")
         if (not len(validVersion.split('.')) == 4 or not validVersion.replace('.', '').isdecimal()):
             print("\nThe version you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a similar format to " + Fore.GREEN + "a.b.c.d" + Style.RESET_ALL + " where " + Fore.GREEN + "a" + Style.RESET_ALL + ", " + Fore.GREEN + "b" + Style.RESET_ALL + ", " + Fore.GREEN + "c" + Style.RESET_ALL + ", and " + Fore.GREEN + "d" + Style.RESET_ALL + " are integers)")
             validVersion = ""
-        elif (input("\nYou have selected version (" + Fore.YELLOW + "Beltone Solus Max v" + validVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
+        elif (input("\nYou have selected version (" + Fore.YELLOW + "ReSound Smart Fit v" + validVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             validVersion = ""
-    validVersions[targetVersion] = ('Beltone Solus Max v' + validVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_' + validVersion + '_releaseversion.zip')
+    validVersions[targetVersion] = ('ReSound Smart Fit v' + validVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/resound/smartfit_' + validVersion + '_releaseversion.zip')
 
 print("\n\n")
 
