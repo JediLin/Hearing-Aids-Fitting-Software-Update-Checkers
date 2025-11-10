@@ -75,6 +75,9 @@ except:
     link0 = ""
     filename0 = "--"
     title0 = "NOT FOUND"
+    link1 = ""
+    filename1 = "--"
+    title1 = "NOT FOUND"
 
 # Define list of valid versions and their download links
 validVersions = [

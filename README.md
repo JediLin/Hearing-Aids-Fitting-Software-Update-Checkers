@@ -155,6 +155,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 ## Changelog
 
 ### Pre-release (work-in-progress)
+- ReSound/Beltone/Interton: fix error handling
 - Add support for Danavox XE BeMore
 
 ### v2025.11.10
