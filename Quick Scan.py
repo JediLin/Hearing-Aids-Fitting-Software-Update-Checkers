@@ -307,6 +307,18 @@ def philipsHearSuiteChecker(market):
 
 # GN: ReSound, Beltone, Interton
 def reSoundChecker():
+    rssfURI = "https://www.gnhearing.com/en/products/resound/fitting-software-download"
+    try:
+        test = requests.get(rssfURI)
+        dom = lxml.html.fromstring(test.content)
+        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
+        link1 = hrefs[1].replace('%20', ' ')
+        updateVer = Fore.GREEN + "v" + re.sub(r"smartfit_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
+    except:
+        updateVer = Fore.RED + "Error" + Style.RESET_ALL
+    print(updateVer)
+
+def reSoundLegacyChecker():
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:

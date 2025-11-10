@@ -156,6 +156,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 ### Pre-release (work-in-progress)
 - Document: update that Python 3.14 works now
 - Beltone: fix archived versions
+- ReSound: check against public update site
 
 ### v2025.11.04
 - Oticon/Bernafon/Philips: update `config.ini` for checking version 2025.2
