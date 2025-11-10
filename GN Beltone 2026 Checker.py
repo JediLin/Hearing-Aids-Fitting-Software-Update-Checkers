@@ -57,7 +57,7 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
-# Get Phonak Roger Upgrader update from the webpage
+# Get Beltone Solus Max update from the webpage
 bsmURI = "https://www.gnhearing.com/en/products/beltone/fitting-software-download"
 try:
     test = requests.get(bsmURI)

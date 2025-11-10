@@ -50,7 +50,7 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
-# Get Phonak Roger Upgrader update from the webpage
+# Get ReSound Smart Fit update from the webpage
 rssfURI = "https://www.gnhearing.com/en/products/resound/fitting-software-download"
 try:
     test = requests.get(rssfURI)
