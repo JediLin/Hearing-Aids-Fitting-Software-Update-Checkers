@@ -322,7 +322,7 @@
 - Oticon/Bernafon/Philips: update `config.ini` for checking version 2025.2
 - Beltone: check against public update site (no longer support Beltone SelectaFit) [close [issue #10](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/10)]
 
-### Pre-release (work-in-progress)
-- Document: update that Python 3.14 works now
-- Beltone: fix archived versions
+### v2025.11.10
 - ReSound/Interton: check against public update site
+- Beltone: fix archived versions
+- Document: update that Python 3.14 works now
