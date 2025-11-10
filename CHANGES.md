@@ -324,4 +324,4 @@
 
 ### Pre-release (work-in-progress)
 - Document: update that Python 3.14 works now
-- Beltone: fix archived version
+- Beltone: fix archived versions
