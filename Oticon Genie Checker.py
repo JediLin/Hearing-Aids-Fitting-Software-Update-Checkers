@@ -7,6 +7,7 @@ from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
+import rot_codec
 
 just_fix_windows_console()
 
@@ -45,8 +46,8 @@ if not turboFile.is_file():
 # Define list of valid versions and their download links (direct from CDN)
 validVersions = [
     ("Online Installers (require an internet connection to install)", "--"),
-    ("Genie 2017.1", "The last Genie 2017 Version", "https://installcdn.oticon.com/full/17.1/27.0.40.29/OTG214672OT_USB.zip"),
-    ("Genie Medical 2016.1", "The old Genie Medical 2016 Version", "https://wdh02.azureedge.net/-/media/oticon-us/main/client-systems-support-and-remote-assistance/geniemedical2016.exe?la=en&rev=171A&hash=95AF6010585FD97B23A9FAB05FBAE761"),
+    ("Genie 2017.1", "The last Genie 2017 Version", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^7F==^`f]`^af]_]c_]ah^~%va`cefa~%0&$q]K:A")),
+    ("Genie Medical 2016.1", "The old Genie Medical 2016 Version", rot_codec.rot47_decode("9EEADi^^H59_a]2KFC66586]?6E^") + "-/media/oticon-us/main/client-systems-support-and-remote-assistance/" + rot_codec.rot47_decode("86?:6>65:42=a_`e]6I6")),
 ]
 print("\n\nThe latest available version is " + Fore.GREEN + "Genie 2017.1 (v27.0.40.29)" + Style.RESET_ALL + "\n\n")
 

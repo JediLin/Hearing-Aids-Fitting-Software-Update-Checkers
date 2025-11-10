@@ -13,6 +13,7 @@ from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
+import rot_codec
 
 just_fix_windows_console()
 
@@ -51,8 +52,8 @@ config.read('config.ini')
 certVerify = config.getboolean('Starkey', 'PatientBaseVerify', fallback='True')
 
 # Get PatientBase update from the webpage
-pbURI = "https://patientbase.starkeyhearingtechnologies.com"
-fallbackDownload = "https://softwaredownload.starkey.com/PatientBase/PatientBase Setup 28.0.10003.0.exe"
+pbURI = rot_codec.rot47_decode("9EEADi^^A2E:6?E32D6]DE2C<6J962C:?8E649?@=@8:6D]4@>")
+fallbackDownload = rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^!2E:6?Eq2D6^!2E:6?Eq2D6 $6EFA ag]_]`___b]_]6I6")
 try:
     if (certVerify == False):
         print("\n\n" + Fore.RED + "WARNING" + Style.RESET_ALL + ": Ignorning certification security verification for \n" + Fore.GREEN + pbURI + Style.RESET_ALL)
@@ -79,15 +80,13 @@ except:
 # sadly az493319.vo.msecnd.net is no longer available...
 validVersions = [
     ("Current Downloads", "--"),
-    ("=================", "--"),
     ("PatientBase v" + filename0.replace('PatientBase Setup ', '').replace('.exe', ''), filename0, link0),
     (" ", "--"),
     ("Archived Downloads", "--"),
-    ("==================", "--"),
     ("PatientBase v28.0.10003.0", "for Pro Fit 1.0+ and Inspire 2023.1+", fallbackDownload),
-#     ("PatientBase 26.0.10014.0", "for Inspire 2022.1 - 2023.0", "https://az493319.vo.msecnd.net/install/PatientBase Setup 26.0.10014.0.exe"),
-#     ("PatientBase 24.0.10102.0", "for Inspire 2021.0 - 2022.0", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
-#     ("PatientBase 15.0.386.0", "for Inspire 2016 - 2020", "https://az493319.vo.msecnd.net/install/PatientBase Setup 24.0.10102.0.exe"),
+#     ("PatientBase 26.0.10014.0", "for Inspire 2022.1 - 2023.0", rot_codec.rot47_decode("9EEADi^^2Kchbb`h]G@]>D64?5]?6E^:?DE2==^!2E:6?Eq2D6 $6EFA ae]_]`__`c]_]6I6")),
+#     ("PatientBase 24.0.10102.0", "for Inspire 2021.0 - 2022.0", rot_codec.rot47_decode("9EEADi^^2Kchbb`h]G@]>D64?5]?6E^:?DE2==^!2E:6?Eq2D6 $6EFA ac]_]`_`_a]_]6I6")),
+#     ("PatientBase 15.0.386.0", "for Inspire 2016 - 2020", rot_codec.rot47_decode("9EEADi^^2Kchbb`h]G@]>D64?5]?6E^:?DE2==^!2E:6?Eq2D6 $6EFA `d]_]bge]_]6I6")),
 ]
 print("\n\nThe latest available version is " + Fore.GREEN + "v" + filename0.replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL + "\n\n")
 

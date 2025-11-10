@@ -12,6 +12,7 @@ from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
+import rot_codec
 
 just_fix_windows_console()
 
@@ -49,7 +50,7 @@ if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
 # Get Danavox XE BeMore update from the webpage
-dxebmURI = "https://www.gnhearing.com/en/products/danavox/fitting-software-download"
+dxebmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^52?2G@I^") + "fitting-software-download"
 try:
     test = requests.get(dxebmURI)
     dom = lxml.html.fromstring(test.content)
@@ -91,30 +92,27 @@ except:
 # Define list of valid versions and their download links
 validVersions = [
     ("Current XE BeMore Downloads", "--"),
-    ("===========================", "--"),
     (title1, filename1, link1),
     (title0, filename0, link0),
     ("XE BeMore/manual", "Manually specify a version of Danavox XE BeMore (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
     ("Current Danalogic Downloads", "--"),
-    ("===========================", "--"),
     (title2, filename2, link2),
     (title3, filename3, link3),
     ("Danalogic/manual", "Manually specify a version of Danavox Danalogic (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
     ("Archived Downloads", "--"),
-    ("==================", "--"),
-    ("Danavox XE BeMore v2.2", "xebemore_2.2.209.13_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/bemore/xebemore_2.2.209.13_releaseversion.zip"),
-    ("Danavox Danalogic v2.2", "danalogic_2.2.209.13_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/danalogic/danalogic_2.2.209.13_releaseversion.zip"),
-    ("Danavox XE BeMore v2.1 Update 2", "xebemore_2.1.305.17_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/bemore/xebemore_2.1.305.17_releaseversion.zip"),
-    ("Danavox Danalogic v2.1 Update 2", "danalogic_2.1.305.17_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/danalogic/danalogic_2.1.305.17_releaseversion.zip"),
-    ("Danavox XE BeMore v2.0 Update 3", "xebemore_2.0.132.26_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/bemore/xebemore_2.0.132.26_releaseversion.zip"),
-    ("Danavox Danalogic v2.0 Update 3", "danalogic_2.0.132.26_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/danalogic/danalogic_2.0.132.26_releaseversion.zip"),
-    ("Danavox XE BeMore v1.18", "XE_BeMore_1.18.324.0-ReleaseVersion.zip", "https://supportgn.gnonlineservices.com/downloads/ka/bemore/XE_BeMore_1.18.324.0-ReleaseVersion.zip"),
+    ("Danavox XE BeMore v2.2", "xebemore_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
+    ("Danavox Danalogic v2.2", "danalogic_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
+    ("Danavox XE BeMore v2.1 Update 2", "xebemore_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
+    ("Danavox Danalogic v2.1 Update 2", "danalogic_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
+    ("Danavox XE BeMore v2.0 Update 3", "xebemore_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),
+    ("Danavox Danalogic v2.0 Update 3", "danalogic_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),
+    ("Danavox XE BeMore v1.18", "XE_BeMore_1.18.324.0-ReleaseVersion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^)t0q6|@C60`]`g]bac]_") + "-ReleaseVersion.zip"),
 ]
 if(link1 == ""):
     if(link0 == ""):
-        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[13][0] + Style.RESET_ALL + " / " + Fore.GREEN + validVersions[14][0] + Style.RESET_ALL + "\n\n")
+        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[11][0] + Style.RESET_ALL + " / " + Fore.GREEN + validVersions[12][0] + Style.RESET_ALL + "\n\n")
     else:
         print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + " / " + Fore.GREEN + title3 + Style.RESET_ALL + "\n\n")
 else:
@@ -132,7 +130,7 @@ if (validVersions[targetVersion][0] == "XE BeMore/manual"):
             validVersion = ""
         elif (input("\nYou have selected version (" + Fore.YELLOW + "Danavox XE BeMore v" + validVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             validVersion = ""
-    validVersions[targetVersion] = ('Danavox XE BeMore v' + validVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/ka/bemore/xebemore_' + validVersion + '_releaseversion.zip')
+    validVersions[targetVersion] = ('Danavox XE BeMore v' + validVersion, 'Manually specified version', rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60") + validVersion + '_releaseversion.zip')
 
 if (validVersions[targetVersion][0] == "Danalogic/manual"):
     validVersion = ""
@@ -143,7 +141,7 @@ if (validVersions[targetVersion][0] == "Danalogic/manual"):
             validVersion = ""
         elif (input("\nYou have selected version (" + Fore.YELLOW + "Danavox Danalogic v" + validVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             validVersion = ""
-    validVersions[targetVersion] = ('Danavox Danalogic v' + validVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/ka/danalogic/danalogic_' + validVersion + '_releaseversion.zip')
+    validVersions[targetVersion] = ('Danavox Danalogic v' + validVersion, 'Manually specified version', rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40") + validVersion + '_releaseversion.zip')
 
 print("\n\n")
 

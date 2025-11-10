@@ -12,6 +12,7 @@ from colorama import Fore, Back, Style
 from iso3166 import countries
 import libhearingdownloader
 import xml.etree.ElementTree as xml
+import rot_codec
 
 just_fix_windows_console()
 
@@ -154,11 +155,11 @@ validVersions = [
     (data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest Genie 2 Installer (OFFLINE) (from the updater)"),
     (data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest Genie 2 Installer (ONLINE) (from the updater)"),
     ("Online Installers (shorter downloads, but they require an internet connection to install)", "--"),
-    ("Genie 2 2022.1.0", "The latest(ish) Genie 2 2022.1.0 Installer (from the website)", "https://installcdn.oticon.com/22.1/15.19.13.0/Genie/Oticon/47b1876d/setup.exe"),
-    ("Genie 2 2020.1", "The Genie 2 2020.1 Installer", "https://installcdn.oticon.com/20.1/9.3.116.0/Genie/Oticon/9fc0827f/setup.exe"),
+    ("Genie 2 2022.1.0", "The latest(ish) Genie 2 2022.1.0 Installer (from the website)", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^aa]`^`d]`h]`b]_^v6?:6^~E:4@?^cf3`gfe5^D6EFA]6I6")),
+    ("Genie 2 2020.1", "The Genie 2 2020.1 Installer", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^a_]`^h]b]``e]_^v6?:6^~E:4@?^h74_gaf7^D6EFA]6I6")),
     ("Offline Installers (longer downloads, but they work without an internet connection to install)", "--"),
-    ("Genie 2 2022.1.0", "The latest(ish) Genie 2 2022.1.0 Installer (OFFLINE INSTALLER, from the website)", "https://installcdn.oticon.com/full/22.1/15.19.13.0/OTG22_1237118OT_USB.zip"),
-    ("Genie 2 2020.1", "The Genie 2 2020.1 Installer (OFFLINE INSTALLER)", "https://installcdn.oticon.com/full/20.1/9.3.116.0/OTG20_1214671OT_USB.zip")
+    ("Genie 2 2022.1.0", "The latest(ish) Genie 2 2022.1.0 Installer (OFFLINE INSTALLER, from the website)", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^7F==^aa]`^`d]`h]`b]_^~%vaa0`abf``g~%0&$q]K:A")),
+    ("Genie 2 2020.1", "The Genie 2 2020.1 Installer (OFFLINE INSTALLER)", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^7F==^a_]`^h]b]``e]_^~%va_0`a`cef`~%0&$q]K:A"))
 ]
 print("\n\nThe latest available version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + Style.RESET_ALL + "\n\n")
 

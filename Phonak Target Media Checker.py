@@ -11,6 +11,7 @@ from colorama import Fore, Back, Style
 from iso3166 import countries
 import libhearingdownloader
 import xml.etree.ElementTree as xml
+import rot_codec
 
 just_fix_windows_console()
 
@@ -107,22 +108,22 @@ while updaterRetries > 0:
         targetMarketFallback = config.get('Phonak', 'MarketFallback', fallback='US')
         hostBaseVer = config.get('Phonak', 'Version', fallback='6.0.1.695')
         baseVer = "0.0.0.0"
-        hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+        hostXmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
         hostData = xml.fromstring(hostXmlData)
         hostAppVer = hostData[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
         # Request the updater API with the latest version number of Phonak Target
-        xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+        xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^|65:2x?DE2==6C^:?56I") + "?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
         if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
             print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Media version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\nNow checking again for " + Fore.GREEN + targetMarketFallback + Style.RESET_ALL + " market...\n\n")
             targetMarket = targetMarketFallback
-            hostXmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+            hostXmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
             hostData = xml.fromstring(hostXmlData)
             hostAppVer = hostData[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-            xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+            xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^|65:2x?DE2==6C^:?56I") + "?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
             if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
                 print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Media version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\nNow checking for previous known version...\n\n")
                 hostAppVer = "10.1.2" # latest known Target version with Media available
-                xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/MediaInstaller/index?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+                xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^|65:2x?DE2==6C^:?56I") + "?appName=Target%20Media&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
                 if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
                     print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Media version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
                     exit(1)

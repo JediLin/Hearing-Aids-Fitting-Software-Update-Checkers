@@ -12,6 +12,7 @@ from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
+import rot_codec
 
 just_fix_windows_console()
 
@@ -55,7 +56,7 @@ if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
 # Get Interton Fitting update from the webpage
-ifURI = "https://www.gnhearing.com/en/products/interton/fitting-software-download"
+ifURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^:?E6CE@?^") + "fitting-software-download"
 try:
     test = requests.get(ifURI)
     dom = lxml.html.fromstring(test.content)
@@ -82,24 +83,22 @@ except:
 # Define list of valid versions and their download links
 validVersions = [
     ("Current Downloads", "--"),
-    ("=================", "--"),
     (title1, filename1, link1),
     (title0, filename0, link0),
     ("manual", "Manually specify a version of Interton Fitting (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
     ("Archived Downloads", "--"),
-    ("==================", "--"),
-    ("Interton Fitting v2.2", "fitting_2.2.209.13_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/interton/fitting_2.2.209.13_releaseversion.zip"),
-    ("Interton Fitting v2.1 Update 2", "fitting_2.1.305.17_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/interton/fitting_2.1.305.17_releaseversion.zip"),
-    ("Interton Fitting v2.0 Update 3", "fitting_2.0.132.26_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/interton/fitting_2.0.132.26_releaseversion.zip"),
-    ("Interton Fitting v1.18", "Interton_Fitting_1.18.324.0-ReleaseVersion.zip", "https://supportgn.gnonlineservices.com/downloads/interton/Interton_Fitting_1.18.324.0-ReleaseVersion.zip"),
-    ("Interton Appraise v2.4", "appraise2.4.0.24.zip", "http://www.supportgn.com/files/interton/appraise2.4.0.24.zip"),
-    ("Interton Appraise v1.5", "appraise1.50.8.3.zip", "http://www.supportgn.com/files/interton/appraise1.50.8.3.zip"),
-    ("Interton CompuFit v4.4", "compufit4.4.zip", "http://www.supportgn.com/files/interton/compufit4.4.zip"),
+    ("Interton Fitting v2.2", "fitting_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^:?E6CE@?^7:EE:?80a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
+    ("Interton Fitting v2.1 Update 2", "fitting_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^:?E6CE@?^7:EE:?80a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
+    ("Interton Fitting v2.0 Update 3", "fitting_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^:?E6CE@?^7:EE:?80a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),
+    ("Interton Fitting v1.18", "Interton_Fitting_1.18.324.0-ReleaseVersion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^:?E6CE@?^x?E6CE@?0u:EE:?80`]`g]bac]_") + "-ReleaseVersion.zip"),
+    ("Interton Appraise v2.4", "appraise2.4.0.24.zip", rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^7:=6D^:?E6CE@?^2AAC2:D6a]c]_]ac]K:A")),
+    ("Interton Appraise v1.5", "appraise1.50.8.3.zip", rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^7:=6D^:?E6CE@?^2AAC2:D6`]d_]g]b]K:A")),
+    ("Interton CompuFit v4.4", "compufit4.4.zip", rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^7:=6D^:?E6CE@?^4@>AF7:Ec]c]K:A")),
 ]
 if(link1 == ""):
     if(link0 == ""):
-        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[8][0] + Style.RESET_ALL + "\n\n")
+        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[6][0] + Style.RESET_ALL + "\n\n")
     else:
         print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + "\n\n")
 else:
@@ -117,7 +116,7 @@ if (validVersions[targetVersion][0] == "manual"):
             validVersion = ""
         elif (input("\nYou have selected version (" + Fore.YELLOW + "Interton Fitting v" + validVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             validVersion = ""
-    validVersions[targetVersion] = ('Interton Fitting v' + validVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/interton/fitting_' + validVersion + '_releaseversion.zip')
+    validVersions[targetVersion] = ('Interton Fitting v' + validVersion, 'Manually specified version', rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^:?E6CE@?^7:EE:?80") + validVersion + '_releaseversion.zip')
 
 print("\n\n")
 

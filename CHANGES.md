@@ -330,3 +330,5 @@
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton: fix error handling
 - Add support for Danavox XE BeMore and Danavox Danalogic
+- Protect links in script to prevent take-down
+- Minor display adjustment for version menu

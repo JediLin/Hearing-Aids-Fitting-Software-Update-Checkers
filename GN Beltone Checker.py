@@ -9,6 +9,7 @@ from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
 import xml.etree.ElementTree as xml
+import rot_codec
 
 just_fix_windows_console()
 
@@ -51,7 +52,7 @@ disclaimer = [
 ]
 
 # Define variables
-rootDownloadURL = "http://www.supportgn.com/files/"
+rootDownloadURL = rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^7:=6D^")
 
 # Display disclaimer
 if not turboFile.is_file():
@@ -61,7 +62,7 @@ updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
         # Download update file list from updater API
-        rawXmlData = requests.get("http://www.supportgn.com/beltone/subsites/releasessdb.xml")
+        rawXmlData = requests.get(rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^36=E@?6^DF3D:E6D^C6=62D6DD53]I>="))
         data = xml.fromstring(rawXmlData.text)
         break
     except:
@@ -117,7 +118,7 @@ if (targetCategory == 'manual'):
             targetVersion = ''
         elif (input("\nYou have selected version (" + Fore.YELLOW + targetVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             targetVersion = ''
-    availableFiles = [('Beltone Solus Max v' + targetVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/beltone/solusmax_' + targetVersion + '_releaseversion.zip')]
+    availableFiles = [('Beltone Solus Max v' + targetVersion, 'Manually specified version', rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^36=E@?6^D@=FD>2I0") + targetVersion + '_releaseversion.zip')]
 else:
     availableFiles = availableFiles[targetCategory]
 

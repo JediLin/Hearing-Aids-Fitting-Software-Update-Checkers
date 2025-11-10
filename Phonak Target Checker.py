@@ -11,6 +11,7 @@ from colorama import Fore, Back, Style
 from iso3166 import countries
 import libhearingdownloader
 import xml.etree.ElementTree as xml
+import rot_codec
 
 just_fix_windows_console()
 
@@ -105,7 +106,7 @@ while updaterRetries > 0:
         # checker variables, may effect the latest version available from API
         # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
         baseVer = config.get('Phonak', 'Version', fallback='6.0.1.695')
-        xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=" + baseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+        xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Phonak%20Target&appVer=" + baseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
         data = xml.fromstring(xmlData)
         break
     except:
@@ -133,8 +134,8 @@ validVersions = [
 #    ('6.2.8', 'The last version of Phonak Target compatible with the iCube (obsolete proprietary hearing aid programmer)'),
     ('manual', 'Manually specify a version (' + Fore.RED + 'WARNING' + Style.RESET_ALL + ': ADVANCED USERS ONLY)'),
     ("\nLegacy Software", '--'),
-    ('iPFG 2.6e', 'The latest available Phonak iPFG Successware version', 'https://www.phonakpro.com/content/dam/phonakpro/gc_hq/en/products_solutions/other_products/documents/iPFG2.6e.zip'),
-    ('PFG 8.6c Slim Version', 'The latest available Phonak PFG version', 'https://www.phonakpro.com/content/dam/phonakpro/gc_hq/en/products_solutions/other_products/documents/PFG_8.6c_SlimVersion.zip'),
+    ('iPFG 2.6e', 'The latest available Phonak iPFG Successware version', rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<AC@]4@>^4@?E6?E^52>^A9@?2<AC@^8409B^6?^AC@5F4ED0D@=FE:@?D^@E96C0AC@5F4ED^5@4F>6?ED^:!uva]e6]K:A")),
+    ('PFG 8.6c Slim Version', 'The latest available Phonak PFG version', rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<AC@]4@>^4@?E6?E^52>^A9@?2<AC@^8409B^6?^AC@5F4ED0D@=FE:@?D^@E96C0AC@5F4ED^5@4F>6?ED^!uv0g]e40$=:>'6CD:@?]K:A")),
 ]
 
 # Select outputDir and targetVersion

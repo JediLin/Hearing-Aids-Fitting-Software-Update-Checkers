@@ -11,6 +11,7 @@ from colorama import Fore, Back, Style
 from iso3166 import countries
 import libhearingdownloader
 import xml.etree.ElementTree as xml
+import rot_codec
 
 just_fix_windows_console()
 
@@ -106,7 +107,7 @@ while updaterRetries > 0:
         # checker variables, may effect the latest version available from API
         # Request the updater API (spoof older version to get whole installer files rather than "patch" installers)
         baseVer = config.get('Unitron', 'Version', fallback='5.1.0.25391')
-        xmlData = requests.get("https://svc.myunitron.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Unitron%20TrueFit&appVer=" + baseVer + "&dist=Unitron&country=" + targetMarket + "&subKeys=").text
+        xmlData = requests.get(rot_codec.rot47_decode("9EEADi^^DG4]>JF?:EC@?]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Unitron%20TrueFit&appVer=" + baseVer + "&dist=Unitron&country=" + targetMarket + "&subKeys=").text
         data = xml.fromstring(xmlData)
         break
     except:

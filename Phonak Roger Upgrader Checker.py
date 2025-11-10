@@ -12,6 +12,7 @@ from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
+import rot_codec
 
 just_fix_windows_console()
 
@@ -64,19 +65,17 @@ except:
 # Define list of valid versions and their download links
 validVersions = [
     ("Current Downloads", "--"),
-    ("=================", "--"),
     (title0, filename0, link0),
     (" ", "--"),
     ("Archived Downloads", "--"),
-    ("==================", "--"),
-    ("Roger Upgrader Software v1.31", "rogerupgrader131.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/rogerupgrader131.zip.coredownload.zip"),
-    ("Roger Upgrader Software v1.30", "Roger_Upgrader1.30.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger_Upgrader1.30.zip.coredownload.zip"),
-    ("Roger Upgrader Software v1.29", "Roger_Upgrader1.29.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger_Upgrader1.29.zip.coredownload.zip"),
-    ("Roger Upgrader Software v1.28", "Roger Upgrader1.28.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger Upgrader1.28.zip.coredownload.zip"),
-    ("Roger Upgrader Software v1.27", "Roger Upgrader1.27.zip", "https://www.phonak.com/content/dam/phonak/en/documents/packages/Roger Upgrader1.27.zip.coredownload.zip"),
+    ("Roger Upgrader Software v1.31", "rogerupgrader131.zip", rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<]4@>^4@?E6?E^52>^A9@?2<^6?^5@4F>6?ED^A24<286D^C@86CFA8C256C`b`]K:A]4@C65@H?=@25]K:A")),
+    ("Roger Upgrader Software v1.30", "Roger_Upgrader1.30.zip", rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<]4@>^4@?E6?E^52>^A9@?2<^6?^5@4F>6?ED^A24<286D^#@86C0&A8C256C`]b_]K:A]4@C65@H?=@25]K:A")),
+    ("Roger Upgrader Software v1.29", "Roger_Upgrader1.29.zip", rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<]4@>^4@?E6?E^52>^A9@?2<^6?^5@4F>6?ED^A24<286D^#@86C0&A8C256C`]ah]K:A]4@C65@H?=@25]K:A")),
+    ("Roger Upgrader Software v1.28", "Roger Upgrader1.28.zip", rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<]4@>^4@?E6?E^52>^A9@?2<^6?^5@4F>6?ED^A24<286D^#@86C &A8C256C`]ag]K:A]4@C65@H?=@25]K:A")),
+    ("Roger Upgrader Software v1.27", "Roger Upgrader1.27.zip", rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<]4@>^4@?E6?E^52>^A9@?2<^6?^5@4F>6?ED^A24<286D^#@86C &A8C256C`]af]K:A]4@C65@H?=@25]K:A")),
 ]
 if(link0 == ""):
-    print("\n\nThe latest available version is " + Fore.GREEN + validVersions[6][0] + Style.RESET_ALL + "\n\n")
+    print("\n\nThe latest available version is " + Fore.GREEN + validVersions[4][0] + Style.RESET_ALL + "\n\n")
 else:
     print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + "\n\n")
 

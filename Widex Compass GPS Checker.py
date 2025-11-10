@@ -118,7 +118,7 @@ updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
         # Download update file list from updater API
-        postUrl = 'https://apimgmt.widex.com/fds/v1/api/Update?all=true&brevity=terse'
+        postUrl = rot_codec.rot47_decode("9EEADi^^2A:>8>E]H:56I]4@>^75D^G`^2A:^&A52E6n2==lECF6U3C6G:EJlE6CD6")
         rawPostData = '{"Id":"'+baseId+'","Version":"'+baseVer+'","Environment":[{"Name":"distributors","Value":"' + targetMarket + '"}]}'
         rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData)
         # Expect something like {"Packages": [],"CustomProperties": {}}

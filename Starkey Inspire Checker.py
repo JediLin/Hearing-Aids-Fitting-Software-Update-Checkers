@@ -15,6 +15,7 @@ from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
+import rot_codec
 
 just_fix_windows_console()
 
@@ -107,7 +108,7 @@ headers = {
 updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
-        postUrl = 'https://inspireupdater.com/api/Update'
+        postUrl = rot_codec.rot47_decode("9EEADi^^:?DA:C6FA52E6C]4@>^2A:^&A52E6")
         # OSVersion must meet the minimal requirement of (newer version of) the software.
         # Windows 7 SP1: 'Microsoft Windows NT 6.1.7601 Service Pack 1'
         # Windows 10 22H2: 'Microsoft Windows NT 10.0.19045.0'

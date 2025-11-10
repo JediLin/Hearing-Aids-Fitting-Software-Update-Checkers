@@ -12,6 +12,7 @@ from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
+import rot_codec
 
 just_fix_windows_console()
 
@@ -51,7 +52,7 @@ if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
 # Get ReSound Smart Fit update from the webpage
-rssfURI = "https://www.gnhearing.com/en/products/resound/fitting-software-download"
+rssfURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^C6D@F?5^") + "fitting-software-download"
 try:
     test = requests.get(rssfURI)
     dom = lxml.html.fromstring(test.content)
@@ -78,23 +79,21 @@ except:
 # Define list of valid versions and their download links
 validVersions = [
     ("Current Downloads", "--"),
-    ("=================", "--"),
     (title1, filename1, link1),
     (title0, filename0, link0),
     ("manual", "Manually specify a version of ReSound Smart Fit (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
     ("Archived Downloads", "--"),
-    ("==================", "--"),
-    ("ReSound Smart Fit v2.2", "smartfit_2.2.209.13_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/resound/smartfit_2.2.209.13_releaseversion.zip"),
-    ("ReSound Smart Fit v2.1 Update 2", "smartfit_2.1.305.17_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/resound/smartfit_2.1.305.17_releaseversion.zip"),
-    ("ReSound Smart Fit v2.0 Update 3", "smartfit_2.0.132.26_releaseversion.zip", "https://supportgn.gnonlineservices.com/downloads/resound/smartfit_2.0.132.26_releaseversion.zip"),
-    ("ReSound Smart Fit v1.18", "ReSound_Smart_Fit_1.18.324.0-ReleaseVersion.zip", "https://supportgn.gnonlineservices.com/downloads/resound/ReSound_Smart_Fit_1.18.324.0-ReleaseVersion.zip"),
-    ("ReSound Aventa v2.9", "aventa2.95.7.1a.zip", "https://cdnprdsitecoresto03.azureedge.net/fittingsoftware/aventa2.95.7.1a.zip"),
-    ("ReSound Pro-Counsel v1.45", "pro_counsel1.45.zip", "http://www.supportgn.com/files/resound/pro_counsel1.45.zip"),
+    ("ReSound Smart Fit v2.2", "smartfit_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^C6D@F?5^D>2CE7:E0a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
+    ("ReSound Smart Fit v2.1 Update 2", "smartfit_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^C6D@F?5^D>2CE7:E0a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
+    ("ReSound Smart Fit v2.0 Update 3", "smartfit_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^C6D@F?5^D>2CE7:E0a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),
+    ("ReSound Smart Fit v1.18", "ReSound_Smart_Fit_1.18.324.0-ReleaseVersion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^C6D@F?5^#6$@F?50$>2CE0u:E0`]`g]bac]_") + "-ReleaseVersion.zip"),
+    ("ReSound Aventa v2.9", "aventa2.95.7.1a.zip", rot_codec.rot47_decode("9EEADi^^45?AC5D:E64@C6DE@_b]2KFC66586]?6E^7:EE:?8D@7EH2C6^2G6?E2a]hd]f]`2]K:A")),
+    ("ReSound Pro-Counsel v1.45", "pro_counsel1.45.zip", rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^7:=6D^C6D@F?5^AC@04@F?D6=`]cd]K:A")),
 ]
 if(link1 == ""):
     if(link0 == ""):
-        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[8][0] + Style.RESET_ALL + "\n\n")
+        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[6][0] + Style.RESET_ALL + "\n\n")
     else:
         print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + "\n\n")
 else:
@@ -112,7 +111,7 @@ if (validVersions[targetVersion][0] == "manual"):
             validVersion = ""
         elif (input("\nYou have selected version (" + Fore.YELLOW + "ReSound Smart Fit v" + validVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             validVersion = ""
-    validVersions[targetVersion] = ('ReSound Smart Fit v' + validVersion, 'Manually specified version', 'https://supportgn.gnonlineservices.com/downloads/resound/smartfit_' + validVersion + '_releaseversion.zip')
+    validVersions[targetVersion] = ('ReSound Smart Fit v' + validVersion, 'Manually specified version', rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^C6D@F?5^D>2CE7:E0") + validVersion + '_releaseversion.zip')
 
 print("\n\n")
 

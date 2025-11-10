@@ -86,7 +86,7 @@ def phonakTargetChecker(market):
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            xmlData = requests.get("https://p-svc1.phonakpro.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Phonak%20Target&appVer=" + baseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+            xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Phonak%20Target&appVer=" + baseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
             data = xml.fromstring(xmlData)
             break
         except:
@@ -120,7 +120,7 @@ def unitronTrueFitChecker(market):
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            xmlData = requests.get("https://svc.myunitron.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=Unitron%20TrueFit&appVer=" + baseVer + "&dist=Unitron&country=" + targetMarket + "&subKeys=").text
+            xmlData = requests.get(rot_codec.rot47_decode("9EEADi^^DG4]>JF?:EC@?]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Unitron%20TrueFit&appVer=" + baseVer + "&dist=Unitron&country=" + targetMarket + "&subKeys=").text
             data = xml.fromstring(xmlData)
             break
         except:
@@ -142,7 +142,7 @@ def hansatonScoutChecker(market):
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            xmlData = requests.get("https://svc.myunitron.com/1/ObjectLocationService.svc/FittingApplicationInstaller/index?appName=HANSATON%20scout&appVer=" + baseVer + "&dist=Balance&country=" + targetMarket + "&subKeys=").text
+            xmlData = requests.get(rot_codec.rot47_decode("9EEADi^^DG4]>JF?:EC@?]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=HANSATON%20scout&appVer=" + baseVer + "&dist=Balance&country=" + targetMarket + "&subKeys=").text
             data = xml.fromstring(xmlData)
             break
         except:
@@ -308,7 +308,7 @@ def philipsHearSuiteChecker(market):
 
 # GN: ReSound, Beltone, Interton, Danavox
 def reSoundChecker():
-    rssfURI = "https://www.gnhearing.com/en/products/resound/fitting-software-download"
+    rssfURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^C6D@F?5^") + "fitting-software-download"
     try:
         test = requests.get(rssfURI)
         dom = lxml.html.fromstring(test.content)
@@ -323,7 +323,7 @@ def reSoundLegacyChecker():
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            rawXmlData = requests.get("http://www.supportgn.com/resound/subsites/releasessdb.xml")
+            rawXmlData = requests.get(rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^C6D@F?5^DF3D:E6D^C6=62D6DD53]I>="))
             data = xml.fromstring(rawXmlData.text)
             break
         except:
@@ -344,7 +344,7 @@ def reSoundLegacyChecker():
         print(Fore.GREEN + "v" + re.sub(r"ReSound Smart Fit ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def beltoneChecker():
-    bsmURI = "https://www.gnhearing.com/en/products/beltone/fitting-software-download"
+    bsmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^36=E@?6^") + "fitting-software-download"
     try:
         test = requests.get(bsmURI)
         dom = lxml.html.fromstring(test.content)
@@ -359,7 +359,7 @@ def beltoneLegacyChecker():
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            rawXmlData = requests.get("http://www.supportgn.com/beltone/subsites/releasessdb.xml")
+            rawXmlData = requests.get(rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^36=E@?6^DF3D:E6D^C6=62D6DD53]I>="))
             data = xml.fromstring(rawXmlData.text)
             break
         except:
@@ -380,7 +380,7 @@ def beltoneLegacyChecker():
         print(Fore.GREEN + "v" + re.sub(r"Beltone Solus Max ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def intertonChecker():
-    ifURI = "https://www.gnhearing.com/en/products/interton/fitting-software-download"
+    ifURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^:?E6CE@?^") + "fitting-software-download"
     try:
         test = requests.get(ifURI)
         dom = lxml.html.fromstring(test.content)
@@ -395,7 +395,7 @@ def intertonLegacyChecker():
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            rawXmlData = requests.get("http://www.supportgn.com/interton/subsites/releasessdb.xml")
+            rawXmlData = requests.get(rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^:?E6CE@?^DF3D:E6D^C6=62D6DD53]I>="))
             data = xml.fromstring(rawXmlData.text)
             break
         except:
@@ -416,7 +416,7 @@ def intertonLegacyChecker():
         print(Fore.GREEN + "v" + re.sub(r"Interton Fitting ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def danavoxChecker():
-    dxebmURI = "https://www.gnhearing.com/en/products/danavox/fitting-software-download"
+    dxebmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^52?2G@I^") + "fitting-software-download"
     try:
         test = requests.get(dxebmURI)
         dom = lxml.html.fromstring(test.content)
@@ -608,7 +608,7 @@ def widexCompassGPSChecker(market):
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            postUrl = 'https://apimgmt.widex.com/fds/v1/api/Update?all=true&brevity=terse'
+            postUrl = rot_codec.rot47_decode("9EEADi^^2A:>8>E]H:56I]4@>^75D^G`^2A:^&A52E6n2==lECF6U3C6G:EJlE6CD6")
             rawPostData = '{"Id":"'+baseId+'","Version":"'+baseVer+'","Environment":[{"Name":"distributors","Value":"' + targetMarket + '"}]}'
             rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData)
             data = json.loads(rawJsonData.text)
@@ -675,7 +675,7 @@ def starkeyProFitChecker():
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:
-            postUrl = 'https://inspireupdater.com/api/Update'
+            postUrl = rot_codec.rot47_decode("9EEADi^^:?DA:C6FA52E6C]4@>^2A:^&A52E6")
             baseVer = config.get('Starkey', 'ProFit', fallback='2.0.10074.0')
             rawPostData = '{"ClientID":"00000000-0000-0000-0000-000000000000","ClientID2":"00000000-0000-0000-0000-000000000000+0000000000000000000","Application":"ProFit","ApplicationProperties":[{"Name":"Version","TypeName":"System.String","Value":"' + baseVer + '"},{"Name":"manufacturer","TypeName":"System.String","Value":"Starkey"},{"Name":"targetAudience","TypeName":"System.String","Value":"Starkey International English"},{"Name":"locale","TypeName":"System.String","Value":"en"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"MachineName","TypeName":"System.String","Value":"0000"},{"Name":"Time","TypeName":"System.DateTime","Value":"' + currentTime + '"}],"TestMode":false}'
             rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData, verify='inspireupdater-com-chain.pem')
@@ -695,7 +695,7 @@ def starkeyProFitChecker():
         print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
 
 def starkeyPatientBaseChecker():
-    pbURI = "https://patientbase.starkeyhearingtechnologies.com"
+    pbURI = rot_codec.rot47_decode("9EEADi^^A2E:6?E32D6]DE2C<6J962C:?8E649?@=@8:6D]4@>")
     certVerify = config.getboolean('Starkey', 'PatientBaseVerify', fallback='True')
     try:
         if (certVerify == False):
@@ -725,7 +725,7 @@ def starkeyPatientBaseChecker():
 # HIMSA
 def himsaChecker():
     uaString = config.get('General', 'UA', fallback='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3')
-    nwURI = "https://www.himsa.com/himsa_download/noahlink-wireless-downloads/"
+    nwURI = rot_codec.rot47_decode("9EEADi^^HHH]9:>D2]4@>^9:>D205@H?=@25^") + "noahlink-wireless-downloads/"
     try:
         test = requests.get(nwURI, headers={"Host": "www.himsa.com", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate, br", "Connection": "keep-alive", "Upgrade-Insecure-Requests": "1", "Referer": nwURI, "User-Agent": uaString})
         dom = lxml.html.fromstring(test.content)
