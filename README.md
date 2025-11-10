@@ -92,7 +92,7 @@ The Pre-release version is a work-in-progress based on the Standard release. Thi
 
 NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by running the `fixQuickedit.reg` file before running `start-Windows.bat`
 
-**WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a seperate environment.
+**WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a separate environment.
 
 ### Portable release
 1. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `HAFS-Update-Checkers_Win32-Portable.zip` link to download it
