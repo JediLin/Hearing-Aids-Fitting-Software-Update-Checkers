@@ -379,6 +379,18 @@ def beltoneLegacyChecker():
         print(Fore.GREEN + "v" + re.sub(r"Beltone Solus Max ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def intertonChecker():
+    ifURI = "https://www.gnhearing.com/en/products/interton/fitting-software-download"
+    try:
+        test = requests.get(ifURI)
+        dom = lxml.html.fromstring(test.content)
+        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
+        link1 = hrefs[1].replace('%20', ' ')
+        updateVer = Fore.GREEN + "v" + re.sub(r"fitting_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
+    except:
+        updateVer = Fore.RED + "Error" + Style.RESET_ALL
+    print(updateVer)
+
+def intertonLegacyChecker():
     updaterRetries = libhearingdownloader.updaterRetries
     while updaterRetries > 0:
         try:

@@ -325,4 +325,4 @@
 ### Pre-release (work-in-progress)
 - Document: update that Python 3.14 works now
 - Beltone: fix archived versions
-- ReSound: check against public update site
+- ReSound/Interton: check against public update site

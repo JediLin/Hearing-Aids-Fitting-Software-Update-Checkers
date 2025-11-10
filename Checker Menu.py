@@ -44,7 +44,7 @@ downloaders = [
     (Style.RESET_ALL + "Demant " + Style.BRIGHT + Fore.BLUE + "Philips" + Style.RESET_ALL + " HearSuite" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Philips HearSuite 2024 Checker.py"),
     (Style.RESET_ALL + "GN " + Style.BRIGHT + Fore.RED + "ReSound" + Style.RESET_ALL + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "GN ReSound 2026 Checker.py"),
     (Style.RESET_ALL + "GN " + Style.BRIGHT + Fore.BLUE + "Beltone" + Style.RESET_ALL + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "GN Beltone 2026 Checker.py"),
-    (Style.RESET_ALL + "GN " + Style.BRIGHT + Fore.YELLOW + "Interton" + Style.RESET_ALL + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "GN Interton Checker.py"),
+    (Style.RESET_ALL + "GN " + Style.BRIGHT + Fore.YELLOW + "Interton" + Style.RESET_ALL + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "GN Interton 2026 Checker.py"),
     (Style.RESET_ALL + "WSA " + Style.BRIGHT + Fore.RED + "Signia" + Style.RESET_ALL + " Connexx" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Signia Connexx Checker.py"),
     (Style.RESET_ALL + "WSA " + Style.BRIGHT + Fore.YELLOW + "Rexton" + Style.RESET_ALL + " Connexx" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Rexton Connexx Checker.py"),
     (Style.RESET_ALL + "WSA " + Style.BRIGHT + Fore.BLUE + "Audio Service" + Style.RESET_ALL + " Connexx" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Audio Service Connexx Checker.py"),
