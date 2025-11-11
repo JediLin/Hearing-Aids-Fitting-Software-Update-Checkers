@@ -327,7 +327,7 @@
 - Beltone: fix archived versions
 - Document: update that Python 3.14 works now
 
-### Pre-release (work-in-progress)
+### v2025.11.11
 - Unitron/Hansaton: fix manual versions
 - ReSound/Beltone/Interton: fix error handling
 - Add support for Danavox XE BeMore and Danavox Danalogic
