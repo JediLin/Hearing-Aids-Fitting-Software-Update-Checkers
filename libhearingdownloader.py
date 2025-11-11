@@ -229,7 +229,7 @@ def downloadFile(url, saveLocation, downloadDescription):
 
         streamRetries -= 1
     if (streamRetries == 0):
-        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Can not get proper file data stream from " + Fore.GREEN + url + Style.RESET_ALL + "\nYou can try to open this URI manually with web browsers. It might work.\n")
+        print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Can not get proper file data stream from " + Fore.GREEN + url.replace(" ","%20") + Style.RESET_ALL + "\nYou can try to open this URI manually with web browsers. It might work.\n")
         # skip-only on error, so rest files still get downloaded.
         # exit(1)
 
