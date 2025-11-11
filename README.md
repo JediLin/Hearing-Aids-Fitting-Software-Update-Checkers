@@ -18,46 +18,52 @@ This project (\"The Checker\") contains scripts which can check hearing aids fit
 ## Currently supported software
 This project currently supports:
 - Sonova
-  - Phonak [Target](https://www.phonak.com/en-int/professionals/innovations/target)
-    - Phonak Target Media
-    - Phonak Target Sounds
-  - Phonak iPFG Successware
-  - Phonak PFG
-  - Phonak [Roger Upgrader](https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrader)
+  - Phonak
+    - [Target](https://www.phonak.com/en-int/professionals/innovations/target)
+      - Target Media
+      - Target Sounds
+    - iPFG Successware
+    - PFG
+    - [Roger Upgrader](https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrader)
   - Unitron [TrueFit](https://www.unitron.com/global/en_us/professionals/truefit.html)
   - Hansaton [scout](https://www.hansaton.com/en-int/professionals/support/instr.html)
 - Demant
-  - Oticon [Genie 2](https://www.oticon.com/professionals/tools-and-support/fitting)
-  - Oticon Genie
-  - Oticon Genie Medical
-  - Bernafon [OasisNXT](https://www.bernafon.com/for-professionals/fitting-software)
-  - Bernafon OasisNXT Custom
+  - Oticon
+    - [Genie 2](https://www.oticon.com/professionals/tools-and-support/fitting)
+    - Genie
+    - Genie Medical
+  - Bernafon
+    - [OasisNXT](https://www.bernafon.com/for-professionals/fitting-software)
+    - OasisNXT Custom
   - Sonic [ExpressFit Pro](https://www.sonici.com/professional-center/professional-support/software-download)
   - Philips [HearSuite](https://www.hearingsolutions.philips.com/for-professionals/hearsuite)
 - GN
-  - ReSound [Smart Fit](https://pro.resound.com/en-us/products/resound/fsw-2)
-  - ReSound [Aventa](https://www.gnhearing.com/en/products/support-materials/fsw-support)
-  - ReSound Pro-Counsel
-  - Beltone [Solus Max](https://www.gnhearing.com/en/products/beltone/fsw-2)
-  - Beltone Solus Pro
-  - Beltone Solus
-  - Interton [Fitting](https://www.interton.com/en/professionals/hearing-aid-fitting)
-  - Interton Appraise
-  - Interton CompuFit
-  - Danavox XE BeMore
-  - Danavox Danalogic
+  - ReSound
+    - [Smart Fit](https://pro.resound.com/en-us/products/resound/fsw-2)
+    - [Aventa](https://www.gnhearing.com/en/products/support-materials/fsw-support)
+    - Pro-Counsel
+  - Beltone
+    - [Solus Max](https://www.gnhearing.com/en/products/beltone/fsw-2)
+    - Solus Pro
+    - Solus
+  - Interton
+    - [Fitting](https://www.interton.com/en/professionals/hearing-aid-fitting)
+    - Appraise
+    - CompuFit
+  - Danavox
+    - XE BeMore
+    - Danalogic
 - WS Audiology
   - Signia [Connexx](https://www.signia-pro.com/en/business-support/connexx/)
   - Rexton [Connexx](https://www.rexton.com/en/professional/connexx/)
   - Audio Service Connexx
   - A&M Connexx
   - Widex [Compass GPS](https://www.widexpro.com/en/business-support/compass/)
-- Miracle-Ear
-  - Miracle-Ear Harmony II
+- Miracle-Ear Harmony II
 - Starkey
-  - Starkey [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
-  - Starkey [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
-  - Starkey [PatientBase](https://patientbase.starkeyhearingtechnologies.com)
+  - [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
+  - [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
+  - [PatientBase](https://patientbase.starkeyhearingtechnologies.com)
 - HIMSA: [Noahlink Wireless 2 (NW2)](https://www.himsa.com/products/noahlink-wireless-2/) and [Noahlink Wireless (NW1)](https://www.himsa.com/products/noahlink-wireless/)
   - Driver
   - Firmware Upgrader
