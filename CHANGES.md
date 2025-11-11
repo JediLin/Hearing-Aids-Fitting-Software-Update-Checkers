@@ -328,7 +328,7 @@
 - Document: update that Python 3.14 works now
 
 ### Pre-release (work-in-progress)
-- Unitron: fix manual versions
+- Unitron/Hansaton: fix manual versions
 - ReSound/Beltone/Interton: fix error handling
 - Add support for Danavox XE BeMore and Danavox Danalogic
 - Protect links in script to prevent take-down
