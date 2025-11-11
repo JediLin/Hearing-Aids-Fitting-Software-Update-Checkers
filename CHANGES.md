@@ -336,5 +336,5 @@
 - Minor display adjustment for version menu
 
 ### Pre-release (work-in-progress)
-- Oticon: move legacy versions checker into current Genie 2 checker (please edit `config.ini` referring to [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki if need to check previous versions)
+- Oticon/Bernafon: move legacy versions checker into main checker (please edit `config.ini` referring to [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki if need to check previous versions)
 - Remove unused scripts
