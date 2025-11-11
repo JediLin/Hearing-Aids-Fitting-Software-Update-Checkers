@@ -123,7 +123,8 @@ if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="h
     print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Unitron TrueFit version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
     exit(1)
 else:
-    latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
+    # latestVersion = '.'.join((data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text).split(".")[:-1])
+    latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
 
 print("\n\nThe latest available Unitron TrueFit version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + "\n\n")
 
@@ -146,8 +147,8 @@ elif (targetVersion == 'manual'):
     targetVersion = ''
     while not targetVersion:
         targetVersion = input("\nPlease enter " + Fore.GREEN + "manual TrueFit version" + Style.RESET_ALL + ": ")
-        if (len(targetVersion.split('.')) > 3 or not targetVersion.replace('.', '').isdecimal()):
-            print("\nThe version you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a similar format to " + Fore.GREEN + "a.b.c" + Style.RESET_ALL + " where " + Fore.GREEN + "a" + Style.RESET_ALL + ", " + Fore.GREEN + "b" + Style.RESET_ALL + ", and " + Fore.GREEN + "c" + Style.RESET_ALL + " are integers)")
+        if (len(targetVersion.split('.')) > 4 or not targetVersion.replace('.', '').isdecimal()):
+            print("\nThe version you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a similar format to " + Fore.GREEN + "a.b.c.d" + Style.RESET_ALL + " where " + Fore.GREEN + "a" + Style.RESET_ALL + ", " + Fore.GREEN + "b" + Style.RESET_ALL + ", " + Fore.GREEN + "c" + Style.RESET_ALL + ", and " + Fore.GREEN + "d" + Style.RESET_ALL + " are integers)")
             targetVersion = ''
         elif (input("\nYou have selected version (" + Fore.YELLOW + targetVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             targetVersion = ''
