@@ -161,6 +161,10 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Oticon: move legacy versions checker into current Genie 2 checker (please edit `config.ini` referring to [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki if need to check previous versions)
+- Remove unused scripts
+
 ### v2025.11.11
 - Unitron/Hansaton: fix manual versions
 - ReSound/Beltone/Interton: fix error handling

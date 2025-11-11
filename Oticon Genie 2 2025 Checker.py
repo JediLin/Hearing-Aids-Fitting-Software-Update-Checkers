@@ -159,7 +159,10 @@ validVersions = [
     ("Genie 2 2020.1", "The Genie 2 2020.1 Installer", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^a_]`^h]b]``e]_^v6?:6^~E:4@?^h74_gaf7^D6EFA]6I6")),
     ("Offline Installers (longer downloads, but they work without an internet connection to install)", "--"),
     ("Genie 2 2022.1.0", "The latest(ish) Genie 2 2022.1.0 Installer (OFFLINE INSTALLER, from the website)", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^7F==^aa]`^`d]`h]`b]_^~%vaa0`abf``g~%0&$q]K:A")),
-    ("Genie 2 2020.1", "The Genie 2 2020.1 Installer (OFFLINE INSTALLER)", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^7F==^a_]`^h]b]``e]_^~%va_0`a`cef`~%0&$q]K:A"))
+    ("Genie 2 2020.1", "The Genie 2 2020.1 Installer (OFFLINE INSTALLER)", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^7F==^a_]`^h]b]``e]_^~%va_0`a`cef`~%0&$q]K:A")),
+    ("Offline Installers for Legacy Software", "--"),
+    ("Genie 2017.1", "The last Genie 2017 Version (v27.0.40.29)", rot_codec.rot47_decode("9EEADi^^:?DE2==45?]@E:4@?]4@>^7F==^`f]`^af]_]c_]ah^~%va`cefa~%0&$q]K:A")),
+    ("Genie Medical 2016.1", "The old Genie Medical 2016 Version (v5.0.353.0)", rot_codec.rot47_decode("9EEADi^^H59_a]2KFC66586]?6E^") + "-/media/oticon-us/main/client-systems-support-and-remote-assistance/" + rot_codec.rot47_decode("86?:6>65:42=a_`e]6I6")),
 ]
 print("\n\nThe latest available version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + Style.RESET_ALL + "\n\n")
 
