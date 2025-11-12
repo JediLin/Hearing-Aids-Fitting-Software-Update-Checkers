@@ -64,10 +64,10 @@ except:
 
 # Define list of valid versions and their download links
 validVersions = [
-    ("Current Downloads", "--"),
+    ("Current Version", "--"),
     (title0, filename0, link0),
     (" ", "--"),
-    ("Archived Downloads", "--"),
+    ("Archived Versions", "--"),
     ("Roger Upgrader Software v1.31", "rogerupgrader131.zip", rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<]4@>^4@?E6?E^52>^A9@?2<^6?^5@4F>6?ED^A24<286D^C@86CFA8C256C`b`]K:A]4@C65@H?=@25]K:A")),
     ("Roger Upgrader Software v1.30", "Roger_Upgrader1.30.zip", rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<]4@>^4@?E6?E^52>^A9@?2<^6?^5@4F>6?ED^A24<286D^#@86C0&A8C256C`]b_]K:A]4@C65@H?=@25]K:A")),
     ("Roger Upgrader Software v1.29", "Roger_Upgrader1.29.zip", rot_codec.rot47_decode("9EEADi^^HHH]A9@?2<]4@>^4@?E6?E^52>^A9@?2<^6?^5@4F>6?ED^A24<286D^#@86C0&A8C256C`]ah]K:A]4@C65@H?=@25]K:A")),

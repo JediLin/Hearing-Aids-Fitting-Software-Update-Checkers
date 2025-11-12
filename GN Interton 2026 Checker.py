@@ -82,12 +82,12 @@ except:
 
 # Define list of valid versions and their download links
 validVersions = [
-    ("Current Downloads", "--"),
+    ("Current Versions", "--"),
     (title1, filename1, link1),
     (title0, filename0, link0),
     ("manual", "Manually specify a version of Interton Fitting (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
-    ("Archived Downloads", "--"),
+    ("Archived Versions", "--"),
     ("Interton Fitting v2.2", "fitting_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^:?E6CE@?^7:EE:?80a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
     ("Interton Fitting v2.1 Update 2", "fitting_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^:?E6CE@?^7:EE:?80a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
     ("Interton Fitting v2.0 Update 3", "fitting_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^:?E6CE@?^7:EE:?80a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),

@@ -96,11 +96,11 @@ if (noBrotli):
 
 # Define list of valid versions and their download links
 validVersions = [
-    ("Current Downloads", "--"),
+    ("Current Versions", "--"),
     (title0, filename0, link0),
     (title1, filename1, link1),
     (" ", "--"),
-    ("Archived Downloads", "--"),
+    ("Archived Versions", "--"),
     ("Noahlink Wireless Firmware v3.5.0.0", "v2.25 (NW1) / v3.25 (NW2) (July 2025)", rot_codec.rot47_decode("9EEADi^^HHH]9:>D2]4@>^HA") + "-" + rot_codec.rot47_decode("4@?E6?E^FA=@25D^a_ad^_f^}{(&A8C256C0b]d]_]_]6I6")),
     ("Noahlink Wireless Firmware v3.3.0.0", "v2.25 (NW1) / v3.23 (NW2) (April 2025)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^}{(&A8C256C0b]b]_]_]6I6")),
     ("Noahlink Wireless Firmware v3.1.0.92", "v2.25 (NW1) / v3.17 (NW2) (May 2024)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^}{(&A8C256C0b]`]_]ha]6I6")),

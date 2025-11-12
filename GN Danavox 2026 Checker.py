@@ -91,17 +91,17 @@ except:
 
 # Define list of valid versions and their download links
 validVersions = [
-    ("Current XE BeMore Downloads", "--"),
+    ("Current XE BeMore Versions", "--"),
     (title1, filename1, link1),
     (title0, filename0, link0),
     ("XE BeMore/manual", "Manually specify a version of Danavox XE BeMore (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
-    ("Current Danalogic Downloads", "--"),
+    ("Current Danalogic Versions", "--"),
     (title2, filename2, link2),
     (title3, filename3, link3),
     ("Danalogic/manual", "Manually specify a version of Danavox Danalogic (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
-    ("Archived Downloads", "--"),
+    ("Archived Versions", "--"),
     ("Danavox XE BeMore v2.2", "xebemore_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
     ("Danavox Danalogic v2.2", "danalogic_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
     ("Danavox XE BeMore v2.1 Update 2", "xebemore_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),

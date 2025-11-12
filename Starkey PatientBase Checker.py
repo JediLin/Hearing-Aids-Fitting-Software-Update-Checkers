@@ -79,10 +79,10 @@ except:
 # Define list of valid versions and their download links (direct from CDN)
 # sadly az493319.vo.msecnd.net is no longer available...
 validVersions = [
-    ("Current Downloads", "--"),
+    ("Current Version", "--"),
     ("PatientBase v" + filename0.replace('PatientBase Setup ', '').replace('.exe', ''), filename0, link0),
     (" ", "--"),
-    ("Archived Downloads", "--"),
+    ("Archived Version", "--"),
     ("PatientBase v28.0.10003.0", "for Pro Fit 1.0+ and Inspire 2023.1+", fallbackDownload),
 #     ("PatientBase 26.0.10014.0", "for Inspire 2022.1 - 2023.0", rot_codec.rot47_decode("9EEADi^^2Kchbb`h]G@]>D64?5]?6E^:?DE2==^!2E:6?Eq2D6 $6EFA ae]_]`__`c]_]6I6")),
 #     ("PatientBase 24.0.10102.0", "for Inspire 2021.0 - 2022.0", rot_codec.rot47_decode("9EEADi^^2Kchbb`h]G@]>D64?5]?6E^:?DE2==^!2E:6?Eq2D6 $6EFA ac]_]`_`_a]_]6I6")),
