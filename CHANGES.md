@@ -335,7 +335,7 @@
 - Minor improve error handling if unable to get proper file data stream
 - Minor display adjustment for version menu
 
-### Pre-release (work-in-progress)
+### v2025.11.12
 - Oticon/Bernafon/Sonic/Philips: move legacy versions checker into main checker (please edit `config.ini` referring to [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki if need to check previous versions)
 - Bernafon: move Custom variable versions checker into main checker, with additional instruction
 - Danavox: display adjustment
