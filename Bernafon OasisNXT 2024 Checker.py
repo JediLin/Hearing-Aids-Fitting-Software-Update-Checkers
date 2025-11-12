@@ -113,7 +113,20 @@ while updaterRetries > 0:
         # This is required to get update for newer (2024+) versions.
         # Software names set by b:Name
         # Version numbers set by b:Major . b:Minor . b:Build . b:Revision
+        # b:OEM set to some string other than Bernafon to get Custom version
+        # 0153	Delight
+        # 0156	ProAkustik
+        # 0653	Lisound
+        # 0664	Specsavers
+        # 0714	Meditrend
+        # 0800	GPL
+        # 0805	Maico
+        # 0854	Audilab
+        # 0965	RITM
+        # 1069	Hoerex
+        # 2501	Sonic
         osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+        baseOEM = config.get('Bernafon', 'OEM', fallback='0153')
         baseVer = config.get('Bernafon', 'Version', fallback='20.22.95.0').split('.')
         updrVer = config.get('Bernafon', 'Updater', fallback='27.3.26.0').split('.')
         baseVerMajor = baseVer[0]
@@ -125,7 +138,9 @@ while updaterRetries > 0:
         updrVerBuild = updrVer[2]
         updrVerRev = updrVer[3]
         rawXmlData = requests.post("https://updater.bernafon.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.bernafon.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale>' + targetMarket + '</b:Locale><b:Manufacturer>Bernafon</b:Manufacturer><b:OEM>Bernafon</b:OEM><b:OS>' + osVer + '</b:OS><b:RequestVersion>1</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>' + updrVerBuild + '</b:Build><b:Major>' + updrVerMajor + '</b:Major><b:Minor>' + updrVerMinor + '</b:Minor><b:Name>BernafonUpdater</b:Name><b:Revision>' + updrVerRev + '</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>' + baseVerBuild + '</b:Build><b:Major>' + baseVerMajor + '</b:Major><b:Minor>' + baseVerMinor + '</b:Minor><b:Name>Oasis2</b:Name><b:Revision>' + baseVerRev + '</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
+        rawXmlDataCustom = requests.post("https://updater.bernafon.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.bernafon.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale>' + targetMarket + '</b:Locale><b:Manufacturer>Bernafon</b:Manufacturer><b:OEM>' + baseOEM + '</b:OEM><b:OS>' + osVer + '</b:OS><b:RequestVersion>1</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>' + updrVerBuild + '</b:Build><b:Major>' + updrVerMajor + '</b:Major><b:Minor>' + updrVerMinor + '</b:Minor><b:Name>BernafonUpdater</b:Name><b:Revision>' + updrVerRev + '</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>' + baseVerBuild + '</b:Build><b:Major>' + baseVerMajor + '</b:Major><b:Minor>' + baseVerMinor + '</b:Minor><b:Name>Oasis2</b:Name><b:Revision>' + baseVerRev + '</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
         data = xml.fromstring(html.unescape(rawXmlData.text))
+        dataCustom = xml.fromstring(html.unescape(rawXmlDataCustom.text))
         break
     except:
         pass
@@ -144,6 +159,7 @@ filesToDownload = []
 
 if (libhearingdownloader.verboseDebug):
     print(html.unescape(rawXmlData.text))
+    print(html.unescape(rawXmlDataCustom.text))
 
 # Get list of files
 for fileData in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "DownloadJob").find(packageXMLNS + "Files"):
@@ -151,15 +167,21 @@ for fileData in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").
 
 # Get download server uri
 downloadURI = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "DownloadJob").find(packageXMLNS + "ServerUri").text
+downloadURICustom = dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "DownloadJob").find(packageXMLNS + "ServerUri").text
 
 # Get latest version
 if (libhearingdownloader.verboseDebug):
     print(data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text   + "--" +   data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Version").text)
+    print(dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text   + "--" +   dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Version").text)
 
 # Define list of valid versions and their download links (direct from CDN) (predefined to online and offline of latest version)
 validVersions = [
     (data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest OasisNXT Installer (OFFLINE) (from the updater)"),
     (data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest OasisNXT Installer (ONLINE) (from the updater)"),
+    (" ", "--"),
+    ("Custom varisions", "--"),
+    (dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest OasisNXT Custom Installer (OFFLINE) (from the updater)"),
+    (dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text, "The latest OasisNXT Custom Installer (ONLINE) (from the updater)"),
 ]
 print("\n\nThe latest available version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + Style.RESET_ALL + "\n\n")
 
@@ -174,7 +196,6 @@ print("\n\n")
 
 if (targetVersion == 0):
     outputDir += libhearingdownloader.normalizePath( data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
-
     # Download and save the files
     print("Downloading " + str(len(filesToDownload)) + " files\n")
     fileIndex = 1
@@ -183,7 +204,20 @@ if (targetVersion == 0):
         fileIndex += 1
 elif (targetVersion == 1):
     outputDir += libhearingdownloader.normalizePath( data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
-
+    # Download and save the files
+    fileIndex = 1
+    fileToDownload = "setup.exe"
+    libhearingdownloader.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1])
+elif (targetVersion == 4):
+    outputDir += libhearingdownloader.normalizePath( dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
+    # Download and save the files
+    print("Downloading " + str(len(filesToDownload)) + " files\n")
+    fileIndex = 1
+    for fileToDownload in filesToDownload:
+        libhearingdownloader.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1] + " (" + str(fileIndex) + "/" + str(len(filesToDownload)) + ")")
+        fileIndex += 1
+elif (targetVersion == 5):
+    outputDir += libhearingdownloader.normalizePath( dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
     # Download and save the files
     fileIndex = 1
     fileToDownload = "setup.exe"
