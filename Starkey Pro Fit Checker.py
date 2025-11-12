@@ -21,7 +21,7 @@ just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("=         " + Style.BRIGHT + Fore.BLUE + "Starkey" + Style.RESET_ALL + " Pro Fit Update Checker         =")
+print("=  " + Style.BRIGHT + Fore.BLUE + "Starkey" + Style.RESET_ALL + " Pro Fit / Inspire OS Update Checker   =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
@@ -36,6 +36,7 @@ disclaimer = [
     "",
     "Starkey is a trademark of Starkey Laboratories, Inc.",
     "Pro Fit is created by Starkey Laboratories, Inc.",
+    "Inspire OS is created by Starkey Laboratories, Inc.",
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
     "",
     "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by",
@@ -109,11 +110,22 @@ updaterRetries = libhearingdownloader.updaterRetries
 while updaterRetries > 0:
     try:
         postUrl = rot_codec.rot47_decode("9EEADi^^:?DA:C6FA52E6C]4@>^2A:^&A52E6")
+        # OSVersion must meet the minimal requirement of (newer version of) the software.
+        # Windows 7 SP1: 'Microsoft Windows NT 6.1.7601 Service Pack 1'
+        # Windows 10 22H2: 'Microsoft Windows NT 10.0.19045.0'
+        # Windows 11: 'Microsoft Windows NT 10.0.22631.0'
+        # Use [Environment]::OSVersion.VersionString under PowerShell to get the full version string.
+        baseOS = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
         # Download version data, pretending installed ProFit v2.0.10074.0
+        # and Inspire OS v27.0.10074.0
         baseVer = config.get('Starkey', 'ProFit', fallback='2.0.10074.0')
+        baseVerInspire = config.get('Starkey', 'Inspire', fallback='27.0.10074.0')
         rawPostData = '{"ClientID":"00000000-0000-0000-0000-000000000000","ClientID2":"00000000-0000-0000-0000-000000000000+0000000000000000000","Application":"ProFit","ApplicationProperties":[{"Name":"Version","TypeName":"System.String","Value":"' + baseVer + '"},{"Name":"manufacturer","TypeName":"System.String","Value":"Starkey"},{"Name":"targetAudience","TypeName":"System.String","Value":"Starkey International English"},{"Name":"locale","TypeName":"System.String","Value":"en"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"MachineName","TypeName":"System.String","Value":"0000"},{"Name":"Time","TypeName":"System.DateTime","Value":"' + currentTime + '"}],"TestMode":false}'
+        rawPostDataInspire = '{"ClientID":"00000000-0000-0000-0000-000000000000","ClientID2":"00000000-0000-0000-0000-000000000000+0000000000000000000","Application":"Inspire OS","ApplicationProperties":[{"Name":"Version","TypeName":"System.Version","Value":"' + baseVerInspire + '"},{"Name":"manufacturer","TypeName":"System.String","Value":"Starkey"},{"Name":"targetAudience","TypeName":"System.String","Value":"Starkey International English"},{"Name":"locale","TypeName":"System.String","Value":"en"},{"Name":"BillToAccountNumber","TypeName":"System.String","Value":"unknown"},{"Name":"ShipToAccountNumber","TypeName":"System.String","Value":"unknown"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"MachineName","TypeName":"System.String","Value":"0000"},{"Name":"OSVersion","TypeName":"System.String","Value":"' + baseOS + '"},{"Name":"OSBitWidth","TypeName":"System.Byte","Value":"64"},{"Name":"Time","TypeName":"System.DateTime","Value":"' + currentTime + '"}],"TestMode":false}'
         rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData, verify='inspireupdater-com-chain.pem')
+        rawJsonDataInspire = requests.post(postUrl, headers=headers, data = rawPostDataInspire, verify='inspireupdater-com-chain.pem')
         data = json.loads(rawJsonData.text)
+        dataInspire = json.loads(rawJsonDataInspire.text)
         break
     except:
         pass
@@ -126,19 +138,48 @@ if (updaterRetries == 0):
 if (libhearingdownloader.verboseDebug):
     print(rawPostData)
     print(rawJsonData.text)
+    print(rawPostDataInspire)
+    print(rawJsonDataInspire.text)
 
 if (data['Update'] is None):
-    print("\n\nNo update available since v" + baseVer + " (" + geoIP + ").")
+    print("\n\nNo Pro Fit update available since v" + baseVer + " (" + geoIP + ").")
+    appVer = "Inspire v" + baseVer
+    appDesc = ""
+    listIncludeProFit = False
+else:
+    appVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
+    appDesc = data['Update']['Description']
+    filesList = json.dumps(ast.literal_eval(str(data['Update']['Files'][0])))
+    fileData = json.loads(filesList)
+    listIncludeProFit = True
+
+if (dataInspire['Update'] is None):
+    print("\n\nNo Inspire OS update available since v" + baseVerInspire + " (" + geoIP + ").")
+    appVerInspire = "Inspire v" + baseVerInspire
+    appDescInspire = ""
+    listIncludeInspire = False
+else:
+    appVerInspire = dataInspire['Update']['Title'] + ' (' + dataInspire['Update']['Version'] + ')'
+    appDescInspire = dataInspire['Update']['Description']
+    filesListInspire = json.dumps(ast.literal_eval(str(dataInspire['Update']['Files'][0])))
+    fileDataInspire = json.loads(filesListInspire)
+    listIncludeInspire = True
+
+if not (listIncludeProFit or listIncludeInspire):
     exit(1)
 
-appVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
-print("\n\nThe latest available version is " + Fore.GREEN + appVer + Style.RESET_ALL)
-print("\n" + data['Update']['Description'] + "\n\n")
-filesList = json.dumps(ast.literal_eval(str(data['Update']['Files'][0])))
-fileData = json.loads(filesList)
+print("\n\nThe latest available version is \n- " + Fore.GREEN + appVer + Style.RESET_ALL + "\n- " + Fore.GREEN + appVerInspire + Style.RESET_ALL)
+print("\n" + appDesc + "\n\n" + appDescInspire + "\n\n")
 
 availableFiles = [] # List of available files
-availableFiles.append( (appVer, os.path.basename(fileData['Url']), fileData['Url']) )
+if (listIncludeProFit):
+    availableFiles.append( ("Current Version", "--") )
+    availableFiles.append( (appVer, os.path.basename(fileData['Url']), fileData['Url']) )
+if (listIncludeProFit and listIncludeInspire):
+    availableFiles.append( (" ", "--") )
+if (listIncludeInspire):
+    availableFiles.append( ("Legacy Software (Starkey Inspire OS)", "--") )
+    availableFiles.append( (appVerInspire, os.path.basename(fileDataInspire['Url']), fileDataInspire['Url']) )
 
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
