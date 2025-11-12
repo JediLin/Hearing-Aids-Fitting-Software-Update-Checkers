@@ -112,11 +112,11 @@ validVersions = [
 ]
 if(link1 == ""):
     if(link0 == ""):
-        print("\n\nThe latest available version is " + Fore.GREEN + validVersions[11][0] + Style.RESET_ALL + " / " + Fore.GREEN + validVersions[12][0] + Style.RESET_ALL + "\n\n")
+        print("\n\nThe latest available versions are:\n- " + Fore.GREEN + validVersions[11][0] + Style.RESET_ALL + "\n- " + Fore.GREEN + validVersions[12][0] + Style.RESET_ALL + "\n\n")
     else:
-        print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + " / " + Fore.GREEN + title3 + Style.RESET_ALL + "\n\n")
+        print("\n\nThe latest available versions are:\n- " + Fore.GREEN + title0 + Style.RESET_ALL + "\n- " + Fore.GREEN + title3 + Style.RESET_ALL + "\n\n")
 else:
-    print("\n\nThe latest available version is " + Fore.GREEN + title1 + Style.RESET_ALL + " / " + Fore.GREEN + title2 + Style.RESET_ALL + "\n\n")
+    print("\n\nThe latest available versions are:\n- " + Fore.GREEN + title1 + Style.RESET_ALL + "\n- " + Fore.GREEN + title2 + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()

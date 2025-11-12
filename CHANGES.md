@@ -338,4 +338,5 @@
 ### Pre-release (work-in-progress)
 - Oticon/Bernafon/Sonic/Philips: move legacy versions checker into main checker (please edit `config.ini` referring to [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki if need to check previous versions)
 - Bernafon: move Custom variable versions checker into main checker, with additional instruction
+- Danavox: display adjustment
 - Remove unused scripts
