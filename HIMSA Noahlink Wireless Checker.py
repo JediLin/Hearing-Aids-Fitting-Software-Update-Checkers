@@ -108,9 +108,9 @@ validVersions = [
     ("Noahlink Wireless Driver v1.1.0.0", "for Windows 10 and 11 (March 2017)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^sC:G6C0}{(0']`]`]_]_]6I6")),
 ]
 if(link0 == ""):
-    print("\n\nThe latest available version is " + Fore.GREEN + validVersions[5][0] + Style.RESET_ALL + " / " + Fore.GREEN + validVersions[-1][0] + Style.RESET_ALL + "\n\n")
+    print("\n\nThe latest available versions are:\n- " + Fore.GREEN + validVersions[5][0] + Style.RESET_ALL + "\n- " + Fore.GREEN + validVersions[-1][0] + Style.RESET_ALL + "\n\n")
 else:
-    print("\n\nThe latest available version is " + Fore.GREEN + title0 + Style.RESET_ALL + " / " + Fore.GREEN + title1 + Style.RESET_ALL + "\n\n")
+    print("\n\nThe latest available versions are:\n- " + Fore.GREEN + title0 + Style.RESET_ALL + "\n- " + Fore.GREEN + title1 + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
