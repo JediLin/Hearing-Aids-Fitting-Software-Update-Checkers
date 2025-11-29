@@ -22,9 +22,7 @@ cls
 python "./Checker Menu.py"
 
 echo:
-echo:
 echo Operation finished.
-echo:
 echo:
 :CHOICE
 if %colorSupport%==Yes (
