@@ -342,3 +342,6 @@
 - Starkey: move Inspire OS checker into Pro Fit checker
 - Minor term adjustment
 - Remove unused scripts
+
+### Pre-release (work-in-progress)
+- Starkey: update self-sign certification chain file
