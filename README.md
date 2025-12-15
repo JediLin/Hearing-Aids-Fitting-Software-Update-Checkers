@@ -537,4 +537,6 @@ Modern hearing aids fitting software which supports [Noahlink Wireless](https://
 
 Starkey has problem making their server's certificate chain complete. This causes server error while checking updates due to verification fail. In order to workaround this issue, The Checker has to update certification paths file manually from time to time, releasing new working versions.
 
-In case of such error and for reasons unable to get the new version of The Checker, you can manually update such file by yourself. Simply browse to [SSL Report of Starkey's update server](https://www.ssllabs.com/ssltest/analyze.html?d=inspireupdater.com), from one of the Certificate marked `Trusted: Yes`, show (expand) its Certification Paths, click on `Download chain` from any of its Trusted Path, save as `inspireupdater-com-chain.pem` to replace the old one. This will do the trick.
+In case of such error and for reasons unable to get the new version of The Checker, you can manually update such file by yourself. Simply browse to [SSL Report of Starkey's update server](https://www.ssllabs.com/ssltest/analyze.html?d=inspireupdater.com), from one of the Certificate marked `Trusted: Yes`, show (expand) its Certification Paths, click on `Download chain` from any of its Trusted Path (see screenshot below), save as `inspireupdater-com-chain.pem` to replace the old one. This will do the trick.
+
+<img width="1721" height="634" alt="image" src="https://github.com/user-attachments/assets/e21e8358-943d-4d5a-9f69-4669ad368f45" />
