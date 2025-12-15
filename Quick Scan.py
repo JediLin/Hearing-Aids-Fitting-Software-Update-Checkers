@@ -1,6 +1,7 @@
 import os
 import configparser
 import re
+import time
 import datetime
 import tzlocal
 import html
@@ -185,6 +186,7 @@ def oticonGenie2Checker(market):
         except:
             pass
 
+        time.sleep(3)
         updaterRetries -= 1
     if (updaterRetries == 0):
         print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")

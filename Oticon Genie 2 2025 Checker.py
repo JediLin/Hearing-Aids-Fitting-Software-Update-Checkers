@@ -4,6 +4,7 @@
 #                                                           #
 #############################################################
 import configparser
+import time
 import html
 import requests
 from pathlib import Path
@@ -129,6 +130,7 @@ while updaterRetries > 0:
     except:
         pass
 
+    time.sleep(3)
     updaterRetries -= 1
 if (updaterRetries == 0):
     print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")

@@ -163,6 +163,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ### Pre-release (work-in-progress)
 - Starkey: update self-sign certification chain file
+- Oticon: workaround
 
 ### v2025.11.12
 - Oticon/Bernafon/Sonic/Philips: move legacy versions checker into main checker (please edit `config.ini` referring to [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki if need to check previous versions)

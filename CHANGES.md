@@ -345,3 +345,4 @@
 
 ### Pre-release (work-in-progress)
 - Starkey: update self-sign certification chain file
+- Oticon: workaround
