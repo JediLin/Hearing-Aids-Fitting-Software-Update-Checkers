@@ -532,3 +532,9 @@ The contributors of The Checker, and The Checker itself are not affiliated with 
 Note: these software WILL NOT be included in The Checker.
 
 Modern hearing aids fitting software which supports [Noahlink Wireless](https://www.himsa.com/products/noahlink-wireless/) and/or [Noahlink Wireless 2](https://www.himsa.com/products/noahlink-wireless-2/) programming interface should be certified *BEFORE* release. This means one can check [Certified Noahlink Wireless and Noahlink Wireless 2 Modules](https://www.himsa.com/products/noahlink-wireless-2/certified-noahlink-wireless-modules/) for upcoming version of fitting software before its release.
+
+### Note on Starkey server error
+
+Starkey has problem making their server's certificate chain complete. This causes server error while checking updates due to verification fail. In order to workaround this issue, this project has to update certification paths manually from time to time.
+
+In case of such error and for reasons unable to get the new version of The Checker, you can manually update such file by your self. Simply browse to [SSL Report of Starkey's update server](https://www.ssllabs.com/ssltest/analyze.html?d=inspireupdater.com), from one of the Certificate marked `Trusted: Yes`, show (expand) its Certification Paths, click on `Download chain` from any of its Trusted Path, save as `inspireupdater-com-chain.pem` to replace the old one. This will do the trick.
