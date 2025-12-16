@@ -161,9 +161,10 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2025.12.17
 - Starkey: update self-sign certification chain file
-- Oticon: workaround
+- Oticon: workaround particular server error codition
+- Document: explain how to update `inspireupdater-com-chain.pem` file (for Starkey checker) manually
 
 ### v2025.11.12
 - Oticon/Bernafon/Sonic/Philips: move legacy versions checker into main checker (please edit `config.ini` referring to [Versions](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions) information from our Wiki if need to check previous versions)

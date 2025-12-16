@@ -343,6 +343,7 @@
 - Minor term adjustment
 - Remove unused scripts
 
-### Pre-release (work-in-progress)
+### v2025.12.17
 - Starkey: update self-sign certification chain file
-- Oticon: workaround
+- Oticon: workaround particular server error codition
+- Document: explain how to update `inspireupdater-com-chain.pem` file (for Starkey checker) manually
