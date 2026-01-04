@@ -2,7 +2,9 @@ import configparser
 import os
 import datetime
 import requests
+import lxml.html
 import json
+from urllib.parse import urlparse
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
@@ -13,7 +15,7 @@ just_fix_windows_console()
 
 print("\n\n")
 print("==================================================")
-print("=           " + Style.BRIGHT + Fore.RED + "MedRx" + Style.RESET_ALL + " Studio Update Checker           =")
+print("=           " + Style.BRIGHT + Fore.RED + "MedRx" + Style.RESET_ALL + " Studio Update Checker          =")
 print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
@@ -39,9 +41,14 @@ disclaimer = [
 if not turboFile.is_file():
     libhearingdownloader.printDisclaimer(disclaimer)
 
+# Read configuration file
+config = configparser.ConfigParser()
+config.read('config.ini')
+releaseChannel = config.get('MedRx', 'ReleaseChannel', fallback='Studio')
+
 # Get MedRx Studio update from the webpage with current time to prevent cache
 currentTime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-jsonURL = rot_codec.rot47_decode("9EEADi^^>65CI") + "-" + rot_codec.rot47_decode("DFAA@CE]4@>^$EF5:@^$EF5:@]FA52E6];D@?n?@42496l") + currentTime
+jsonURL = rot_codec.rot47_decode("9EEADi^^>65CI") + "-" + rot_codec.rot47_decode("DFAA@CE]4@>^$EF5:@^") + releaseChannel + rot_codec.rot47_decode("]FA52E6];D@?n?@42496l") + currentTime
 
 print("\n\nFetching Data...")
 
@@ -68,29 +75,52 @@ if (libhearingdownloader.verboseDebug):
 
 print("\n\nThe latest available MedRx Studio version is " + Style.BRIGHT + Fore.GREEN + "v" + relVer + Style.RESET_ALL)
 
-exit(1)
+mrsURI = rot_codec.rot47_decode("9EEADi^^>65CI") + "-" + rot_codec.rot47_decode("DFAA@CE]4@>^$EF5:@^")
+try:
+    test = requests.get(mrsURI)
+    if (libhearingdownloader.verboseDebug):
+        print(test.status_code)
+        print(test.headers)
+        print(test.content)
+    dom = lxml.html.fromstring(test.content)
+    exeHrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
+    zipHrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
+    if (libhearingdownloader.verboseDebug):
+        print(exeHrefs)
+        print(zipHrefs)
+    exeLink = exeHrefs[0].replace('%20', ' ')
+    exeFilename = os.path.basename(urlparse(exeLink).path)
+    exeTitle = "MedRx Studio v" + relVer
+    zipLink = zipHrefs[0].replace('%20', ' ')
+    zipFilename = os.path.basename(urlparse(zipLink).path)
+    zipTitle = "MedRx Sutdio v" + relVer + " complete setup packgae"
+except:
+    exeLink = ""
+    exeFilename = "--"
+    exeTitle = "NOT FOUND"
+    zipLink = ""
+    zipFilename = "--"
+    zipTitle = "NOT FOUND"
 
-availableFiles = [] # List of available files
-availableFilesCount = len(data['assets'])
-while availableFilesCount > 0:
-    availableFilesCount -= 1
-    availableFiles.append( (data['tag_name'], os.path.basename(data['assets'][availableFilesCount]['browser_download_url']), data['assets'][availableFilesCount]['browser_download_url']) )
+# Define list of valid versions and their download links
+validVersions = [
+    (exeTitle, exeFilename, exeLink),
+    (zipTitle, zipFilename, zipLink),
+]
 
-availableFiles.reverse()
-
-if (libhearingdownloader.verboseDebug):
-    print(availableFiles)
-
-# Select outputDir and targetFile
+# Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
-targetFile = availableFiles[libhearingdownloader.selectFromList(availableFiles)]
-
-# Create download folder
-downloadVer = 'Update Checker ' + targetFile[0]
-outputDir += '.'.join(downloadVer.split('.')) + "/"
+targetVersion = libhearingdownloader.selectFromList(validVersions)
 print("\n\n")
 
-# Download file
-libhearingdownloader.downloadFile(targetFile[2], outputDir + targetFile[1], "Downloading " + targetFile[1])
+# Create download folder
+outputDir += validVersions[targetVersion][0] + "/"
+
+if(libhearingdownloader.verboseDebug):
+    print("V:" + str(targetVersion))
+    print("T:" + validVersions[targetVersion][0])
+
+# Download the file
+libhearingdownloader.downloadFile(validVersions[targetVersion][2], outputDir + validVersions[targetVersion][2].split("/")[-1], "Downloading " + validVersions[targetVersion][0])
 
 print("\n\nDownload Complete!")
