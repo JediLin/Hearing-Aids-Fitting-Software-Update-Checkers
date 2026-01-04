@@ -347,3 +347,7 @@
 - Starkey: update self-sign certification chain file
 - Oticon: workaround particular server error codition
 - Document: explain how to update `inspireupdater-com-chain.pem` file (for Starkey checker) manually
+
+### Pre-Release (work-in-grpress)
+- Windows: change terminal size to 160 by 32
+- Add support for MedRx Studio

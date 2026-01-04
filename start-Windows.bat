@@ -1,6 +1,6 @@
 @echo off
 chcp 65001
-mode 160,30
+mode 160,32
 for /f "tokens=3-7 delims=[.] " %%i in ('ver') do @(if %%i==XP (set os_ver_org=%%k.%%l) else (if %%j geq 10 (set os_ver_org=%%j.%%k.%%l) else (set os_ver_org=%%j.%%k)))
 set os_ver=%os_ver_org%
 if %os_ver_org:~0,1% gtr 3 set os_ver=0%os_ver_org%

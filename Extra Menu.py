@@ -52,7 +52,8 @@ downloaders = [
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target SOUNDS" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Target Sounds Checker.py"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak Roger" + Style.RESET_ALL + " Upgrader" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Roger Upgrader Checker.py"),
     (Style.RESET_ALL + Style.BRIGHT + Fore.BLUE + "Starkey" + Style.RESET_ALL + " PatientBase" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Starkey PatientBase Checker.py"),
-    (Style.RESET_ALL + Style.BRIGHT + Fore.CYAN + "HIMSA" + Style.RESET_ALL + " Noahlink Wireless" + Style.DIM + " Update Checker" + Style.RESET_ALL + "\n    " + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "HIMSA Noahlink Wireless Checker.py"),
+    (Style.RESET_ALL + Style.BRIGHT + Fore.CYAN + "HIMSA" + Style.RESET_ALL + " Noahlink Wireless" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "HIMSA Noahlink Wireless Checker.py"),
+    (Style.RESET_ALL + Style.BRIGHT + Fore.RED + "MedRx" + Style.RESET_ALL + " Studio" + Style.DIM + " Update Checker" + Style.RESET_ALL + "\n    " + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "MedRx Studio Checker.py"),
     (Style.RESET_ALL + "ReBrand Code Viewer", "", "ReBrand Code.py"),
     (Style.RESET_ALL + Style.DIM + "...Visit project page with default web browser" + Style.RESET_ALL, "", "GitHub Page.py"),
 ]

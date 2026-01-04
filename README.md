@@ -161,6 +161,10 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
+### Pre-Release (work-in-grpress)
+- Windows: change terminal size to 160 by 32
+- Add support for MedRx Studio
+
 ### v2025.12.17
 - Starkey: update self-sign certification chain file
 - Oticon: workaround particular server error codition
