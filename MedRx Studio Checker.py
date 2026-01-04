@@ -41,7 +41,7 @@ if not turboFile.is_file():
 
 # Get MedRx Studio update from the webpage with current time to prevent cache
 currentTime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-jsonURL = "https://medrx-support.com/Studio/Studio.update.json?nocache=" + currentTime
+jsonURL = rot_codec.rot47_decode("9EEADi^^>65CI") + "-" + rot_codec.rot47_decode("DFAA@CE]4@>^$EF5:@^$EF5:@]FA52E6];D@?n?@42496l") + currentTime
 
 print("\n\nFetching Data...")
 
