@@ -47,8 +47,9 @@ scanMiracleEar = config.getboolean('MiracleEar', 'QuickScan', fallback='False')
 scanWidex = config.getboolean('Widex', 'QuickScan', fallback='False')
 scanStarkey = config.getboolean('Starkey', 'QuickScan', fallback='False')
 scanHIMSA = config.getboolean('HIMSA', 'QuickScan', fallback='False')
+scanMedRx = config.getboolean('MedRx', 'QuickScan', fallback='False')
 scanSkipAll = False
-if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanDanavox or scanSignia or scanRexton or scanAudioService or scanAM or scanMiracleEar or scanWidex or scanStarkey or scanHIMSA):
+if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanDanavox or scanSignia or scanRexton or scanAudioService or scanAM or scanMiracleEar or scanWidex or scanStarkey or scanHIMSA or scanMedRx):
     scanSkipAll = True
 if not os.path.isfile('config.ini'):
     scanSkipAll = True
@@ -737,6 +738,22 @@ def himsaChecker():
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer)
 
+# MedRx
+def medRxChecker():
+    releaseChannel = config.get('MedRx', 'ReleaseChannel', fallback='Studio')
+    currentTime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    jsonURL = rot_codec.rot47_decode("9EEADi^^>65CI") + "-" + rot_codec.rot47_decode("DFAA@CE]4@>^$EF5:@^") + releaseChannel + rot_codec.rot47_decode("]FA52E6];D@?n?@42496l") + currentTime
+    try:
+        rawJsonData = requests.get(jsonURL)
+        rawJsonDataText = rawJsonData.text
+        if rawJsonDataText.startswith(u'﻿'):
+            rawJsonDataText = rawJsonDataText.encode('utf8')[3:].decode('utf8')
+        data = json.loads(rawJsonDataText)
+        updateVer = Fore.GREEN + "v" + data[0]['Version'] + Style.RESET_ALL
+    except:
+        updateVer = Fore.RED + "Error" + Style.RESET_ALL
+    print(updateVer)
+
 # Give instruction and skip the rest script if all skipped
 if scanSkipAll:
     print("\n" + Fore.YELLOW + "Notice" + Style.RESET_ALL + ": All scans are " + Fore.RED + "skipped" + Style.RESET_ALL + ".\n")
@@ -1069,3 +1086,8 @@ if (scanHIMSA):
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
 
+print("MedRx Studio: ", end="")
+if (scanMedRx):
+    medRxChecker()
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
