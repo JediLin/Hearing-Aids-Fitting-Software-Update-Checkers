@@ -67,8 +67,7 @@ This project currently supports:
 - HIMSA: [Noahlink Wireless 2 (NW2)](https://www.himsa.com/products/noahlink-wireless-2/) and [Noahlink Wireless (NW1)](https://www.himsa.com/products/noahlink-wireless/)
   - Driver
   - Firmware Upgrader
-- MedRx
-  - [Studio](https://medrx-diagnostics.com/products/studio-software)
+- MedRx [Studio](https://medrx-diagnostics.com/products/studio-software)
 - [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
 
 ## Where to get it
