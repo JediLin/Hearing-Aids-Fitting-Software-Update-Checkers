@@ -349,5 +349,6 @@
 - Document: explain how to update `inspireupdater-com-chain.pem` file (for Starkey checker) manually
 
 ### Pre-Release (work-in-grpress)
+- Bernafon: fix Custom brands version checker [close [issue #11](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/11)]
 - Windows: change terminal size to 160 by 32
 - Add support for MedRx Studio

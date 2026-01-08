@@ -156,6 +156,7 @@ if (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-enve
     
 packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
 filesToDownload = []
+filesToDownloadCustom = []
 
 if (libhearingdownloader.verboseDebug):
     print(html.unescape(rawXmlData.text))
@@ -164,6 +165,8 @@ if (libhearingdownloader.verboseDebug):
 # Get list of files
 for fileData in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "DownloadJob").find(packageXMLNS + "Files"):
     filesToDownload.append(fileData.find(packageXMLNS + "FileName").text)
+for fileDataCustom in dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "DownloadJob").find(packageXMLNS + "Files"):
+    filesToDownloadCustom.append(fileDataCustom.find(packageXMLNS + "FileName").text)
 
 # Get download server uri
 downloadURI = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "DownloadJob").find(packageXMLNS + "ServerUri").text
@@ -188,6 +191,7 @@ print("\n\nThe latest available version for " + Fore.GREEN + targetMarket + Styl
 
 if (libhearingdownloader.verboseDebug):
     print(filesToDownload)
+    print(filesToDownloadCustom)
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
@@ -212,18 +216,18 @@ elif (targetVersion == 1):
 elif (targetVersion == 4):
     outputDir += libhearingdownloader.normalizePath( dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
     # Download and save the files
-    print("Downloading " + str(len(filesToDownload)) + " files\n")
+    print("Downloading " + str(len(filesToDownloadCustom)) + " files\n")
     fileIndex = 1
-    for fileToDownload in filesToDownload:
-        libhearingdownloader.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1] + " (" + str(fileIndex) + "/" + str(len(filesToDownload)) + ")")
+    for fileToDownloadCustom in filesToDownloadCustom:
+        libhearingdownloader.downloadFile(downloadURICustom + fileToDownloadCustom, outputDir + fileToDownloadCustom, "Downloading " + fileToDownloadCustom.split("/")[-1] + " (" + str(fileIndex) + "/" + str(len(filesToDownloadCustom)) + ")")
         fileIndex += 1
     print("\n* To install a custom version, first " + Fore.GREEN + "RUN " + Fore.YELLOW + "setup.exe" + Style.RESET_ALL + ", then " + Fore.RED + "UNINSTALL " + Fore.YELLOW + "Cust_Bernafon.msi" + Style.RESET_ALL + ", \n  and finally " + Fore.GREEN + "INSTALL " + Fore.YELLOW + "Cust_" + Fore.CYAN + "CODE" + Fore.YELLOW + ".msi" + Style.RESET_ALL + " with corresponding brand (" + Fore.CYAN + "CODE" + Style.RESET_ALL + "):\n\n    Delight (" + Fore.CYAN + "0153" + Style.RESET_ALL + "), ProAkustik (" + Fore.CYAN + "0156" + Style.RESET_ALL + "), Lisound (" + Fore.CYAN + "0653" + Style.RESET_ALL + "), Specsavers (" + Fore.CYAN + "0664" + Style.RESET_ALL + "), Meditrend (" + Fore.CYAN + "0714" + Style.RESET_ALL + "),\n    GPL (" + Fore.CYAN + "0800" + Style.RESET_ALL + "), Maico (" + Fore.CYAN + "0805" + Style.RESET_ALL + "), Audilab (" + Fore.CYAN + "0854" + Style.RESET_ALL + "), RITM (" + Fore.CYAN + "0965" + Style.RESET_ALL + "), Hoerex (" + Fore.CYAN + "1069" + Style.RESET_ALL + "), and Sonic (" + Fore.CYAN + "2501" + Style.RESET_ALL + ")")
 elif (targetVersion == 5):
     outputDir += libhearingdownloader.normalizePath( dataCustom.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
     # Download and save the files
     fileIndex = 1
-    fileToDownload = "setup.exe"
-    libhearingdownloader.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1])
+    fileToDownloadCustom = "setup.exe"
+    libhearingdownloader.downloadFile(downloadURICustom + fileToDownloadCustom, outputDir + fileToDownloadCustom, "Downloading " + fileToDownloadCustom.split("/")[-1])
     print("\n* To install a custom version, first " + Fore.GREEN + "RUN " + Fore.YELLOW + "setup.exe" + Style.RESET_ALL + ", then " + Fore.RED + "UNINSTALL " + Fore.YELLOW + "Cust_Bernafon.msi" + Style.RESET_ALL + ", \n  and finally " + Fore.GREEN + "INSTALL " + Fore.YELLOW + "Cust_" + Fore.CYAN + "CODE" + Fore.YELLOW + ".msi" + Style.RESET_ALL + " with corresponding brand (" + Fore.CYAN + "CODE" + Style.RESET_ALL + "):\n\n    Delight (" + Fore.CYAN + "0153" + Style.RESET_ALL + "), ProAkustik (" + Fore.CYAN + "0156" + Style.RESET_ALL + "), Lisound (" + Fore.CYAN + "0653" + Style.RESET_ALL + "), Specsavers (" + Fore.CYAN + "0664" + Style.RESET_ALL + "), Meditrend (" + Fore.CYAN + "0714" + Style.RESET_ALL + "),\n    GPL (" + Fore.CYAN + "0800" + Style.RESET_ALL + "), Maico (" + Fore.CYAN + "0805" + Style.RESET_ALL + "), Audilab (" + Fore.CYAN + "0854" + Style.RESET_ALL + "), RITM (" + Fore.CYAN + "0965" + Style.RESET_ALL + "), Hoerex (" + Fore.CYAN + "1069" + Style.RESET_ALL + "), and Sonic (" + Fore.CYAN + "2501" + Style.RESET_ALL + ")")
 
 print("\n\nDownload Complete!")
