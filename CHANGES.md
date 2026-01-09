@@ -353,3 +353,5 @@
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - Windows: change terminal size to 160 by 32
 - Add support for MedRx Studio
+- Portable release: update Python modules
+- Document: Update and add yet another screenshot

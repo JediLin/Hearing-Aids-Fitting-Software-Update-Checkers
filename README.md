@@ -168,6 +168,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 - Windows: change terminal size to 160 by 32
 - Add support for MedRx Studio
 - Portable release: update Python modules
+- Document: Update and add yet another screenshot
 
 ### v2025.12.17
 - Starkey: update self-sign certification chain file
