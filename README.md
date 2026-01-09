@@ -9,7 +9,7 @@
 
 A collection of scripts which check hearing aids fitting software directly from their own update servers.
 
-<img width="343" height="335" alt="Screenshot of The Checker's main menu" src="https://github.com/user-attachments/assets/58686cf8-e52f-4b63-90bb-1ca314d6528b" /> <img width="358" height="351" alt="Screenshot of The Checker's extra menu" src="https://github.com/user-attachments/assets/51d74b09-8607-4efd-a3cd-8a6c10f20c97" />
+<img width="347" height="351" alt="Screenshot of The Checker's main menu" src="https://github.com/user-attachments/assets/a2cbfe08-bd5a-44b5-8aad-af83cc3cd692" /> <img width="325" height="265" alt="Screenshot of The Checker's extra menu" src="https://github.com/user-attachments/assets/b6501bab-93c8-4b41-927a-f3fa4a51582f" /> <img width="679" height="259" alt="Screenshot of The Checker's QUICK Scan results" src="https://github.com/user-attachments/assets/cb3c0a9c-f820-4922-8f8c-33d351405a31" />
 
 
 ## What does it do?
@@ -167,6 +167,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - Windows: change terminal size to 160 by 32
 - Add support for MedRx Studio
+- Portable release: update Python modules
 
 ### v2025.12.17
 - Starkey: update self-sign certification chain file
