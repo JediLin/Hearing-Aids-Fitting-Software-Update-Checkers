@@ -164,6 +164,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ### Pre-Release (work-in-grpress)
 - Bernafon: fix Custom brands version checker [close [issue #11](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/11)]
+- ReSound/Beltone/Interton/Danavox: update archived versions
 - Windows: change terminal size to 160 by 32
 - Add support for MedRx Studio
 

@@ -101,14 +101,18 @@ validVersions = [
     (title3, filename3, link3),
     ("Danalogic/manual", "Manually specify a version of Danavox Danalogic (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
-    ("Archived Versions", "--"),
+    ("Archived XE BeMore Versions", "--"),
+    ("Danavox XE BeMore v2.3", "xebemore_2.3.334.0_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60a]b]bbc]_0C6=62D6G6CD:@?]K:A")),
     ("Danavox XE BeMore v2.2", "xebemore_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
-    ("Danavox Danalogic v2.2", "danalogic_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
     ("Danavox XE BeMore v2.1 Update 2", "xebemore_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
-    ("Danavox Danalogic v2.1 Update 2", "danalogic_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
     ("Danavox XE BeMore v2.0 Update 3", "xebemore_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^I636>@C60a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),
-    ("Danavox Danalogic v2.0 Update 3", "danalogic_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),
     ("Danavox XE BeMore v1.18", "XE_BeMore_1.18.324.0-ReleaseVersion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^36>@C6^)t0q6|@C60`]`g]bac]_") + "-ReleaseVersion.zip"),
+    (" ", "--"),
+    ("Archived Danalogic Versions", "--"),
+    ("Danavox Danalogic v2.3", "danalogic_2.3.334.0_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]b]bbc]_0C6=62D6G6CD:@?]K:A")),
+    ("Danavox Danalogic v2.2", "danalogic_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
+    ("Danavox Danalogic v2.1 Update 2", "danalogic_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
+    ("Danavox Danalogic v2.0 Update 3", "danalogic_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^<2^52?2=@8:4^52?2=@8:40a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),
 ]
 if(link1 == ""):
     if(link0 == ""):

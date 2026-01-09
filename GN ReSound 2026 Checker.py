@@ -84,6 +84,7 @@ validVersions = [
     ("manual", "Manually specify a version of ReSound Smart Fit (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
     ("Archived Versions", "--"),
+    ("ReSound Smart Fit v2.3", "smartfit_2.3.334.0_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^C6D@F?5^D>2CE7:E0a]b]bbc]_0C6=62D6G6CD:@?]K:A")),
     ("ReSound Smart Fit v2.2", "smartfit_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^C6D@F?5^D>2CE7:E0a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
     ("ReSound Smart Fit v2.1 Update 2", "smartfit_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^C6D@F?5^D>2CE7:E0a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
     ("ReSound Smart Fit v2.0 Update 3", "smartfit_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^C6D@F?5^D>2CE7:E0a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),
