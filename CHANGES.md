@@ -348,7 +348,7 @@
 - Oticon: workaround particular server error codition
 - Document: explain how to update `inspireupdater-com-chain.pem` file (for Starkey checker) manually
 
-### Pre-Release (work-in-grpress)
+### v2026.01.09
 - Bernafon: fix Custom brands version checker [close [issue #11](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/11)]
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - Windows: change terminal size to 160 by 32
