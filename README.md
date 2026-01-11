@@ -518,7 +518,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 
 ## Copyright & DMCA
-The Hearing Aids Fitting Software Update Checkers (\"The Checker\") checks software update from associated update servers using associated APIs. The Checker does not contain or distribute any hearing aids fitting software or associated content, nor bypass any DRM protection if there is one. If anyone presents an associated company and believes that there are violations of copyright, please open an issue describing how exactly, so there will be a chance to make all parties happy with the resolve.
+The Hearing Aids Fitting Software Update Checkers (\"The Checker\") checks software update from associated update servers using associated APIs. The Checker does not contain or distribute any hearing aids fitting software or associated content, nor bypass any DRM protection if there is one. If anyone presents an associated company and believes that there are violations of copyright, please [open an issue](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/new) describing how exactly, so there will be a chance to make all parties happy with the resolve.
 
 ## WARANTY/SUPPORT
 ANYTHING CAME FROM THE HEARING FITTING SOFTWARE UPDATE CHECKERS (\"THE CHECKER\") IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
