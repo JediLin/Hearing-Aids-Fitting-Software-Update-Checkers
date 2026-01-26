@@ -355,3 +355,6 @@
 - Add support for MedRx Studio
 - Portable release: update Python modules
 - Document: Update and add yet another screenshot
+
+### Pre-release (work-in-progress)
+- Portable release: update Python modules

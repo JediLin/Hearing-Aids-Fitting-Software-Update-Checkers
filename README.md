@@ -162,6 +162,9 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Portable release: update Python modules
+
 ### v2026.01.09
 - Bernafon: fix Custom brands version checker [close [issue #11](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/11)]
 - ReSound/Beltone/Interton/Danavox: update archived versions
