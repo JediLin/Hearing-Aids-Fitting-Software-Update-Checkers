@@ -53,7 +53,7 @@ certVerify = config.getboolean('Starkey', 'PatientBaseVerify', fallback='True')
 
 # Get PatientBase update from the webpage
 pbURI = rot_codec.rot47_decode("9EEADi^^A2E:6?E32D6]DE2C<6J962C:?8E649?@=@8:6D]4@>")
-fallbackDownload = rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^!2E:6?Eq2D6^!2E:6?Eq2D6 $6EFA ag]_]`___b]_]6I6")
+fallbackDownload = rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^!2E:6?Eq2D6^!2E:6?Eq2D6 $6EFA ag]`]`__`e]_]6I6")
 try:
     if (certVerify == False):
         print("\n\n" + Fore.RED + "WARNING" + Style.RESET_ALL + ": Ignorning certification security verification for \n" + Fore.GREEN + pbURI + Style.RESET_ALL)
