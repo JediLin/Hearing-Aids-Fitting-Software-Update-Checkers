@@ -357,5 +357,6 @@
 - Document: Update and add yet another screenshot
 
 ### Pre-release (work-in-progress)
+- ReSound/Beltone/Interton/Danavox: workaround for incomplete certification chain
 - Starkey: PatientBase archived version update
 - Portable release: update Python modules

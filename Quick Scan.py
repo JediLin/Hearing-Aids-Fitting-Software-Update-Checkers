@@ -313,7 +313,7 @@ def philipsHearSuiteChecker(market):
 def reSoundChecker():
     rssfURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^C6D@F?5^") + "fitting-software-download"
     try:
-        test = requests.get(rssfURI)
+        test = requests.get(rssfURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
         link1 = hrefs[1].replace('%20', ' ')
@@ -349,7 +349,7 @@ def reSoundLegacyChecker():
 def beltoneChecker():
     bsmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^36=E@?6^") + "fitting-software-download"
     try:
-        test = requests.get(bsmURI)
+        test = requests.get(bsmURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
         link1 = hrefs[1].replace('%20', ' ')
@@ -385,7 +385,7 @@ def beltoneLegacyChecker():
 def intertonChecker():
     ifURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^:?E6CE@?^") + "fitting-software-download"
     try:
-        test = requests.get(ifURI)
+        test = requests.get(ifURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
         link1 = hrefs[1].replace('%20', ' ')
@@ -421,7 +421,7 @@ def intertonLegacyChecker():
 def danavoxChecker():
     dxebmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^52?2G@I^") + "fitting-software-download"
     try:
-        test = requests.get(dxebmURI)
+        test = requests.get(dxebmURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
         link1 = hrefs[1].replace('%20', ' ')

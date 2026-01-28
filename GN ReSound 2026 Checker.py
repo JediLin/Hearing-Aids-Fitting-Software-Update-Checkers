@@ -54,7 +54,7 @@ if not turboFile.is_file():
 # Get ReSound Smart Fit update from the webpage
 rssfURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^C6D@F?5^") + "fitting-software-download"
 try:
-    test = requests.get(rssfURI)
+    test = requests.get(rssfURI, verify='www-gnhearing-com-chain.pem')
     dom = lxml.html.fromstring(test.content)
     hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
     link0 = hrefs[0].replace('%20', ' ')

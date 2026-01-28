@@ -163,6 +163,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 ## Changelog
 
 ### Pre-release (work-in-progress)
+- ReSound/Beltone/Interton/Danavox: workaround for incomplete certification chain
 - Starkey: PatientBase archived version update
 - Portable release: update Python modules
 
@@ -547,10 +548,10 @@ Note: these software WILL NOT be included in The Checker.
 
 Modern hearing aids fitting software which supports [Noahlink Wireless](https://www.himsa.com/products/noahlink-wireless/) and/or [Noahlink Wireless 2](https://www.himsa.com/products/noahlink-wireless-2/) programming interface should be certified *BEFORE* release. This means one can check [Certified Noahlink Wireless and Noahlink Wireless 2 Modules](https://www.himsa.com/products/noahlink-wireless-2/certified-noahlink-wireless-modules/) for upcoming version of fitting software before its release.
 
-### Note on Starkey server error
+### Note on Starkey / GN server error
 
-Starkey has problem making their server's certificate chain complete. This causes server error while checking updates due to verification fail. In order to workaround this issue, The Checker has to update certification paths file manually from time to time, releasing new working versions.
+Both Starkey and GN (ReSound, Beltone, Interton, Danavox) has problem making their server's certificate chain complete. This causes server error while checking updates due to verification fail. In order to workaround this issue, The Checker has to update certification paths file manually from time to time, releasing new working versions.
 
-In case of such error and for reasons unable to get the new version of The Checker, you can manually update such file by yourself. Simply browse to [SSL Report of Starkey's update server](https://www.ssllabs.com/ssltest/analyze.html?d=inspireupdater.com), wait for test complete if in progress, from one of the Certificate marked `Trusted: Yes`, show (expand) its Certification Paths, click on `Download chain` from any of its Trusted Path (see screenshot below), save as `inspireupdater-com-chain.pem` to replace the old one. This will do the trick.
+In case of such error and for reasons unable to get the new version of The Checker, you can manually update such file by yourself. Simply browse to [SSL Report of Starkey's update server](https://www.ssllabs.com/ssltest/analyze.html?d=inspireupdater.com) and [SSL Report of GN's update server](https://www.ssllabs.com/ssltest/analyze.html?d=www.gnhearing.com), wait for test complete if in progress, from one of the Certificate marked `Trusted: Yes`, show (expand) its Certification Paths, click on `Download chain` from any of its Trusted Path (see screenshot below), save as `inspireupdater-com-chain.pem` and `www-gnhearing-com-chain.pem` respectly to replace the old ones. This will do the trick.
 
 <img width="1721" height="634" alt="image" src="https://github.com/user-attachments/assets/e21e8358-943d-4d5a-9f69-4669ad368f45" />

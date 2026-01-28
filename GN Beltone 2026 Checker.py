@@ -61,7 +61,7 @@ if not turboFile.is_file():
 # Get Beltone Solus Max update from the webpage
 bsmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^36=E@?6^") + "fitting-software-download"
 try:
-    test = requests.get(bsmURI)
+    test = requests.get(bsmURI, verify='www-gnhearing-com-chain.pem')
     dom = lxml.html.fromstring(test.content)
     hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
     link0 = hrefs[0].replace('%20', ' ')
