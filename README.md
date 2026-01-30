@@ -104,7 +104,7 @@ NOTE: If The Checker looks like it has frozen, then try disabling `quickEdit` by
 **WARNING**: The Checker always tries to upgrade `pip` and some used Python packages. If you are using Python for other reasons and need to keep particular version, be advised to make your own backup or prepare a separate environment.
 
 ### Portable release
-1. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `HAFS-Update-Checkers_Win32-Portable.zip` link to download it
+1. Download The Checker from here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest<br/>Click on the link and then click on the `HAFS-Update-Checkers_Win7x86-Portable.zip` or `HAFS-Update-Checkers_Win10x64-Portable.zip` link to download it
 2. Extract the ZIP to a folder
 3. Go to the extracted folder, double-click the `start-Windows.bat` file and follow the instructions on-screen
 
@@ -165,7 +165,8 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton/Danavox: workaround for incomplete certification chain
 - Starkey: PatientBase archived version update
-- Portable release: update Python modules
+- Win7x86 Portable release: rename and update Python modules
+- Win10x64 Portable release: added and bundled with [python-3.14.2-embed-amd64](https://www.python.org/ftp/python/3.14.2/python-3.14.2-embed-amd64.zip) package and necessary modules
 
 ### v2026.01.09
 - Bernafon: fix Custom brands version checker [close [issue #11](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/11)]
