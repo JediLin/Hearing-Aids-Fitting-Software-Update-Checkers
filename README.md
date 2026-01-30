@@ -127,7 +127,9 @@ For Standard release of The Checker, the following steps need to be done **ONCE*
 
 NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refuse to run and bring you to Python download page instead.
 
-NOTE: The portable release (`HAFS-Update-Checkers_Win32-Portable.zip`) is bundled with Windows x86 version of Python, thus can work on Windows x86/x64 system without needing to install Python first.
+NOTE: The portable releases (`HAFS-Update-Checkers_Win7x86-Portable.zip
+` and `HAFS-Update-Checkers_Win10x64-Portable.zip
+`) are bundled with Windows x86/x64 version of Python respectively, thus can work on Windows x86/x64 system without needing to install Python first.
 
 ### Making portable by yourself
 If you want to make portable version of The Checker by yourself, you can:
