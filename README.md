@@ -162,7 +162,7 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2026.01.30
 - ReSound/Beltone/Interton/Danavox: workaround for incomplete certification chain
 - Starkey: PatientBase archived version update
 - Portable release: remove unused mac/linux shell script

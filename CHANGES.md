@@ -356,7 +356,7 @@
 - Portable release: update Python modules
 - Document: Update and add yet another screenshot
 
-### Pre-release (work-in-progress)
+### v2026.01.30
 - ReSound/Beltone/Interton/Danavox: workaround for incomplete certification chain
 - Starkey: PatientBase archived version update
 - Portable release: remove unused mac/linux shell script
