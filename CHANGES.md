@@ -359,6 +359,7 @@
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton/Danavox: workaround for incomplete certification chain
 - Starkey: PatientBase archived version update
-- Win7x86 Portable release: rename and update Python modules
-- Win10x64 Portable release: added and bundled with [python-3.14.2-embed-amd64](https://www.python.org/ftp/python/3.14.2/python-3.14.2-embed-amd64.zip) package and necessary modules
+- Portable release: remove unused mac/linux shell script
+- Portable release: rename Win32 to Win7x86, which supports Windows 7 or newer version of Windows OS, both x86 (32-bit) and x64 (64-bit) architecture
+- Portable release: add Win10x64 bundled with [python-3.14.2-embed-amd64](https://www.python.org/ftp/python/3.14.2/python-3.14.2-embed-amd64.zip) package and necessary modules, which supports Windows 10 or newer version of Windows OS, x64 (64-bit) architecture only
 
