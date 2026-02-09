@@ -162,8 +162,10 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2026.02.09
 - HIMSA: fix for Noahlink Wireless firmware upgrader filename changes in v3.6.0.0
+- Portable release: update Python for Win10x64 to v3.14.3
+- Portable release: update Python modules
 
 ### v2026.01.30
 - ReSound/Beltone/Interton/Danavox: workaround for incomplete certification chain
