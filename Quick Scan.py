@@ -733,7 +733,7 @@ def himsaChecker():
         test = requests.get(nwURI, headers={"Host": "www.himsa.com", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate, br", "Connection": "keep-alive", "Upgrade-Insecure-Requests": "1", "Referer": nwURI, "User-Agent": uaString})
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
-        updateVer = Fore.GREEN + "v" + re.sub(r"\.exe", "", re.sub(r"NLWUpgrader.", "", os.path.basename(urlparse(hrefs[0].replace('%20', ' ')).path))) + Style.RESET_ALL
+        updateVer = Fore.GREEN + "v" + re.sub(r"\.exe", "", re.sub(r"NLWUpgrade(r)*.", "", os.path.basename(urlparse(hrefs[0].replace('%20', ' ')).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer)

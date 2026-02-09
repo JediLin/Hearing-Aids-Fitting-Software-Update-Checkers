@@ -162,6 +162,9 @@ NOTE: In case you want to make a portable version for Windows 7, you have to use
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- HIMSA: fix for Noahlink Wireless firmware upgrader filename changes in v3.6.0.0
+
 ### v2026.01.30
 - ReSound/Beltone/Interton/Danavox: workaround for incomplete certification chain
 - Starkey: PatientBase archived version update

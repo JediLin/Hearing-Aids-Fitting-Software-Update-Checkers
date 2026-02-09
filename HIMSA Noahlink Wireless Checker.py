@@ -78,7 +78,7 @@ try:
         print(hrefs)
     link0 = hrefs[0].replace('%20', ' ')
     filename0 = os.path.basename(urlparse(link0).path)
-    title0 = "Noahlink Wireless Firmware Upgrader v" + re.sub(r"\.exe", "", re.sub(r"NLWUpgrader.", "", filename0))
+    title0 = "Noahlink Wireless Firmware Upgrader v" + re.sub(r"\.exe", "", re.sub(r"NLWUpgrade(r)*.", "", filename0))
     link1 = hrefs[1].replace('%20', ' ')
     filename1 = os.path.basename(urlparse(link1).path)
     title1 = "Noahlink Wireless Driver v" + re.sub(r"\.exe", "", re.sub(r"Driver_NLW_V.", "", filename1))
@@ -101,6 +101,7 @@ validVersions = [
     (title1, filename1, link1),
     (" ", "--"),
     ("Archived Versions", "--"),
+    ("Noahlink Wireless Firmware v3.6.0.0", "v2.25 (NW1) / v3.27 (NW2) (February 2026)", rot_codec.rot47_decode("9EEADi^^HHH]9:>D2]4@>^HA") + "-" + rot_codec.rot47_decode("4@?E6?E^FA=@25D^a_ae^_a^}{(&A8C2560b]e]_]_]6I6")),
     ("Noahlink Wireless Firmware v3.5.0.0", "v2.25 (NW1) / v3.25 (NW2) (July 2025)", rot_codec.rot47_decode("9EEADi^^HHH]9:>D2]4@>^HA") + "-" + rot_codec.rot47_decode("4@?E6?E^FA=@25D^a_ad^_f^}{(&A8C256C0b]d]_]_]6I6")),
     ("Noahlink Wireless Firmware v3.3.0.0", "v2.25 (NW1) / v3.23 (NW2) (April 2025)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^}{(&A8C256C0b]b]_]_]6I6")),
     ("Noahlink Wireless Firmware v3.1.0.92", "v2.25 (NW1) / v3.17 (NW2) (May 2024)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^}{(&A8C256C0b]`]_]ha]6I6")),
