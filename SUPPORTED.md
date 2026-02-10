@@ -1,0 +1,55 @@
+# Hearing Aids Fitting Software Update Checkers
+## Currently supported software
+This project currently supports:
+- Sonova
+  - Phonak
+    - [Target](https://www.phonak.com/en-int/professionals/innovations/target)
+      - Target Media
+      - Target Sounds
+    - iPFG Successware
+    - PFG
+    - [Roger Upgrader](https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrader)
+  - Unitron [TrueFit](https://www.unitron.com/global/en_us/professionals/truefit.html)
+  - Hansaton [scout](https://www.hansaton.com/en-int/professionals/support/instr.html)
+- Demant
+  - Oticon
+    - [Genie 2](https://www.oticon.com/professionals/tools-and-support/fitting)
+    - Genie
+    - Genie Medical
+  - Bernafon
+    - [OasisNXT](https://www.bernafon.com/for-professionals/fitting-software)
+    - OasisNXT Custom (**rebranded** versions for Delight, ProAkustik, Lisound, Specsavers, Meditrend, GPL, Maico, Audilab, RITM, Hoerex, and Sonic)
+  - Sonic [ExpressFit Pro](https://www.sonici.com/professional-center/professional-support/software-download)
+  - Philips [HearSuite](https://www.hearingsolutions.philips.com/for-professionals/hearsuite)
+- GN
+  - ReSound
+    - [Smart Fit](https://pro.resound.com/en-us/products/resound/fsw-2)
+    - [Aventa](https://www.gnhearing.com/en/products/support-materials/fsw-support)
+    - Pro-Counsel
+  - Beltone
+    - [Solus Max](https://www.gnhearing.com/en/products/beltone/fsw-2)
+    - Solus Pro
+    - Solus
+  - Interton
+    - [Fitting](https://www.interton.com/en/professionals/hearing-aid-fitting)
+    - Appraise
+    - CompuFit
+  - Danavox
+    - XE BeMore
+    - Danalogic
+- WS Audiology
+  - Signia [Connexx](https://www.signia-pro.com/en/business-support/connexx/)
+  - Rexton [Connexx](https://www.rexton.com/en/professional/connexx/)
+  - Audio Service Connexx
+  - A&M Connexx
+  - Widex [Compass GPS](https://www.widexpro.com/en/business-support/compass/)
+- Miracle-Ear Harmony II
+- Starkey
+  - [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
+  - [Inspire OS](https://www.starkeypro.com/products/other-products/software/inspire)
+  - [PatientBase](https://patientbase.starkeyhearingtechnologies.com)
+- HIMSA: [Noahlink Wireless 2 (NW2)](https://www.himsa.com/products/noahlink-wireless-2/) and [Noahlink Wireless (NW1)](https://www.himsa.com/products/noahlink-wireless/)
+  - Driver
+  - Firmware Upgrader
+- MedRx [Studio](https://medrx-diagnostics.com/products/studio-software)
+- [Hearing Aids Fitting Software Update Checkers](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/) (\"The Checker\" itself)
