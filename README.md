@@ -36,7 +36,7 @@ Please refer to [changes in each Release and Pre-release version](CHANGES.md).
 
 ## Legal stuff
 
-Please refer to [Copyright, DMCA, Waranty, Support, and Disclaimer](LEGAL.md).
+Please refer to [Copyright, DMCA, Warranty, Support, and Disclaimer](LEGAL.md).
 
 ## Appendix
 
