@@ -15,7 +15,7 @@ A collection of scripts which check hearing aids fitting software directly from 
 ## What does it do?
 This project (\"The Checker\") contains scripts which can check hearing aids fitting software (such as Phonak Target) directly from each own update servers with APIs, so that you can easily know if there is a newer version available, and check corresponding files.
 
-Please refer to [currently supported software list](SUPPORTED.md).
+Please refer to [currently supported software list](SUPPORTED.md) and [latest checked results](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/wiki/Versions).
 
 ## Where to get it
 There are 3 \"editions\" (versions) of the Checker available: the Standard release version, the Portable release version, and the Pre-release version.
