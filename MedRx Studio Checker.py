@@ -73,7 +73,7 @@ if (updaterRetries == 0):
 if (libhearingdownloader.verboseDebug):
     print(rawJsonData.text)
 
-print("\n\nThe latest available MedRx Studio version is " + Style.BRIGHT + Fore.GREEN + "v" + relVer + Style.RESET_ALL)
+print("\n\nThe latest available MedRx Studio version is " + Fore.GREEN + "v" + relVer + Style.RESET_ALL + "\n\n")
 
 mrsURI = rot_codec.rot47_decode("9EEADi^^>65CI") + "-" + rot_codec.rot47_decode("DFAA@CE]4@>^$EF5:@^")
 try:
