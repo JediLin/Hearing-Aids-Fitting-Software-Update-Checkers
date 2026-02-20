@@ -27,15 +27,15 @@ Please refer to [versions introduction](VERSIONS.md), [how to get it work](USAGE
 
 ## Credits
 
-See [who helped this project](CREDITS.md).
+Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
-Please refer to [changes in each Release and Pre-release version](CHANGES.md).
+Please refer to [changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
 
 ## Legal stuff
 
-Please refer to [Copyright, DMCA, Warranty, Support, and Disclaimer](LEGAL.md).
+Such as [Copyright, DMCA, Warranty, Support, and Disclaimer](LEGAL.md).
 
 ## Appendix
 
