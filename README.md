@@ -41,4 +41,6 @@ Such as [Copyright, DMCA, Warranty, Support, and Disclaimer](LEGAL.md).
 
 ## Appendix
 
-There are [other things you should be aware of...](APPENDIX.md).
+Please [link to this README](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers?tab=readme-ov-file#readme-ov-file) if you want to introduce this project to others.
+
+By the way, there are [other things you should be aware of...](APPENDIX.md).
