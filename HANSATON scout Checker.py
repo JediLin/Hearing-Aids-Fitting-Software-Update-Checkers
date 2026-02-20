@@ -22,7 +22,7 @@ print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + 
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWaranty()
+    libhearingdownloader.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",

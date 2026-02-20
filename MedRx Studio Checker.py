@@ -20,7 +20,7 @@ print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + 
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWaranty()
+    libhearingdownloader.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",
@@ -57,7 +57,7 @@ while updaterRetries > 0:
     try:
         rawJsonData = requests.get(jsonURL)
         rawJsonDataText = rawJsonData.text
-        if rawJsonDataText.startswith(u'\ufeff'):
+        if rawJsonDataText.startswith(u'\uFEFF'):
             rawJsonDataText = rawJsonDataText.encode('utf8')[3:].decode('utf8')
         data = json.loads(rawJsonDataText)
         relVer = data[0]['Version']
