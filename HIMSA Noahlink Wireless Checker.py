@@ -42,7 +42,7 @@ disclaimer = [
     "All rights and credit go to their rightful owners. No copyright infringement intended.",
     "",
     "The contributors of The Checker, and The Checker itself are not affiliated with or endorsed by",
-    "Starkey Laboratories, Inc.",
+    "HIMSA II K/S",
     "Depending on how The Checker is used, it may violate the EULA and/or Terms and Conditions of the associated software.",
     "The Checker is an UNOFFICIAL project and the use of associated software may be limited."
 ]
