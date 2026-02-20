@@ -7,8 +7,4 @@ Portable release version contains not only all the very same script files from t
 The Portable release version is rather large in total files size and may have some function limitation. However, this version is suitable for who have trouble getting Python installed.
 
 ## Pre-release version
-If you don't want to wait for the proper release, the fresh pre-release work-in-progress version is available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
-
-NOTE: You can also get the pre-release version via The Checker's \"*Extra & Legacy Software Update Checkers*\" option.
-
-The Pre-release version is a work-in-progress based on the Standard release. This means that you need to have the latest version of Python installed for Pre-release version to work, too; or you can replace files in Portable release to make the Pre-release package portable.
+The Pre-release version is a work-in-progress (which may contain hotfix for bugs, experimental new features, and other tweaks) based on the Standard release. This means that you need to have the latest version of Python installed for Pre-release version to work, too; or you can replace files in Portable release to make the Pre-release package portable.

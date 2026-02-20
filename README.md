@@ -13,11 +13,13 @@ Please refer to [currently supported software list](SUPPORTED.md) and [latest ch
 
 ## Download
 
-There are 3 \"editions\" (versions) of the Checker available: the Standard release version, the Portable release version, and the Pre-release version.
+There are 3 \"editions\" (versions) of the Checker available: the Standard release version, the Portable release version, and the work-in-progress Pre-release version.
 
-The latest Standard/Portable release versions of The Checker are available here: https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest
+The latest Standard/Portable release versions of The Checker are always available at https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest (**_RECOMMENDED!!_**)
 
-NOTE: You can also get the latest Standard/Portable release version via The Checker's built-in \"*Self Update Checker*\" option.
+If you don't want to wait for the proper release, the fresh work-in-progress Pre-release version is always available at https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/archive/refs/heads/main.zip
+
+NOTE: You can also get the latest Standard/Portable release version via The Checker's built-in \"*Self Update Checker*\" option, and the Pre-release version via \"*Extra & Legacy Software Update Checkers*\" option.
 
 Please refer to [versions introduction](VERSIONS.md), [how to get it work](USAGE.md), and [how to make a portable package](PORTABLE.md).
 
