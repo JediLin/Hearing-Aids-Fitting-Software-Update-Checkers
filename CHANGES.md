@@ -367,3 +367,7 @@
 - HIMSA: fix for Noahlink Wireless firmware upgrader filename changes in v3.6.0.0
 - Portable release: update Python for Win10x64 to v3.14.3
 - Portable release: update Python modules
+
+### Pre-release (work-in-progress)
+- ReSound/Beltone: update archived versions
+- Portable release: update Python modules
