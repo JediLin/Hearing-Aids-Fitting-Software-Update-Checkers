@@ -369,5 +369,5 @@
 - Portable release: update Python modules
 
 ### Pre-release (work-in-progress)
-- ReSound/Beltone: update archived versions
+- ReSound/Beltone/Interton/Danavox: update archived versions
 - Portable release: update Python modules
