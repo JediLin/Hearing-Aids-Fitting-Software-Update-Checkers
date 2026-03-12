@@ -33,7 +33,11 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
-Please refer to [changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
+### Pre-release (work-in-progress)
+- ReSound/Beltone/Interton/Danavox: update archived versions
+- Portable release: update Python modules
+
+Please refer to [full changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
 
 ## Legal stuff
 
