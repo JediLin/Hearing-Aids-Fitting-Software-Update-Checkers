@@ -65,7 +65,7 @@ try:
     filename0 = os.path.basename(urlparse(link0).path)
     title0 = "Interton Fitting v" + re.sub(r"_releaseversion\.zip", "", re.sub(r"fitting_", "", filename0))
     try:
-        link1 = hrefs[1].replace('%20', ' ')
+        link1 = hrefs[-1].replace('%20', ' ')
         filename1 = os.path.basename(urlparse(link1).path)
         title1 = "Interton Fitting v" + re.sub(r"_releaseversion\.zip", "", re.sub(r"fitting_", "", filename1))
     except:

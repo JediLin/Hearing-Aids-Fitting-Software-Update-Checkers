@@ -62,7 +62,7 @@ try:
     filename3 = filename0.replace('xebemore', 'danalogic')
     title3 = title0.replace('XE BeMore', 'Danalogic')
     try:
-        link1 = hrefs[1].replace('%20', ' ')
+        link1 = hrefs[-1].replace('%20', ' ')
         filename1 = os.path.basename(urlparse(link1).path)
         title1 = "Danavox XE BeMore v" + re.sub(r"_releaseversion\.zip", "", re.sub(r"xebemore_", "", filename1))
         link2 = link1.replace('bemore/xebemore', 'danalogic/danalogic')

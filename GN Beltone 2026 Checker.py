@@ -68,7 +68,7 @@ try:
     filename0 = os.path.basename(urlparse(link0).path)
     title0 = "Beltone Solus Max v" + re.sub(r"_releaseversion\.zip", "", re.sub(r"solusmax_", "", filename0))
     try:
-        link1 = hrefs[1].replace('%20', ' ')
+        link1 = hrefs[-1].replace('%20', ' ')
         filename1 = os.path.basename(urlparse(link1).path)
         title1 = "Beltone Solus Max v" + re.sub(r"_releaseversion\.zip", "", re.sub(r"solusmax_", "", filename1))
     except:

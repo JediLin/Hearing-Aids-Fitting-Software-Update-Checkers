@@ -35,6 +35,8 @@ Thanks [who helped this project](CREDITS.md).
 
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton/Danavox: update archived versions
+- ReSound/Beltone/Interton/Danavox: workaround for link error on GN's server
+- Quick Scan: remove unused scripts
 - Portable release: update Python modules
 
 Please refer to [full changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).

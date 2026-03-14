@@ -316,35 +316,11 @@ def reSoundChecker():
         test = requests.get(rssfURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
-        link1 = hrefs[1].replace('%20', ' ')
+        link1 = hrefs[-1].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"smartfit_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer)
-
-def reSoundLegacyChecker():
-    updaterRetries = libhearingdownloader.updaterRetries
-    while updaterRetries > 0:
-        try:
-            rawXmlData = requests.get(rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^C6D@F?5^DF3D:E6D^C6=62D6DD53]I>="))
-            data = xml.fromstring(rawXmlData.text)
-            break
-        except:
-            pass
-
-        updaterRetries -= 1
-    if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL)
-    else:
-        availableFiles = {}
-        currentCategory = "Other"
-        for child in data:
-            if (child[0].tag == "SEPARATOR"):
-                currentCategory = child[0].text
-            else:
-                availableFiles[currentCategory] = availableFiles.get(currentCategory, [])
-                availableFiles[currentCategory].append( (child.find("DESCIPTIONTITLE").text, '', child.find("LINK").text) )
-        print(Fore.GREEN + "v" + re.sub(r"ReSound Smart Fit ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def beltoneChecker():
     bsmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^36=E@?6^") + "fitting-software-download"
@@ -352,35 +328,11 @@ def beltoneChecker():
         test = requests.get(bsmURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
-        link1 = hrefs[1].replace('%20', ' ')
+        link1 = hrefs[-1].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"solusmax_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer)
-
-def beltoneLegacyChecker():
-    updaterRetries = libhearingdownloader.updaterRetries
-    while updaterRetries > 0:
-        try:
-            rawXmlData = requests.get(rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^36=E@?6^DF3D:E6D^C6=62D6DD53]I>="))
-            data = xml.fromstring(rawXmlData.text)
-            break
-        except:
-            pass
-
-        updaterRetries -= 1
-    if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL)
-    else:
-        availableFiles = {}
-        currentCategory = "Other"
-        for child in data:
-            if (child[0].tag == "SEPARATOR"):
-                currentCategory = child[0].text
-            else:
-                availableFiles[currentCategory] = availableFiles.get(currentCategory, [])
-                availableFiles[currentCategory].append( (child.find("DESCIPTIONTITLE").text, '', child.find("LINK").text) )
-        print(Fore.GREEN + "v" + re.sub(r"Beltone Solus Max ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def intertonChecker():
     ifURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^:?E6CE@?^") + "fitting-software-download"
@@ -388,35 +340,11 @@ def intertonChecker():
         test = requests.get(ifURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
-        link1 = hrefs[1].replace('%20', ' ')
+        link1 = hrefs[-1].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"fitting_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
     print(updateVer)
-
-def intertonLegacyChecker():
-    updaterRetries = libhearingdownloader.updaterRetries
-    while updaterRetries > 0:
-        try:
-            rawXmlData = requests.get(rot_codec.rot47_decode("9EEAi^^HHH]DFAA@CE8?]4@>^:?E6CE@?^DF3D:E6D^C6=62D6DD53]I>="))
-            data = xml.fromstring(rawXmlData.text)
-            break
-        except:
-            pass
-
-        updaterRetries -= 1
-    if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL)
-    else:
-        availableFiles = {}
-        currentCategory = "Other"
-        for child in data:
-            if (child[0].tag == "SEPARATOR"):
-                currentCategory = child[0].text
-            else:
-                availableFiles[currentCategory] = availableFiles.get(currentCategory, [])
-                availableFiles[currentCategory].append( (child.find("DESCIPTIONTITLE").text, '', child.find("LINK").text) )
-        print(Fore.GREEN + "v" + re.sub(r"Interton Fitting ", "", availableFiles[list(availableFiles.keys())[0]][0][0]) + Style.RESET_ALL)
 
 def danavoxChecker():
     dxebmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^52?2G@I^") + "fitting-software-download"
@@ -424,7 +352,7 @@ def danavoxChecker():
         test = requests.get(dxebmURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
-        link1 = hrefs[1].replace('%20', ' ')
+        link1 = hrefs[-1].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"xebemore_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
