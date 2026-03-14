@@ -368,7 +368,7 @@
 - Portable release: update Python for Win10x64 to v3.14.3
 - Portable release: update Python modules
 
-### Pre-release (work-in-progress)
+### v2026.03.14
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - ReSound/Beltone/Interton/Danavox: workaround for link error on GN's server
 - Quick Scan: remove unused scripts
