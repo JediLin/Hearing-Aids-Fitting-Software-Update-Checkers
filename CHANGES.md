@@ -373,3 +373,6 @@
 - ReSound/Beltone/Interton/Danavox: workaround for link error on GN's server
 - Quick Scan: remove unused scripts
 - Portable release: update Python modules
+
+### Pre-release (work-in-progress)
+- ReSound/Beltone/Interton/Danavox: update archived versions

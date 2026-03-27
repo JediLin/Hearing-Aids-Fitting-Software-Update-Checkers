@@ -33,6 +33,9 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- ReSound/Beltone/Interton/Danavox: update archived versions
+
 ### v2026.03.14
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - ReSound/Beltone/Interton/Danavox: workaround for link error on GN's server
