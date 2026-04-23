@@ -35,6 +35,7 @@ Thanks [who helped this project](CREDITS.md).
 
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton/Danavox: update archived versions
+- Menu: minor color adjustment
 
 ### v2026.03.14
 - ReSound/Beltone/Interton/Danavox: update archived versions
