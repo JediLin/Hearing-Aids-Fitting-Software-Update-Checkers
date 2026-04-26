@@ -377,3 +377,4 @@
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - Menu: minor color adjustment
+- Menu: text adjustment

@@ -88,6 +88,6 @@ print("==================================== " + Fore.GREEN + libhearingdownloade
 if (os.name != "nt"):
     print("NOTE: You are running The Checker on an Unix (*NIX) or mac Operating System. Hearing aids software requires Windows OS to run, but can still be checked on Unix (*NIX) or mac OS")
 
-selectedDownloader = libhearingdownloader.selectFromList(downloaders, "checker", numberSeperator=')', confirmationCheck=False)
+selectedDownloader = libhearingdownloader.selectFromList(downloaders, "function", numberSeperator=')', confirmationCheck=False)
 
 os.system('python ./"' + downloaders[selectedDownloader][2] + '"')
