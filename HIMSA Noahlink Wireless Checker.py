@@ -101,6 +101,7 @@ validVersions = [
     (title1, filename1, link1),
     (" ", "--"),
     ("Archived Versions", "--"),
+    ("Noahlink Wireless Firmware v3.7.0.0", "v2.25 (NW1) / v3.29 (NW2) (April 2026)", rot_codec.rot47_decode("9EEADi^^HHH]9:>D2]4@>^HA") + "-" + rot_codec.rot47_decode("4@?E6?E^FA=@25D^a_ae^_c^}{(&A8C256C0b]f]_]_]6I6")),
     ("Noahlink Wireless Firmware v3.6.0.0", "v2.25 (NW1) / v3.27 (NW2) (February 2026)", rot_codec.rot47_decode("9EEADi^^HHH]9:>D2]4@>^HA") + "-" + rot_codec.rot47_decode("4@?E6?E^FA=@25D^a_ae^_a^}{(&A8C2560b]e]_]_]6I6")),
     ("Noahlink Wireless Firmware v3.5.0.0", "v2.25 (NW1) / v3.25 (NW2) (July 2025)", rot_codec.rot47_decode("9EEADi^^HHH]9:>D2]4@>^HA") + "-" + rot_codec.rot47_decode("4@?E6?E^FA=@25D^a_ad^_f^}{(&A8C256C0b]d]_]_]6I6")),
     ("Noahlink Wireless Firmware v3.3.0.0", "v2.25 (NW1) / v3.23 (NW2) (April 2025)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^}{(&A8C256C0b]b]_]_]6I6")),
