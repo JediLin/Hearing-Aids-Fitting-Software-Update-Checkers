@@ -19,7 +19,6 @@ This project currently supports:
   - Bernafon
     - [OasisNXT](https://www.bernafon.com/for-professionals/fitting-software)
     - OasisNXT Custom (**rebranded** versions for Delight, ProAkustik, Lisound, Specsavers, Meditrend, GPL, Maico, Audilab, RITM, Hoerex, and Sonic)
-  - Sonic [ExpressFit Pro](https://www.sonici.com/professional-center/professional-support/software-download)
   - Philips [HearSuite](https://www.hearingsolutions.philips.com/for-professionals/hearsuite)
 - GN
   - ReSound
