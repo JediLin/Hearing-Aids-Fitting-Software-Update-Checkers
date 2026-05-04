@@ -34,12 +34,12 @@ Thanks [who helped this project](CREDITS.md).
 ## Changelog
 
 ### Pre-release (work-in-progress)
+- Sonic: removed due to its discontinue
 - ReSound/Beltone/Interton/Danavox/HIMSA: update archived versions
 - Menu: minor color adjustment
 - Menu: text adjustment
 
 ### v2026.03.14
-- Sonic: removed due to its discontinue
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - ReSound/Beltone/Interton/Danavox: workaround for link error on GN's server
 - Quick Scan: remove unused scripts
