@@ -33,7 +33,6 @@ scanUnitron = config.getboolean('Unitron', 'QuickScan', fallback='False')
 scanHansaton = config.getboolean('Hansaton', 'QuickScan', fallback='False')
 scanOticon = config.getboolean('Oticon', 'QuickScan', fallback='False')
 scanBernafon = config.getboolean('Bernafon', 'QuickScan', fallback='False')
-scanSonic = config.getboolean('Sonic', 'QuickScan', fallback='False')
 scanPhilips = config.getboolean('Philips', 'QuickScan', fallback='False')
 scanReSound = config.getboolean('ReSound', 'QuickScan', fallback='False')
 scanBeltone = config.getboolean('Beltone', 'QuickScan', fallback='False')
@@ -49,7 +48,7 @@ scanStarkey = config.getboolean('Starkey', 'QuickScan', fallback='False')
 scanHIMSA = config.getboolean('HIMSA', 'QuickScan', fallback='False')
 scanMedRx = config.getboolean('MedRx', 'QuickScan', fallback='False')
 scanSkipAll = False
-if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanSonic or scanPhilips or scanReSound or scanBeltone or scanInterton or scanDanavox or scanSignia or scanRexton or scanAudioService or scanAM or scanMiracleEar or scanWidex or scanStarkey or scanHIMSA or scanMedRx):
+if not (scanPhonak or scanUnitron or scanHansaton or scanOticon or scanBernafon or scanPhilips or scanReSound or scanBeltone or scanInterton or scanDanavox or scanSignia or scanRexton or scanAudioService or scanAM or scanMiracleEar or scanWidex or scanStarkey or scanHIMSA or scanMedRx):
     scanSkipAll = True
 if not os.path.isfile('config.ini'):
     scanSkipAll = True
@@ -159,7 +158,7 @@ def hansatonScoutChecker(market):
         latestVersion = data[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
         print(Fore.GREEN + "v" + latestVersion + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
-# Demant: Oticon, Bernafon, Sonic, Philips
+# Demant: Oticon, Bernafon, Philips
 def oticonGenie2Checker(market):
     targetMarket = market
     headers = {
@@ -234,43 +233,6 @@ def bernafonOasisNXTChecker(market):
         packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
         updateVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text
         print(Fore.GREEN + "v" + re.sub(r"OasisNXT ", "", updateVer) + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
-
-def sonicExpressFitChecker(market):
-    targetMarket = market
-    headers = {
-        "Host": "updater.sonicinnovations.com",
-        "Content-Type": "application/soap+xml; charset=utf-8"
-    }
-
-    updaterRetries = libhearingdownloader.updaterRetries
-    while updaterRetries > 0:
-        try:
-            osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
-            baseVer = config.get('Sonic', 'Version', fallback='20.22.95.0').split('.')
-            updrVer = config.get('Sonic', 'Updater', fallback='26.9.3.0').split('.')
-            baseVerMajor = baseVer[0]
-            baseVerMinor = baseVer[1]
-            baseVerBuild = baseVer[2]
-            baseVerRev = baseVer[3]
-            updrVerMajor = updrVer[0]
-            updrVerMinor = updrVer[1]
-            updrVerBuild = updrVer[2]
-            updrVerRev = updrVer[3]
-            rawXmlData = requests.post("https://updater.sonicinnovations.com/UpdateWebService.svc", headers=headers, data='<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdate</a:Action><a:MessageID>urn:uuid:00000000-0000-0000-0000-000000000000</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To s:mustUnderstand="1">https://updater.sonicinnovations.com/UpdateWebService.svc</a:To></s:Header><s:Body><CheckForUpdate xmlns="http://tempuri.org/"><request xmlns:b="http://schemas.datacontract.org/2004/07/Wdh.Genesis.SoftwareUpdater.Common" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:ClientId>00000000-0000-0000-0000-000000000000</b:ClientId><b:Customer>Sonic</b:Customer><b:Languages xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:Locale i:nil="true"/><b:Manufacturer>Sonic</b:Manufacturer><b:Market>' + targetMarket + '</b:Market><b:OEM i:nil="true"/><b:OS>' + osVer + '</b:OS><b:RequestVersion>2</b:RequestVersion><b:Software><b:InstalledSoftware><b:Build>' + baseVerBuild + '</b:Build><b:Major>' + baseVerMajor + '</b:Major><b:Minor>' + baseVerMinor + '</b:Minor><b:Name>ExpressFit2</b:Name><b:Revision>' + baseVerRev + '</b:Revision></b:InstalledSoftware><b:InstalledSoftware><b:Build>' + updrVerBuild + '</b:Build><b:Major>' + updrVerMajor + '</b:Major><b:Minor>' + updrVerMinor + '</b:Minor><b:Name>SonicUpdater</b:Name><b:Revision>' + updrVerRev + '</b:Revision></b:InstalledSoftware></b:Software></request></CheckForUpdate></s:Body></s:Envelope>')
-            data = xml.fromstring(html.unescape(rawXmlData.text))
-            break
-        except:
-            pass
-
-        updaterRetries -= 1
-    if (updaterRetries == 0):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
-    elif (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateWebService/CheckForUpdateResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><CheckForUpdateResponse xmlns="http://tempuri.org/"><CheckForUpdateResult/></CheckForUpdateResponse></s:Body></s:Envelope>'):
-        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
-    else:
-        packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
-        updateVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text
-        print(Fore.GREEN + "v" + re.sub(r"EXPRESSfit Pro ", "", updateVer) + Style.RESET_ALL + " (" + Fore.YELLOW + targetMarket + Style.RESET_ALL + ")", end="")
 
 def philipsHearSuiteChecker(market):
     targetMarket = market
@@ -808,25 +770,6 @@ if (scanBernafon):
     while marketListItem < marketListCount:
         try:
             bernafonOasisNXTChecker(marketList[marketListItem])
-            if (marketListItem + 1 == marketListCount):
-                print(".")
-            else:
-                print(", ", end="")
-        except:
-            pass
-
-        marketListItem += 1
-else:
-    print(Style.DIM + "skipped." + Style.RESET_ALL)
-
-print("Sonic EXPRESSfit Pro: ", end="")
-if (scanSonic):
-    marketList = config.get('Sonic', 'MarketScan', fallback='Default,GB,US,CA,ES,FR,TW').split(',')
-    marketListCount = len(marketList)
-    marketListItem = 0
-    while marketListItem < marketListCount:
-        try:
-            sonicExpressFitChecker(marketList[marketListItem])
             if (marketListItem + 1 == marketListCount):
                 print(".")
             else:

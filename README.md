@@ -39,6 +39,7 @@ Thanks [who helped this project](CREDITS.md).
 - Menu: text adjustment
 
 ### v2026.03.14
+- Sonic: removed due to its discontinue
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - ReSound/Beltone/Interton/Danavox: workaround for link error on GN's server
 - Quick Scan: remove unused scripts

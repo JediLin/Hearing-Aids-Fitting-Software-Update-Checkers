@@ -375,6 +375,7 @@
 - Portable release: update Python modules
 
 ### Pre-release (work-in-progress)
+- Sonic: removed due to its discontinue
 - ReSound/Beltone/Interton/Danavox/HIMSA: update archived versions
 - Menu: minor color adjustment
 - Menu: text adjustment
