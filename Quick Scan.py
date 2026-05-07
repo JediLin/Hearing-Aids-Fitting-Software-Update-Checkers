@@ -276,6 +276,7 @@ def reSoundChecker():
     rssfURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^C6D@F?5^") + "fitting-software-download"
     try:
         try:
+            pemLocalGN = False
             test = requests.get(rssfURI)
         except:
             pemLocalGN = True
@@ -295,6 +296,7 @@ def beltoneChecker():
     bsmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^36=E@?6^") + "fitting-software-download"
     try:
         try:
+            pemLocalGN = False
             test = requests.get(bsmURI)
         except:
             pemLocalGN = True
@@ -314,6 +316,7 @@ def intertonChecker():
     ifURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^:?E6CE@?^") + "fitting-software-download"
     try:
         try:
+            pemLocalGN = False
             test = requests.get(ifURI)
         except:
             pemLocalGN = True
@@ -333,6 +336,7 @@ def danavoxChecker():
     dxebmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^52?2G@I^") + "fitting-software-download"
     try:
         try:
+            pemLocalGN = False
             test = requests.get(dxebmURI)
         except:
             pemLocalGN = True
@@ -600,9 +604,10 @@ def starkeyProFitChecker():
             baseVer = config.get('Starkey', 'ProFit', fallback='2.0.10074.0')
             rawPostData = '{"ClientID":"00000000-0000-0000-0000-000000000000","ClientID2":"00000000-0000-0000-0000-000000000000+0000000000000000000","Application":"ProFit","ApplicationProperties":[{"Name":"Version","TypeName":"System.String","Value":"' + baseVer + '"},{"Name":"manufacturer","TypeName":"System.String","Value":"Starkey"},{"Name":"targetAudience","TypeName":"System.String","Value":"Starkey International English"},{"Name":"locale","TypeName":"System.String","Value":"en"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"MachineName","TypeName":"System.String","Value":"0000"},{"Name":"Time","TypeName":"System.DateTime","Value":"' + currentTime + '"}],"TestMode":false}'
             try:
+                pemLocalStarkey = False
                 rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData)
             except:
-                pemLocalStarkey == True
+                pemLocalStarkey = True
                 rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData, verify='inspireupdater-com-chain.pem')
             data = json.loads(rawJsonData.text)
             break
