@@ -64,6 +64,7 @@ try:
     try:
         test = requests.get(bsmURI)
     except:
+        print("\n" + Fore.RED + "WARNING" + Style.RESET_ALL + ": Server certification chain is broken.\nWill use local PEM file for security verification...\n")
         test = requests.get(bsmURI, verify='www-gnhearing-com-chain.pem')
     dom = lxml.html.fromstring(test.content)
     hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]

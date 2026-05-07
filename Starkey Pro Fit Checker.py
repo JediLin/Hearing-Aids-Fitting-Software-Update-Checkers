@@ -126,6 +126,7 @@ while updaterRetries > 0:
             rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData)
             rawJsonDataInspire = requests.post(postUrl, headers=headers, data = rawPostDataInspire)
         except:
+            print("\n" + Fore.RED + "WARNING" + Style.RESET_ALL + ": Server certification chain is broken.\nWill use local PEM file for security verification...\n")
             rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData, verify='inspireupdater-com-chain.pem')
             rawJsonDataInspire = requests.post(postUrl, headers=headers, data = rawPostDataInspire, verify='inspireupdater-com-chain.pem')
         data = json.loads(rawJsonData.text)
