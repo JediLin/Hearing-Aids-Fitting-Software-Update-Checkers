@@ -275,50 +275,78 @@ def philipsHearSuiteChecker(market):
 def reSoundChecker():
     rssfURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^C6D@F?5^") + "fitting-software-download"
     try:
-        test = requests.get(rssfURI, verify='www-gnhearing-com-chain.pem')
+        try:
+            test = requests.get(rssfURI)
+        except:
+            pemLocalGN = True
+            test = requests.get(rssfURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
         link1 = hrefs[-1].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"smartfit_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
-    print(updateVer)
+    if (pemLocalGN == True):
+        print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + updateVer)
+    else:
+        print(updateVer)
 
 def beltoneChecker():
     bsmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^36=E@?6^") + "fitting-software-download"
     try:
-        test = requests.get(bsmURI, verify='www-gnhearing-com-chain.pem')
+        try:
+            test = requests.get(bsmURI)
+        except:
+            pemLocalGN = True
+            test = requests.get(bsmURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
         link1 = hrefs[-1].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"solusmax_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
-    print(updateVer)
+    if (pemLocalGN == True):
+        print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + updateVer)
+    else:
+        print(updateVer)
 
 def intertonChecker():
     ifURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^:?E6CE@?^") + "fitting-software-download"
     try:
-        test = requests.get(ifURI, verify='www-gnhearing-com-chain.pem')
+        try:
+            test = requests.get(ifURI)
+        except:
+            pemLocalGN = True
+            test = requests.get(ifURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
         link1 = hrefs[-1].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"fitting_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
-    print(updateVer)
+    if (pemLocalGN == True):
+        print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + updateVer)
+    else:
+        print(updateVer)
 
 def danavoxChecker():
     dxebmURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^52?2G@I^") + "fitting-software-download"
     try:
-        test = requests.get(dxebmURI, verify='www-gnhearing-com-chain.pem')
+        try:
+            test = requests.get(dxebmURI)
+        except:
+            pemLocalGN = True
+            test = requests.get(dxebmURI, verify='www-gnhearing-com-chain.pem')
         dom = lxml.html.fromstring(test.content)
         hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
         link1 = hrefs[-1].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"xebemore_", "", re.sub(r"_releaseversion\.zip", "", os.path.basename(urlparse(link1).path))) + Style.RESET_ALL
     except:
         updateVer = Fore.RED + "Error" + Style.RESET_ALL
-    print(updateVer)
+    if (pemLocalGN == True):
+        print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + updateVer)
+    else:
+        print(updateVer)
 
 # WSA: Signia, Rexton, Audio Service, A&M, Widex
 def signiaConnexxChecker(market):
@@ -571,7 +599,11 @@ def starkeyProFitChecker():
             postUrl = rot_codec.rot47_decode("9EEADi^^:?DA:C6FA52E6C]4@>^2A:^&A52E6")
             baseVer = config.get('Starkey', 'ProFit', fallback='2.0.10074.0')
             rawPostData = '{"ClientID":"00000000-0000-0000-0000-000000000000","ClientID2":"00000000-0000-0000-0000-000000000000+0000000000000000000","Application":"ProFit","ApplicationProperties":[{"Name":"Version","TypeName":"System.String","Value":"' + baseVer + '"},{"Name":"manufacturer","TypeName":"System.String","Value":"Starkey"},{"Name":"targetAudience","TypeName":"System.String","Value":"Starkey International English"},{"Name":"locale","TypeName":"System.String","Value":"en"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"MachineName","TypeName":"System.String","Value":"0000"},{"Name":"Time","TypeName":"System.DateTime","Value":"' + currentTime + '"}],"TestMode":false}'
-            rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData, verify='inspireupdater-com-chain.pem')
+            try:
+                rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData)
+            except:
+                pemLocalStarkey == True
+                rawJsonData = requests.post(postUrl, headers=headers, data = rawPostData, verify='inspireupdater-com-chain.pem')
             data = json.loads(rawJsonData.text)
             break
         except:
@@ -585,7 +617,10 @@ def starkeyProFitChecker():
             print(Fore.GREEN + "v" + baseVer + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
 
         updateVer = data['Update']['Title'] + ' (' + data['Update']['Version'] + ')'
-        print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
+        if (pemLocalStarkey == True):
+            print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
+        else:
+            print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
 
 def starkeyPatientBaseChecker():
     pbURI = rot_codec.rot47_decode("9EEADi^^A2E:6?E32D6]DE2C<6J962C:?8E649?@=@8:6D]4@>")
