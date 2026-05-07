@@ -376,8 +376,8 @@
 
 ### Pre-release (work-in-progress)
 - Sonic: removed due to its discontinue
-- ReSound/Beltone/Interton/Danavox/HIMSA: update archived versions
 - ReSound/Beltone/Interton/Danavox: update certification chain file
 - ReSound/Beltone/Interton/Danavox/Starkey: try NOT using local certification chain file by default, only trying doing so if certification chain is broken
+- ReSound/Beltone/Interton/Danavox/HIMSA: update archived versions
 - Menu: minor color adjustment
 - Menu: text adjustment
