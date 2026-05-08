@@ -374,10 +374,12 @@
 - Quick Scan: remove unused scripts
 - Portable release: update Python modules
 
-### Pre-release (work-in-progress)
+### v2026.05.08
 - Sonic: removed due to its discontinue
 - ReSound/Beltone/Interton/Danavox/Starkey: update certification chain file
 - ReSound/Beltone/Interton/Danavox/Starkey: try NOT using local certification chain file by default, only trying doing so if certification chain is broken
 - ReSound/Beltone/Interton/Danavox/HIMSA: update archived versions
 - Menu: minor color adjustment
 - Menu: text adjustment
+- Portable release: update Python for Win10x64 to v3.14.4
+- Portable release: update Python modules
