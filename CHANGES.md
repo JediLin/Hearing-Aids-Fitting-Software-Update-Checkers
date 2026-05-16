@@ -383,3 +383,6 @@
 - Menu: text adjustment
 - Portable release: update Python for Win10x64 to v3.14.4
 - Portable release: update Python modules
+
+### Pre-release (work-in-progress)
+- Sonic: added back the last known version

@@ -33,6 +33,9 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Sonic: added back the last known version
+
 ### v2026.05.08
 - Sonic: removed due to its discontinue
 - ReSound/Beltone/Interton/Danavox/Starkey: update certification chain file
