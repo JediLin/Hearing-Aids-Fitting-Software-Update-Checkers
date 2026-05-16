@@ -82,9 +82,6 @@ validVersions = [
 ]
 print("\n\nThe latest available version is " + Fore.GREEN + "EXPRESSfit Pro 2024.2" + Style.RESET_ALL + "\n\n")
 
-if (libhearingdownloader.verboseDebug):
-    print(filesToDownload)
-
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
 targetVersion = libhearingdownloader.selectFromList(validVersions)
