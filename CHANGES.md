@@ -385,4 +385,6 @@
 - Portable release: update Python modules
 
 ### Pre-release (work-in-progress)
-- Sonic: added back the last known version
+- Sonic: added back for the update server is actually still working, at least for now
+- Portable release: update Python for Win10x64 to v3.14.5
+- Portable release: update Python modules
