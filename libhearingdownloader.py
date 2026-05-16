@@ -193,12 +193,14 @@ def selectOutputFolder():
     return normalizePath(outputDir, False)
 
 def downloadFile(url, saveLocation, downloadDescription):
+    if(verboseDebug):
+        print("\nURL: " + url)
     os.makedirs('/'.join(saveLocation.split("/")[:-1]), exist_ok=True) # Create path if it doesn't exist
     # Workaround something like 'Akamai-Cache-Status': 'Miss from child'
     streamRetries = updaterRetries
     while streamRetries > 0:
         if(verboseDebug):
-            print("\nCounter: " + str(streamRetries) + "\n")
+            print("Counter: " + str(streamRetries) + "\n")
         try:
             fileData = requests.get(url, headers={'User-Agent': uaString}, stream=True) # Get file stream
             chunkSize = 2048
