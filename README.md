@@ -33,19 +33,9 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2026.05.16
 - Sonic: added back for the update server is actually still working, at least for now
 - Portable release: update Python for Win10x64 to v3.14.5
-- Portable release: update Python modules
-
-### v2026.05.08
-- Sonic: removed due to its discontinue
-- ReSound/Beltone/Interton/Danavox/Starkey: update certification chain file
-- ReSound/Beltone/Interton/Danavox/Starkey: try NOT using local certification chain file by default, only trying doing so if certification chain is broken
-- ReSound/Beltone/Interton/Danavox/HIMSA: update archived versions
-- Menu: minor color adjustment
-- Menu: text adjustment
-- Portable release: update Python for Win10x64 to v3.14.4
 - Portable release: update Python modules
 
 Please refer to [full changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
