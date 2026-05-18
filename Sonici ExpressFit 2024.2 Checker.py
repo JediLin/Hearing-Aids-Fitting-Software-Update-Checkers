@@ -3,8 +3,6 @@
 #                   Copyright Bluebotlabz                   #
 #                                                           #
 #############################################################
-import configparser
-import html
 import requests
 from pathlib import Path
 from colorama import just_fix_windows_console
@@ -60,26 +58,17 @@ filesToDownload = [
 
 downloadURI = rot_codec.rot47_decode("9EEADi^^:?DE2==45?]D@?:4:]4@>^ac]a^ab]ac]`c]_^tIAC6DDu:E^$@?:4^eh234d3a^")
 
-# Backup from IA
-iaBase = rot_codec.rot47_decode("9EEADi^^H63]2C49:G6]@C8^H63^a_ae_d`e_b")
-downloadURLfromIA = [
-    iaBase + "3802if_/" + downloadURI,
-    iaBase + "4400if_/" + downloadURI,
-    iaBase + "4312if_/" + downloadURI,
-    iaBase + "4127if_/" + downloadURI,
-    iaBase + "4055if_/" + downloadURI,
-    iaBase + "4031if_/" + downloadURI,
-    iaBase + "3932if_/" + downloadURI,
-    iaBase + "3909if_/" + downloadURI,
-    iaBase + "3958if_/" + downloadURI,
-]
-
 # Define list of valid versions and their download links (direct from CDN) (predefined to online and offline of latest version)
-validVersions = [
-    ("EXPRESSfit Pro 2024.2", "The latest SONIC EXPRESSFIT Installer (OFFLINE)"),
-    ("EXPRESSfit Pro 2024.2", "The latest SONIC EXPRESSFIT Installer (ONLINE)"),
-    ("EXPRESSfit Pro 2024.2", "The latest SONIC EXPRESSFIT Installer (backup)"),
-]
+serverResponse = requests.get(downloadURI + filesToDownload[0])
+if (serverResponse.status_code == 200):
+    validVersions = [
+        ("EXPRESSfit Pro 2024.2", "The latest SONIC EXPRESSFIT Installer (OFFLINE)"),
+        ("EXPRESSfit Pro 2024.2", "The latest SONIC EXPRESSFIT Installer (ONLINE)"),
+    ]
+else:
+    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
+    exit(1)
+
 print("\n\nThe latest available version is " + Fore.GREEN + "EXPRESSfit Pro 2024.2" + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
@@ -101,13 +90,5 @@ elif (targetVersion == 1):
     fileIndex = 1
     fileToDownload = "setup.exe"
     libhearingdownloader.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1])
-elif (targetVersion == 2):
-    outputDir += libhearingdownloader.normalizePath("EXPRESSfit Pro 2024.2" + "/")
-    # Download and save the files
-    print("Downloading " + str(len(filesToDownload)) + " files\n")
-    fileIndex = 1
-    for fileToDownload in filesToDownload:
-        libhearingdownloader.downloadFile(downloadURLfromIA[fileIndex - 1] + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1] + " (" + str(fileIndex) + "/" + str(len(filesToDownload)) + ")")
-        fileIndex += 1
 
 print("\n\nDownload Complete!")
