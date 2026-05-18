@@ -33,13 +33,8 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2026.05.18
 - Sonic: backup removed due to be unreliable
-
-### v2026.05.16
-- Sonic: added back for the update server is actually still working, at least for now
-- Portable release: update Python for Win10x64 to v3.14.5
-- Portable release: update Python modules
 
 Please refer to [full changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
 

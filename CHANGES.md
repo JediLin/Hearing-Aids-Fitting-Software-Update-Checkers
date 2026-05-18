@@ -389,5 +389,5 @@
 - Portable release: update Python for Win10x64 to v3.14.5
 - Portable release: update Python modules
 
-### Pre-release (work-in-progress)
+### v2026.05.18
 - Sonic: backup removed due to be unreliable
