@@ -35,7 +35,7 @@ print("\n\nThe latest available version is " + Style.BRIGHT + Fore.GREEN + data[
 print("\nYou are using " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + "\n")
 
 if (data['tag_name'] == libhearingdownloader.downloaderVersion):
-    print("No update available.\n")
+    print("No update is available.\n")
     # exit(1)
 
 availableFiles = [] # List of available files

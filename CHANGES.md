@@ -391,3 +391,4 @@
 
 ### v2026.05.18
 - Sonic: backup removed due to be unreliable
+- Self Update Checker: fix typo

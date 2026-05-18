@@ -35,6 +35,7 @@ Thanks [who helped this project](CREDITS.md).
 
 ### v2026.05.18
 - Sonic: backup removed due to be unreliable
+- Self Update Checker: fix typo
 
 Please refer to [full changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
 
