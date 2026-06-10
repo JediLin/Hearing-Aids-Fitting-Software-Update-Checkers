@@ -33,6 +33,9 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Quick Scan: add back Starkey Inspire
+
 ### v2026.05.18
 - Sonic: backup removed due to be unreliable
 - Self Update Checker: fix typo

@@ -392,3 +392,6 @@
 ### v2026.05.18
 - Sonic: backup removed due to be unreliable
 - Self Update Checker: fix typo
+
+### Pre-release (work-in-progress)
+- Quick Scan: add back Starkey Inspire

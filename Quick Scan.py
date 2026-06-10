@@ -627,6 +627,61 @@ def starkeyProFitChecker():
         else:
             print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
 
+def starkeyInspireChecker():
+    currentIP = ""
+    currentCountry = ""
+    currentIP = getIP()
+    if(currentIP == ""):
+        currentCountry = config.get('Starkey', 'Market', fallback='US')
+    else:
+        currentCountry = getCN(currentIP)
+
+    if(currentCountry == ""):
+        currentCountry = config.get('Starkey', 'Market', fallback='US')
+    else:
+        pass
+
+    currentCountry_name = countries.get(currentCountry)
+    defaultGeoIP = currentCountry_name.apolitical_name
+    geoIP = defaultGeoIP
+
+    currentTime = datetime.datetime.now(tz=tzlocal.get_localzone()).strftime('%m/%d/%Y %H:%M:%S')
+    headers = {
+        "Host": "inspireupdater.com",
+        "Content-Type": "application/json; charset=utf-8"
+    }
+
+    updaterRetries = libhearingdownloader.updaterRetries
+    while updaterRetries > 0:
+        try:
+            postUrl = rot_codec.rot47_decode("9EEADi^^:?DA:C6FA52E6C]4@>^2A:^&A52E6")
+            baseOS = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
+            baseVerInspire = config.get('Starkey', 'Inspire', fallback='27.0.10074.0')
+            rawPostDataInspire = '{"ClientID":"00000000-0000-0000-0000-000000000000","ClientID2":"00000000-0000-0000-0000-000000000000+0000000000000000000","Application":"Inspire OS","ApplicationProperties":[{"Name":"Version","TypeName":"System.Version","Value":"' + baseVerInspire + '"},{"Name":"manufacturer","TypeName":"System.String","Value":"Starkey"},{"Name":"targetAudience","TypeName":"System.String","Value":"Starkey International English"},{"Name":"locale","TypeName":"System.String","Value":"en"},{"Name":"BillToAccountNumber","TypeName":"System.String","Value":"unknown"},{"Name":"ShipToAccountNumber","TypeName":"System.String","Value":"unknown"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"Country","TypeName":"System.String","Value":"' + geoIP + '"},{"Name":"MachineName","TypeName":"System.String","Value":"0000"},{"Name":"OSVersion","TypeName":"System.String","Value":"' + baseOS + '"},{"Name":"OSBitWidth","TypeName":"System.Byte","Value":"64"},{"Name":"Time","TypeName":"System.DateTime","Value":"' + currentTime + '"}],"TestMode":false}'
+            try:
+                pemLocalStarkey = False
+                rawJsonDataInspire = requests.post(postUrl, headers=headers, data = rawPostDataInspire)
+            except:
+                pemLocalStarkey = True
+                rawJsonDataInspire = requests.post(postUrl, headers=headers, data = rawPostDataInspire, verify='inspireupdater-com-chain.pem')
+            dataInspire = json.loads(rawJsonDataInspire.text)
+            break
+        except:
+            pass
+
+        updaterRetries -= 1
+    if (updaterRetries == 0):
+        print(Fore.RED + "Error" + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
+    else:
+        if (dataInspire['Update'] is None):
+            print(Fore.GREEN + "v" + baseVerInspire + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
+
+        updateVer = dataInspire['Update']['Title'] + ' (' + dataInspire['Update']['Version'] + ')'
+        if (pemLocalStarkey == True):
+            print(Fore.RED + "[INSECURE]" + Style.RESET_ALL + " " + Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
+        else:
+            print(Fore.GREEN + "v" + re.sub(r"\)", "", re.sub(r".+\(", "", updateVer)) + Style.RESET_ALL + " (" + Fore.YELLOW + geoIP + Style.RESET_ALL + ")", end="")
+
 def starkeyPatientBaseChecker():
     pbURI = rot_codec.rot47_decode("9EEADi^^A2E:6?E32D6]DE2C<6J962C:?8E649?@=@8:6D]4@>")
     certVerify = config.getboolean('Starkey', 'PatientBaseVerify', fallback='True')
@@ -981,6 +1036,13 @@ else:
 print("Starkey Pro Fit: ", end="")
 if (scanStarkey):
     starkeyProFitChecker()
+    print(".")
+else:
+    print(Style.DIM + "skipped." + Style.RESET_ALL)
+
+print("Starkey Inspire: ", end="")
+if (scanStarkey):
+    starkeyInspireChecker()
     print(".")
 else:
     print(Style.DIM + "skipped." + Style.RESET_ALL)
