@@ -395,3 +395,4 @@
 
 ### Pre-release (work-in-progress)
 - Quick Scan: add back Starkey Inspire
+- Phonak: workaround for Roger Upgrader checker in case relative path is used on its webpage
