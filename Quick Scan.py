@@ -107,11 +107,11 @@ def phonakRogerChecker():
     try:
         test = requests.get(ruURI)
         dom = lxml.html.fromstring(test.content)
-        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
+        hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'oger' in x and 'zip' in x]
         try:
             link0 = hrefs[0].replace('%20', ' ')
         except:
-            hrefs = [x for x in dom.xpath('//a/@href') if '/' in x and 'zip' in x]
+            hrefs = [x for x in dom.xpath('//a/@href') if '/' in x and 'oger' in x and 'zip' in x]
             link0 = "https://www.phonak.com" + hrefs[0].replace('%20', ' ')
         updateVer = Fore.GREEN + "v" + re.sub(r"[Rr]oger.*[Uu]pgrader(\d)\.*", r"\1.", re.sub(r"\.zip\.coredownload\.zip", "", os.path.basename(urlparse(link0).path))) + Style.RESET_ALL
     except:

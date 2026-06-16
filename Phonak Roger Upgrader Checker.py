@@ -53,11 +53,11 @@ ruURI = "https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrade
 try:
     test = requests.get(ruURI)
     dom = lxml.html.fromstring(test.content)
-    hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'zip' in x]
+    hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'oger' in x and 'zip' in x]
     try:
         link0 = hrefs[0].replace('%20', ' ')
     except:
-        hrefs = [x for x in dom.xpath('//a/@href') if '/' in x and 'zip' in x]
+        hrefs = [x for x in dom.xpath('//a/@href') if '/' in x and 'oger' in x and 'zip' in x]
         link0 = "https://www.phonak.com" + hrefs[0].replace('%20', ' ')
     filename0 = re.sub(r"\....\.coredownload", "", os.path.basename(urlparse(link0).path))
     title0 = "Roger Upgrader Software v" + re.sub(r"\.zip", "", re.sub(r"[Rr]oger.*[Uu]pgrader(\d)\.*", r"\1.", filename0))
