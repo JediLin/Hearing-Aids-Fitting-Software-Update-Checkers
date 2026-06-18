@@ -95,7 +95,7 @@ validVersions = [
     ("manual", "Manually specify a version of Beltone Solus Max (" + Fore.RED + "WARNING" + Style.RESET_ALL + ": ADVANCED USERS ONLY)", ""),
     (" ", "--"),
     ("Archived Versions", "--"),
-    ("Beltone Solus Max v2.3 Update 2", "solusmax_2.3.334.43_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^36=E@?6^D@=FD>2I0a]b]bbc]cb0C6=62D6G6CD:@?]K:A")),
+    ("Beltone Solus Max v2.3 Update 3", "solusmax_2.3.334.51_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^36=E@?6^D@=FD>2I0a]b]bbc]d`0C6=62D6G6CD:@?]K:A")),
     ("Beltone Solus Max v2.2 Update 2", "solusmax_2.2.209.13_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^36=E@?6^D@=FD>2I0a]a]a_h]`b0C6=62D6G6CD:@?]K:A")),
     ("Beltone Solus Max v2.1 Update 2", "solusmax_2.1.305.17_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^36=E@?6^D@=FD>2I0a]`]b_d]`f0C6=62D6G6CD:@?]K:A")),
     ("Beltone Solus Max v2.0 Update 3", "solusmax_2.0.132.26_releaseversion.zip", rot_codec.rot47_decode("9EEADi^^DFAA@CE8?]8?@?=:?6D6CG:46D]4@>^5@H?=@25D^36=E@?6^D@=FD>2I0a]_]`ba]ae0C6=62D6G6CD:@?]K:A")),

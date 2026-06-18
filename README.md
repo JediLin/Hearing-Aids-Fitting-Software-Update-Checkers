@@ -36,6 +36,7 @@ Thanks [who helped this project](CREDITS.md).
 ### Pre-release (work-in-progress)
 - Quick Scan: add back Starkey Inspire
 - Phonak: workaround for Roger Upgrader checker in case relative path is used on its webpage
+- ReSound/Beltone/Interton/Danavox: update archived versions
 
 ### v2026.05.18
 - Sonic: backup removed due to be unreliable
