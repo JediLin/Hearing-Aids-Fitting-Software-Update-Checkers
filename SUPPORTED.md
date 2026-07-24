@@ -43,6 +43,7 @@ This project currently supports:
   - Audio Service Connexx
   - A&M Connexx
   - Widex [Compass GPS](https://www.widexpro.com/en/business-support/compass/)
+  - Coselgi [C-Tune II](https://www.coselgi.com/en/professionals/fitting-software/)
 - Miracle-Ear Harmony II
 - Starkey
   - [Pro Fit](https://www.starkeypro.com/products/other-products/software/pro-fit)
