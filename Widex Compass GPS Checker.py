@@ -14,6 +14,7 @@ from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 import libhearingdownloader
+import rot_codec
 
 just_fix_windows_console()
 
@@ -51,7 +52,6 @@ config.read('config.ini')
 fallbackMarket = config.get('Widex', 'Market', fallback='Main_Test_Distributor')
 
 # Read target market from GitHub or local configuration
-fallbackMarket = "Main_Test_Distributor"
 localMarketPath = Path("Widex.market")
 onlineMarketPath = "https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/raw/refs/heads/main/Widex.market"
 defaultMarketSrc = ""
@@ -155,17 +155,21 @@ print("\n\nThe latest available " + baseId + " version for " + Fore.GREEN + targ
 
 # List of versions
 validVersions = [
+    ("Current Versions", "--"),
     (latestVersion, 'The latest available ' + baseId + ' verion'),
     ('manual', 'Manually specify a version (' + Fore.RED + 'WARNING' + Style.RESET_ALL + ': ADVANCED USERS ONLY)'),
+    (" ", "--"),
+    ("Archived Versions", "--"),
+    ("4.10.6454 Image", "Compass GPS 4.10.6454 Image.zip", rot_codec.rot47_decode("9EEADi^^H:56I3:K4@?E6?EC6A=246>6?E]H:56I]4@>^r@D6=8:^$@7EH2C6^r")+"-"+rot_codec.rot47_decode("%F?6^r@>A2DD v!$ c]`_]ecdc x>286]K:A")),
 ]
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
-targetVersion = validVersions[libhearingdownloader.selectFromList(validVersions)][0]
+targetVersion = validVersions[libhearingdownloader.selectFromList(validVersions)]
 print("\n\n")
 
 # Logic for "manual" versions
-if (targetVersion == 'manual'):
+if (targetVersion[0] == 'manual'):
     manualVersion = True
     targetVersion = ''
     while not targetVersion:
@@ -181,20 +185,23 @@ if (targetVersion == 'manual'):
             if (not targetRevision.isdecimal()):
                 print("\nThe revision you have selected is " + Fore.RED + "invalid" + Style.RESET_ALL + ".\nPlease try again. (" + Fore.YELLOW + "hint" + Style.RESET_ALL + ": it should be in a single integer)")
                 targetRevision = ''
-        targetVersion = targetBaseVersion + " (Revision " + targetRevision + ")"
-        if (input("\nYou have selected version (" + Fore.YELLOW + targetVersion + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
+        targetVersion = [targetBaseVersion + " (Revision " + targetRevision + ")"]
+        if (input("\nYou have selected version (" + Fore.YELLOW + targetVersion[0] + Style.RESET_ALL + ") are you sure you want to download it? [" + Style.DIM + "(" + Style.BRIGHT + Fore.GREEN + "Y" + Style.RESET_ALL + Style.DIM + ")" + Style.RESET_ALL + "/n] ") == "n"):
             targetVersion = ''
 else:
     manualVersion = False
 
 # Create download folder
-outputDir += "Widex Compass GPS " + targetVersion + "/"
+outputDir += "Widex Compass GPS " + targetVersion[0] + "/"
 if (libhearingdownloader.verboseDebug):
     print(outputDir)
 
 print ("Downloading directory index")
 
-packageResources = data['Packages'][0]['Resources']
+if (manualVersion) or (targetVersion[0] == latestVersion):
+    packageResources = data['Packages'][0]['Resources']
+else:
+    packageResources = [{'Name': 'Image', 'Type': 'File', 'Value': targetVersion[2]}]
 
 filesToDownload = {}
 if (manualVersion):
@@ -221,20 +228,20 @@ for fileToDownload in filesToDownload.keys():
 
     currentFile += 1
 
+if (manualVersion) or (targetVersion[0] == latestVersion):
+    print("\n\n")
+    print("Creating installer from zip")
+    with zipfile.ZipFile(outputDir + "Setup.exe.zip", 'r') as zipFile:
+        zipFile.extractall(outputDir)
 
-print("\n\n")
-print("Creating installer from zip")
-with zipfile.ZipFile(outputDir + "Setup.exe.zip", 'r') as zipFile:
-    zipFile.extractall(outputDir)
+    os.makedirs(outputDir + "installations/")
 
-os.makedirs(outputDir + "installations/")
-
-for fileDownloaded in filesToDownload.keys():
-    if fileDownloaded != "Setup.exe.zip":
-        shutil.move(outputDir + fileDownloaded, outputDir + "installations/" + fileDownloaded)
-    else:
-        setupFile = Path(outputDir + "Setup.exe")
-        if setupFile.is_file():
-            os.remove(outputDir + fileDownloaded)
+    for fileDownloaded in filesToDownload.keys():
+        if fileDownloaded != "Setup.exe.zip":
+            shutil.move(outputDir + fileDownloaded, outputDir + "installations/" + fileDownloaded)
+        else:
+            setupFile = Path(outputDir + "Setup.exe")
+            if setupFile.is_file():
+                os.remove(outputDir + fileDownloaded)
 
 print("\n\nDownload Complete!")
