@@ -33,17 +33,15 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2026.07.31
 - Quick Scan: add back Starkey Inspire
 - Phonak: workaround for Roger Upgrader checker in case relative path is used on its webpage
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - Starkey: add archived versions
 - Widex: fix market fallback bug
 - Widex: add archived versions
-
-### v2026.05.18
-- Sonic: backup removed due to be unreliable
-- Self Update Checker: fix typo
+- Portable release: update Python for Win10x64 to v3.14.6
+- Portable release: update Python modules
 
 Please refer to [full changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
 
