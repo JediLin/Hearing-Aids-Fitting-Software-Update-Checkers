@@ -402,3 +402,6 @@
 - Widex: add archived versions
 - Portable release: update Python for Win10x64 to v3.14.6
 - Portable release: update Python modules
+
+### Pre-release (work-in-progress)
+- Starkey: add archived versions

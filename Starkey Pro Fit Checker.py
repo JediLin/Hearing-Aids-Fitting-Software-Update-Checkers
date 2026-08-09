@@ -189,6 +189,7 @@ availableFiles.append( (" ", "--") )
 availableFiles.append( ("Archived Versions", "--") )
 availableFiles.append( ("Pro Fit 2026.0", "Starkey Pro Fit Setup 7.0.10110.0.exe", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^&A52E6C^a_ae^ea`_f_36") + "-" + rot_codec.rot47_decode("34b7") + "-" + rot_codec.rot47_decode("cf47") + "-" + rot_codec.rot47_decode("2ed4") + "-" + rot_codec.rot47_decode("af_`eebgcf4c^$E2C<6J !C@ u:E $6EFA f]_]`_``_]_]6I6")) )
 availableFiles.append( ("Inspire 2026.0", "Starkey Setup 28.0.10104.0.exe", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^&A52E6C^a_ae^ehhd64gg") + "-" + rot_codec.rot47_decode("4b2c") + "-" + rot_codec.rot47_decode("c26b") + "-" + rot_codec.rot47_decode("3h3`") + "-" + rot_codec.rot47_decode("6ee_h`f5bhge^$E2C<6J $6EFA ag]_]`_`_c]_]6I6")) )
+availableFiles.append( ("Inspire 2023.1", "Starkey Setup 27.1.10074.0.exe", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^a356f7`3") + "-" + rot_codec.rot47_decode("d7b3") + "-" + rot_codec.rot47_decode("cb_a") + "-" + rot_codec.rot47_decode("ggd3") + "-" + rot_codec.rot47_decode("7a6aa6d`b5cc^$E2C<6J $6EFA af]`]`__fc]_]6I6")) )
 
 if (libhearingdownloader.verboseDebug):
     print(availableFiles)
