@@ -34,7 +34,8 @@ Thanks [who helped this project](CREDITS.md).
 ## Changelog
 
 ### Pre-release (work-in-progress)
-- Starkey: add archived versions
+- ReSound/Beltone/Interton/Danavox: update archived versions
+- Starkey: update archived versions
 
 ### v2026.07.31
 - Quick Scan: add back Starkey Inspire

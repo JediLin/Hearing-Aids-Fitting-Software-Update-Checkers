@@ -404,4 +404,5 @@
 - Portable release: update Python modules
 
 ### Pre-release (work-in-progress)
-- Starkey: add archived versions
+- ReSound/Beltone/Interton/Danavox: update archived versions
+- Starkey: update archived versions
