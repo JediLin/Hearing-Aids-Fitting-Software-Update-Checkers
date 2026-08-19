@@ -406,3 +406,4 @@
 ### Pre-release (work-in-progress)
 - ReSound/Beltone/Interton/Danavox: update archived versions
 - Starkey: update archived versions
+- Self Update Checker: provide more detail on each release file

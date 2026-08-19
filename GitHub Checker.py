@@ -42,7 +42,17 @@ availableFiles = [] # List of available files
 availableFilesCount = len(data['assets'])
 while availableFilesCount > 0:
     availableFilesCount -= 1
-    availableFiles.append( (data['tag_name'], os.path.basename(data['assets'][availableFilesCount]['browser_download_url']), data['assets'][availableFilesCount]['browser_download_url']) )
+    releaseFileName = os.path.basename(data['assets'][availableFilesCount]['browser_download_url'])
+    if ("Portable" in releaseFileName):
+        if ("Win10" in releaseFileName):
+            releaseFileDescription = data['tag_name'] + " (Portable for 64-bit Windows 10+)"
+        elif ("Win7" in releaseFileName):
+            releaseFileDescription = data['tag_name'] + " (Portable for 32-bit Windows 7+)"
+        else:
+            releaseFileDescription = data['tag_name'] + " (Portable)"
+    else:
+        releaseFileDescription = data['tag_name'] + " (Standard)"
+    availableFiles.append( (releaseFileDescription, releaseFileName, data['assets'][availableFilesCount]['browser_download_url']) )
 
 availableFiles.reverse()
 
