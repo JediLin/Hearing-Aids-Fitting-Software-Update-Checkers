@@ -188,7 +188,7 @@ if (listIncludeInspire):
 availableFiles.append( (" ", "--") )
 availableFiles.append( ("Archived Versions", "--") )
 availableFiles.append( ("Pro Fit 2026.0", "Starkey Pro Fit Setup 7.0.10124.0.exe", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^&A52E6C^a_ae^hhadg_62") + "-" + rot_codec.rot47_decode("h6a6") + "-" + rot_codec.rot47_decode("cag6") + "-" + rot_codec.rot47_decode("25ff") + "-" + rot_codec.rot47_decode("heed``7g_fhe^$E2C<6J !C@ u:E $6EFA f]_]`_`ac]_]6I6")) )
-availableFiles.append( ("Inspire 2026.0", "Starkey Setup 28.0.10104.0.exe", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^&A52E6C^a_ae^ehhd64gg") + "-" + rot_codec.rot47_decode("4b2c") + "-" + rot_codec.rot47_decode("c26b") + "-" + rot_codec.rot47_decode("3h3`") + "-" + rot_codec.rot47_decode("6ee_h`f5bhge^$E2C<6J $6EFA ag]_]`_`_c]_]6I6")) )
+availableFiles.append( ("Inspire 2026.0", "Starkey Setup 28.0.10106.0.exe", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^&A52E6C^a_ae^6g2c6cdh") + "-" + rot_codec.rot47_decode("2f55") + "-" + rot_codec.rot47_decode("c2`d") + "-" + rot_codec.rot47_decode("g4h7") + "-" + rot_codec.rot47_decode("h64gh5327ed6^$E2C<6J $6EFA ag]_]`_`_e]_]6I6")) )
 availableFiles.append( ("Inspire 2023.1", "Starkey Setup 27.1.10074.0.exe", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^a356f7`3") + "-" + rot_codec.rot47_decode("d7b3") + "-" + rot_codec.rot47_decode("cb_a") + "-" + rot_codec.rot47_decode("ggd3") + "-" + rot_codec.rot47_decode("7a6aa6d`b5cc^$E2C<6J $6EFA af]`]`__fc]_]6I6")) )
 
 if (libhearingdownloader.verboseDebug):
