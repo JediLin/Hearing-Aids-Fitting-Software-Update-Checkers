@@ -114,15 +114,20 @@ while updaterRetries > 0:
         # Request the updater API with the latest version number of Phonak Target
         xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^$@F?5Dx?DE2==6C^:?56I") + "?appName=Target%20Sounds&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
         if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
-            print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Sounds version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\nNow checking again for " + Fore.GREEN + targetMarketFallback + Style.RESET_ALL + " market...\n\n")
-            targetMarket = targetMarketFallback
-            hostXmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
-            hostData = xml.fromstring(hostXmlData)
-            hostAppVer = hostData[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
-            xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^$@F?5Dx?DE2==6C^:?56I") + "?appName=Target%20Sounds&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+            if (targetMarket != targetMarketFallback):
+                print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Sounds version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\nNow checking again for " + Fore.GREEN + targetMarketFallback + Style.RESET_ALL + " market...\n\n")
+                targetMarket = targetMarketFallback
+                hostXmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Phonak%20Target&appVer=" + hostBaseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+                hostData = xml.fromstring(hostXmlData)
+                hostAppVer = hostData[0].find(xmlns + "UpdateVersion").find(xmlns + "Version").text
+                xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^$@F?5Dx?DE2==6C^:?56I") + "?appName=Target%20Sounds&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
             if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
-                print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Sounds version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
-                exit(1)
+                print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Sounds version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\nNow checking for previous known version...\n\n")
+                hostAppVer = config.get('Phonak', 'LastVersionForMedia', fallback='10.1.2') # latest known Target version with Media available
+                xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^$@F?5Dx?DE2==6C^:?56I") + "?appName=Target%20Sounds&appVer=" + baseVer + ";" + hostAppVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
+                if (xmlData == '<ArrayOfContentIndex xmlns="http://cocoon.phonak.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>'):
+                    print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": The latest available Phonak Target Sounds version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is not found!\n\n")
+                    exit(1)
         data = xml.fromstring(xmlData)
         break
     except:
