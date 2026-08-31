@@ -405,5 +405,5 @@
 
 ### Pre-release (work-in-progress)
 - Phonak: fix MEDIA and SOUNDNS checking logic with configuration file `config.ini`
-- ReSound/Beltone/Interton/Danavox/Starkey: update archived versions
+- ReSound/Beltone/Interton/Danavox/Starkey/HIMSA: update archived versions
 - Self Update Checker: provide more detail on each release file

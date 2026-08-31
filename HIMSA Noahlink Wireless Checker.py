@@ -107,6 +107,7 @@ validVersions = [
     ("Noahlink Wireless Firmware v3.3.0.0", "v2.25 (NW1) / v3.23 (NW2) (April 2025)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^}{(&A8C256C0b]b]_]_]6I6")),
     ("Noahlink Wireless Firmware v3.1.0.92", "v2.25 (NW1) / v3.17 (NW2) (May 2024)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^}{(&A8C256C0b]`]_]ha]6I6")),
     ("Noahlink Wireless Firmware v2.24", "v2.24 (NW1 only)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^}{(&A8C256Ca]ac]6I6")),
+    ("Noahlink Wireless Driver v1.1.0.2", "for Windows 10 and 11 (August 2017)", rot_codec.rot47_decode("9EEADi^^HHH]9:>D2]4@>^HA") + "-" + rot_codec.rot47_decode("4@?E6?E^FA=@25D^a_ae^_g^sC:G6C0}{(0']`]`]_]a]6I6")),
     ("Noahlink Wireless Driver v1.1.0.0", "for Windows 10 and 11 (March 2017)", rot_codec.rot47_decode("9EEADi^^9:>D27:=6D]4@>^}@29=:?<(:C6=6DD^sC:G6C0}{(0']`]`]_]_]6I6")),
 ]
 if(link0 == ""):
