@@ -53,7 +53,6 @@ certVerify = config.getboolean('Starkey', 'PatientBaseVerify', fallback='True')
 
 # Get PatientBase update from the webpage
 pbURI = rot_codec.rot47_decode("9EEADi^^A2E:6?E32D6]DE2C<6J962C:?8E649?@=@8:6D]4@>")
-fallbackDownload = rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^!2E:6?Eq2D6^!2E:6?Eq2D6 $6EFA ag]`]`__`e]_]6I6")
 try:
     if (certVerify == False):
         print("\n\n" + Fore.RED + "WARNING" + Style.RESET_ALL + ": Ignorning certification security verification for \n" + Fore.GREEN + pbURI + Style.RESET_ALL)
@@ -68,27 +67,32 @@ try:
     hrefs = [x for x in dom.xpath('//a/@href') if '//' in x and 'exe' in x]
     filename0 = os.path.basename(urlparse(hrefs[0]).path).replace('%20', ' ')
     link0 = hrefs[0].replace('%20', ' ')
+    title0 = "PatientBase v" + filename0.replace('PatientBase Setup ', '').replace('.exe', '')
 except:
     if (certVerify == True):
         print("\n\nSomething goes wrong.")
         print("\nIt is possible that the server certification is expired \nso that the security verification is failed.")
         print("\nNote: If you want to turn off the security verification, \nplease edit " + Fore.GREEN + "config.ini" + Style.RESET_ALL + " file with any plain-text editor, \nsetting " + Fore.BLUE + "PatientBaseVerify" + Style.RESET_ALL + " to " + Fore.GREEN + "False" + Style.RESET_ALL + " in the " + Fore.BLUE + "[Starkey]" + Style.RESET_ALL + " section.")
-    filename0 = "NOT FOUND"
-    link0 = fallbackDownload
+    filename0 = "--"
+    link0 = ""
+    title0 = "NOT FOUND"
 
 # Define list of valid versions and their download links (direct from CDN)
 # sadly az493319.vo.msecnd.net is no longer available...
 validVersions = [
     ("Current Version", "--"),
-    ("PatientBase v" + filename0.replace('PatientBase Setup ', '').replace('.exe', ''), filename0, link0),
+    (title0, filename0, link0),
     (" ", "--"),
     ("Archived Version", "--"),
-    ("PatientBase v28.0.10003.0", "for Pro Fit 1.0+ and Inspire 2023.1+", fallbackDownload),
+    ("PatientBase v28.1.10016.0", "for Pro Fit 1.0+ and Inspire 2023.1+", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^!2E:6?Eq2D6^!2E:6?Eq2D6 $6EFA ag]`]`__`e]_]6I6")),
 #     ("PatientBase 26.0.10014.0", "for Inspire 2022.1 - 2023.0", rot_codec.rot47_decode("9EEADi^^2Kchbb`h]G@]>D64?5]?6E^:?DE2==^!2E:6?Eq2D6 $6EFA ae]_]`__`c]_]6I6")),
 #     ("PatientBase 24.0.10102.0", "for Inspire 2021.0 - 2022.0", rot_codec.rot47_decode("9EEADi^^2Kchbb`h]G@]>D64?5]?6E^:?DE2==^!2E:6?Eq2D6 $6EFA ac]_]`_`_a]_]6I6")),
 #     ("PatientBase 15.0.386.0", "for Inspire 2016 - 2020", rot_codec.rot47_decode("9EEADi^^2Kchbb`h]G@]>D64?5]?6E^:?DE2==^!2E:6?Eq2D6 $6EFA `d]_]bge]_]6I6")),
 ]
-print("\n\nThe latest available version is " + Fore.GREEN + "v" + filename0.replace('PatientBase Setup ', '').replace('.exe', '') + Style.RESET_ALL + "\n\n")
+if (title0 == "NOT FOUND"):
+    print("\n\nThe latest available version is " + Fore.RED + title0 + Style.RESET_ALL + "\n\n")
+else:
+    print("\n\nThe latest available version is " + Fore.GREEN + title0.replace('PatientBase ', '') + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
 outputDir = libhearingdownloader.selectOutputFolder()
@@ -100,7 +104,7 @@ outputDir += validVersions[targetVersion][0] + "/"
 
 if(libhearingdownloader.verboseDebug):
     print("V:" + str(targetVersion))
-    print("T:" + validVersions[targetVersion])
+    print("T:" + validVersions[targetVersion][0])
 
 # Download the file
 libhearingdownloader.downloadFile(validVersions[targetVersion][2], outputDir + validVersions[targetVersion][2].split("/")[-1], "Downloading " + validVersions[targetVersion][0])
