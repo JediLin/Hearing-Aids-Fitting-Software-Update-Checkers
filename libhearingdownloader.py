@@ -6,7 +6,12 @@ import requests
 import sys
 
 just_fix_windows_console()
-winVer = sys.getwindowsversion()
+if (hasattr(sys, "getwindowsversion")):
+    winVer = sys.getwindowsversion()
+else:
+    # Not Windows (Linux/macOS): terminals here support ANSI colours,
+    # so report a version that passes the >= 10 colour checks below
+    winVer = (10, 0, 0)
 
 try:
     import wx

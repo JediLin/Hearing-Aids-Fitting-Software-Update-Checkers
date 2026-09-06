@@ -1,4 +1,5 @@
 import os
+import sys
 import datetime
 import requests
 from pathlib import Path
@@ -67,4 +68,5 @@ if (os.name != "nt"):
 
 selectedDownloader = libhearingdownloader.selectFromList(downloaders, "function", numberSeperator=')', confirmationCheck=False)
 
-os.system('python ./"' + downloaders[selectedDownloader][2] + '"')
+# Use the interpreter running this menu ('python' may not exist on macOS/Linux)
+os.system('"' + sys.executable + '" ./"' + downloaders[selectedDownloader][2] + '"')
