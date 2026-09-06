@@ -5,3 +5,4 @@
 - [@tenkan](https://forum.hearingtracker.com/u/tenkan/summary): Finding the Genie (2) download page links
 - [@labuwx](https://github.com/labuwx): Provide [vital information](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/3) about rebranded private label variations of Bernafon OasisNXT
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
+- [@pingloss](https://github.com/pingloss): macOS/Linux fix generated with [Claude Code](https://claude.com/claude-code)
