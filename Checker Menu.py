@@ -92,4 +92,6 @@ if (os.name != "nt"):
 selectedDownloader = libhearingdownloader.selectFromList(downloaders, "function", numberSeperator=')', confirmationCheck=False)
 
 # Use the interpreter running this menu ('python' may not exist on macOS/Linux)
-os.system('"' + sys.executable + '" ./"' + downloaders[selectedDownloader][2] + '"')
+if(libhearingdownloader.verboseDebug):
+    print('"' + '"' + sys.executable + '"' + ' ./"' + downloaders[selectedDownloader][2] + '"' + '"')
+os.system('"' + '"' + sys.executable + '"' + ' ./"' + downloaders[selectedDownloader][2] + '"' + '"')
