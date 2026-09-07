@@ -405,7 +405,7 @@
 
 ### v2026.09.07
 - Fix Linux/macOS compatibility [merge [PR #13](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/pull/13), which sadly breaks Windows compatibility because Claude Code is dumb... anyway this should be fixed now]
-- Phonak: fix MEDIA and SOUNDNS checking logic with configuration file `config.ini`
+- Phonak: fix Target Media and Target Sounds checking logic with configuration file `config.ini`
 - ReSound/Beltone/Interton/Danavox/Starkey/HIMSA: update archived versions
 - Starkey PatientBase: fix fallback logic
 - Starkey PatientBase: fix verbose output bug
