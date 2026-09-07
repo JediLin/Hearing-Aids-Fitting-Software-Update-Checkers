@@ -1,5 +1,6 @@
 import os
 import sys
+import subprocess
 import requests
 from pathlib import Path
 from colorama import just_fix_windows_console
@@ -93,5 +94,7 @@ selectedDownloader = libhearingdownloader.selectFromList(downloaders, "function"
 
 # Use the interpreter running this menu ('python' may not exist on macOS/Linux)
 if(libhearingdownloader.verboseDebug):
-    print('""' + sys.executable + '" ./"' + downloaders[selectedDownloader][2] + '""')
-os.system('""' + sys.executable + '" ./"' + downloaders[selectedDownloader][2] + '""')
+    print([sys.executable, "./" + downloaders[selectedDownloader][2]])
+# Launch without a shell: cmd.exe and POSIX sh need incompatible quoting
+# for a program path and argument that both contain spaces
+subprocess.call([sys.executable, "./" + downloaders[selectedDownloader][2]])
