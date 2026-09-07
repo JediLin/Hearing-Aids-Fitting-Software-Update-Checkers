@@ -48,7 +48,7 @@ Thanks [who helped this project](CREDITS.md).
 - Starkey: add archived versions
 - Widex: fix market fallback bug
 - Widex: add archived versions
-- Portable release: update Python for Win10x64 to v3.14.6 ([python-3.14.6-embed-amd64.zip](https://www.python.org/ftp/python/3.14.6/python-3.14.6-embed-amd64.zip))
+- Portable release: update Python for Win10x64 to v3.14.6 ([python-3.14.6-embed-amd64](https://www.python.org/ftp/python/3.14.6/python-3.14.6-embed-amd64.zip) package)
 - Portable release: update Python modules
 
 Please refer to [full changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
