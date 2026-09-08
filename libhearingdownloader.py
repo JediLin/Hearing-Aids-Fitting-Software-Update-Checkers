@@ -34,7 +34,7 @@ import os
 ###
 
 #downloaderVersion = "Pre-release"
-downloaderVersion = "v2026.09.07"
+downloaderVersion = "v2026.09.08"
 updaterRetries = 3
 # Read configuration file for toggles with default True
 config = configparser.ConfigParser()

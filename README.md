@@ -33,8 +33,8 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
-### v2026.09.07
-- Fix Linux/macOS compatibility [merge [PR #13](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/pull/13), which sadly breaks Windows compatibility because Claude Code is dumb... anyway this should be fixed now]
+### v2026.09.07 + v2026.09.08
+- Fix Linux/macOS compatibility [merge [PR #13](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/pull/13) and [PR #14](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/pull/14)]
 - Phonak: fix Target Media and Target Sounds checking logic with configuration file `config.ini`
 - ReSound/Beltone/Interton/Danavox/Starkey/HIMSA: update archived versions
 - Starkey PatientBase: fix fallback logic

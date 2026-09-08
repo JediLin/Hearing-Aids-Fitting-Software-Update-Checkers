@@ -412,3 +412,6 @@
 - Self Update Checker: provide more detail on each release file
 - Portable release: update Python for Win10x64 to v3.14.7 ([python-3.14.7-embed-amd64](https://www.python.org/ftp/python/3.14.7/python-3.14.7-embed-amd64.zip) package)
 - Portable release: update Python modules
+
+### v2026.09.08
+- Fix Linux/macOS compatibility [merge [PR #14](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/pull/13)]
