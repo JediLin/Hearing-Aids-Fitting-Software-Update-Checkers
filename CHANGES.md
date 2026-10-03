@@ -417,4 +417,4 @@
 - Fix Linux/macOS compatibility [merge [PR #14](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/pull/13)]
 
 ### Pre-release (work-in-progress)
-- ReSound/Beltone/Interton/Danavox: update archived versions
+- ReSound/Beltone/Interton/Danavox/Starkey: update archived versions
