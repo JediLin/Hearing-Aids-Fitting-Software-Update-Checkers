@@ -33,8 +33,8 @@ import os
 # libhearingchecker - A useful library for the checker scripts
 ###
 
-isPreRelease = True
-lastCheckerVersion = "v2026.09.08"
+isPreRelease = False
+lastCheckerVersion = "v2026.10.05"
 if (isPreRelease):
   checkerVersion = "Pre-release"
 else:

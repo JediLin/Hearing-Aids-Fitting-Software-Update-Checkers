@@ -416,8 +416,10 @@
 ### v2026.09.08
 - Fix Linux/macOS compatibility [merge [PR #14](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/pull/13)]
 
-### Pre-release (work-in-progress)
+### v2026.10.05
 - Internal library names and variable names change
 - Better handle checker title rendering
 - Self Update Checker: better handle Pre-release versions
 - ReSound/Beltone/Interton/Danavox/Starkey: update archived versions
+- Portable release: update Python for Win10x64 to v3.14.8 ([python-3.14.8-embed-amd64](https://www.python.org/ftp/python/3.14.8/python-3.14.8-embed-amd64.zip) package)
+- Portable release: update Python modules

@@ -33,20 +33,12 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2026.10.05
 - Internal library names and variable names change
 - Better handle checker title rendering
 - Self Update Checker: better handle Pre-release versions
 - ReSound/Beltone/Interton/Danavox/Starkey: update archived versions
-
-### v2026.09.07 + v2026.09.08
-- Fix Linux/macOS compatibility [merge [PR #13](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/pull/13) and [PR #14](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/pull/14)]
-- Phonak: fix Target Media and Target Sounds checking logic with configuration file `config.ini`
-- ReSound/Beltone/Interton/Danavox/Starkey/HIMSA: update archived versions
-- Starkey PatientBase: fix fallback logic
-- Starkey PatientBase: fix verbose output bug
-- Self Update Checker: provide more detail on each release file
-- Portable release: update Python for Win10x64 to v3.14.7 ([python-3.14.7-embed-amd64](https://www.python.org/ftp/python/3.14.7/python-3.14.7-embed-amd64.zip) package)
+- Portable release: update Python for Win10x64 to v3.14.8 ([python-3.14.8-embed-amd64](https://www.python.org/ftp/python/3.14.8/python-3.14.8-embed-amd64.zip) package)
 - Portable release: update Python modules
 
 Please refer to [full changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
