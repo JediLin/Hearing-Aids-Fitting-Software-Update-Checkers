@@ -1,20 +1,29 @@
 import os
 import requests
 import json
+import re
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
-import libhearingdownloader
+import libhearingchecker
 
 just_fix_windows_console()
 
 print("\n\n")
-print("==================================================")
-print("= " + Style.BRIGHT + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL + "  =")
-print("============================" + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + "=")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Style.BRIGHT + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL
+titleTextFooter = Back.BLUE + " Self Update Checker " + Style.RESET_ALL
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-1-len(ansi_escape.sub('', titleTextFooter))) + titleTextFooter + "=")
 print("\n")
 print("Checking update from " + Fore.CYAN + "https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/" + Style.RESET_ALL + " ...")
 
-updaterRetries = libhearingdownloader.updaterRetries
+updaterRetries = libhearingchecker.updaterRetries
 while updaterRetries > 0:
     try:
         rawJsonData = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest")
@@ -28,13 +37,19 @@ if (updaterRetries == 0):
     print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
 
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(rawJsonData.text)
 
 print("\n\nThe latest available version is " + Style.BRIGHT + Fore.GREEN + data['tag_name'] + Style.RESET_ALL)
-print("\nYou are using " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + "\n")
+if (libhearingchecker.isPreRelease):
+    if (data['tag_name'] == libhearingchecker.lastCheckerVersion):
+        print("\nYou are using " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " version based on " + Fore.GREEN + libhearingchecker.lastCheckerVersion + Style.RESET_ALL + "\n")
+    else:
+        print("\nYou are using " + Fore.RED + libhearingchecker.checkerVersion + Style.RESET_ALL + " version based on " + Fore.RED + "LEGACY " + libhearingchecker.lastCheckerVersion + Style.RESET_ALL + "\n")
+else:
+    print("\nYou are using " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + "\n")
 
-if (data['tag_name'] == libhearingdownloader.downloaderVersion):
+if (data['tag_name'] == libhearingchecker.checkerVersion):
     print("No update is available.\n")
     # exit(1)
 
@@ -56,12 +71,12 @@ while availableFilesCount > 0:
 
 availableFiles.reverse()
 
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(availableFiles)
 
 # Select outputDir and targetFile
-outputDir = libhearingdownloader.selectOutputFolder()
-targetFile = availableFiles[libhearingdownloader.selectFromList(availableFiles)]
+outputDir = libhearingchecker.selectOutputFolder()
+targetFile = availableFiles[libhearingchecker.selectFromList(availableFiles)]
 
 # Create download folder
 downloadVer = 'Update Checker ' + targetFile[0]
@@ -69,6 +84,6 @@ outputDir += '.'.join(downloadVer.split('.')) + "/"
 print("\n\n")
 
 # Download file
-libhearingdownloader.downloadFile(targetFile[2], outputDir + targetFile[1], "Downloading " + targetFile[1])
+libhearingchecker.downloadFile(targetFile[2], outputDir + targetFile[1], "Downloading " + targetFile[1])
 
 print("\n\nDownload Complete!")

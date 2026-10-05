@@ -5,24 +5,32 @@
 #############################################################
 import configparser
 import requests
+import re
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 from iso3166 import countries
-import libhearingdownloader
+import libhearingchecker
 import xml.etree.ElementTree as xml
 import rot_codec
 
 just_fix_windows_console()
 
 print("\n\n")
-print("==================================================")
-print("=          " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target Update Checker          =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target Update Checker"
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWarranty()
+    libhearingchecker.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",
@@ -44,7 +52,7 @@ disclaimer = [
 
 # Display disclaimer
 if not turboFile.is_file():
-    libhearingdownloader.printDisclaimer(disclaimer)
+    libhearingchecker.printDisclaimer(disclaimer)
 
 # Read configuration file for toggles with default True
 config = configparser.ConfigParser()
@@ -100,7 +108,7 @@ else:
 print("\n\nFetching Data...")
 xmlns = "{http://cocoon.phonak.com}" # Define the xmlns
 
-updaterRetries = libhearingdownloader.updaterRetries
+updaterRetries = libhearingchecker.updaterRetries
 while updaterRetries > 0:
     try:
         # checker variables, may effect the latest version available from API
@@ -139,8 +147,8 @@ validVersions = [
 ]
 
 # Select outputDir and targetVersion
-outputDir = libhearingdownloader.selectOutputFolder()
-targetVersion = validVersions[libhearingdownloader.selectFromList(validVersions)][0]
+outputDir = libhearingchecker.selectOutputFolder()
+targetVersion = validVersions[libhearingchecker.selectFromList(validVersions)][0]
 print("\n\n")
 
 
@@ -162,7 +170,7 @@ else:
     # Create download folder
     fileToDownload = [item for item in validVersions if item[0] == targetVersion][0][2]
     outputDir += "Phonak " + targetVersion + "/"
-    libhearingdownloader.downloadFile(fileToDownload, outputDir + fileToDownload.split("/")[-1], "Downloading " + fileToDownload.split("/")[-1])
+    libhearingchecker.downloadFile(fileToDownload, outputDir + fileToDownload.split("/")[-1], "Downloading " + fileToDownload.split("/")[-1])
     print("\n\nDownload Complete!")
     exit(1)
 
@@ -177,17 +185,17 @@ print ("Downloading directory index")
 filesToDownload = {}
 for child in data[0].find(xmlns + "ContentInfos"):
     # Construct paths
-    filesToDownload[(outputDir + child.find(xmlns + "Key").text).replace(latestVersion, targetVersion)] = (libhearingdownloader.normalizePath(phonakCDNPath, False) + libhearingdownloader.normalizePath(child.find(xmlns + "RemotePath").text, False) + child.find(xmlns + "Key").text).replace(latestVersion, targetVersion)
+    filesToDownload[(outputDir + child.find(xmlns + "Key").text).replace(latestVersion, targetVersion)] = (libhearingchecker.normalizePath(phonakCDNPath, False) + libhearingchecker.normalizePath(child.find(xmlns + "RemotePath").text, False) + child.find(xmlns + "Key").text).replace(latestVersion, targetVersion)
 
 # Download and save the files
 print("Downloading " + str(len(filesToDownload.keys())) + " files\n")
 currentFile = 1
 for fileToDownload in filesToDownload.keys():
-    if (libhearingdownloader.verboseDebug):
+    if (libhearingchecker.verboseDebug):
         print(filesToDownload[fileToDownload])
 
     # Download file
-    libhearingdownloader.downloadFile(filesToDownload[fileToDownload], fileToDownload, "Downloading " + fileToDownload.split("/")[-1] + " (" + str(currentFile) + "/" + str(len(filesToDownload.keys())) + ")")
+    libhearingchecker.downloadFile(filesToDownload[fileToDownload], fileToDownload, "Downloading " + fileToDownload.split("/")[-1] + " (" + str(currentFile) + "/" + str(len(filesToDownload.keys())) + ")")
 
     currentFile += 1
 

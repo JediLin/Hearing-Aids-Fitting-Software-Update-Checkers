@@ -2,10 +2,11 @@ import os
 import sys
 import subprocess
 import requests
+import re
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
-import libhearingdownloader
+import libhearingchecker
 
 just_fix_windows_console()
 
@@ -13,16 +14,16 @@ just_fix_windows_console()
 print("\033c\033[3J", end='')
 
 selfUpdateOption = "Self Update Checker"
-updaterRetries = libhearingdownloader.updaterRetries
+updaterRetries = libhearingchecker.updaterRetries
 while updaterRetries > 0:
     try:
         checkerRelease = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/releases/latest")
-        if not (checkerRelease.json()['tag_name'] == libhearingdownloader.downloaderVersion):
+        if not (checkerRelease.json()['tag_name'] == libhearingchecker.lastCheckerVersion):
             selfUpdateOption = Back.BLUE + " Self Update Checker " + Style.RESET_ALL + Fore.CYAN + " >> " + Style.BRIGHT + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.NORMAL + " AVAILABLE " + Fore.CYAN + "<<" + Style.RESET_ALL
-            if (libhearingdownloader.downloaderVersion == "Pre-release"):
-                print("\n\n\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
+            if (libhearingchecker.isPreRelease):
+                print("\n\n\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
             else:
-                print("\n\n" + Fore.YELLOW + "!!! NEW VERSION AVAILABLE !!!" + Style.RESET_ALL + "\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using " + Fore.RED + libhearingdownloader.downloaderVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
+                print("\n\n" + Fore.YELLOW + "!!! NEW VERSION AVAILABLE !!!" + Style.RESET_ALL + "\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using " + Fore.RED + libhearingchecker.checkerVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
         else:
             selfUpdateOption = "Self Update Checker"
 
@@ -34,9 +35,9 @@ while updaterRetries > 0:
     updaterRetries -= 1
 
 
-downloaders = [
+checkers = [
     (Style.RESET_ALL + Style.DIM + "EXIT" + Style.RESET_ALL, "", "exit.py"),
-    (Style.RESET_ALL + selfUpdateOption + "\n    " + Style.DIM + "----------------------------------------------" + Style.RESET_ALL, "", "GitHub Checker.py"),
+    (Style.RESET_ALL + selfUpdateOption + "\n" + " "*4 + Style.DIM + "-"*(libhearingchecker.checkerTitleWidth-4) + Style.RESET_ALL, "", "GitHub Checker.py"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.GREEN + "Phonak" + Style.RESET_ALL + " Target" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Phonak Target Checker.py"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.CYAN + "Unitron" + Style.RESET_ALL + " TrueFit" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "Unitron TrueFit Checker.py"),
     (Style.RESET_ALL + "Sonova " + Style.BRIGHT + Fore.BLACK + "Hansaton" + Style.RESET_ALL + " scout" + Style.DIM + " Update Checker" + Style.RESET_ALL, "", "HANSATON scout Checker.py"),
@@ -71,30 +72,38 @@ disclaimer = [
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printDisclaimer(disclaimer)
+    libhearingchecker.printDisclaimer(disclaimer)
     print("\n\n\n")
-    if not (checkerRelease.json()['tag_name'] == libhearingdownloader.downloaderVersion):
+    if not (checkerRelease.json()['tag_name'] == libhearingchecker.checkerVersion):
         selfUpdateOption = Back.BLUE + " Self Update Checker " + Style.RESET_ALL + Fore.CYAN + " >> " + Style.BRIGHT + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.NORMAL + " AVAILABLE " + Fore.CYAN + "<<" + Style.RESET_ALL
-        if (libhearingdownloader.downloaderVersion == "Pre-release"):
-            print("\n\n\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using "+ Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
+        if (libhearingchecker.checkerVersion == "Pre-release"):
+            print("\n\n\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using "+ Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
         else:
-            print("\n\n" + Fore.YELLOW + "!!! NEW VERSION AVAILABLE !!!" + Style.RESET_ALL + "\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using "+ Fore.RED + libhearingdownloader.downloaderVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
+            print("\n\n" + Fore.YELLOW + "!!! NEW VERSION AVAILABLE !!!" + Style.RESET_ALL + "\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using "+ Fore.RED + libhearingchecker.checkerVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
 
 print("")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+turboText = Style.BRIGHT + Fore.BLACK + "// " + Fore.RED + "T" + Fore.YELLOW + "U" + Fore.CYAN + "R" + Fore.GREEN + "B" + Fore.BLUE + "O" + Fore.BLACK + " //" + Style.RESET_ALL
+titleText = Style.BRIGHT + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
 if turboFile.is_file():
-    print("=" + Style.BRIGHT + Fore.BLACK + "// " + Fore.RED + "T" + Fore.YELLOW + "U" + Fore.CYAN + "R" + Fore.GREEN + "B" + Fore.BLUE + "O" + Fore.BLACK + " //" + Style.RESET_ALL + "======================================")
+    print("=" + turboText + "="*(titleWidth-1-len(ansi_escape.sub('', turboText))))
 else:
-    print("==================================================")
-print("=  " + Style.BRIGHT + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL + " =")
-print("==================================== " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+    print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 if (os.name != "nt"):
     print("NOTE: You are running The Checker on an Unix (*NIX) or mac Operating System. Hearing aids software requires Windows OS to run, but can still be checked on Unix (*NIX) or mac OS")
 
-selectedDownloader = libhearingdownloader.selectFromList(downloaders, "function", numberSeperator=')', confirmationCheck=False)
+selectedchecker = libhearingchecker.selectFromList(checkers, "function", numberSeperator=')', confirmationCheck=False)
 
 # Use the interpreter running this menu ('python' may not exist on macOS/Linux)
-if(libhearingdownloader.verboseDebug):
-    print([sys.executable, "./" + downloaders[selectedDownloader][2]])
+if(libhearingchecker.verboseDebug):
+    print([sys.executable, "./" + checkers[selectedchecker][2]])
 # Launch without a shell: cmd.exe and POSIX sh need incompatible quoting
 # for a program path and argument that both contain spaces
-subprocess.call([sys.executable, "./" + downloaders[selectedDownloader][2]])
+subprocess.call([sys.executable, "./" + checkers[selectedchecker][2]])

@@ -10,22 +10,30 @@ import shutil
 import zipfile
 import requests
 import rot_codec
+import re
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
-import libhearingdownloader
+import libhearingchecker
 import rot_codec
 
 just_fix_windows_console()
 
 print("\n\n")
-print("==================================================")
-print("=        " + Style.BRIGHT + Fore.WHITE + "Widex" + Style.RESET_ALL + " Compass GPS Update Checker        =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Style.BRIGHT + Fore.WHITE + "Widex" + Style.RESET_ALL + " Compass GPS Update Checker"
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWarranty()
+    libhearingchecker.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",
@@ -44,7 +52,7 @@ disclaimer = [
 
 # Display disclaimer
 if not turboFile.is_file():
-    libhearingdownloader.printDisclaimer(disclaimer)
+    libhearingchecker.printDisclaimer(disclaimer)
 
 # Read configuration file for toggles with default True
 config = configparser.ConfigParser()
@@ -114,7 +122,7 @@ headers = {
     "Host": "apimgmt.widex.com"
 }
 
-updaterRetries = libhearingdownloader.updaterRetries
+updaterRetries = libhearingchecker.updaterRetries
 while updaterRetries > 0:
     try:
         # Download update file list from updater API
@@ -132,7 +140,7 @@ if (updaterRetries == 0):
     print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
     
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(rawPostData)
     print("\n\nUpdate server responded:\n")
     print(rawJsonData.text)
@@ -164,8 +172,8 @@ validVersions = [
 ]
 
 # Select outputDir and targetVersion
-outputDir = libhearingdownloader.selectOutputFolder()
-targetVersion = validVersions[libhearingdownloader.selectFromList(validVersions)]
+outputDir = libhearingchecker.selectOutputFolder()
+targetVersion = validVersions[libhearingchecker.selectFromList(validVersions)]
 print("\n\n")
 
 # Logic for "manual" versions
@@ -193,7 +201,7 @@ else:
 
 # Create download folder
 outputDir += "Widex Compass GPS " + targetVersion[0] + "/"
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(outputDir)
 
 print ("Downloading directory index")
@@ -212,19 +220,19 @@ else:
     for resourceFile in packageResources:
         filesToDownload[resourceFile['Value'].split("/")[-1]] = resourceFile['Value']
 
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(filesToDownload)
 
 # Download and save the files
 print("Downloading " + str(len(filesToDownload.keys())) + " files\n")
 currentFile = 1
 for fileToDownload in filesToDownload.keys():
-    if (libhearingdownloader.verboseDebug):
+    if (libhearingchecker.verboseDebug):
         print(filesToDownload[fileToDownload])
         print(outputDir + fileToDownload)
         print("Downloading " + fileToDownload + " (" + str(currentFile) + "/" + str(len(filesToDownload.keys())) + ")")
     # Download file
-    libhearingdownloader.downloadFile(filesToDownload[fileToDownload], outputDir + fileToDownload, "Downloading " + fileToDownload + " (" + str(currentFile) + "/" + str(len(filesToDownload.keys())) + ")")
+    libhearingchecker.downloadFile(filesToDownload[fileToDownload], outputDir + fileToDownload, "Downloading " + fileToDownload + " (" + str(currentFile) + "/" + str(len(filesToDownload.keys())) + ")")
 
     currentFile += 1
 

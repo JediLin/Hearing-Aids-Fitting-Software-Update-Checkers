@@ -21,7 +21,7 @@ try:
 except:
     noBrotli = True
 import xml.etree.ElementTree as xml
-import libhearingdownloader
+import libhearingchecker
 
 just_fix_windows_console()
 
@@ -54,14 +54,26 @@ if not os.path.isfile('config.ini'):
     scanSkipAll = True
 
 print("\n\n")
-print("==================================================")
-print("=  " + Style.BRIGHT + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL + " =")
-print("=                   " + Style.BRIGHT + Fore.RED + "Q" + Fore.YELLOW + "U" + Fore.CYAN + "I" + Fore.GREEN + "C" + Fore.BLUE + "K" + Style.RESET_ALL + " Scan                   =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Style.BRIGHT + Fore.YELLOW + "Hearing Aids Fitting Software Update Checkers" + Style.RESET_ALL
+titleTextSub = Style.BRIGHT + Fore.RED + "Q" + Fore.YELLOW + "U" + Fore.CYAN + "I" + Fore.GREEN + "C" + Fore.BLUE + "K" + Style.RESET_ALL + " Scan"
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+titleLenthSub = len(ansi_escape.sub('', titleTextSub))
+if (titleLenthSub > (titleWidth - 4)):
+    titleWidth = round(titleLenthSub/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("=" + " "*(round((titleWidth-2-titleLenthSub)/2)-(round((titleWidth-2-titleLenthSub)/2)*2)+(titleWidth-2-titleLenthSub)) + titleTextSub + " "*round((titleWidth-2-titleLenthSub)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWarranty()
+    libhearingchecker.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",
@@ -76,7 +88,7 @@ disclaimer = [
 
 # Display disclaimer
 if not turboFile.is_file():
-    libhearingdownloader.printDisclaimer(disclaimer)
+    libhearingchecker.printDisclaimer(disclaimer)
     exit(1)
 
 # Sonova: Phonak, Unitron, Hansaton
@@ -84,7 +96,7 @@ def phonakTargetChecker(market):
     targetMarket = market
     baseVer = config.get('Phonak', 'Version', fallback='6.0.1.695')
     xmlns = "{http://cocoon.phonak.com}"
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             xmlData = requests.get("https://p-" + rot_codec.rot47_decode("DG4`]A9@?2<AC@]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Phonak%20Target&appVer=" + baseVer + "&dist=Phonak&country=" + targetMarket + "&subKeys=").text
@@ -122,7 +134,7 @@ def unitronTrueFitChecker(market):
     targetMarket = market
     baseVer = config.get('Unitron', 'Version', fallback='5.1.0.25391')
     xmlns = "{http://cocoon.phonak.com}"
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             xmlData = requests.get(rot_codec.rot47_decode("9EEADi^^DG4]>JF?:EC@?]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=Unitron%20TrueFit&appVer=" + baseVer + "&dist=Unitron&country=" + targetMarket + "&subKeys=").text
@@ -144,7 +156,7 @@ def hansatonScoutChecker(market):
     targetMarket = market
     baseVer = config.get('Hansaton', 'Version', fallback='5.1.0.26954')
     xmlns = "{http://cocoon.phonak.com}"
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             xmlData = requests.get(rot_codec.rot47_decode("9EEADi^^DG4]>JF?:EC@?]4@>^`^~3;64E{@42E:@?$6CG:46]DG4^u:EE:?8pAA=:42E:@?x?DE2==6C^:?56I") + "?appName=HANSATON%20scout&appVer=" + baseVer + "&dist=Balance&country=" + targetMarket + "&subKeys=").text
@@ -170,7 +182,7 @@ def oticonGenie2Checker(market):
         "Content-Type": "application/soap+xml; charset=utf-8"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
@@ -208,7 +220,7 @@ def bernafonOasisNXTChecker(market):
         "Content-Type": "application/soap+xml; charset=utf-8"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
@@ -245,7 +257,7 @@ def philipsHearSuiteChecker(market):
         "Content-Type": "application/soap+xml; charset=utf-8"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             osVer = config.get('General', 'OS', fallback='Microsoft Windows NT 10.0.22621.0')
@@ -365,7 +377,7 @@ def signiaConnexxChecker(market):
         "Connection": "Keep-Alive"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             baseVer = config.get('Signia', 'Version', fallback='9.13.5.1787')
@@ -398,7 +410,7 @@ def rextonConnexxChecker(market):
         "Connection": "Keep-Alive"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             baseVer = config.get('Rexton', 'Version', fallback='9.11.15.793')
@@ -431,7 +443,7 @@ def audioServiceConnexxChecker(market):
         "Connection": "Keep-Alive"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             baseVer = config.get('AudioService', 'Version', fallback='9.12.0.1516')
@@ -464,7 +476,7 @@ def aMConnexxChecker(market):
         "Connection": "Keep-Alive"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             baseVer = config.get('AM', 'Version', fallback='9.9.1.989')
@@ -497,7 +509,7 @@ def miracleEarHermony2Checker(market):
         "Connection": "Keep-Alive"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             baseVer = config.get('MiracleEar', 'Version', fallback='9.11.15.784')
@@ -534,7 +546,7 @@ def widexCompassGPSChecker(market):
         "Content-Type": "application/json; charset=utf-8",
         "Host": "apimgmt.widex.com"
     }
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             postUrl = rot_codec.rot47_decode("9EEADi^^2A:>8>E]H:56I]4@>^75D^G`^2A:^&A52E6n2==lECF6U3C6G:EJlE6CD6")
@@ -601,7 +613,7 @@ def starkeyProFitChecker():
         "Content-Type": "application/json; charset=utf-8"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             postUrl = rot_codec.rot47_decode("9EEADi^^:?DA:C6FA52E6C]4@>^2A:^&A52E6")
@@ -655,7 +667,7 @@ def starkeyInspireChecker():
         "Content-Type": "application/json; charset=utf-8"
     }
 
-    updaterRetries = libhearingdownloader.updaterRetries
+    updaterRetries = libhearingchecker.updaterRetries
     while updaterRetries > 0:
         try:
             postUrl = rot_codec.rot47_decode("9EEADi^^:?DA:C6FA52E6C]4@>^2A:^&A52E6")

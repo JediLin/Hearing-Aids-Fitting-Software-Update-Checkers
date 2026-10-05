@@ -4,22 +4,30 @@
 #                                                           #
 #############################################################
 import requests
+import re
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
-import libhearingdownloader
+import libhearingchecker
 import rot_codec
 
 just_fix_windows_console()
 
 print("\n\n")
-print("==================================================")
-print("=       " + Style.BRIGHT + Fore.CYAN + "Sonic" + Style.RESET_ALL + " EXPRESSfit Pro Update Checker      =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Style.BRIGHT + Fore.CYAN + "Sonic" + Style.RESET_ALL + " EXPRESSfit Pro Update Checker"
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWarranty()
+    libhearingchecker.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",
@@ -42,7 +50,7 @@ disclaimer = [
 
 # Display disclaimer
 if not turboFile.is_file():
-    libhearingdownloader.printDisclaimer(disclaimer)
+    libhearingchecker.printDisclaimer(disclaimer)
 
 filesToDownload = [
     "setup.exe",
@@ -72,23 +80,23 @@ else:
 print("\n\nThe latest available version is " + Fore.GREEN + "EXPRESSfit Pro 2024.2" + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
-outputDir = libhearingdownloader.selectOutputFolder()
-targetVersion = libhearingdownloader.selectFromList(validVersions)
+outputDir = libhearingchecker.selectOutputFolder()
+targetVersion = libhearingchecker.selectFromList(validVersions)
 print("\n\n")
 
 if (targetVersion == 0):
-    outputDir += libhearingdownloader.normalizePath("EXPRESSfit Pro 2024.2" + "/")
+    outputDir += libhearingchecker.normalizePath("EXPRESSfit Pro 2024.2" + "/")
     # Download and save the files
     print("Downloading " + str(len(filesToDownload)) + " files\n")
     fileIndex = 1
     for fileToDownload in filesToDownload:
-        libhearingdownloader.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1] + " (" + str(fileIndex) + "/" + str(len(filesToDownload)) + ")")
+        libhearingchecker.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1] + " (" + str(fileIndex) + "/" + str(len(filesToDownload)) + ")")
         fileIndex += 1
 elif (targetVersion == 1):
-    outputDir += libhearingdownloader.normalizePath("EXPRESSfit Pro 2024.2" + "/")
+    outputDir += libhearingchecker.normalizePath("EXPRESSfit Pro 2024.2" + "/")
     # Download and save the files
     fileIndex = 1
     fileToDownload = "setup.exe"
-    libhearingdownloader.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1])
+    libhearingchecker.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1])
 
 print("\n\nDownload Complete!")

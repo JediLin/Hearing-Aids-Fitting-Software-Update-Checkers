@@ -6,23 +6,31 @@
 import configparser
 import html
 import requests
+import re
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 from iso3166 import countries
-import libhearingdownloader
+import libhearingchecker
 import xml.etree.ElementTree as xml
 
 just_fix_windows_console()
 
 print("\n\n")
-print("==================================================")
-print("=        " + Style.BRIGHT + Fore.BLUE + "Philips" + Style.RESET_ALL + " HearSuite Update Checker        =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Style.BRIGHT + Fore.BLUE + "Philips" + Style.RESET_ALL + " HearSuite Update Checker"
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWarranty()
+    libhearingchecker.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",
@@ -42,7 +50,7 @@ disclaimer = [
 
 # Display disclaimer
 if not turboFile.is_file():
-    libhearingdownloader.printDisclaimer(disclaimer)
+    libhearingchecker.printDisclaimer(disclaimer)
 
 # Read configuration file for toggles with default True
 config = configparser.ConfigParser()
@@ -101,7 +109,7 @@ headers = {
     "Content-Type": "application/soap+xml; charset=utf-8"
 }
 
-updaterRetries = libhearingdownloader.updaterRetries
+updaterRetries = libhearingchecker.updaterRetries
 while updaterRetries > 0:
     try:
         # checker variables, may effect the latest version available from API
@@ -140,7 +148,7 @@ if (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-enve
 packageXMLNS = '{http://www.wdh.com/xml/2012/06/25/updatemanifest.xsd}'
 filesToDownload = []
 
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(html.unescape(rawXmlData.text))
 
 # Get list of files
@@ -151,7 +159,7 @@ for fileData in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").
 downloadURI = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "DownloadJob").find(packageXMLNS + "ServerUri").text
 
 # Get latest version
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text   + "--" +   data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Version").text)
 
 # Define list of valid versions and their download links (direct from CDN) (predefined to online and offline of latest version)
@@ -161,30 +169,30 @@ validVersions = [
 ]
 print("\n\nThe latest available version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + Style.RESET_ALL + "\n\n")
 
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(filesToDownload)
 
 # Select outputDir and targetVersion
-outputDir = libhearingdownloader.selectOutputFolder()
-targetVersion = libhearingdownloader.selectFromList(validVersions)
+outputDir = libhearingchecker.selectOutputFolder()
+targetVersion = libhearingchecker.selectFromList(validVersions)
 print("\n\n")
 
 
 if (targetVersion == 0):
-    outputDir += libhearingdownloader.normalizePath( data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
+    outputDir += libhearingchecker.normalizePath( data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
 
     # Download and save the files
     print("Downloading " + str(len(filesToDownload)) + " files\n")
     fileIndex = 1
     for fileToDownload in filesToDownload:
-        libhearingdownloader.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1] + " (" + str(fileIndex) + "/" + str(len(filesToDownload)) + ")")
+        libhearingchecker.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1] + " (" + str(fileIndex) + "/" + str(len(filesToDownload)) + ")")
         fileIndex += 1
 elif (targetVersion == 1):
-    outputDir += libhearingdownloader.normalizePath( data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
+    outputDir += libhearingchecker.normalizePath( data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "CheckForUpdateResponse").find('{http://tempuri.org/}' + "CheckForUpdateResult").find(packageXMLNS + "UpdateManifest").find(packageXMLNS + "Messages").find(packageXMLNS + "Message").text + "/")
 
     # Download and save the files
     fileIndex = 1
     fileToDownload = "setup.exe"
-    libhearingdownloader.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1])
+    libhearingchecker.downloadFile(downloadURI + fileToDownload, outputDir + fileToDownload, "Downloading " + fileToDownload.split("/")[-1])
 
 print("\n\nDownload Complete!")

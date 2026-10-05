@@ -3,10 +3,11 @@ import sys
 import subprocess
 import datetime
 import requests
+import re
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
-import libhearingdownloader
+import libhearingchecker
 
 just_fix_windows_console()
 
@@ -14,7 +15,7 @@ just_fix_windows_console()
 print("\033c\033[3J", end='')
 
 preReleaseDetailText = "Get Pre-release work-in-progress version"
-updaterRetries = libhearingdownloader.updaterRetries
+updaterRetries = libhearingchecker.updaterRetries
 while updaterRetries > 0:
     try:
         checkerCommits = requests.get("https://api.github.com/repos/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/commits")
@@ -45,7 +46,7 @@ if timestampPath.is_file():
 else:
     quickScanOptionText = "Quick Scan\n    "
 
-downloaders = [
+checkers = [
     (Style.RESET_ALL + Style.DIM + "...Back to Main Menu" + Style.RESET_ALL, "", "Checker Menu.py"),
     (Style.RESET_ALL + "Show version changes", "", "README.py"),
     (Style.RESET_ALL + preReleaseDetailText + "\n    " + Style.DIM + "-------------------------------------------" + Style.RESET_ALL, "", "PreRelease.py") if not turboFile.is_file() else (Style.RESET_ALL + preReleaseDetailText, "", "PreRelease.py"),
@@ -61,17 +62,24 @@ downloaders = [
 ]
 
 print("")
-print("===============================================")
-print("=  " + Style.BRIGHT + Fore.YELLOW + "Extra and Legacy Software Update Checkers" + Style.RESET_ALL + "  =")
-print("================================= " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Style.BRIGHT + Fore.YELLOW + "Extra and Legacy Software Update Checkers" + Style.RESET_ALL
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 if (os.name != "nt"):
     print("NOTE: You are running The Checker on an Unix (*NIX) or mac Operating System. Hearing aids software requires Windows OS to run, but can still be checked on Unix (*NIX) or mac OS")
 
-selectedDownloader = libhearingdownloader.selectFromList(downloaders, "function", numberSeperator=')', confirmationCheck=False)
+selectedchecker = libhearingchecker.selectFromList(checkers, "function", numberSeperator=')', confirmationCheck=False)
 
 # Use the interpreter running this menu ('python' may not exist on macOS/Linux)
-if(libhearingdownloader.verboseDebug):
-    print([sys.executable, "./" + downloaders[selectedDownloader][2]])
+if(libhearingchecker.verboseDebug):
+    print([sys.executable, "./" + checkers[selectedchecker][2]])
 # Launch without a shell: cmd.exe and POSIX sh need incompatible quoting
 # for a program path and argument that both contain spaces
-subprocess.call([sys.executable, "./" + downloaders[selectedDownloader][2]])
+subprocess.call([sys.executable, "./" + checkers[selectedchecker][2]])

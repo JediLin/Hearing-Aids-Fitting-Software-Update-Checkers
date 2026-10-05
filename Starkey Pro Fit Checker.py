@@ -10,23 +10,31 @@ import tzlocal
 import ast
 import json
 import requests
+import re
 from iso3166 import countries
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
-import libhearingdownloader
+import libhearingchecker
 import rot_codec
 
 just_fix_windows_console()
 
 print("\n\n")
-print("==================================================")
-print("=  " + Style.BRIGHT + Fore.BLUE + "Starkey" + Style.RESET_ALL + " Pro Fit / Inspire OS Update Checker   =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Style.BRIGHT + Fore.BLUE + "Starkey" + Style.RESET_ALL + " Pro Fit / Inspire OS Update Checker"
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWarranty()
+    libhearingchecker.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",
@@ -47,7 +55,7 @@ disclaimer = [
 
 # Display disclaimer
 if not turboFile.is_file():
-    libhearingdownloader.printDisclaimer(disclaimer)
+    libhearingchecker.printDisclaimer(disclaimer)
 
 # Read configuration file for toggles with default True
 config = configparser.ConfigParser()
@@ -106,7 +114,7 @@ headers = {
     "Content-Type": "application/json; charset=utf-8"
 }
 
-updaterRetries = libhearingdownloader.updaterRetries
+updaterRetries = libhearingchecker.updaterRetries
 while updaterRetries > 0:
     try:
         postUrl = rot_codec.rot47_decode("9EEADi^^:?DA:C6FA52E6C]4@>^2A:^&A52E6")
@@ -140,7 +148,7 @@ if (updaterRetries == 0):
     print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
 
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(rawPostData)
     print(rawJsonData.text)
     print(rawPostDataInspire)
@@ -192,12 +200,12 @@ availableFiles.append( ("Pro Fit 2026.0", "Starkey Pro Fit Setup 7.0.10124.0.exe
 availableFiles.append( ("Inspire 2026.0", "Starkey Setup 28.0.10106.0.exe", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^&A52E6C^a_ae^6g2c6cdh") + "-" + rot_codec.rot47_decode("2f55") + "-" + rot_codec.rot47_decode("c2`d") + "-" + rot_codec.rot47_decode("g4h7") + "-" + rot_codec.rot47_decode("h64gh5327ed6^$E2C<6J $6EFA ag]_]`_`_e]_]6I6")) )
 availableFiles.append( ("Inspire 2023.1", "Starkey Setup 27.1.10074.0.exe", rot_codec.rot47_decode("9EEADi^^D@7EH2C65@H?=@25]DE2C<6J]4@>^a356f7`3") + "-" + rot_codec.rot47_decode("d7b3") + "-" + rot_codec.rot47_decode("cb_a") + "-" + rot_codec.rot47_decode("ggd3") + "-" + rot_codec.rot47_decode("7a6aa6d`b5cc^$E2C<6J $6EFA af]`]`__fc]_]6I6")) )
 
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(availableFiles)
 
 # Select outputDir and targetFile
-outputDir = libhearingdownloader.selectOutputFolder()
-targetFile = availableFiles[libhearingdownloader.selectFromList(availableFiles)]
+outputDir = libhearingchecker.selectOutputFolder()
+targetFile = availableFiles[libhearingchecker.selectFromList(availableFiles)]
 
 # Create download folder
 downloadVer = 'Starkey ' + targetFile[0]
@@ -205,6 +213,6 @@ outputDir += '.'.join(downloadVer.split('.')) + "/"
 print("\n\n")
 
 # Download file
-libhearingdownloader.downloadFile(targetFile[2], outputDir + targetFile[1], "Downloading " + targetFile[1])
+libhearingchecker.downloadFile(targetFile[2], outputDir + targetFile[1], "Downloading " + targetFile[1])
 
 print("\n\nDownload Complete!")

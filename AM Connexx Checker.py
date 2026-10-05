@@ -5,23 +5,31 @@
 #############################################################
 import configparser
 import requests
+import re
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
 from iso3166 import countries
-import libhearingdownloader
+import libhearingchecker
 import xml.etree.ElementTree as xml
 
 just_fix_windows_console()
 
 print("\n\n")
-print("==================================================")
-print("=           " + Fore.YELLOW + "A&M" + Style.RESET_ALL + " Connexx Update Checker           =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Fore.YELLOW + "A&M" + Style.RESET_ALL + " Connexx Update Checker"
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWarranty()
+    libhearingchecker.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",
@@ -41,7 +49,7 @@ disclaimer = [
 
 # Display disclaimer
 if not turboFile.is_file():
-    libhearingdownloader.printDisclaimer(disclaimer)
+    libhearingchecker.printDisclaimer(disclaimer)
 
 # Read configuration file for toggles with default True
 config = configparser.ConfigParser()
@@ -102,7 +110,7 @@ headers = {
     "Connection": "Keep-Alive"
 }
 
-updaterRetries = libhearingdownloader.updaterRetries
+updaterRetries = libhearingchecker.updaterRetries
 while updaterRetries > 0:
     try:
         # checker variables, may effect the latest version available from API
@@ -121,7 +129,7 @@ if (updaterRetries == 0):
     print("\n" + Fore.RED + "Error" + Style.RESET_ALL + ": Update server could not be reached")
     exit(1)
     
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(rawXmlData.text)
 
 if (rawXmlData.text == '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">http://tempuri.org/IUpdateManagerService/GetPackagesResponse</a:Action><a:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000000000</a:RelatesTo></s:Header><s:Body><GetPackagesResponse xmlns="http://tempuri.org/"><GetPackagesResult xmlns:b="http://schemas.datacontract.org/2004/07/SHS.SAT.UpdateManager.BackEnd.UWS" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></GetPackagesResponse></s:Body></s:Envelope>'):
@@ -137,14 +145,14 @@ appVer = data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{
 for child in data.find('{http://www.w3.org/2003/05/soap-envelope}' + "Body").find('{http://tempuri.org/}' + "GetPackagesResponse").find('{http://tempuri.org/}' + "GetPackagesResult").find(packageXMLNS + "Package").find(packageXMLNS + "PackageFiles"):
     availableFiles.append( (appVer, child.find(packageXMLNS + "FileName").text, child.find(packageXMLNS + "DownloadURL").text) )
 
-if (libhearingdownloader.verboseDebug):
+if (libhearingchecker.verboseDebug):
     print(availableFiles)
 
 print("\n\nThe latest available A&M Connexx version for " + Fore.GREEN + targetMarket + Style.RESET_ALL + " market is " + Fore.GREEN + "v" + availableFiles[0][0] + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetFile
-outputDir = libhearingdownloader.selectOutputFolder()
-targetFile = availableFiles[libhearingdownloader.selectFromList(availableFiles)]
+outputDir = libhearingchecker.selectOutputFolder()
+targetFile = availableFiles[libhearingchecker.selectFromList(availableFiles)]
 
 # Create download folder
 downloadVer = 'AM Connexx ' + targetFile[0]
@@ -152,6 +160,6 @@ outputDir += '.'.join(downloadVer.split('.')) + "/"
 print("\n\n")
 
 # Download file
-libhearingdownloader.downloadFile(targetFile[2], outputDir + targetFile[1], "Downloading " + targetFile[1])
+libhearingchecker.downloadFile(targetFile[2], outputDir + targetFile[1], "Downloading " + targetFile[1])
 
 print("\n\nDownload Complete!")

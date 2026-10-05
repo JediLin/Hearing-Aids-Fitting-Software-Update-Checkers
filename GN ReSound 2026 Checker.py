@@ -11,19 +11,26 @@ from urllib.parse import urlparse
 from pathlib import Path
 from colorama import just_fix_windows_console
 from colorama import Fore, Back, Style
-import libhearingdownloader
+import libhearingchecker
 import rot_codec
 
 just_fix_windows_console()
 
 print("\n\n")
-print("==================================================")
-print("=         " + Style.BRIGHT + Fore.RED + "ReSound" + Style.RESET_ALL + " Software Update Checker        =")
-print("="*(47-len(libhearingdownloader.downloaderVersion)) + " " + Fore.GREEN + libhearingdownloader.downloaderVersion + Style.RESET_ALL + " =")
+ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+titleText = Style.BRIGHT + Fore.RED + "ReSound" + Style.RESET_ALL + " Software Update Checker"
+titleWidth = libhearingchecker.checkerTitleWidth
+titleLenth = len(ansi_escape.sub('', titleText))
+if (titleLenth > (titleWidth - 4)):
+    titleWidth = round(titleLenth/2)*2+4
+
+print("="*titleWidth)
+print("=" + " "*(round((titleWidth-2-titleLenth)/2)-(round((titleWidth-2-titleLenth)/2)*2)+(titleWidth-2-titleLenth)) + titleText + " "*round((titleWidth-2-titleLenth)/2) + "=")
+print("="*(titleWidth-3-len(libhearingchecker.checkerVersion)) + " " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " =")
 
 turboFile = Path("turbo.txt")
 if not turboFile.is_file():
-    libhearingdownloader.printWarranty()
+    libhearingchecker.printWarranty()
 
 disclaimer = [
     "DISCLAIMER",
@@ -49,7 +56,7 @@ disclaimer = [
 
 # Display disclaimer
 if not turboFile.is_file():
-    libhearingdownloader.printDisclaimer(disclaimer)
+    libhearingchecker.printDisclaimer(disclaimer)
 
 # Get ReSound Smart Fit update from the webpage
 rssfURI = rot_codec.rot47_decode("9EEADi^^HHH]8?962C:?8]4@>^6?^AC@5F4ED^C6D@F?5^") + "fitting-software-download"
@@ -106,8 +113,8 @@ else:
     print("\n\nThe latest available version is " + Fore.GREEN + title1 + Style.RESET_ALL + "\n\n")
 
 # Select outputDir and targetVersion
-outputDir = libhearingdownloader.selectOutputFolder()
-targetVersion = libhearingdownloader.selectFromList(validVersions)
+outputDir = libhearingchecker.selectOutputFolder()
+targetVersion = libhearingchecker.selectFromList(validVersions)
 if (validVersions[targetVersion][0] == "manual"):
     validVersion = ""
     while not validVersion:
@@ -124,11 +131,11 @@ print("\n\n")
 # Create download folder
 outputDir += validVersions[targetVersion][0] + "/"
 
-if(libhearingdownloader.verboseDebug):
+if(libhearingchecker.verboseDebug):
     print("V:" + str(targetVersion))
     print("T:" + validVersions[targetVersion][0])
 
 # Download the file
-libhearingdownloader.downloadFile(validVersions[targetVersion][2], outputDir + validVersions[targetVersion][2].split("/")[-1], "Downloading " + validVersions[targetVersion][0])
+libhearingchecker.downloadFile(validVersions[targetVersion][2], outputDir + validVersions[targetVersion][2].split("/")[-1], "Downloading " + validVersions[targetVersion][0])
 
 print("\n\nDownload Complete!")

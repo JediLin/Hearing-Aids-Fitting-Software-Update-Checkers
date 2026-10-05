@@ -34,6 +34,9 @@ Thanks [who helped this project](CREDITS.md).
 ## Changelog
 
 ### Pre-release (work-in-progress)
+- Internal library names and variable names change
+- Better handle checker title rendering
+- Self Update Checker: better handle Pre-release versions
 - ReSound/Beltone/Interton/Danavox/Starkey: update archived versions
 
 ### v2026.09.07 + v2026.09.08
