@@ -21,7 +21,7 @@ while updaterRetries > 0:
         if not (checkerRelease.json()['tag_name'] == libhearingchecker.lastCheckerVersion):
             selfUpdateOption = Back.BLUE + " Self Update Checker " + Style.RESET_ALL + Fore.CYAN + " >> " + Style.BRIGHT + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.NORMAL + " AVAILABLE " + Fore.CYAN + "<<" + Style.RESET_ALL
             if (libhearingchecker.isPreRelease):
-                print("\n\n\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
+                print("\n\n\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using " + Fore.RED + libhearingchecker.checkerVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
             else:
                 print("\n\n" + Fore.YELLOW + "!!! NEW VERSION AVAILABLE !!!" + Style.RESET_ALL + "\nThe latest version of The Checker is " + Fore.GREEN + checkerRelease.json()['tag_name'] + Style.RESET_ALL + " (you are using " + Fore.RED + libhearingchecker.checkerVersion + Style.RESET_ALL + ").\nPlease use " + Style.BRIGHT + Fore.GREEN + "1" + Style.NORMAL + Fore.WHITE + ") " + Style.RESET_ALL + Back.BLUE + " Self Update Checker " + Style.RESET_ALL + " option to download it.")
         else:

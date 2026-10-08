@@ -33,6 +33,9 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Tweak version display for Pre-release
+
 ### v2026.10.05
 - Internal library names and variable names change
 - Better handle checker title rendering

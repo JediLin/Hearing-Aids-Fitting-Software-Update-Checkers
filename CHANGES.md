@@ -423,3 +423,6 @@
 - ReSound/Beltone/Interton/Danavox/Starkey: update archived versions
 - Portable release: update Python for Win10x64 to v3.14.8 ([python-3.14.8-embed-amd64](https://www.python.org/ftp/python/3.14.8/python-3.14.8-embed-amd64.zip) package)
 - Portable release: update Python modules
+
+### Pre-release (work-in-progress)
+- Tweak version display for Pre-release

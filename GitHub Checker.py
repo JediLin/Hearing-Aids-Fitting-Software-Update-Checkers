@@ -43,15 +43,16 @@ if (libhearingchecker.verboseDebug):
 print("\n\nThe latest available version is " + Style.BRIGHT + Fore.GREEN + data['tag_name'] + Style.RESET_ALL)
 if (libhearingchecker.isPreRelease):
     if (data['tag_name'] == libhearingchecker.lastCheckerVersion):
-        print("\nYou are using " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + " version based on " + Fore.GREEN + libhearingchecker.lastCheckerVersion + Style.RESET_ALL + "\n")
+        print("\nYou are using " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + "\n")
     else:
-        print("\nYou are using " + Fore.RED + libhearingchecker.checkerVersion + Style.RESET_ALL + " version based on " + Fore.RED + "LEGACY " + libhearingchecker.lastCheckerVersion + Style.RESET_ALL + "\n")
-else:
+        print("\nYou are using " + Style.BRIGHT + Fore.RED + "OUTDATED " + Style.RESET_ALL + Fore.RED + libhearingchecker.checkerVersion + Style.RESET_ALL + "\n")
+elif (data['tag_name'] == libhearingchecker.checkerVersion):
     print("\nYou are using " + Fore.GREEN + libhearingchecker.checkerVersion + Style.RESET_ALL + "\n")
-
-if (data['tag_name'] == libhearingchecker.checkerVersion):
     print("No update is available.\n")
+    print("You can still download this version again.\n")
     # exit(1)
+else:
+    print("\nYou are using " + Fore.RED + libhearingchecker.checkerVersion + Style.RESET_ALL + "\n")
 
 availableFiles = [] # List of available files
 availableFilesCount = len(data['assets'])
