@@ -35,6 +35,7 @@ Thanks [who helped this project](CREDITS.md).
 
 ### Pre-release (work-in-progress)
 - Tweak version display for Pre-release
+- Phonak: fix Target Media and Target Sounds checkers
 
 ### v2026.10.05
 - Internal library names and variable names change

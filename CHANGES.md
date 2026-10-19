@@ -426,3 +426,4 @@
 
 ### Pre-release (work-in-progress)
 - Tweak version display for Pre-release
+- Phonak: fix Target Media and Target Sounds checkers
