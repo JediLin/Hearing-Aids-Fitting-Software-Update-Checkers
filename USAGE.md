@@ -33,7 +33,7 @@ For Standard release of The Checker, the following steps need to be done **ONCE*
 2. Download and install the latest **3.14.x** version of Python, according to your operation system environment (such as Windows 64-bit); make sure you select `Add python.exe to PATH` in the start of the installer
 3. **Reboot your computer**
 
-NOTE: Currently The Checker is incompetable with Python 3.15.0 due to [missing Brotli wheels](https://github.com/google/brotli-wheels/issues/25). Please stick aronud with Python 3.14.8 for now. You can use a [Portable release](#portable-release) for now if you have to upgrade to Python 3.15 system-wide for reasons.
+WARNING: Currently The Checker is incompetable with Python 3.15.0 due to [missing Brotli wheels](https://github.com/google/brotli-wheels/issues/25). Please stick aronud with Python 3.14.8 for now. You can use a [Portable release](#portable-release) for now if you have to upgrade to Python 3.15 system-wide for reasons.
 
 NOTE: If you run The Checker (on Windows OS) without Python installed yet, The Checker will refuse to run and bring you to Python download page instead.
 
