@@ -35,6 +35,7 @@ Thanks [who helped this project](CREDITS.md).
 
 ### Pre-release (work-in-progress)
 - Extra Menu: check if current Pre-release package is identical to running version
+- Pre-Release Checker: using shorter filename
 
 ### v2026.10.20
 - Tweak version display for Pre-release

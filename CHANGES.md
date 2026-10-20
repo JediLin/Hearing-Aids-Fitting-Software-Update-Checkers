@@ -432,3 +432,4 @@
 
 ### Pre-release (work-in-progress)
 - Extra Menu: check if current Pre-release package is identical to running version
+- Pre-Release Checker: using shorter filename

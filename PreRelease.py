@@ -25,7 +25,7 @@ while updaterRetries > 0:
     updaterRetries -= 1
 
 currentTime = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y%m%d%H%M')
-wipName = "Hearing-Aids-Fitting-Software-Update-Checkers-WIP(" + lastCommitDate + "_" + lastCommitId + ")-" + currentTime + ".zip"
+wipName = "HAFS-Update-Checkers WIP#" + lastCommitId + " (" + lastCommitDate + ") " + currentTime + ".zip"
 
 print("\nYou are about to download the pre-release work-in-progress version.\nPlease use it AT YOUR OWN RISK!\n")
 
