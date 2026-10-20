@@ -27,6 +27,8 @@ while updaterRetries > 0:
         lastTagName = checkerTags.json()[0]['name']
         if not (lastCommitSha == lastTagSha):
             preReleaseDetailText = "Get " + Back.RED + " Pre-release " + Style.RESET_ALL + " work-in-progress version" + Style.RESET_ALL + "\n    (Latest commit: #" + lastCommitId + ", " + lastCommitDate + ")"
+        elif (lastTagName == libhearingchecker.checkerVersion):
+            preReleaseDetailText = "Get Pre-release work-in-progress version" + Style.RESET_ALL + "\n    " + Style.DIM + "[Note: currently identical to THIS version]" + Style.RESET_ALL
         else:
             preReleaseDetailText = "Get Pre-release work-in-progress version" + Style.RESET_ALL + "\n    " + Style.DIM + "[Note: currently identical to " + lastTagName + "]" + Style.RESET_ALL
         break

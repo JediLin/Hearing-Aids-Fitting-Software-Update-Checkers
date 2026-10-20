@@ -33,6 +33,9 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- Extra Menu: check if current Pre-release package is identical to running version
+
 ### v2026.10.20
 - Tweak version display for Pre-release
 - Phonak: fix Target Media and Target Sounds checkers

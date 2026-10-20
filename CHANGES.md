@@ -429,3 +429,6 @@
 - Phonak: fix Target Media and Target Sounds checkers
 - Starkey: update archived versions
 - Portable release: update Python modules
+
+### Pre-release (work-in-progress)
+- Extra Menu: check if current Pre-release package is identical to running version
