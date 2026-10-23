@@ -12,10 +12,10 @@ python --version 2 > NUL
 if errorlevel 1 goto errorNoPython
 echo Installing/upgrading requirements...
 echo:
-python -m pip install --upgrade pip
-python -m pip install --upgrade -r ./requirements.txt
-python -m pip install --upgrade -r ./requirements_pending.txt
-python -m pip install --upgrade -r ./requirements_uncertain.txt
+python -m pip install --no-warn-script-location --upgrade pip
+python -m pip install --no-warn-script-location --upgrade -r ./requirements.txt
+python -m pip install --no-warn-script-location --upgrade -r ./requirements_pending.txt
+python -m pip install --no-warn-script-location --upgrade -r ./requirements_uncertain.txt
 
 :MENU
 cls
