@@ -13,7 +13,7 @@ If you want to make portable version of The Checker by yourself, you can:
 > cd c:\Users\WDAGUtilityAccount\Downloads\Hearing-Aids-Fitting-Software-Update-Checkers
 10. Install `pip` by this command:
 > python.exe get-pip.py
-11. Edit `python314._pth` (`314` means Python v*3.14*; this filename will be different for each Python version you downloaded from step 5. So you should edit `python38._pth` if dealing with Python v3.8) with any plain-text editor, uncomment (delete the leading `#`) the last line so the last line of this file should be like this:
+11. Edit `python315._pth` (`315` means Python v*3.15*; this filename will be different for each Python version you downloaded from step 5. So you should edit `python38._pth` if dealing with Python v3.8) with any plain-text editor, uncomment (delete the leading `#`) the last line so the last line of this file should be like this:
 > import site
 12. Install necessary modules by these commands:
 > python.exe -m pip install --upgrade -r ./requirements.txt<br>
