@@ -16,9 +16,9 @@ If you want to make portable version of The Checker by yourself, you can:
 11. Edit `python315._pth` (`315` means Python v*3.15*; this filename will be different for each Python version you downloaded from step 5. So you should edit `python38._pth` if dealing with Python v3.8) with any plain-text editor, uncomment (delete the leading `#`) the last line so the last line of this file should be like this:
 > import site
 12. Install necessary modules by these commands:
-> python.exe -m pip install --upgrade -r ./requirements.txt<br>
-> python.exe -m pip install --upgrade -r ./requirements_pending.txt<br>
-> python.exe -m pip install --upgrade -r ./requirements_uncertain.txt
+> python.exe -m pip install --upgrade --no-warn-script-location -r ./requirements.txt<br>
+> python.exe -m pip install --upgrade --no-warn-script-location -r ./requirements_pending.txt<br>
+> python.exe -m pip install --upgrade --no-warn-script-location -r ./requirements_uncertain.txt
 13. That's all, you made it! Now you can bring the whole folder (or make a ZIP/RAR/7z/whatever archive file of it) with you.
 
 NOTE: In case you want to make a portable version for Windows 7, you have to use Windows embeddable package for Python *3.8*.x instead in step 5, [get-pip.py for Python 3.8.x](https://bootstrap.pypa.io/pip/3.8/get-pip.py) in step 7, and edit `python38._pth` instead in step 11.
