@@ -36,6 +36,8 @@ Thanks [who helped this project](CREDITS.md).
 ### Pre-release (work-in-progress)
 - Extra Menu: check if current Pre-release package is identical to running version
 - Pre-Release Checker: using shorter filename
+- **_[TODO]_** Portable release: update Python for Win10x64 to v3.15.1 ([python-3.15.1-embed-amd64](https://www.python.org/ftp/python/3.15.1/python-3.15.1-embed-amd64.zip) package)
+- **_[TODO]_** Portable release: update Python modules
 
 ### v2026.10.20
 - Tweak version display for Pre-release
