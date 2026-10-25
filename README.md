@@ -33,16 +33,10 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
-### Pre-release (work-in-progress)
+### v2026.10.25
 - Extra Menu: check if current Pre-release package is identical to running version
 - Pre-Release Checker: using shorter filename
-- **_[TODO]_** Portable release: update Python for Win10x64 to v3.15.1 ([python-3.15.1-embed-amd64](https://www.python.org/ftp/python/3.15.1/python-3.15.1-embed-amd64.zip) package)
-- **_[TODO]_** Portable release: update Python modules
-
-### v2026.10.20
-- Tweak version display for Pre-release
-- Phonak: fix Target Media and Target Sounds checkers
-- Starkey: update archived versions
+- Portable release: update Python for Win10x64 to v3.15.1 ([python-3.15.1-embed-amd64](https://www.python.org/ftp/python/3.15.1/python-3.15.1-embed-amd64.zip) package)
 - Portable release: update Python modules
 
 Please refer to [full changes in each Release (and currently work-in-progress Pre-release) version](CHANGES.md).
