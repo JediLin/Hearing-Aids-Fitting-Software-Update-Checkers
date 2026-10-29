@@ -437,4 +437,4 @@
 - Portable release: update Python modules
 
 ### Pre-release (work-in-progress)
-- MedRx: add alternative versions workaround
+- MedRx: add alternative versions workaround and archived versions
