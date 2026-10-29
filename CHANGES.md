@@ -435,3 +435,6 @@
 - Pre-Release Checker: using shorter filename
 - Portable release: update Python for Win10x64 to v3.15.1 ([python-3.15.1-embed-amd64](https://www.python.org/ftp/python/3.15.1/python-3.15.1-embed-amd64.zip) package)
 - Portable release: update Python modules
+
+### Pre-release (work-in-progress)
+- MedRx: add alternative versions workaround

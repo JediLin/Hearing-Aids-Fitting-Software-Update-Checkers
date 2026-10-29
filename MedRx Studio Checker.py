@@ -112,8 +112,13 @@ except:
 
 # Define list of valid versions and their download links
 validVersions = [
+    ("Release Versions", "--"),
     (exeTitle, exeFilename, exeLink),
     (zipTitle, zipFilename, zipLink),
+    (" ", "--"),
+    ("Alternative Versions", "--"),
+    ("MedRx Studio v" + relVer, rot_codec.rot47_decode("|65#I$EF5:@$6EFA]6I6"), rot_codec.rot47_decode("9EEADi^^HHH]>65CI") + "-" + rot_codec.rot47_decode("DFAA@CE]4@>^$EF5:@^|65#I$EF5:@$6EFA]6I6")),
+    ("MedRx Sutdio v" + relVer + " complete setup packgae", rot_codec.rot47_decode("|65#I$EF5:@uF==]K:A"), rot_codec.rot47_decode("9EEADi^^HHH]>65CI") + "-" + rot_codec.rot47_decode("DFAA@CE]4@>^$EF5:@^|65#I$EF5:@uF==]K:A")),
 ]
 
 # Select outputDir and targetVersion

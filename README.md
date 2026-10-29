@@ -33,6 +33,9 @@ Thanks [who helped this project](CREDITS.md).
 
 ## Changelog
 
+### Pre-release (work-in-progress)
+- MedRx: add alternative versions workaround
+
 ### v2026.10.25
 - Extra Menu: check if current Pre-release package is identical to running version
 - Pre-Release Checker: using shorter filename
