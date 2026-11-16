@@ -6,3 +6,4 @@
 - [@labuwx](https://github.com/labuwx): Provide [vital information](https://github.com/JediLin/Hearing-Aids-Fitting-Software-Update-Checkers/issues/3) about rebranded private label variations of Bernafon OasisNXT
 - [@tux-mania](https://github.com/tux-mania): Report bugs and help testing
 - [@pingloss](https://github.com/pingloss): macOS/Linux fix generated with [Claude Code](https://github.com/claude)
+- [@mcruscher](https://forum.hearingtracker.com/u/mcruscher): Provide [forum post](https://forum.hearingtracker.com/t/aurafit-software-for-audionova/81858/62#post-63) about rebranded private label variations of Unitron Aura:fit
