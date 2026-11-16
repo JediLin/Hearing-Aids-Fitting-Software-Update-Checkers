@@ -10,6 +10,7 @@ This project currently supports:
     - PFG
     - [Roger Upgrader](https://www.phonak.com/en-int/hearing-devices/microphones/roger-upgrader)
   - Unitron [TrueFit](https://www.unitron.com/global/en_us/professionals/truefit.html)
+    - Aura:fit (**rebranded** versions for AudioNova, Vista, Relate, Specsavers Advance, and Hansaton)
   - Hansaton [scout](https://www.hansaton.com/en-int/professionals/support/instr.html)
 - Demant
   - Oticon
