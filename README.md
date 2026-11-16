@@ -34,6 +34,7 @@ Thanks [who helped this project](CREDITS.md).
 ## Changelog
 
 ### Pre-release (work-in-progress)
+- Unitron: add additional instruction about how to switch to custom versions of Aura:fit
 - MedRx: add alternative versions workaround and archived versions
 
 ### v2026.10.25

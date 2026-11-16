@@ -186,4 +186,5 @@ for fileToDownload in filesToDownload.keys():
 
     currentFile += 1
 
+print("* To switch to custom version of Aura:fit, first install TrueFit \n  and close it (if TrueFit is running) completely, then \n" + Fore.GREEN + "  EDIT " + Fore.YELLOW + "C:\\Program Files (x86)\\Unitron\\Unitron TrueFit\\config\\app.xml" + Style.RESET_ALL + ",\n  locate " + Fore.YELLOW + "appDistributor" + Style.RESET_ALL + " attribute, and " + Fore.GREEN + "MODIFY " + Fore.CYAN + "Unitron" + Style.RESET_ALL + " with\n  corresponding brand (" + Fore.CYAN + "VALUE" + Style.RESET_ALL + "):\n\n    Aura:fit AudioNova (" + Fore.CYAN + "AudioNova" + Style.RESET_ALL + "), Vista Aura:fit (" + Fore.CYAN + "UnitronGenericPL" + Style.RESET_ALL + "), \n    Aura:fit Relate (" + Fore.CYAN + "UHCH" + Style.RESET_ALL + "), Specsavers Advance (" + Fore.CYAN + "SpecSaver" + Style.RESET_ALL + "), and\n    Hansaton (" + Fore.CYAN + "Balance" + Style.RESET_ALL + ")")
 print("\n\nDownload Complete!")
