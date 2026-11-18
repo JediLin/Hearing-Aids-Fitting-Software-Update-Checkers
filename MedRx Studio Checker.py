@@ -96,19 +96,29 @@ try:
     if (libhearingchecker.verboseDebug):
         print(exeHrefs)
         print(zipHrefs)
-    exeLink = exeHrefs[0].replace('%20', ' ')
-    exeFilename = os.path.basename(urlparse(exeLink).path)
-    exeTitle = "MedRx Studio v" + relVer
-    zipLink = zipHrefs[0].replace('%20', ' ')
-    zipFilename = os.path.basename(urlparse(zipLink).path)
-    zipTitle = "MedRx Sutdio v" + relVer + " complete setup packgae"
+    try:
+        exeLink = exeHrefs[0].replace('%20', ' ')
+        exeFilename = os.path.basename(urlparse(exeLink).path)
+        exeTitle = "MedRx Studio v" + relVer
+    except:
+        exeLink = ""
+        exeFilename = "--"
+        exeTitle = " -- INSTALLER NOT FOUND"
+    try:
+        zipLink = zipHrefs[0].replace('%20', ' ')
+        zipFilename = os.path.basename(urlparse(zipLink).path)
+        zipTitle = "MedRx Sutdio v" + relVer + " complete setup packgae"
+    except:
+        zipLink = ""
+        zipFilename = "--"
+        zipTitle = " -- COMPLETE SETUP PACKAGE NOT FOUND"
 except:
     exeLink = ""
     exeFilename = "--"
-    exeTitle = "NOT FOUND"
+    exeTitle = " -- INSTALLER NOT FOUND"
     zipLink = ""
     zipFilename = "--"
-    zipTitle = "NOT FOUND"
+    zipTitle = " -- COMPLETE SETUP PACKAGE NOT FOUND"
 
 # Define list of valid versions and their download links
 validVersions = [

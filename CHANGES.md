@@ -438,5 +438,6 @@
 
 ### Pre-release (work-in-progress)
 - Unitron: add additional instruction about how to switch to custom versions of Aura:fit
+- MedRx: fix partial availability condition
 - MedRx: add alternative versions workaround and archived versions
 - Offline documents
