@@ -441,4 +441,5 @@
 - Phonak Roger Upgrader: update archived versions
 - MedRx: fix partial availability condition
 - MedRx: add alternative versions workaround and archived versions
+- Quick Scan: fix Phonak Roger Upgrader version
 - Offline documents
