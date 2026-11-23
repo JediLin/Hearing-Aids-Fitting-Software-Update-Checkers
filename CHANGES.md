@@ -438,6 +438,7 @@
 
 ### Pre-release (work-in-progress)
 - Unitron: add additional instruction about how to switch to custom versions of Aura:fit
+- Phonak Roger Upgrader: update archived versions
 - MedRx: fix partial availability condition
 - MedRx: add alternative versions workaround and archived versions
 - Offline documents
